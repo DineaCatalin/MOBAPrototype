@@ -2,61 +2,100 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Buff
+{
+    speed,
+    power
+}
+
 public class Player : MonoBehaviour
 {
     // Struct that defines the stat of our player
     PlayerStats stats;
 
+    // Reference to the player controller so that we can resync the stats
+    PlayerController controller;
+
     // Start is called before the first frame update
     void Start()
     {
-        stats = new PlayerStats
-        {
-            speed = 5f
-        };
+        stats = GetComponent<PlayerStats>();
+        controller = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleMovement();
-        HandleRotation();
+         
     }
 
-    void HandleMovement()
+    // This function will be called when a player touches an item
+    // The player will receive different stats or buffs depending on the item
+    public void PickupItem(ItemData item)
     {
-        //Move Front/Back
-        if (Input.GetKey(KeyCode.W))
+
+        Debug.Log("PickupItem Health" + item.health);
+        if (item.health > 0)
+             stats.health += item.health;
+
+        if(item.mana > 0)
+            stats.mana += item.mana;
+
+        if (item.powerMultiplier > 0)
         {
-            transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * stats.speed, Space.World);
+            Debug.Log("Before update : Power is " + stats.power);
+            Debug.Log("After update : Power is " + stats.power);
+            AddBuff(Buff.power, item.powerMultiplier, item.duration);
         }
-        if (Input.GetKey(KeyCode.S))
+
+        if (item.speedMultiplier > 0)
         {
-            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * stats.speed, Space.World);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * stats.speed, Space.World);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * stats.speed, Space.World);
+            Debug.Log("Before update : Power is " + stats.power);
+            AddBuff(Buff.speed, item.speedMultiplier, item.duration);
         }
     }
 
-    void HandleRotation()
+    //
+    //  BUFF MANAGMENT
+    //
+
+    // 
+    void AddBuff(Buff buff, int buffValue, float duration)
     {
-        Debug.Log("HandleRotation");
-
-        //Vector3 mousePos = Input.mousePosition;
-        //Vector3 screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
-        //float z = Mathf.Atan2((screenPos.y - transform.position.y), (screenPos.x - transform.position.x)) * Mathf.Rad2Deg;
-        //transform.Rotate(new Vector3(0, 0, z));
-
-        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 dir = Input.mousePosition - pos;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        if(buff == Buff.power)
+        {
+            stats.power += buffValue;
+            // TODO: add buff to the buff list
+            StartCoroutine(RemoveBuff(buff, buffValue, duration));
+        }
+        else if(buff == Buff.speed)
+        {
+            stats.speed += buffValue;
+            // TODO: add buff to the buff list
+            StartCoroutine(RemoveBuff(buff, buffValue, duration));
+        }
 
     }
+
+    // This is called once 
+    IEnumerator RemoveBuff(Buff buff, int buffValue, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        Debug.Log("Starting buff removal");
+
+        if(buff == Buff.power)
+        {
+            stats.power -= buffValue;
+            Debug.Log("Removing power");
+            // TODO: add remove to the buff list
+        }
+        else if (buff == Buff.speed)
+        {
+            stats.speed -= buffValue;
+            Debug.Log("Removing speed");
+            // TODO: add remove to the buff list
+        }
+    }
+  
 }
