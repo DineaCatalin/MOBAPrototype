@@ -47,9 +47,9 @@ public class Item : MonoBehaviour
             Player player = collision.GetComponent<Player>();
             player.PickupItem(itemData);
 
-            // TODO: send the item back to the pool
-            // For the moment I am going to distroy it
-            Destroy(this.gameObject);
+            // Send the item back to the pool
+            ItemPool.DeactivateItem(index);
+
         }
     }
 }

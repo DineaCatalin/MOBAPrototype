@@ -13,14 +13,10 @@ public class Player : MonoBehaviour
     // Struct that defines the stat of our player
     PlayerStats stats;
 
-    // Reference to the player controller so that we can resync the stats
-    PlayerController controller;
-
     // Start is called before the first frame update
     void Start()
     {
         stats = GetComponent<PlayerStats>();
-        controller = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame

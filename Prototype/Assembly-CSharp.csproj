@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Abilities\Ability.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Utils\FollowCursor.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
