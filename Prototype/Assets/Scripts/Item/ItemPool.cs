@@ -7,6 +7,7 @@ public class ItemPool : MonoBehaviour
     // Will be initialized through the editor or through a config file
     [SerializeField] int poolSize;
 
+    // We will use this item to create all the other items by calling Instantiate(...)
     [SerializeField] Item templateItem;
 
     // Minimum size is 4 as we have 4 item types
@@ -48,7 +49,8 @@ public class ItemPool : MonoBehaviour
         InvokeRepeating("SpawnItem", 0f, 5f);
     }
 
-    static void DeactivateItem(int index)
+
+    public static void DeactivateItem(int index)
     {
         items[index].gameObject.SetActive(false);
     }

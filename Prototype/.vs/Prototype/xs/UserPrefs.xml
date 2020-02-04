@@ -1,13 +1,15 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/Utils.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/FollowCursor.cs">
     <Files>
-      <File FileName="Assets/Scripts/Item/Item.cs" Line="13" Column="42" />
-      <File FileName="Assets/Scripts/Player/NewMonoBehaviour.cs" Line="37" Column="59" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="24" Column="6" />
-      <File FileName="Assets/Scripts/Player/PlayerStats.cs" Line="19" Column="9" />
-      <File FileName="Assets/Scripts/Item/NewMonoBehaviour.cs" Line="38" Column="55" />
-      <File FileName="Assets/Scripts/Item/NewMonoBehaviour.cs" Line="8" Column="21" />
-      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="5" Column="2" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="7" Column="34" />
+      <File FileName="Assets/Scripts/Player/NewMonoBehaviour.cs" Line="5" Column="2" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="13" Column="50" />
+      <File FileName="Assets/Scripts/Player/PlayerStats.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/Item/NewMonoBehaviour.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/Item/NewMonoBehaviour.cs" Line="10" Column="32" />
+      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="7" Column="6" />
+      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="6" Column="23" />
+      <File FileName="Assets/Scripts/FollowCursor.cs" Line="6" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,10 +17,13 @@
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
+                <Node name="Abilities" expanded="True" />
                 <Node name="Command" expanded="True" />
                 <Node name="Item" expanded="True" />
                 <Node name="Player" expanded="True" />
-                <Node name="Utils" expanded="True" />
+                <Node name="Utils" expanded="True">
+                  <Node name="FollowCursor.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
