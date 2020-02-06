@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public struct AbilityStats
+public class AbilityStats : MonoBehaviour
 {
+    public new string name;
     public int cooldown;      // Time till you can cast the ability again
     public int manaCost;      // How much mana will this ability cost?
     public int dotDamage;     // Damage over time damage tick
