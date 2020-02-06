@@ -1,13 +1,9 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Projectiles/NewMonoBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Projectiles/MoveProjectile.cs">
     <Files>
-      <File FileName="Assets/Scripts/Item/Item.cs" Line="33" Column="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerStats.cs" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="29" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="9" Column="60" />
-      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour1.cs" Line="6" Column="22" />
-      <File FileName="Assets/Scripts/Abilities/Projectiles/NewMonoBehaviour.cs" Line="4" Column="40" />
+      <File FileName="Assets/Scripts/Player/NewMonoBehaviour.cs" Line="8" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="13" Column="42" />
+      <File FileName="Assets/Scripts/Abilities/Projectiles/MoveProjectile.cs" Line="21" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +13,7 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Projectiles" expanded="True">
-                    <Node name="NewMonoBehaviour.cs" selected="True" />
+                    <Node name="MoveProjectile.cs" selected="True" />
                   </Node>
                 </Node>
                 <Node name="Command" expanded="True" />
@@ -33,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f4bf9494-a0ba-4a78-bcb7-0e44308461d0" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2c65fdd1-2e42-4e87-8130-09d09d8efc0e" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

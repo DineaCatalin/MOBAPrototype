@@ -4,11 +4,13 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     PlayerStats stats;
+    AbilityManager abilityManager;
 
     // Use this for initialization
     void Start()
     {
         stats = GetComponent<PlayerStats>();
+        abilityManager = GetComponent<AbilityManager>();
     }
 
     // Update is called once per frame
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleRotation();
+        Test();
     }
 
     void HandleMovement()
@@ -44,6 +47,14 @@ public class PlayerController : MonoBehaviour
         Vector3 dir = Input.mousePosition - pos;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 45;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    void Test()
+    {
+        if(Input.GetMouseButton(0))
+        {
+            abilityManager.CastAbility(transform.position, transform.rotation);
+        }
     }
 
 }

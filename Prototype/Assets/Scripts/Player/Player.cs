@@ -10,6 +10,10 @@ public enum Buff
 
 public class Player : MonoBehaviour
 {
+    // Tells us in which team our player is
+    // For now we default it to 1
+    public string teamName = "Team1";
+
     // Struct that defines the stat of our player
     PlayerStats stats;
 
@@ -92,6 +96,12 @@ public class Player : MonoBehaviour
             Debug.Log("Removing speed");
             // TODO: add remove to the buff list
         }
+    }
+
+    // Will handle the effect the ability has on our player
+    public void ApplyAbilityEffect(AbilityStats abilityStats)
+    {
+        
     }
   
 }
