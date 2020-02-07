@@ -1,15 +1,19 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/Utils.cs">
     <Files>
-      <File FileName="Assets/Scripts/Abilities/Projectiles/MoveProjectile.cs" Line="7" Column="27" />
-      <File FileName="Assets/Scripts/Abilities/Projectiles/ProjectileCollider.cs" Line="16" Column="46" />
-      <File FileName="Assets/Scripts/Abilities/AbilityManager.cs" Line="32" Column="88" />
+      <File FileName="Assets/Scripts/Abilities/Projectiles/MoveProjectile.cs" Line="16" Column="29" />
+      <File FileName="Assets/Scripts/Abilities/Projectiles/ProjectileCollider.cs" Line="23" Column="28" />
+      <File FileName="Assets/Scripts/Abilities/AbilityManager.cs" Line="46" Column="26" />
       <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="51" Column="16" />
-      <File FileName="Assets/Scripts/Abilities/Projectiles/AbilityDuration.cs" Line="15" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="16" Column="60" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="56" Column="10" />
+      <File FileName="Assets/Scripts/Abilities/Projectiles/AbilityDuration.cs" Line="14" Column="6" />
+      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="9" Column="19" />
       <File FileName="Assets/Scripts/Item/Item.cs" Line="25" Column="34" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="102" Column="36" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="102" Column="61" />
+      <File FileName="Assets/Scripts/Utils/FollowCursor.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerStats.cs" Line="13" Column="1" />
+      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="16" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,10 +26,10 @@
                   <Node name="Manager" expanded="True" />
                 </Node>
                 <Node name="Item" expanded="True" />
-                <Node name="Player" expanded="True">
-                  <Node name="Player.cs" selected="True" />
+                <Node name="Player" expanded="True" />
+                <Node name="Utils" expanded="True">
+                  <Node name="Utils.cs" selected="True" />
                 </Node>
-                <Node name="Utils" expanded="True" />
               </Node>
             </Node>
           </Node>
