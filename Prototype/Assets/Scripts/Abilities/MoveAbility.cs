@@ -17,17 +17,9 @@ public class MoveAbility : MonoBehaviour
         moveDirection.Normalize();
     }
 
-    float time = 5f;
     // Update is called once per frame
     void Update()
     {
         transform.position = transform.position + moveDirection * speed * Time.deltaTime;
-
-        if (Time.realtimeSinceStartup > time)
-        {
-            gameObject.SetActive(false);
-            time *= 2;
-        }
-            
     }
 }
