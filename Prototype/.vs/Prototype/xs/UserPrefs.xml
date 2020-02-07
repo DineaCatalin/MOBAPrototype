@@ -1,9 +1,15 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Projectiles/MoveProjectile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/NewMonoBehaviour.cs" Line="8" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="13" Column="42" />
-      <File FileName="Assets/Scripts/Abilities/Projectiles/MoveProjectile.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/Projectiles/MoveProjectile.cs" Line="7" Column="27" />
+      <File FileName="Assets/Scripts/Abilities/Projectiles/ProjectileCollider.cs" Line="16" Column="46" />
+      <File FileName="Assets/Scripts/Abilities/AbilityManager.cs" Line="32" Column="88" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="51" Column="16" />
+      <File FileName="Assets/Scripts/Abilities/Projectiles/AbilityDuration.cs" Line="15" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="16" Column="60" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="25" Column="34" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="102" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,13 +18,13 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
-                  <Node name="Projectiles" expanded="True">
-                    <Node name="MoveProjectile.cs" selected="True" />
-                  </Node>
+                  <Node name="Data" expanded="True" />
+                  <Node name="Manager" expanded="True" />
                 </Node>
-                <Node name="Command" expanded="True" />
                 <Node name="Item" expanded="True" />
-                <Node name="Player" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="Player.cs" selected="True" />
+                </Node>
                 <Node name="Utils" expanded="True" />
               </Node>
             </Node>
@@ -29,7 +35,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2c65fdd1-2e42-4e87-8130-09d09d8efc0e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e406e473-c472-4751-9f3d-8c0ba4ea2ecd" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
