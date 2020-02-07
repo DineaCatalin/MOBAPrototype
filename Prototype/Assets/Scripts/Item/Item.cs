@@ -40,7 +40,7 @@ public class Item : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // We hit a player
-        if(collision.tag == "Player")
+        if(collision.tag == "Team1" || collision.tag == "Team2")
         {
             Debug.Log("Player has collided with item");
 

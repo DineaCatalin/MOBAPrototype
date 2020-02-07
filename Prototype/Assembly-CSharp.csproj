@@ -63,12 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Abilities\Ability.cs" />
-    <Compile Include="Assets\Scripts\Abilities\AbilityManager.cs" />
-    <Compile Include="Assets\Scripts\Abilities\AbilityStats.cs" />
-    <Compile Include="Assets\Scripts\Abilities\Projectiles\AbilityDuration.cs" />
-    <Compile Include="Assets\Scripts\Abilities\Projectiles\MoveProjectile.cs" />
-    <Compile Include="Assets\Scripts\Abilities\Projectiles\ProjectileCollider.cs" />
+    <Compile Include="Assets\Scripts\Abilities\AbilityCollider.cs" />
+    <Compile Include="Assets\Scripts\Abilities\AbilityDuration.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Data\AbilityData.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Manager\AbilityManager.cs" />
+    <Compile Include="Assets\Scripts\Abilities\MoveAbility.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />

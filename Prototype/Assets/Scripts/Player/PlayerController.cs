@@ -43,17 +43,21 @@ public class PlayerController : MonoBehaviour
 
     void HandleRotation()
     {
-        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 dir = Input.mousePosition - pos;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 45;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+        //Vector3 dir = Input.mousePosition - pos;
+        //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 45;
+        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 perpendicular = transform.position - mousePos;
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }
 
     void Test()
     {
         if(Input.GetMouseButton(0))
         {
-            abilityManager.CastAbility(transform.position, transform.rotation);
+            abilityManager.CastAbility();
         }
     }
 
