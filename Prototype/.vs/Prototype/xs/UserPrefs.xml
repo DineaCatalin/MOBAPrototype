@@ -1,35 +1,39 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/Utils.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs">
     <Files>
-      <File FileName="Assets/Scripts/Abilities/Projectiles/MoveProjectile.cs" Line="16" Column="29" />
-      <File FileName="Assets/Scripts/Abilities/Projectiles/ProjectileCollider.cs" Line="23" Column="28" />
-      <File FileName="Assets/Scripts/Abilities/AbilityManager.cs" Line="46" Column="26" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="56" Column="10" />
-      <File FileName="Assets/Scripts/Abilities/Projectiles/AbilityDuration.cs" Line="14" Column="6" />
-      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="9" Column="19" />
-      <File FileName="Assets/Scripts/Item/Item.cs" Line="25" Column="34" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="102" Column="61" />
-      <File FileName="Assets/Scripts/Utils/FollowCursor.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/Player/PlayerStats.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="16" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="12" Column="40" />
+      <File FileName="Assets/Scripts/Item/Item.cs" />
+      <File FileName="Assets/Scripts/Utils/FollowCursor.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerStats.cs" Line="6" Column="24" />
+      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="13" Column="44" />
+      <File FileName="Assets/Scripts/Abilities/AbilityDuration.cs" Line="15" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/MoveAbility.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/AbilityCollider.cs" Line="35" Column="50" />
+      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="6" Column="2" />
+      <File FileName="Assets/Resources/NewFile.txt" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="8" Column="53" />
+      <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="16" Column="2" />
+      <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="44" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" Line="16" Column="22" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="Resources" expanded="True" />
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
+                  <Node name="Effects" expanded="True">
+                    <Node name="NewMonoBehaviour.cs" selected="True" />
+                  </Node>
                   <Node name="Manager" expanded="True" />
                 </Node>
                 <Node name="Item" expanded="True" />
                 <Node name="Player" expanded="True" />
-                <Node name="Utils" expanded="True">
-                  <Node name="Utils.cs" selected="True" />
-                </Node>
+                <Node name="Utils" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -39,7 +43,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e406e473-c472-4751-9f3d-8c0ba4ea2ecd" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ca4604f3-dfe9-415a-b12b-2060b2813e79" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

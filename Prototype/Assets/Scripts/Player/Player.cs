@@ -14,13 +14,14 @@ public class Player : MonoBehaviour
     // For now we default it to 1
     public string teamName = "Team1";
 
-    // Struct that defines the stat of our player
-    PlayerStats stats;
+    // Struct that defines the stats of our player like health, mana, power, speed
+    PlayerData stats;
 
     // Start is called before the first frame update
     void Start()
     {
-        stats = GetComponent<PlayerStats>();
+        // TODO: Load stats from config file
+
     }
 
     // Update is called once per frame
@@ -103,5 +104,57 @@ public class Player : MonoBehaviour
     {
         
     }
-  
+
+    // Will apply damage over time
+    public void ApplyDOT(int numTicks, int damage)
+    {
+        StartCoroutine(ApplyTickDamage(numTicks, damage));
+    }
+
+    // Will heal over time
+    public void ApplyHeal(int numTicks, int heal)
+    {
+        StartCoroutine(ApplyTickHeal(numTicks, heal));
+    }
+
+    public void Damage(int damage)
+    {
+        stats.health -= damage;
+
+        // Check if we are dead
+        if(stats.health <= 0)
+        {
+            //Die
+        }
+    }
+
+    public void Heal(int heal)
+    {
+        // Don't heal more then the maxHP
+        if(stats.health + heal >= stats.maxHealth)
+            stats.health = stats.maxHealth;
+        else
+            stats.health += heal;
+    }
+
+    IEnumerator ApplyTickDamage(int numTicks, int damage)
+    {
+        for (int i = 0; i < numTicks; i++)
+        {
+            // Wait for 1 second before applying the 1st tick
+            yield return new WaitForSeconds(1f);
+            Damage(damage);
+        }
+    }
+
+    IEnumerator ApplyTickHeal(int numTicks, int heal)
+    {
+        for (int i = 0; i < numTicks; i++)
+        {
+            // Wait for 1 second before applying the 1st tick
+            yield return new WaitForSeconds(1f);
+            Heal(heal);
+        }
+    }
+
 }
