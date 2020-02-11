@@ -17,9 +17,13 @@ public class Player : MonoBehaviour
     // Struct that defines the stats of our player like health, mana, power, speed
     PlayerData stats;
 
+    PlayerController controller;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        controller = GetComponent<PlayerController>();
         // TODO: Load stats from config file
 
     }
@@ -99,12 +103,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Will handle the effect the ability has on our player
-    public void ApplyAbilityEffect(AbilityStats abilityStats)
-    {
-        
-    }
-
     // Will apply damage over time
     public void ApplyDOT(int numTicks, int damage)
     {
@@ -157,4 +155,52 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    // Methods for appying root to the player
+    // Root means that the player can't move
+    public void Root(int duration)
+    {
+        controller.isRooted = true;
+    }
+
+    IEnumerator RemoveRoot(int duration)
+    {
+        yield return new WaitForSeconds((float)duration);
+        controller.isRooted = false;
+    }
+
+
+    // Methods for slowing the player
+
+    // Slow the player for duration seconds by slowValue
+    public void Slow(int slowValue, float duration)
+    {
+        // Descrease the players speed
+        stats.speed -= slowValue;
+
+        // If the slow is more then the speed set the speed to 0
+        // so that we don't have negative movement speed
+        if (stats.speed < 0)
+        {
+            // The slow value will be our speed value now because we will use
+            // this to restore our speed after the slow effect is over
+            slowValue = (int)stats.speed;
+            stats.speed = 0;
+        }
+
+        StartCoroutine(RemoveSlow(slowValue, duration));
+    }
+
+    IEnumerator RemoveSlow(int slowValue, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        // Reset speed to the original value
+        stats.speed += slowValue;
+    }
+
+    public void ApplyShield(int hp, int duration)
+    {
+        
+    }
 }

@@ -5,5 +5,5 @@ using System.Collections;
 // that will be applied when an ability collides with a player
 public abstract class AbilityEffect : MonoBehaviour
 {
-    public abstract void ApplyEffect(AbilityStats stats);
+    public abstract void ApplyEffect(Player player, AbilityStats stats);
 }
