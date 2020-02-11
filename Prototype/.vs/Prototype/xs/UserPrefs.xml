@@ -1,21 +1,22 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Ability.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="12" Column="40" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="54" Column="53" />
       <File FileName="Assets/Scripts/Item/Item.cs" />
       <File FileName="Assets/Scripts/Utils/FollowCursor.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerStats.cs" Line="6" Column="24" />
-      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="13" Column="44" />
-      <File FileName="Assets/Scripts/Abilities/AbilityDuration.cs" Line="15" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/MoveAbility.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/AbilityCollider.cs" Line="35" Column="50" />
-      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="6" Column="2" />
-      <File FileName="Assets/Resources/NewFile.txt" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="8" Column="53" />
-      <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="16" Column="2" />
-      <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="44" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" Line="16" Column="22" NotebookId="1" />
+      <File FileName="Assets/Scripts/Utils/Utils.cs" />
+      <File FileName="Assets/Resources/NewFile.txt" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerData.cs" />
+      <File FileName="Assets/Scripts/NewMonoBehaviour.cs" Line="23" Column="42" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="14" Column="27" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="27" Column="46" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,10 +27,10 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
-                  <Node name="Effects" expanded="True">
-                    <Node name="NewMonoBehaviour.cs" selected="True" />
-                  </Node>
+                  <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
+                  <Node name="ProjectileComponents" expanded="True" />
+                  <Node name="Ability.cs" selected="True" />
                 </Node>
                 <Node name="Item" expanded="True" />
                 <Node name="Player" expanded="True" />
@@ -43,7 +44,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ca4604f3-dfe9-415a-b12b-2060b2813e79" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="348a6735-d812-45f0-96b3-55cad08b5ef8" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

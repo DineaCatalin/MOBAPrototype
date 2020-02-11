@@ -1,17 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewMonoBehaviour : MonoBehaviour
+public class HealEffect : AbilityEffect
 {
-    // Use this for initialization
-    void Start()
+    public override void ApplyEffect(Player player, AbilityStats stats)
     {
+        // Fire ball damage
+        player.Heal(stats.hpValue);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        // Dot burn damage
+        player.ApplyHeal(stats.duration, stats.dotValue);
     }
 }

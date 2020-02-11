@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+[System.Serializable]
+public class PlayerData
 {
     // Default attributes
     public int health;      // Players current hp

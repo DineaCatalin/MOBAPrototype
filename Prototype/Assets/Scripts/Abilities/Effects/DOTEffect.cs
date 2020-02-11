@@ -8,9 +8,9 @@ public class DOTEffect : AbilityEffect
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
         // Fire ball damage
-        player.Damage(stats.hpDiff);
+        player.Damage(stats.hpValue);
 
         // Dot burn damage
-        player.ApplyDOT(stats.dotDuration, stats.dotDamage);
+        player.ApplyDOT(stats.duration, stats.dotValue);
     }
 }
