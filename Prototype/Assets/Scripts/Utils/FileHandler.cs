@@ -23,14 +23,17 @@ public class FileHandler
     }
 
     [MenuItem("Tools/Read file")]
-    static void ReadString()
+    public static string ReadString(string resourceFile)
     {
-        string path = "Assets/Resources/test.txt";
+        string path = "Assets/Resources/" + resourceFile + ".txt";
+        Debug.Log("Reading from file " + path);
 
         //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path);
-        Debug.Log(reader.ReadToEnd());
+        string text = reader.ReadToEnd();
         reader.Close();
+
+        return text;
     }
 
 }

@@ -1,12 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
 
-public class AbilityData : MonoBehaviour
+[Serializable]
+public class AbilityDataList
+{
+    public List<AbilityData> dataList;
+}
+
+[Serializable]
+public class AbilityData
 {
     public AbilityDescription description;
     public AbilityStats stats;
 }
 
-[System.Serializable]
+[Serializable]
 public class AbilityStats
 {
     public int cooldown;     // Time till you can cast the ability again
@@ -16,7 +24,7 @@ public class AbilityStats
     public int hpValue;      // If positive it's a heal if it's negative it's damage 
 }
 
-[System.Serializable]
+[Serializable]
 public class AbilityDescription
 { 
     public string name;
