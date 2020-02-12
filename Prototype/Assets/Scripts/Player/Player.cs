@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public string teamName = "Team1";
 
     // Struct that defines the stats of our player like health, mana, power, speed
-    PlayerData stats;
+    [SerializeField]PlayerData stats;
 
     PlayerController controller;
 
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     {
 
         controller = GetComponent<PlayerController>();
-        // TODO: Load stats from config file
+        // TODO: Load stats from config file-
 
     }
 
@@ -202,5 +202,12 @@ public class Player : MonoBehaviour
     public void ApplyShield(int hp, int duration)
     {
         
+    }
+
+    void LoadPlayerData()
+    {
+        string dataString = FileHandler.ReadString("Player");
+        Debug.Log(dataString);
+        stats = JsonUtility.FromJson<PlayerData>(dataString);
     }
 }

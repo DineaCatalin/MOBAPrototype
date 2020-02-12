@@ -1,0 +1,8 @@
+﻿{ 
+   "health":100,
+   "maxHealth":100,
+   "mana":100,
+   "maxMana":100,
+   "power":1,
+   "speed":1.0  
+}

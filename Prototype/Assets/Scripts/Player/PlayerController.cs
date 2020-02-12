@@ -7,7 +7,11 @@ public class PlayerController : MonoBehaviour
     AbilityManager abilityManager;
 
     // We will disable the movement function when this is true
-    [HideInInspector] public bool isRooted; 
+    [HideInInspector] public bool isRooted;
+
+    // This will be true when Spell indicator is shown so the player can chose where to place the ability
+    bool showingSpellIndicator;
+
 
     // Use this for initialization
     void Start()
@@ -20,8 +24,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        HandleAbilities();
-        Test();
+        HandleAbilitySelection();
+        HandleAbilityCasting();
     }
 
     void HandleMovement()
@@ -54,10 +58,9 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }
 
-    // This will be true when Spell indicator is shown so the player can chose where to place the ability
-    bool showingSpellIndicator;
+    
 
-    void Test()
+    void HandleAbilityCasting()
     {
         if(Input.GetMouseButton(0))
         {
@@ -66,11 +69,7 @@ public class PlayerController : MonoBehaviour
                 // Maybe show a UI text saying the current ability is still charging
                 return;
             }
-            else if(abilityManager.isCurrentAbilityInstant())
-            {
-                abilityManager.CastAbility();
-            }
-            else if(showingSpellIndicator)
+            else if(abilityManager.isCurrentAbilityInstant() || showingSpellIndicator)
             {
                 abilityManager.CastAbility();
                 showingSpellIndicator = false;
@@ -79,53 +78,57 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Use this to know 
-    int currentAbilityIndex;
-
-    void HandleAbilities()
+    void HandleAbilitySelection()
     {
         // Could initialize keys somewhere else but for now do it here
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            currentAbilityIndex = 1;
-            showingSpellIndicator = true;
+            SwitchSelectedAbility(1);
         }
         else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            currentAbilityIndex = 2;
-            showingSpellIndicator = true;
+            SwitchSelectedAbility(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            currentAbilityIndex = 3;
-            showingSpellIndicator = true;
+            SwitchSelectedAbility(3);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            currentAbilityIndex = 4;
-            showingSpellIndicator = true;
+            SwitchSelectedAbility(4);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            currentAbilityIndex = 5;
-            showingSpellIndicator = true;
+            SwitchSelectedAbility(5);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            currentAbilityIndex = 6;
-            showingSpellIndicator = true;
+            SwitchSelectedAbility(6);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            currentAbilityIndex = 7;
-            showingSpellIndicator = true;
+            SwitchSelectedAbility(7);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            currentAbilityIndex = 8;
-            showingSpellIndicator = true;
+            SwitchSelectedAbility(8);
         }
 
+    }
+
+    void SwitchSelectedAbility(int index)
+    {
+        if (abilityManager.isAbilitySelected(index))
+            return;
+
+        abilityManager.SetCurrentAbility(index);
+
+        if(!abilityManager.isCurrentAbilityInstant())
+        {
+            showingSpellIndicator = true;
+            // Enable current spell indicator
+        }
+            
     }
 
 
