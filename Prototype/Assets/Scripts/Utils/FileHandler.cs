@@ -2,21 +2,21 @@
 using UnityEditor;
 using System.IO;
 
-public class FileHandler
+public static class FileHandler
 {
     [MenuItem("Tools/Write file")]
-    static void WriteString()
+    public static void WriteString(string text, string resourceFile)
     {
-        string path = "Assets/Resources/test.txt";
+        string path = "Assets/Resources/" + resourceFile + ".txt";
 
         //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(path, true);
-        writer.WriteLine("Test");
+        writer.WriteLine(text);
         writer.Close();
 
         //Re-import the file to update the reference in the editor
         AssetDatabase.ImportAsset(path);
-        TextAsset asset = (UnityEngine.TextAsset)Resources.Load("test");
+        TextAsset asset = (UnityEngine.TextAsset)Resources.Load(resourceFile);
 
         //Print the text from the file
         Debug.Log(asset.text);

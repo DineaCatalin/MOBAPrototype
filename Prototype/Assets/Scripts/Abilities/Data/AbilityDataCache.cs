@@ -14,7 +14,7 @@ public class AbilityDataCache : MonoBehaviour
         dataMap = new Dictionary<string, AbilityData>();
 
         // Load data from file
-        string dataString = FileHandler.ReadString("Abilities");
+        string dataString = FileHandler.ReadString("AbilityConfig");
         Debug.Log(dataString);
         loadedAbilityData = JsonUtility.FromJson<AbilityDataList>(dataString);
 

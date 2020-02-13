@@ -490,8 +490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab08caad5c3b432e81f924971a73af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilities:
-  - {fileID: 1279214794}
+  abilities: []
+  spellIndicators: []
 --- !u!1 &761177860
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +571,80 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &824069516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 824069518}
+  - component: {fileID: 824069517}
+  - component: {fileID: 824069519}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &824069517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824069516}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ad7ae6e6160490a90cecfa9de90c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    ability1: Fire
+    ability2: Ice
+    ability3: Snowball
+    ability4: Lol
+    ability5: Spell
+    ability6: Blink
+    ability7: Do
+    ability8: Not
+--- !u!4 &824069518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824069516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.48226088, y: -0.29733932, z: -38.07422}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &824069519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824069516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf670265e6514ef6af16a2406d170ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    ability1: 
+    ability2: 
+    ability3: 
+    ability4: 
+    ability5: 
+    ability6: 
+    ability7: 
+    ability8: 
 --- !u!1 &877996186
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &877996187
 Transform:
   m_ObjectHideFlags: 0
@@ -789,7 +863,8 @@ PrefabInstance:
       propertyPath: speed
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8105404544167851179, guid: 70d406dde991f42208af9b48619ee4b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 70d406dde991f42208af9b48619ee4b3, type: 3}
 --- !u!1 &1225349015
 GameObject:
@@ -836,9 +911,6 @@ GameObject:
   - component: {fileID: 1279214797}
   - component: {fileID: 1279214796}
   - component: {fileID: 1279214795}
-  - component: {fileID: 1279214801}
-  - component: {fileID: 1279214798}
-  - component: {fileID: 1279214799}
   m_Layer: 0
   m_Name: TestAbility
   m_TagString: Projectile
@@ -926,52 +998,6 @@ Transform:
   m_Father: {fileID: 313643542}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1279214798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279214794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94451c234edc04411ae14f3935fc85fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1279214799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279214794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76243851596c54cd9926d73008c7b836, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description:
-    name: Test
-    casterTeamName: Team1
-  stats:
-    cooldown: 2
-    manaCost: 1
-    dotValue: 0
-    dotDuration: 1
-    hpValue: 0
---- !u!114 &1279214801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279214794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d41e5f3f6700e4d61a91205a47f6e494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!1 &1320819736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,6 +1077,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1490346523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 683628319989916906, guid: 121c322c230bf427ba93c2017361d06e,
+    type: 3}
+  m_PrefabInstance: {fileID: 683628318928831022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1490346526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490346523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93afd0b40c9f4831b2c46e14435fc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadedAbilityData:
+    dataList: []
 --- !u!1 &1629780015
 GameObject:
   m_ObjectHideFlags: 0
