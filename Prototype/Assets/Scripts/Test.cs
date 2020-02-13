@@ -6,7 +6,8 @@ public class Test : MonoBehaviour
 {
     //[SerializeField] AbilityDataList dataList;
     //[SerializeField] AbilityData testData;
-    [SerializeField] PlayerData data;
+    //[SerializeField] PlayerData data;
+    [SerializeField] AbilityMapperData data;
 
     private void Start()
     {
@@ -48,9 +49,14 @@ public class Test : MonoBehaviour
         //Debug.Log(jsonString);
 
 
-        string dataString = FileHandler.ReadString("Player");
-        Debug.Log(dataString);
-        data = JsonUtility.FromJson<PlayerData>(dataString);
+        //string dataString = FileHandler.ReadString("Player");
+        //Debug.Log(dataString);
+        //data = JsonUtility.FromJson<PlayerData>(dataString);
+
+
+        //string jsonString = JsonUtility.ToJson(data);
+        //Debug.Log(jsonString);
+        //FileHandler.WriteString(jsonString, "SelectedAbilitiesConfig");
 
     }
 }

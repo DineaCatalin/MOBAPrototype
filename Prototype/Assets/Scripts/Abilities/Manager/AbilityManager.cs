@@ -9,8 +9,8 @@ public class AbilityManager : MonoBehaviour
 
     int currentAbilityIndex;
 
-    Ability[] abilities;
-    GameObject[] spellIndicators;
+    [SerializeField] Ability[] abilities;
+    [SerializeField] GameObject[] spellIndicators;
 
     Ability currentAbility;
     GameObject currentSpellIndicator;
@@ -18,6 +18,8 @@ public class AbilityManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+     
+    
         //TODO: Load all abilities and set their casterTeamName to teamName and set the to be inactive
         // Also set the correct spell indicators for the player
         for (int i = 0; i < numAbilities; i++)

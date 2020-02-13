@@ -8,13 +8,16 @@ public class AbilityCollider : MonoBehaviour
     AbilityData abilityData;
     AbilityEffect effect;
 
+    // Will be used to load the AbilityData, has to be the same as the ability Monobehav. that is creating it
+    [SerializeField] new string name; 
+
     // If our ability is static (Roots, Spikes) it should not be destroyed on contact with the player
     // It will also not move so we need a mechanism to destroy it after it's duration is gone
     bool isStatic;
 
     private void Start()
     {
-        abilityData = GetComponent<AbilityData>();
+        abilityData = AbilityDataCache.GetDataForAbility(name);
         effect = GetComponent<AbilityEffect>();
 
         if (GetComponent<AbilityDuration>() != null)

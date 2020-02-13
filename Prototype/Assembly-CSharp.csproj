@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityDuration.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ShieldAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
@@ -91,8 +92,9 @@
     <Compile Include="Assets\Scripts\Utils\FollowCursor.cs" />
     <Compile Include="Assets\Scripts\Utils\LookAtMouse.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
-    <None Include="Assets\Resources\Abilities.txt" />
-    <None Include="Assets\Resources\Player.txt" />
+    <None Include="Assets\Resources\SelectedAbilitiesConfig.txt" />
+    <None Include="Assets\Resources\AbilityConfig.txt" />
+    <None Include="Assets\Resources\PlayerConfig.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -3,6 +3,9 @@ using System.Collections;
 
 public abstract class Ability : MonoBehaviour
 {
+    // This name will be used to load the correct AbilityData for this Ability
+    [SerializeField] new string name;
+
     // If true the ability will be cast instantly without the spell indicator step
     public bool isInstant;
 
@@ -19,9 +22,9 @@ public abstract class Ability : MonoBehaviour
     // Cache reference to the ability data, we will use this in the ability manager
     protected AbilityData abilityData;
 
-    private void Start()
-    {   
-        abilityData = GetComponent<AbilityData>();
+    protected void Start()
+    {
+        abilityData = AbilityDataCache.GetDataForAbility(name);
         cooldown = abilityData.stats.cooldown;
     }
 
