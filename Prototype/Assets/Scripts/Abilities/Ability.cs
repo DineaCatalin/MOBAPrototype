@@ -17,25 +17,32 @@ public abstract class Ability : MonoBehaviour
     //AbilityData abilityData;
 
     // Can we cast the ability or is it still on cooldown
-    public bool isCharging;
+    bool isCharging;
+
+    // This is the helper that will guide the player to cast the ability
+    // Will be empty for empty abilities
+    [SerializeField] GameObject spellIndicator;
 
     // Cache reference to the ability data, we will use this in the ability manager
-    protected AbilityData abilityData;
+    [SerializeField] protected AbilityData abilityData;
 
-    protected void Start()
+    public virtual void Load()
     {
         abilityData = AbilityDataCache.GetDataForAbility(name);
+
+        Debug.Log("Ability Base is loading ability with cooldown" + abilityData.stats.cooldown);
         cooldown = abilityData.stats.cooldown;
     }
 
-    public void UpdateCooldown(float time)
+    public void UpdateCooldown()
     {
-        currentCooldown -= time;
+        currentCooldown -= Time.deltaTime;
+        Debug.Log(abilityData.description.name + " Updating cooldown " + currentCooldown);
 
         // Reset cooldown
         if(currentCooldown <= 0)
         {
-            currentCooldown = 0;
+            currentCooldown = cooldown;
             isCharging = false;
         }
     }
@@ -49,5 +56,18 @@ public abstract class Ability : MonoBehaviour
     public virtual void Cast()
     {
         isCharging = true;
+
+        Debug.Log("Ability BaseClass is casting");
     }
+
+    public bool IsCharging()
+    {
+        return isCharging;
+    }
+
+    public GameObject PrepareSpellIndicator()
+    {
+        return spellIndicator;
+    }
+
 }

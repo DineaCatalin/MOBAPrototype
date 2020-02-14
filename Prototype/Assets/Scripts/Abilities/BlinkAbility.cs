@@ -13,4 +13,5 @@ public class BlinkAbility : Ability
         // Set player position to the mouse position
         playerTransform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
+
 }

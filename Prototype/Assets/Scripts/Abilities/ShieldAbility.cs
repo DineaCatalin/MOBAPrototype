@@ -9,9 +9,16 @@ public class ShieldAbility : Ability
 
     string teamTag;
 
+    public override void Load()
+    {
+        base.Load();
+
+        teamTag = abilityData.description.casterTeamName;
+    }
+
     private void Start()
     {
-        teamTag = abilityData.description.casterTeamName;
+        Load();
     }
 
     public override void Cast()

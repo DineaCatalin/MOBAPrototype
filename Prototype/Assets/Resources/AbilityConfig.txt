@@ -2,7 +2,33 @@
    "dataList":[ 
       { 
          "description":{ 
-            "name":"Test1",
+            "name":"Fireball",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":3,
+            "manaCost":1,
+            "dotValue":1,
+            "duration":1,
+            "hpValue":1
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Fire Storm",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":5,
+            "manaCost":1,
+            "dotValue":1,
+            "duration":1,
+            "hpValue":1
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Blast",
             "casterTeamName":"Team1"
          },
          "stats":{ 
@@ -15,7 +41,7 @@
       },
       { 
          "description":{ 
-            "name":"Test2",
+            "name":"Trace",
             "casterTeamName":"Team1"
          },
          "stats":{ 
@@ -28,7 +54,7 @@
       },
       { 
          "description":{ 
-            "name":"Test3",
+            "name":"Bubble",
             "casterTeamName":"Team1"
          },
          "stats":{ 
@@ -41,7 +67,7 @@
       },
       { 
          "description":{ 
-            "name":"Test4",
+            "name":"Water Rain",
             "casterTeamName":"Team1"
          },
          "stats":{ 
@@ -54,7 +80,7 @@
       },
       { 
          "description":{ 
-            "name":"Test5",
+            "name":"Mana Sphere",
             "casterTeamName":"Team1"
          },
          "stats":{ 
@@ -67,7 +93,7 @@
       },
       { 
          "description":{ 
-            "name":"Test6",
+            "name":"Ice Wall",
             "casterTeamName":"Team1"
          },
          "stats":{ 
@@ -80,7 +106,7 @@
       },
       { 
          "description":{ 
-            "name":"Test7",
+            "name":"Spikes",
             "casterTeamName":"Team1"
          },
          "stats":{ 
@@ -90,6 +116,97 @@
             "duration":1,
             "hpValue":1
          }
-      }      
+      },
+      { 
+         "description":{ 
+            "name":"Roots",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":1,
+            "manaCost":1,
+            "dotValue":1,
+            "duration":1,
+            "hpValue":1
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Earthquake",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":1,
+            "manaCost":1,
+            "dotValue":1,
+            "duration":1,
+            "hpValue":1
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Dust Dusk",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":1,
+            "manaCost":1,
+            "dotValue":1,
+            "duration":1,
+            "hpValue":1
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Push",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":1,
+            "manaCost":1,
+            "dotValue":1,
+            "duration":1,
+            "hpValue":1
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Rush",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":1,
+            "manaCost":1,
+            "dotValue":1,
+            "duration":1,
+            "hpValue":1
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Blink",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":1,
+            "manaCost":1,
+            "dotValue":1,
+            "duration":1,
+            "hpValue":1
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Tornado",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":1,
+            "manaCost":1,
+            "dotValue":1,
+            "duration":1,
+            "hpValue":1
+         }
+      }                     
    ]
 }

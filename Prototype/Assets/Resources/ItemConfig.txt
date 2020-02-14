@@ -1,0 +1,36 @@
+﻿{ 
+   "itemList":[ 
+      { 
+         "name":"HP Shpere",
+         "duration":0.0,
+         "health":20,
+         "mana":0,
+         "powerMultiplier":0.0,
+         "speedMultiplier":0.0
+      },
+      { 
+         "name":"Mana Sphere",
+         "duration":0.0,
+         "health":0,
+         "mana":20,
+         "powerMultiplier":0.0,
+         "speedMultiplier":0.0
+      },
+      { 
+         "name":"Power Sphere",
+         "duration":5.0,
+         "health":0,
+         "mana":0,
+         "powerMultiplier":2.0,
+         "speedMultiplier":0.0
+      },
+      { 
+         "name":"Speed Sphere",
+         "duration":5.0,
+         "health":0,
+         "mana":0,
+         "powerMultiplier":0.0,
+         "speedMultiplier":2.0
+      }
+   ]
+}

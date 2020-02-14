@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
+using Random = UnityEngine.Random;
 
 public class ItemPool : MonoBehaviour
 {
@@ -19,9 +20,16 @@ public class ItemPool : MonoBehaviour
     // We will use this to keep track of our current position in the pull
     private int currentIndex;
 
+    ItemDataList loadedItemData;
+
+    ItemData[] itemDatas;
+
     // Use this for initialization
     void Start()
     {
+        // Call this to get the item data from the config file
+        LoadItemData();
+
         // If there is no implementation in the config file, add the size from the inspector
         // If it is less then  the minimum one, take the minimum one
         if (poolSize > minSize)
@@ -33,7 +41,7 @@ public class ItemPool : MonoBehaviour
             items = new Item[minSize];
             poolSize = minSize;
         }
-            
+
 
         // TODO: Load items
         // For the moment we are gonna do random items
@@ -41,12 +49,21 @@ public class ItemPool : MonoBehaviour
         {
             Item item = Instantiate(templateItem, transform);
             item.index = i;     // Set the index of out item so that we can easily grab it later
+            item.SetAttributes(itemDatas[Random.Range(0, itemDatas.Length)]);   //Set item data
+            Debug.Log("Getting color for name " + item.name);
+
+            // Set color
+            item.GetComponent<SpriteRenderer>().color = GetItemColor(item.itemData.name);
+
             items[i] = item;
             item.gameObject.SetActive(false);
         }
 
+        // Clear item data array
+        Array.Clear(itemDatas, 0, itemDatas.Length);
+
         // Test - spawn random items once every 5 seconds
-        InvokeRepeating("SpawnItem", 0f, 5f);
+        InvokeRepeating("SpawnItem", 5f, 5f);
     }
 
 
@@ -69,6 +86,51 @@ public class ItemPool : MonoBehaviour
     void SpawnItem()
     {
         SpawnItem(Utils.GetRandomScreenPoint());
+    }
+
+    void LoadItemData()
+    {
+        string dataString = FileHandler.ReadString("ItemConfig");
+        Debug.Log(dataString);
+        loadedItemData = JsonUtility.FromJson<ItemDataList>(dataString);
+
+        itemDatas = new ItemData[loadedItemData.itemList.Count];
+
+        int index = 0;
+        foreach (var itemData in loadedItemData.itemList)
+        {
+            itemDatas[index] = itemData;
+            index++;
+        }
+
+        loadedItemData.itemList.Clear();
+    }
+
+    Color GetItemColor(string itemName)
+    {
+        switch(itemName)
+        {
+            case "HP Shpere":
+            {
+                    return Color.red;
+            }
+            case "Mana Sphere":
+            {
+                    return Color.blue;
+            }
+            case "Power Sphere":
+            {
+                    return Color.yellow;
+            }
+            case "Speed Sphere":
+            {
+                    return Color.green;
+            }
+            default:
+            {
+                    return Color.black;
+            }
+        }
     }
 
 }

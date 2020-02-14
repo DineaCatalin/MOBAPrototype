@@ -1,11 +1,18 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
 
+[System.Serializable]
 public struct ItemData
 {
+    public string name;
     public float duration;
     public int health;
     public int mana;
-    public int powerMultiplier;
-    public int speedMultiplier;
+    public float powerMultiplier;
+    public float speedMultiplier;
+}
+
+[System.Serializable]
+public class ItemDataList
+{
+    public List<ItemData> itemList;
 }

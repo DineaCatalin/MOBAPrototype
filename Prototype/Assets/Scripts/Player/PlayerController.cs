@@ -3,20 +3,17 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    float speed;
     AbilityManager abilityManager;
 
     // We will disable the movement function when this is true
     [HideInInspector] public bool isRooted;
 
-    // This will be true when Spell indicator is shown so the player can chose where to place the ability
-    bool showingSpellIndicator;
-
+    PlayerData stats;
 
     // Use this for initialization
     void Start()
     {
-        speed = GetComponent<PlayerData>().speed;
+        stats = GetComponent<Player>().GetStats();
         abilityManager = GetComponent<AbilityManager>();
     }
 
@@ -35,19 +32,19 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))       // UP
         {
-            transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * speed, Space.World);
+            transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * stats.speed, Space.World);
         }
         if (Input.GetKey(KeyCode.S))       // DOWN
         {
-            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * speed, Space.World);
+            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * stats.speed, Space.World);
         }
         if (Input.GetKey(KeyCode.A))       // LEFT
         {
-            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * speed, Space.World);
+            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * stats.speed, Space.World);
         }
         if (Input.GetKey(KeyCode.D))       // RIGHT
         {
-            transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * speed, Space.World);
+            transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * stats.speed, Space.World);
         }
     }
 
@@ -58,23 +55,17 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }
 
-    
-
     void HandleAbilityCasting()
     {
         if(Input.GetMouseButton(0))
         {
-            if(abilityManager.isCurrentAbilityCharging())
+            if(abilityManager.NoAbilitySelected() || abilityManager.IsCurrentAbilityCharging())
             {
                 // Maybe show a UI text saying the current ability is still charging
                 return;
             }
-            else if(abilityManager.isCurrentAbilityInstant() || showingSpellIndicator)
-            {
-                abilityManager.CastAbility();
-                showingSpellIndicator = false;
-            }
 
+            abilityManager.CastAbility();
         }
     }
 
@@ -85,50 +76,43 @@ public class PlayerController : MonoBehaviour
         {
             SwitchSelectedAbility(1);
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SwitchSelectedAbility(2);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SwitchSelectedAbility(3);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SwitchSelectedAbility(4);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            SwitchSelectedAbility(5);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            SwitchSelectedAbility(6);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            SwitchSelectedAbility(7);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            SwitchSelectedAbility(8);
-        }
+        //else if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    SwitchSelectedAbility(3);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    SwitchSelectedAbility(4);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha5))
+        //{
+        //    SwitchSelectedAbility(5);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha6))
+        //{
+        //    SwitchSelectedAbility(6);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha7))
+        //{
+        //    SwitchSelectedAbility(7);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha8))
+        //{
+        //    SwitchSelectedAbility(8);
+        //}
 
     }
 
     void SwitchSelectedAbility(int index)
     {
-        if (abilityManager.isAbilitySelected(index))
-            return;
+        // We do this so that the number of the ability becomes the position in the array
+        index--;
 
-        abilityManager.SetCurrentAbility(index);
-
-        if(!abilityManager.isCurrentAbilityInstant())
-        {
-            showingSpellIndicator = true;
-            // Enable current spell indicator
-        }
-            
+        abilityManager.SetCurrentAbility(index);  
     }
 
 

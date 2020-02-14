@@ -2,7 +2,7 @@
 using System.Collections;
 
 // Implements the logic of the collision of the ability projectile
-[RequireComponent(typeof(AbilityData))]
+//[RequireComponent(typeof(AbilityData))]
 public class AbilityCollider : MonoBehaviour
 {
     AbilityData abilityData;
@@ -32,7 +32,7 @@ public class AbilityCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision.tag " + collision.tag + " casterTeamName" + abilityData.description.casterTeamName);
+//        Debug.Log("collision.tag " + collision.tag + " casterTeamName" + abilityData.description.casterTeamName);
         // Check if we've hit the player
         if (collision.tag.Contains("Team") && collision.tag != abilityData.description.casterTeamName)
         {
@@ -41,7 +41,7 @@ public class AbilityCollider : MonoBehaviour
             effect.ApplyEffect(player, abilityData.stats);
             Debug.Log("Projectile has hit " + collision);
             if (!isStatic)
-                gameObject.SetActive(false);
+                Destroy(this.gameObject);
 
             return;
         }
@@ -49,8 +49,8 @@ public class AbilityCollider : MonoBehaviour
         // We also want the traps to not interact with the wall
         else if(collision.tag == "Wall" && !isStatic)
         {
-            Debug.Log("Collided with wall");
-            gameObject.SetActive(false);
+//            Debug.Log("Collided with wall");
+            Destroy(this.gameObject);
             return;
         }
 
@@ -67,7 +67,7 @@ public class AbilityCollider : MonoBehaviour
                 if(collision.tag == "Spikes" || collision.tag == "Roots")
                 {
                     collision.gameObject.SetActive(false);
-                    gameObject.SetActive(false);
+                    Destroy(this.gameObject);
                 }
                 break;
 
@@ -75,7 +75,7 @@ public class AbilityCollider : MonoBehaviour
                 if (collision.tag == "Fire Strom" || collision.tag == "Water Rain")
                 {
                     collision.gameObject.SetActive(false);
-                    gameObject.SetActive(false);
+                    Destroy(this.gameObject);
                 }
                 break;
 
@@ -83,7 +83,7 @@ public class AbilityCollider : MonoBehaviour
                 if (collision.tag == "Ice Wall")
                 {
                     collision.gameObject.SetActive(false);
-                    gameObject.SetActive(false);
+                    Destroy(this.gameObject);
                 }
                 break;
         }
