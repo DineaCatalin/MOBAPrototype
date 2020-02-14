@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewMonoBehaviour : MonoBehaviour
+public static class PlayerDataLoader
 {
-    // Use this for initialization
-    void Start()
+    static PlayerData data;
+
+    public static PlayerData Load()
     {
+        if(data == null)
+        {
+            string dataString = FileHandler.ReadString("PlayerConfig");
+            Debug.Log(dataString);
+            data = JsonUtility.FromJson<PlayerData>(dataString);
+        }
 
+        return data;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 }

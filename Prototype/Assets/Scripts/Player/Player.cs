@@ -14,48 +14,36 @@ public class Player : MonoBehaviour
     // For now we default it to 1
     public string teamName = "Team1";
 
-    // Struct that defines the stats of our player like health, mana, power, speed
-    PlayerData stats;
+    // Defines the stats of our player like health, mana, power, speed
+    [SerializeField] PlayerData stats;
 
     PlayerController controller;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        // Load stats from config file
+        stats = PlayerDataLoader.Load();
         controller = GetComponent<PlayerController>();
-        // TODO: Load stats from config file-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-         
     }
 
     // This function will be called when a player touches an item
     // The player will receive different stats or buffs depending on the item
     public void PickupItem(ItemData item)
     {
-
-        Debug.Log("PickupItem Health" + item.health);
         if (item.health > 0)
-             stats.health += item.health;
+            Heal(item.health);
 
         if(item.mana > 0)
-            stats.mana += item.mana;
+            IncreaseMana(item.mana);
 
         if (item.powerMultiplier > 0)
         {
-            Debug.Log("Before update : Power is " + stats.power);
-            Debug.Log("After update : Power is " + stats.power);
             AddBuff(Buff.power, item.powerMultiplier, item.duration);
         }
 
         if (item.speedMultiplier > 0)
         {
-            Debug.Log("Before update : Power is " + stats.power);
             AddBuff(Buff.speed, item.speedMultiplier, item.duration);
         }
     }
@@ -65,17 +53,17 @@ public class Player : MonoBehaviour
     //
 
     // 
-    void AddBuff(Buff buff, int buffValue, float duration)
+    void AddBuff(Buff buff, float buffValue, float duration)
     {
         if(buff == Buff.power)
         {
-            stats.power += buffValue;
+            stats.power *= buffValue;
             // TODO: add buff to the buff list
             StartCoroutine(RemoveBuff(buff, buffValue, duration));
         }
         else if(buff == Buff.speed)
         {
-            stats.speed += buffValue;
+            stats.speed *= buffValue;
             // TODO: add buff to the buff list
             StartCoroutine(RemoveBuff(buff, buffValue, duration));
         }
@@ -83,22 +71,18 @@ public class Player : MonoBehaviour
     }
 
     // This is called once 
-    IEnumerator RemoveBuff(Buff buff, int buffValue, float duration)
+    IEnumerator RemoveBuff(Buff buff, float buffValue, float duration)
     {
         yield return new WaitForSeconds(duration);
 
-        Debug.Log("Starting buff removal");
-
         if(buff == Buff.power)
         {
-            stats.power -= buffValue;
-            Debug.Log("Removing power");
+            stats.power /= buffValue;
             // TODO: add remove to the buff list
         }
         else if (buff == Buff.speed)
         {
-            stats.speed -= buffValue;
-            Debug.Log("Removing speed");
+            stats.speed /= buffValue;
             // TODO: add remove to the buff list
         }
     }
@@ -133,6 +117,16 @@ public class Player : MonoBehaviour
             stats.health = stats.maxHealth;
         else
             stats.health += heal;
+    }
+
+    // Adds mana
+    public void IncreaseMana(int mana)
+    {
+        // Don't heal more then the maxHP
+        if (stats.mana + mana >= stats.maxMana)
+            stats.mana = stats.maxMana;
+        else
+            stats.mana += mana;
     }
 
     IEnumerator ApplyTickDamage(int numTicks, int damage)
@@ -204,10 +198,8 @@ public class Player : MonoBehaviour
         
     }
 
-    void LoadPlayerData()
+    public PlayerData GetStats()
     {
-        string dataString = FileHandler.ReadString("PlayerConfig");
-        Debug.Log(dataString);
-        stats = JsonUtility.FromJson<PlayerData>(dataString);
+        return stats;
     }
 }

@@ -6,6 +6,6 @@ public class PlayerData
     public int maxHealth;   // The max health has, can be increased with items
     public int mana;        // Players current mana
     public int maxMana;     // The max mana has, can be increased with items
-    public int power;
+    public float power;
     public float speed;
 }

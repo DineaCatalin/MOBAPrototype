@@ -6,13 +6,7 @@ using UnityEngine;
 // Stats will be given to a specific player on contact
 public class Item : MonoBehaviour
 {
-    [SerializeField] float duration;
-    [SerializeField] int health;
-    [SerializeField] int mana;
-    [SerializeField] int powerMultiplier;
-    [SerializeField] int speedMultiplier;
-
-    ItemData itemData;
+    public ItemData itemData;
 
     // This is the index in the item pool,
     // we will use this index to activate/deactivate the item when needed
@@ -21,20 +15,12 @@ public class Item : MonoBehaviour
     // Use this to temporarily set the values, the actual values will be set from a config file later
     private void Start()
     {
-        itemData.duration = duration;
-        itemData.health = health;
-        itemData.mana = mana;
-        itemData.powerMultiplier = powerMultiplier;
-        itemData.speedMultiplier = speedMultiplier;
+        
     }
 
-    public void SetAttributes(float duration, int health, int mana, int powerMultiplier, int speedMultiplier)
+    public void SetAttributes(ItemData data)
     {
-        itemData.duration = duration;
-        itemData.health = health;
-        itemData.mana = mana;
-        itemData.powerMultiplier = powerMultiplier;
-        itemData.speedMultiplier = speedMultiplier;
+        itemData = data;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,7 +28,7 @@ public class Item : MonoBehaviour
         // We hit a player
         if(collision.tag == "Team1" || collision.tag == "Team2")
         {
-            Debug.Log("Player has collided with item");
+            Debug.Log("Player has collided with item : power " + itemData.powerMultiplier + " speed " + itemData.speedMultiplier);
 
             Player player = collision.GetComponent<Player>();
             player.PickupItem(itemData);
