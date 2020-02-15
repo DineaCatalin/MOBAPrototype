@@ -10,7 +10,7 @@ public static class PlayerDataLoader
         if(data == null)
         {
             string dataString = FileHandler.ReadString("PlayerConfig");
-            Debug.Log(dataString);
+//            Debug.Log(dataString);
             data = JsonUtility.FromJson<PlayerData>(dataString);
         }
 

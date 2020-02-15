@@ -26,7 +26,7 @@ public static class FileHandler
     public static string ReadString(string resourceFile)
     {
         string path = "Assets/Resources/" + resourceFile + ".txt";
-        Debug.Log("Reading from file " + path);
+//        Debug.Log("Reading from file " + path);
 
         //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path);

@@ -95,14 +95,14 @@ public class PlayerController : MonoBehaviour
         {
             SwitchSelectedAbility(4);
         }
-        //else if (Input.GetKeyDown(KeyCode.Alpha5))
-        //{
-        //    SwitchSelectedAbility(5);
-        //}
-        //else if (Input.GetKeyDown(KeyCode.Alpha6))
-        //{
-        //    SwitchSelectedAbility(6);
-        //}
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            SwitchSelectedAbility(5);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            SwitchSelectedAbility(6);
+        }
         //else if (Input.GetKeyDown(KeyCode.Alpha7))
         //{
         //    SwitchSelectedAbility(7);

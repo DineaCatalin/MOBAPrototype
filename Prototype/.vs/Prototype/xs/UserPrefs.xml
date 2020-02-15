@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
     <Files>
       <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="93" Column="10" />
       <File FileName="Assets/Scripts/Item/Item.cs" />
@@ -13,10 +13,10 @@
       <File FileName="Assets/Scripts/Utils/FileHandler.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="41" Column="31" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="31" Column="68" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="13" Column="16" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="29" Column="6" />
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="41" Column="1" />
       <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
-      <File FileName="Assets/Resources/PlayerConfig.txt" Line="3" Column="20" />
+      <File FileName="Assets/Resources/PlayerConfig.txt" Line="5" Column="19" />
       <File FileName="Assets/Resources/AbilityConfig.txt" Line="38" Column="26" />
       <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" Line="9" Column="20" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" Line="17" Column="35" />
@@ -25,10 +25,10 @@
       <File FileName="Assets/Resources/ItemConfig.txt" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="12" Column="64" />
       <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="27" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" Line="7" Column="5" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="36" Column="26" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" Line="15" Column="26" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="107" Column="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="70" Column="20" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="145" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" NotebookId="1" />
@@ -36,6 +36,7 @@
       <File FileName="Assets/Scripts/Item/ItemPool.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerDataLoader.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/ItemData.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/NewMonoBehaviour.cs" Line="9" Column="46" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -48,14 +49,14 @@
                   <Node name="Data" expanded="True" />
                   <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True">
-                    <Node name="AbilityDuration.cs" selected="True" />
-                  </Node>
+                  <Node name="ProjectileComponents" expanded="True" />
                   <Node name="Utils" expanded="True" />
                 </Node>
                 <Node name="Command" expanded="True" />
                 <Node name="Item" expanded="True" />
-                <Node name="Player" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="Player.cs" selected="True" />
+                </Node>
                 <Node name="Utils" expanded="True" />
               </Node>
             </Node>

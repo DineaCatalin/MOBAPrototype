@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     // Defines the stats of our player like health, mana, power, speed
     [SerializeField] PlayerData stats;
 
+    // This will be activated by the bubble shield ability
+    Shield shield;
+
     PlayerController controller;
 
     void Awake()
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
         // Load stats from config file
         stats = PlayerDataLoader.Load();
         controller = GetComponent<PlayerController>();
+        shield = GetComponentInChildren<Shield>();
     }
 
     // This function will be called when a player touches an item
@@ -100,6 +104,11 @@ public class Player : MonoBehaviour
 
     public void Damage(int damage)
     {
+        // Manage shield : if the shield is active and the damage delt is not enogh to destroy
+        // the shield don't appy damage to the player
+        if (shield.IsActive() && !shield.IsDamageFatal(damage))
+            return;
+
         stats.health -= damage;
 
         // Check if we are dead
@@ -192,9 +201,9 @@ public class Player : MonoBehaviour
         stats.speed += slowValue;
     }
 
-    public void ApplyShield(int hp, int duration)
+    public void ApplyShield(int armor)
     {
-        
+        shield.SetArmor(armor);
     }
 
     public PlayerData GetStats()

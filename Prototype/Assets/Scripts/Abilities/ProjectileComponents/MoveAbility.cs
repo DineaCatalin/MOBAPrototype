@@ -11,7 +11,7 @@ public class MoveAbility : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("MoveAbility::OnEnable");
+//        Debug.Log("MoveAbility::OnEnable");
         moveDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         moveDirection.z = 0;
         moveDirection.Normalize();
