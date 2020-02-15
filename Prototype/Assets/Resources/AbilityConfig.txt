@@ -7,7 +7,7 @@
          },
          "stats":{ 
             "cooldown":3,
-            "manaCost":1,
+            "manaCost":10,
             "dotValue":1,
             "duration":1,
             "hpValue":1
@@ -20,7 +20,7 @@
          },
          "stats":{ 
             "cooldown":5,
-            "manaCost":1,
+            "manaCost":30,
             "dotValue":1,
             "duration":1,
             "hpValue":1
@@ -32,8 +32,8 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":1,
-            "manaCost":1,
+            "cooldown":1,       
+            "manaCost":50,
             "dotValue":1,
             "duration":1,
             "hpValue":1

@@ -16,9 +16,14 @@ public class AbilityManager : MonoBehaviour
 
     Ability currentAbility;
 
+    PlayerData playerStats;
+
     // Use this for initialization
     void Start()
     {
+        Debug.Log("AbilityManager Start()");
+        playerStats = GetComponent<Player>().GetStats();
+
         spellIndicators = new GameObject[abilities.Length];
 
         //TODO: Load all abilities and set their casterTeamName to teamName and set the to be inactive
@@ -67,25 +72,30 @@ public class AbilityManager : MonoBehaviour
         if(currentAbilityIndex != -1)
             spellIndicators[currentAbilityIndex].SetActive(false);
 
-
         currentAbilityIndex = index;
         currentAbility = abilities[index];
         spellIndicators[index].SetActive(true);
         
     }
-
+    
     public void CastAbility()
     {
-        Debug.Log("AbilityManager: CastAbility currentAbility is charging " + currentAbility.IsCharging());
         if(!currentAbility.IsCharging())
         {
+            // Check if we have enough mana
+            if (!EnoughManaForSelectedAbility())
+            {
+                // Not enough mana
+                Debug.Log("NOT ENOUGH MANA");
+                return;
+            }
+
+            playerStats.mana -= currentAbility.GetManaCost();
+
             currentAbility.Cast();
             Debug.Log("AbilityManager: CastAbility After cast currentAbility is charging " + currentAbility.IsCharging());
 
-
-            spellIndicators[currentAbilityIndex].SetActive(false);
-            currentAbility = null;
-            currentAbilityIndex = -1;
+            DeselectAbility();
         }
 
     }
@@ -97,7 +107,6 @@ public class AbilityManager : MonoBehaviour
 
     public bool IsCurrentAbilityCharging()
     {
-        Debug.Log("AbilityManager: IsCurrentAbilityCharging " + currentAbility.IsCharging());
         return currentAbility.IsCharging();
     }
 
@@ -111,7 +120,7 @@ public class AbilityManager : MonoBehaviour
     }
 
     // Check if an ability is already selected
-    public bool isAbilitySelected(int index)
+    public bool IsAbilitySelected(int index)
     {
         // Ability at position index is already selected
         if (Array.IndexOf(abilities, currentAbility) == index)
@@ -124,8 +133,22 @@ public class AbilityManager : MonoBehaviour
     {
         for (int i = 0; i < abilities.Length; i++)
         {
-            Debug.Log("Updating ability cooldown");
             abilities[i].UpdateCooldown();
         }
+    }
+
+    void DeselectAbility()
+    {
+        spellIndicators[currentAbilityIndex].SetActive(false);
+        currentAbility = null;
+        currentAbilityIndex = -1;
+    }
+
+    bool EnoughManaForSelectedAbility()
+    {
+        if (playerStats.mana - currentAbility.GetManaCost() < 0)
+            return false;
+
+        return true;
     }
 }
