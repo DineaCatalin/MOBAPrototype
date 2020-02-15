@@ -25,8 +25,8 @@ public class ProjectileAbility : Ability
                 
         Instantiate(projectile, castOrigin.position, Quaternion.identity);
 
-        projectile.transform.position = transform.position;
-        projectile.SetActive(true);
+        //projectile.transform.position = transform.position; 
+        //projectile.SetActive(true);
     }
 
 }

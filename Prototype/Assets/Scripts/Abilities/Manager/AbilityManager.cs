@@ -33,10 +33,16 @@ public class AbilityManager : MonoBehaviour
             currentAbility = abilities[i];
             currentAbility.Load();
 
-            spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator(), this.transform);
+            spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
+
+            spellIndicators[i].transform.parent = this.transform;
+
+            // Give the instantiated spell indicator also to the ability so it can use it later
+            currentAbility.SetSpellIndicator(spellIndicators[i]);
+
             spellIndicators[i].SetActive(false);
         }
-
+        
         currentAbility = null;
         currentAbilityIndex = -1;
     }
@@ -44,7 +50,7 @@ public class AbilityManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("AbilityManager Update()");
+        //Debug.Log("AbilityManager Update()");
         UpdateCooldowns();
     }
 

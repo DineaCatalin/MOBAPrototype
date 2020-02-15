@@ -21,7 +21,7 @@ public abstract class Ability : MonoBehaviour
 
     // This is the helper that will guide the player to cast the ability
     // Will be empty for empty abilities
-    [SerializeField] GameObject spellIndicator;
+    [SerializeField] protected GameObject spellIndicator;
 
     // Cache reference to the ability data, we will use this in the ability manager
     [SerializeField] protected AbilityData abilityData;
@@ -30,14 +30,14 @@ public abstract class Ability : MonoBehaviour
     {
         abilityData = AbilityDataCache.GetDataForAbility(name);
 
-        Debug.Log("Ability Base is loading ability with cooldown" + abilityData.stats.cooldown);
+        //Debug.Log("Ability Base is loading ability with cooldown" + abilityData.stats.cooldown);
         cooldown = abilityData.stats.cooldown;
     }
 
     public void UpdateCooldown()
     {
         currentCooldown -= Time.deltaTime;
-        Debug.Log(abilityData.description.name + " Updating cooldown " + currentCooldown);
+        //Debug.Log(abilityData.description.name + " Updating cooldown " + currentCooldown);
 
         // Reset cooldown
         if(currentCooldown <= 0)
@@ -73,6 +73,13 @@ public abstract class Ability : MonoBehaviour
     public int GetManaCost()
     {
         return abilityData.stats.manaCost;
+    }
+
+    // Trying to set the spell indicator back to the instantiated object from the abilitymanager
+    // We send a template so that the abilitymanager will spawn it and then we retake the reference also here
+    public void SetSpellIndicator(GameObject instantiatedSpellIndicator)
+    {
+        spellIndicator = instantiatedSpellIndicator;
     }
 
 }

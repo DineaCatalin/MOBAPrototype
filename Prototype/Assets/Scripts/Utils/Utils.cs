@@ -12,4 +12,9 @@ public static class Utils
 
         return new Vector2(spawnX, spawnY);
     }
+
+    public static Vector3 GetMousePosition()
+    {
+        return Camera.main.WorldToScreenPoint(Input.mousePosition);
+    }
 }

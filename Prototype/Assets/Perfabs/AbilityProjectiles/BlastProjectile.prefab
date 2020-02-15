@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6425128974039810947}
   - component: {fileID: 7064464372337421600}
   - component: {fileID: 3689638218188624313}
-  - component: {fileID: 200953468767910217}
   - component: {fileID: -3659786256974819191}
+  - component: {fileID: 4210543092152560699}
+  - component: {fileID: 3088594531143990646}
   m_Layer: 10
   m_Name: BlastProjectile
   m_TagString: Projectile
@@ -113,19 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Blast
---- !u!114 &200953468767910217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6425128974039810944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0ec60c87d784ec4bb90515b35a9552, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.2
 --- !u!114 &-3659786256974819191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +127,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angleCorrection: 90
+--- !u!114 &4210543092152560699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425128974039810944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef9f5eb5d51f48ae9d337c08589e65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.15
+--- !u!114 &3088594531143990646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425128974039810944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830b4da8a2a4740d2bf573466c96dfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

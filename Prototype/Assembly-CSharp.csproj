@@ -76,9 +76,11 @@
     <Compile Include="Assets\Scripts\Abilities\ProjectileAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityCollider.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityDuration.cs" />
+    <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\Flicker.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbilityToPoint.cs" />
     <Compile Include="Assets\Scripts\Abilities\ShieldAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\SpawnAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Assets\Scripts\Utils\FileHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\FollowCursor.cs" />
     <Compile Include="Assets\Scripts\Utils\LookAtMouse.cs" />
+    <Compile Include="Assets\Scripts\Utils\MimicRotation.cs" />
     <Compile Include="Assets\Scripts\Utils\SpawnInMouseDirection.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <None Include="Assets\Resources\ItemConfig.txt" />
