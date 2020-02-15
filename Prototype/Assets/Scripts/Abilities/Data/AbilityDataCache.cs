@@ -30,6 +30,7 @@ public class AbilityDataCache : MonoBehaviour
     // Will return us the AbilityData of a specific ability
     public static AbilityData GetDataForAbility(string abilityName)
     {
+        Debug.Log("AbilityData GetDataForAbility name is " + abilityName);
         return dataMap[abilityName];
     }
 }

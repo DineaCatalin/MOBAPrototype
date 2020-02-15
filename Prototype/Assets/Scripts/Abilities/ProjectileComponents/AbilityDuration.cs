@@ -5,11 +5,18 @@ using System.Collections;
 // It is used for Spikes, Roots etc
 public class AbilityDuration : MonoBehaviour
 {
-    public float duration;
+    [SerializeField] new string name;
+
+    [SerializeField] float duration;
 
     // Use this for initialization
     void Start()
     {
+        duration = AbilityDataCache.GetDataForAbility(name).stats.duration;
+
+        if (duration <= 0f)
+            Debug.Log("AbilityDuration Warning duration not set for ability " + name);
+
         StartCoroutine("Disable");
     }
 
@@ -18,5 +25,6 @@ public class AbilityDuration : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
