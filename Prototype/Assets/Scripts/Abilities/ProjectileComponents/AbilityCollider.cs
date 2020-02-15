@@ -8,6 +8,9 @@ public class AbilityCollider : MonoBehaviour
     AbilityData abilityData;
     AbilityEffect effect;
 
+    [SerializeField] bool isBuffForTeam;
+
+
     // Will be used to load the AbilityData, has to be the same as the ability Monobehav. that is creating it
     [SerializeField] new string name; 
 
@@ -32,24 +35,30 @@ public class AbilityCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-//        Debug.Log("collision.tag " + collision.tag + " casterTeamName" + abilityData.description.casterTeamName);
+        Debug.Log("collision.tag " + collision.tag + " casterTeamName" + abilityData.description.casterTeamName);
         // Check if we've hit the player
-        if (collision.tag.Contains("Team") && collision.tag != abilityData.description.casterTeamName)
+        if (collision.tag.Contains("Team"))
         {
-            Player player = collision.GetComponent<Player>();
-            //player.ApplyAbilityEffect(abilityData.stats);
-            effect.ApplyEffect(player, abilityData.stats);
-            Debug.Log("Projectile has hit " + collision);
-            if (!isStatic)
-                Destroy(this.gameObject);
+            // If the ability is for my team and the tag of the hit object is the same of my team
+            // Or the ability is for enemies and the tag is different then the one of my team
+            if ((isBuffForTeam && collision.tag == abilityData.description.casterTeamName)
+                || collision.tag != abilityData.description.casterTeamName)
+            {
+                Player player = collision.GetComponent<Player>();
+                effect.ApplyEffect(player, abilityData.stats);
+                Debug.Log("Projectile has hit " + collision);
 
-            return;
+                if (!isStatic)
+                    Destroy(this.gameObject);
+
+                return;
+            }
         }
         // We hit a wall, just deactivate the projectile
         // We also want the traps to not interact with the wall
         else if(collision.tag == "Wall" && !isStatic)
         {
-//            Debug.Log("Collided with wall");
+            Debug.Log("Collided with wall");
             Destroy(this.gameObject);
             return;
         }

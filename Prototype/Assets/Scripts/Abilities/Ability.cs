@@ -57,7 +57,7 @@ public abstract class Ability : MonoBehaviour
     {
         isCharging = true;
 
-        Debug.Log("Ability BaseClass is casting");
+//          Debug.Log("Ability BaseClass is casting");
     }
 
     public bool IsCharging()

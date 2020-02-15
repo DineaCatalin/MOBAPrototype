@@ -14,19 +14,16 @@ public class ProjectileAbility : Ability
     {
         base.Load();
 
-        Debug.Log("ProjectileAbility chceking stats name is " + abilityData.description.name);
+//        Debug.Log("ProjectileAbility chceking stats name is " + abilityData.description.name);
     }
 
     public override void Cast()
     {
         base.Cast();
 
-        Debug.Log("ProjectileAbility is casting " + abilityData.description.name);
+      //  Debug.Log("ProjectileAbility is casting " + abilityData.description.name);
                 
         Instantiate(projectile, castOrigin.position, Quaternion.identity);
-
-        //projectile.transform.position = transform.position; 
-        //projectile.SetActive(true);
     }
 
 }

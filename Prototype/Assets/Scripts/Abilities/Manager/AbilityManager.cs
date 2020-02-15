@@ -21,7 +21,7 @@ public class AbilityManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Debug.Log("AbilityManager Start()");
+//        Debug.Log("AbilityManager Start()");
         playerStats = GetComponent<Player>().GetStats();
 
         spellIndicators = new GameObject[abilities.Length];
@@ -99,7 +99,7 @@ public class AbilityManager : MonoBehaviour
             playerStats.mana -= currentAbility.GetManaCost();
 
             currentAbility.Cast();
-            Debug.Log("AbilityManager: CastAbility After cast currentAbility is charging " + currentAbility.IsCharging());
+//            Debug.Log("AbilityManager: CastAbility After cast currentAbility is charging " + currentAbility.IsCharging());
 
             DeselectAbility();
         }

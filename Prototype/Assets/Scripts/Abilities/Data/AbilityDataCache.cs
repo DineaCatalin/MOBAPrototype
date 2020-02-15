@@ -15,12 +15,12 @@ public class AbilityDataCache : MonoBehaviour
 
         // Load data from file
         string dataString = FileHandler.ReadString("AbilityConfig");
-        Debug.Log(dataString);
+        //Debug.Log(dataString);
         loadedAbilityData = JsonUtility.FromJson<AbilityDataList>(dataString);
 
         foreach (var abilityData in loadedAbilityData.dataList)
         {
-            // Map them by 
+            // Map them by the name
             dataMap.Add(abilityData.description.name, abilityData);
         }
 

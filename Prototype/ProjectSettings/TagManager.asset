@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Team1
   - Projectile
+  - Team2
   layers:
   - Default
   - TransparentFX
