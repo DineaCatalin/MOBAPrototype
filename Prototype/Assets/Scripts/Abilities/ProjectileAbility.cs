@@ -10,6 +10,9 @@ public class ProjectileAbility : Ability
 
     [SerializeField] Transform castOrigin;
 
+    // If true we will rotate the projectile to face the direction in which it is shot
+    [SerializeField] bool rotateToCastDirection;
+
     public override void Load()
     {
         base.Load();
@@ -17,13 +20,18 @@ public class ProjectileAbility : Ability
         Debug.Log("ProjectileAbility chceking stats name is " + abilityData.description.name);
     }
 
-
+    Quaternion rotation;
 
     public override void Cast()
     {
         base.Cast();
 
         Debug.Log("ProjectileAbility is casting " + abilityData.description.name);
+
+        if(rotateToCastDirection)
+        {
+            rotation = 
+        }
 
         Instantiate(projectile, castOrigin.position, Quaternion.identity);
 

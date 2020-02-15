@@ -70,4 +70,9 @@ public abstract class Ability : MonoBehaviour
         return spellIndicator;
     }
 
+    public int GetManaCost()
+    {
+        return abilityData.stats.manaCost;
+    }
+
 }

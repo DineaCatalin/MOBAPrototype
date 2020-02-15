@@ -1,52 +1,54 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/ItemPool.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/SelectedAbilitiesConfig.txt">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="103" Column="40" />
-      <File FileName="Assets/Scripts/Item/Item.cs" Line="34" Column="39" />
-      <File FileName="Assets/Scripts/Utils/FollowCursor.cs" Line="13" Column="61" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="25" Column="33" />
+      <File FileName="Assets/Scripts/Item/Item.cs" />
+      <File FileName="Assets/Scripts/Utils/FollowCursor.cs" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
       <File FileName="Assets/Scripts/Player/PlayerData.cs" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="39" Column="43" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="24" Column="18" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="33" Column="24" />
       <File FileName="Assets/Scripts/Utils/FileHandler.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="35" Column="3" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="17" Column="9" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="41" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="12" Column="1" />
-      <File FileName="Assets/Resources/PlayerConfig.txt" Line="2" Column="1" />
-      <File FileName="Assets/Resources/AbilityConfig.txt" Line="9" Column="26" />
-      <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/NewMonoBehaviour.cs" Line="32" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" Line="6" Column="5" />
-      <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" Line="18" Column="1" />
-      <File FileName="Assets/Resources/NewFile.txt" Line="4" Column="27" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="25" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
+      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
+      <File FileName="Assets/Resources/PlayerConfig.txt" />
+      <File FileName="Assets/Resources/AbilityConfig.txt" />
+      <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" Line="5" Column="25" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" Line="17" Column="35" />
+      <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" Line="5" Column="2" />
+      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="16" Column="9" />
+      <File FileName="Assets/Resources/ItemConfig.txt" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="36" Column="26" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="114" Column="45" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" Line="4" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Test.cs" Line="11" Column="47" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/ItemPool.cs" Line="102" Column="29" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerDataLoader.cs" Line="8" Column="34" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/ItemData.cs" Line="16" Column="2" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Test.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/ItemPool.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerDataLoader.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/ItemData.cs" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Resources" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="SelectedAbilitiesConfig.txt" selected="True" />
+              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
+                  <Node name="Manager" expanded="True" />
+                  <Node name="ProjectileComponents" expanded="True" />
                 </Node>
-                <Node name="Item" expanded="True">
-                  <Node name="ItemPool.cs" selected="True" />
-                </Node>
+                <Node name="Item" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
@@ -58,7 +60,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6d23909e-e20a-4d67-b8ae-63cfc64a60df" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fa8df264-f97f-48f8-98d9-77e9c5b79446" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

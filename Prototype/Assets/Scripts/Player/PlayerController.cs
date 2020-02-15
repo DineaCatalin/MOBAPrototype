@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     PlayerData stats;
 
+    Vector3 movementIncrement;
+
     // Use this for initialization
     void Start()
     {
@@ -20,7 +22,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleMovement();
+        HandleMovement();       
+        HandleRotation();
         HandleAbilitySelection();
         HandleAbilityCasting();
     }
@@ -30,22 +33,26 @@ public class PlayerController : MonoBehaviour
         if (isRooted)
             return;
 
+        movementIncrement = Vector3.zero;
+
         if (Input.GetKey(KeyCode.W))       // UP
         {
-            transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * stats.speed, Space.World);
+            movementIncrement += Vector3.up;
         }
         if (Input.GetKey(KeyCode.S))       // DOWN
         {
-            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * stats.speed, Space.World);
+            movementIncrement += Vector3.down;
         }
         if (Input.GetKey(KeyCode.A))       // LEFT
         {
-            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * stats.speed, Space.World);
+            movementIncrement += Vector3.left;
         }
         if (Input.GetKey(KeyCode.D))       // RIGHT
         {
-            transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * stats.speed, Space.World);
+            movementIncrement += Vector3.right;
         }
+
+        transform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
     }
 
     void HandleRotation()
@@ -80,10 +87,10 @@ public class PlayerController : MonoBehaviour
         {
             SwitchSelectedAbility(2);
         }
-        //else if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    SwitchSelectedAbility(3);
-        //}
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchSelectedAbility(3);
+        }
         //else if (Input.GetKeyDown(KeyCode.Alpha4))
         //{
         //    SwitchSelectedAbility(4);

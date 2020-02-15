@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Utils\FileHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\FollowCursor.cs" />
     <Compile Include="Assets\Scripts\Utils\LookAtMouse.cs" />
+    <Compile Include="Assets\Scripts\Utils\SpawnInMouseDirection.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <None Include="Assets\Resources\ItemConfig.txt" />
     <None Include="Assets\Resources\SelectedAbilitiesConfig.txt" />
