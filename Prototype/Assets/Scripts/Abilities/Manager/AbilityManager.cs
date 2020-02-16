@@ -21,8 +21,15 @@ public class AbilityManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-//        Debug.Log("AbilityManager Start()");
-        playerStats = GetComponent<Player>().GetStats();
+        abilities = AbilityFactory.SharedInstance.GetCurrentAbilities();
+
+        //        Debug.Log("AbilityManager Start()");
+
+        Player player = GetComponent<Player>();
+
+        playerStats = player.GetStats();
+
+        int playerID = player.GetID();
 
         spellIndicators = new GameObject[abilities.Length];
 
@@ -32,6 +39,7 @@ public class AbilityManager : MonoBehaviour
         {
             currentAbility = abilities[i];
             currentAbility.Load();
+            currentAbility.SetPlayerID(playerID);
 
             spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
 
@@ -46,6 +54,11 @@ public class AbilityManager : MonoBehaviour
         
         currentAbility = null;
         currentAbilityIndex = -1;
+    }
+
+    void LoadAbilities()
+    {
+
     }
 
     // Update is called once per frame

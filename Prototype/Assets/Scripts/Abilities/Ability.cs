@@ -19,6 +19,9 @@ public abstract class Ability : MonoBehaviour
     // Can we cast the ability or is it still on cooldown
     bool isCharging;
 
+    // 
+    protected int playerID;       
+
     // This is the helper that will guide the player to cast the ability
     // Will be empty for empty abilities
     [SerializeField] protected GameObject spellIndicator;
@@ -82,4 +85,8 @@ public abstract class Ability : MonoBehaviour
         spellIndicator = instantiatedSpellIndicator;
     }
 
+    public void SetPlayerID(int id)
+    {
+        playerID = id;
+    }
 }

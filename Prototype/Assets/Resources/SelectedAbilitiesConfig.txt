@@ -1,10 +1,10 @@
 ﻿{ 
-   "ability1":"Fire",
-   "ability2":"Ice",
-   "ability3":"Snowball",
-   "ability4":"Lol",    
-   "ability5":"Spell",
+   "ability1":"Fireball",
+   "ability2":"Tornado",
+   "ability3":"Bubble",
+   "ability4":"IceWall",    
+   "ability5":"Roots",
    "ability6":"Blink",
-   "ability7":"Do",
-   "ability8":"Not"
+   "ability7":"DustDusk",
+   "ability8":"Earthquake"
 }

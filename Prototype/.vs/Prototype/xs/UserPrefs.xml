@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Manager/AbilityManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/RushAbility.cs">
     <Files>
       <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="55" Column="92" />
       <File FileName="Assets/Scripts/Item/Item.cs" Line="41" Column="37" />
@@ -8,20 +8,20 @@
       <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" Line="8" Column="20" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
       <File FileName="Assets/Scripts/Player/PlayerData.cs" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="7" Column="38" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="23" Column="35" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="22" Column="9" />
       <File FileName="Assets/Scripts/Utils/FileHandler.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="48" Column="63" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="51" Column="33" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="33" Column="49" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="56" Column="31" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="19" Column="50" />
+      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="8" Column="22" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="16" Column="1" />
       <File FileName="Assets/Resources/PlayerConfig.txt" Line="5" Column="19" />
-      <File FileName="Assets/Resources/AbilityConfig.txt" Line="181" Column="26" />
-      <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" />
+      <File FileName="Assets/Resources/AbilityConfig.txt" Line="206" Column="26" />
+      <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" Line="8" Column="26" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
       <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" />
-      <File FileName="Assets/Resources/ItemConfig.txt" />
+      <File FileName="Assets/Resources/ItemConfig.txt" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="20" Column="6" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/NewMonoBehaviour.cs" Line="18" Column="6" />
@@ -29,22 +29,23 @@
       <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="8" Column="38" />
       <File FileName="Assets/Scripts/Test/NewMonoBehaviour.cs" Line="24" Column="47" />
       <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="224" Column="24" />
-      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="7" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="255" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" Line="52" Column="28" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="77" Column="29" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="79" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="12" Column="25" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" Line="4" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Test.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Test.cs" Line="14" Column="25" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/ItemPool.cs" Line="110" Column="47" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerDataLoader.cs" Line="11" Column="45" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/ItemData.cs" NotebookId="1" />
       <File FileName="Assets/ActivationDelay.cs" Line="31" Column="21" NotebookId="1" />
       <File FileName="Assets/Scripts/Environment/NewMonoBehaviour.cs" Line="25" Column="35" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="8" Column="40" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="24" Column="51" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="18" Column="37" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Utils/NewMonoBehaviour.cs" Line="51" Column="10" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="21" Column="81" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -56,11 +57,10 @@
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
                   <Node name="Effects" expanded="True" />
-                  <Node name="Manager" expanded="True">
-                    <Node name="AbilityManager.cs" selected="True" />
-                  </Node>
+                  <Node name="Manager" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
                   <Node name="Utils" expanded="True" />
+                  <Node name="RushAbility.cs" selected="True" />
                 </Node>
                 <Node name="Command" expanded="True" />
                 <Node name="Environment" expanded="True" />

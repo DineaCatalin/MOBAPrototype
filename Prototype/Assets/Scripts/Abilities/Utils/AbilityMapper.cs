@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class AbilityMapper : MonoBehaviour
+public class AbilityMapper
 {
-    [SerializeField] AbilityMapperData data;
+    AbilityMapperData data;
 
-    private void Awake()
+    public AbilityMapper()
     {
         LoadData();
     }
@@ -40,6 +40,7 @@ public class AbilityMapper : MonoBehaviour
         string dataString = FileHandler.ReadString("SelectedAbilitiesConfig");
         Debug.Log(dataString);
         data = JsonUtility.FromJson<AbilityMapperData>(dataString);
+        Debug.Log("AbilityMapper 1st " + data.ability1);
     }
 }
 

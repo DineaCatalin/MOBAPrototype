@@ -14,6 +14,8 @@ public class RushArea : MonoBehaviour
     {
         abilityData = AbilityDataCache.GetDataForAbility(name);
         speedBoost = abilityData.stats.dotValue;
+
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

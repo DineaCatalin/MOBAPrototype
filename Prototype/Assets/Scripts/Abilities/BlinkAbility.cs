@@ -8,6 +8,12 @@ public class BlinkAbility : Ability
 
     Vector3 blinkPosition;
 
+    private void Start()
+    {
+        if (playerTransform == null)
+            playerTransform = GameObject.Find("Player" + playerID).transform;
+    }
+
     public override void Cast()
     {
         base.Cast();

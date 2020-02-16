@@ -5,6 +5,17 @@ public class RushAbility : Ability
 {
     [SerializeField] GameObject rushArea;
 
+    private void Start()
+    {
+        if (rushArea == null)
+        {
+            rushArea = GameObject.Find("RushArea" + playerID);
+        }
+            
+
+        Debug.Log("AAA Gameobject name is " + transform.parent.name);
+    }
+
     public override void Cast()
     {
         base.Cast();
