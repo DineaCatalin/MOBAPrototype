@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Abilities\RushAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ShieldAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\SpawnAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Utils\AbilityFactory.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />

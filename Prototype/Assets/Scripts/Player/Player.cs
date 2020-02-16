@@ -24,8 +24,14 @@ public class Player : MonoBehaviour
 
     new Rigidbody2D rigidbody;
 
+    [SerializeField] int id;
+
     void Awake()
     {
+        // Assign id from gamemanager, do it over the network
+
+        SetComponentIDs();
+
         // Load stats from config file
         stats = PlayerDataLoader.Load();
         controller = GetComponent<PlayerController>();
@@ -245,5 +251,21 @@ public class Player : MonoBehaviour
         Debug.Log("Direction after  is " + direction);
 
         rigidbody.AddForce(direction, ForceMode2D.Impulse);
+    }
+
+    void SetComponentIDs()
+    {
+        var children = GetComponentsInChildren<Transform>();
+        foreach (var child in children)
+        {
+            Debug.Log("Child is " + child.name);
+            child.name = child.name + id;
+        }
+
+    }
+
+    public int GetID()
+    {
+        return id;
     }
 }
