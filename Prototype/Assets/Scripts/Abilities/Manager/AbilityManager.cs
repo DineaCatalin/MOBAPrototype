@@ -36,6 +36,7 @@ public class AbilityManager : MonoBehaviour
             spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
 
             spellIndicators[i].transform.parent = this.transform;
+            spellIndicators[i].transform.position = Vector3.zero;
 
             // Give the instantiated spell indicator also to the ability so it can use it later
             currentAbility.SetSpellIndicator(spellIndicators[i]);
