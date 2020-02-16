@@ -72,6 +72,10 @@ public class AbilityManager : MonoBehaviour
             return;
         }
 
+        // Cast if the ability is instant
+        if (abilities[index].isInstant)
+            abilities[index].Cast();
+
         Debug.Log("SetCurrentAbility: Changing index to " + index);
 
         // Disable old spell indicator if it is stil active
