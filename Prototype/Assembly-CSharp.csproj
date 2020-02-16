@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Abilities\Effects\DOTEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\HealEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\KnockoutEffect.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Effects\PullEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\RootEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\SlowEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Manager\AbilityManager.cs" />

@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/NewMonoBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
     <Files>
       <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="55" Column="92" />
       <File FileName="Assets/Scripts/Item/Item.cs" Line="41" Column="37" />
@@ -8,7 +8,7 @@
       <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" Line="8" Column="20" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
       <File FileName="Assets/Scripts/Player/PlayerData.cs" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="10" Column="17" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
       <File FileName="Assets/Scripts/Utils/FileHandler.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="9" Column="26" />
@@ -23,14 +23,15 @@
       <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" />
       <File FileName="Assets/Resources/ItemConfig.txt" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="19" Column="32" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="20" Column="6" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/NewMonoBehaviour.cs" Line="18" Column="6" />
       <File FileName="Assets/Scripts/Utils/MimicRotation.cs" Line="19" Column="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="8" Column="23" />
       <File FileName="Assets/Scripts/Test/NewMonoBehaviour.cs" Line="24" Column="47" />
-      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="4" Column="28" />
+      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="13" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="235" Column="6" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="77" Column="29" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="12" Column="25" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" Line="4" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" Line="1" Column="1" NotebookId="1" />
@@ -39,8 +40,8 @@
       <File FileName="Assets/Scripts/Player/PlayerDataLoader.cs" Line="11" Column="45" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/ItemData.cs" NotebookId="1" />
       <File FileName="Assets/ActivationDelay.cs" Line="31" Column="21" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="229" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Environment/NewMonoBehaviour.cs" Line="25" Column="35" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/NewMonoBehaviour.cs" Line="8" Column="9" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -55,12 +56,13 @@
                   <Node name="Manager" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
                   <Node name="Utils" expanded="True" />
-                  <Node name="NewMonoBehaviour.cs" selected="True" />
                 </Node>
                 <Node name="Command" expanded="True" />
                 <Node name="Environment" expanded="True" />
                 <Node name="Item" expanded="True" />
-                <Node name="Player" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="Player.cs" selected="True" />
+                </Node>
                 <Node name="Test" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>

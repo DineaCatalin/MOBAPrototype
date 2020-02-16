@@ -233,4 +233,17 @@ public class Player : MonoBehaviour
 
         rigidbody.AddForce(pushForce, ForceMode2D.Impulse);
     }
+
+    public void PullToLocation(Vector3 targetPosition, int force, int damage)
+    {
+        Damage(damage);
+
+        Vector3 direction = targetPosition - transform.position;
+        direction.Normalize();
+        Debug.Log("Direction multiplying by " + force + " before is " + direction);
+        direction *= force;
+        Debug.Log("Direction after  is " + direction);
+
+        rigidbody.AddForce(direction, ForceMode2D.Impulse);
+    }
 }
