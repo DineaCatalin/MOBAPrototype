@@ -5,10 +5,10 @@ public class HealEffect : AbilityEffect
 {
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
-        // Fire ball damage
+        // First big heal
         player.Heal(stats.hpValue);
 
-        // Dot burn damage
+        // Some heal over time
         player.ApplyHeal(stats.duration, stats.dotValue);
     }
 }

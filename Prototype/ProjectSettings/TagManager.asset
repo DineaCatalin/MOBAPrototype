@@ -9,6 +9,7 @@ TagManager:
   - Team1
   - Projectile
   - Team2
+  - Ice Wall
   layers:
   - Default
   - TransparentFX

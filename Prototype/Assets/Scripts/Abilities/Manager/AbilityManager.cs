@@ -97,7 +97,7 @@ public class AbilityManager : MonoBehaviour
             }
 
             playerStats.mana -= currentAbility.GetManaCost();
-
+                
             currentAbility.Cast();
 //            Debug.Log("AbilityManager: CastAbility After cast currentAbility is charging " + currentAbility.IsCharging());
 

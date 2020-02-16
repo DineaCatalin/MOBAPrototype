@@ -33,8 +33,12 @@ public class Item : MonoBehaviour
             Player player = collision.GetComponent<Player>();
             player.PickupItem(itemData);
 
-            // Send the item back to the pool
-            ItemPool.DeactivateItem(index);
+            // Send the item back to the pool if it belongs to the pool
+            // Items with index smaller then 0 will be items spawned by abilities
+            if (index >= 0)
+                ItemPool.DeactivateItem(index);
+            else
+                Destroy(gameObject);
 
         }
     }

@@ -24,6 +24,9 @@ public class ItemPool : MonoBehaviour
 
     ItemData[] itemDatas;
 
+    // Cache the template for the mana item so we can grab the data from outside
+    //static ItemData manaItemTemplate;
+
     // Use this for initialization
     void Start()
     {
@@ -101,10 +104,19 @@ public class ItemPool : MonoBehaviour
         {
             itemDatas[index] = itemData;
             index++;
+
+            // Cache mana item, we could do this for all items but not now
+            //if (itemData.name == "Mana Sphere")
+            //    manaItemTemplate = itemData;
         }
 
         loadedItemData.itemList.Clear();
     }
+
+    //static ItemData GetManaItemTemplate()
+    //{
+    //    return manaItemTemplate;
+    //}
 
     Color GetItemColor(string itemName)
     {

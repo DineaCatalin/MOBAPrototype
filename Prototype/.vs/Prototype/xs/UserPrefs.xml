@@ -1,42 +1,42 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/MimicRotation.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="93" Column="10" />
-      <File FileName="Assets/Scripts/Item/Item.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="104" Column="16" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="41" Column="37" />
       <File FileName="Assets/Scripts/Utils/FollowCursor.cs" />
-      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="18" Column="67" />
+      <File FileName="Assets/Scripts/Utils/Utils.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" Line="8" Column="26" />
+      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
       <File FileName="Assets/Scripts/Player/PlayerData.cs" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="58" Column="27" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="29" Column="38" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
       <File FileName="Assets/Scripts/Utils/FileHandler.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="41" Column="31" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="31" Column="68" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="29" Column="6" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="41" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="52" Column="46" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
+      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
-      <File FileName="Assets/Resources/PlayerConfig.txt" Line="5" Column="19" />
-      <File FileName="Assets/Resources/AbilityConfig.txt" Line="38" Column="26" />
-      <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" Line="9" Column="20" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" Line="17" Column="35" />
-      <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" Line="13" Column="93" />
-      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="14" Column="1" />
-      <File FileName="Assets/Resources/ItemConfig.txt" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="12" Column="64" />
-      <File FileName="Assets/Scripts/Abilities/NewMonoBehaviour.cs" Line="27" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" Line="15" Column="26" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="107" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="145" Column="1" NotebookId="1" />
+      <File FileName="Assets/Resources/PlayerConfig.txt" />
+      <File FileName="Assets/Resources/AbilityConfig.txt" />
+      <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
+      <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" />
+      <File FileName="Assets/Resources/ItemConfig.txt" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="27" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/NewMonoBehaviour.cs" Line="18" Column="6" />
+      <File FileName="Assets/Scripts/Utils/MimicRotation.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Test.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/ItemPool.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/ItemPool.cs" Line="110" Column="47" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerDataLoader.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/ItemData.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/NewMonoBehaviour.cs" Line="9" Column="46" NotebookId="1" />
+      <File FileName="Assets/ActivationDelay.cs" Line="21" Column="6" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -54,10 +54,10 @@
                 </Node>
                 <Node name="Command" expanded="True" />
                 <Node name="Item" expanded="True" />
-                <Node name="Player" expanded="True">
-                  <Node name="Player.cs" selected="True" />
+                <Node name="Player" expanded="True" />
+                <Node name="Utils" expanded="True">
+                  <Node name="MimicRotation.cs" selected="True" />
                 </Node>
-                <Node name="Utils" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -67,7 +67,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fa8df264-f97f-48f8-98d9-77e9c5b79446" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cfb0169d-25b0-4d2c-b4ad-7be7d6dcd9c6" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
