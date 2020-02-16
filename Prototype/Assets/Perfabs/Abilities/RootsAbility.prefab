@@ -59,3 +59,4 @@ MonoBehaviour:
       hpValue: 0
   spawnedObject: {fileID: 3113322748043198587, guid: 3a2f4a1865e3e4a34991f29783464cf9,
     type: 3}
+  mimicPlayerRotation: 0

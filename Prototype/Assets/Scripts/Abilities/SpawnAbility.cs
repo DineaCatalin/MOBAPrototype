@@ -8,7 +8,7 @@ public class SpawnAbility : Ability
 
     Vector3 spawnPosition;
 
-    //[SerializeField] bool mimicPlayerRotation;
+    [SerializeField] bool mimicPlayerRotation = true;
 
     // Use this for initialization
     void Start()
@@ -27,11 +27,11 @@ public class SpawnAbility : Ability
             
         Debug.Log("SpawnAbility spellIndicator has ");
 
-        Instantiate(spawnedObject, spawnPosition, spellIndicator.transform.rotation);
+        //Instantiate(spawnedObject, spawnPosition, spellIndicator.transform.rotation);
 
-        //if(mimicPlayerRotation)
-        //    Instantiate(spawnedObject, spawnPosition, spellIndicator.transform.rotation);
-        //else
-        //    Instantiate(spawnedObject, spawnPosition, Quaternion.identity);
+        if (mimicPlayerRotation)
+            Instantiate(spawnedObject, spawnPosition, spellIndicator.transform.rotation);
+        else
+            Instantiate(spawnedObject, spawnPosition, Quaternion.identity);
     }
 }

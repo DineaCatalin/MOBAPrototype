@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Abilities\BlinkAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\Data\AbilityData.cs" />
     <Compile Include="Assets\Scripts\Abilities\Data\AbilityDataCache.cs" />
+    <Compile Include="Assets\Scripts\Abilities\DustDuskAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\AbilityEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\DOTEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\HealEffect.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />
+    <Compile Include="Assets\Scripts\Environment\EnvironmentManager.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Item\ItemPool.cs" />
