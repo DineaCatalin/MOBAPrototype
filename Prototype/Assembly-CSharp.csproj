@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Abilities\ProjectileAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityCollider.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityDuration.cs" />
+    <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\DestroyAfterCollisions.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\Flicker.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbilityToPoint.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerDataLoader.cs" />
     <Compile Include="Assets\Scripts\Player\Shield.cs" />
     <Compile Include="Assets\Scripts\Test.cs" />
+    <Compile Include="Assets\Scripts\Utils\ActivationDelay.cs" />
     <Compile Include="Assets\Scripts\Utils\FileHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\FollowCursor.cs" />
     <Compile Include="Assets\Scripts\Utils\LookAtMouse.cs" />

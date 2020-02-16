@@ -23,6 +23,8 @@ public class SpawnAbility : Ability
         spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         spawnPosition.z = 0;
 
+        Debug.Log("SpawnAbility spellIndicator has ");
+
         Instantiate(spawnedObject, spawnPosition, spellIndicator.transform.rotation);
     }
 }

@@ -103,14 +103,14 @@ public class PlayerController : MonoBehaviour
         {
             SwitchSelectedAbility(6);
         }
-        //else if (Input.GetKeyDown(KeyCode.Alpha7))
-        //{
-        //    SwitchSelectedAbility(7);
-        //}
-        //else if (Input.GetKeyDown(KeyCode.Alpha8))
-        //{
-        //    SwitchSelectedAbility(8);
-        //}
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            SwitchSelectedAbility(7);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            SwitchSelectedAbility(8);
+        }
 
     }
 

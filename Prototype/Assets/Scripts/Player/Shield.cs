@@ -31,8 +31,7 @@ public class Shield : MonoBehaviour
             spriteRenderer.enabled = false;
             return true;
         }
-            
-
+        
         return false;
     }
 

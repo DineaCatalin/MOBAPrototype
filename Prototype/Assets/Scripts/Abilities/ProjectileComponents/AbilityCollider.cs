@@ -54,6 +54,23 @@ public class AbilityCollider : MonoBehaviour
                 return;
             }
         }
+        // We hit an ice wall so apply some damage
+        else if(collision.tag == "Ice Wall")
+        {
+            Debug.Log("We hit the ice wall");
+            DestroyAfterCollisions iceWall = collision.GetComponent<DestroyAfterCollisions>();
+
+            if (abilityData.description.name == "Fireball")
+                iceWall.Destroy();
+            else
+                iceWall.ApplyDamage();
+
+            // Destroy the ability after the collision
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+
+            return;
+        }
         // We hit a wall, just deactivate the projectile
         // We also want the traps to not interact with the wall
         else if(collision.tag == "Wall" && !isStatic)
@@ -82,14 +99,6 @@ public class AbilityCollider : MonoBehaviour
 
             case "Tornado":
                 if (collision.tag == "Fire Strom" || collision.tag == "Water Rain")
-                {
-                    collision.gameObject.SetActive(false);
-                    Destroy(this.gameObject);
-                }
-                break;
-
-            case "Fireball":
-                if (collision.tag == "Ice Wall")
                 {
                     collision.gameObject.SetActive(false);
                     Destroy(this.gameObject);
