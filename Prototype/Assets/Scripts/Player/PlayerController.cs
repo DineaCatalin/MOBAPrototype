@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     AbilityManager abilityManager;
 
     // We will disable the movement function when this is true
-    [HideInInspector] public bool isRooted;
+    public bool isRooted;
 
     PlayerData stats;
 

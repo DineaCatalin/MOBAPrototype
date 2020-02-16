@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7484976107439946528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5922580999183513598}
+  - component: {fileID: 4132236008632102321}
+  m_Layer: 0
+  m_Name: SpikesAbility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5922580999183513598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7484976107439946528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.986623, y: -0.5880936, z: -150.85254}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4132236008632102321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7484976107439946528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c15e07b375094b43aa855d1c51e49da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Spikes
+  isInstant: 0
+  spellIndicator: {fileID: 833557636805555732, guid: 297d542055888499e8862e65ecdae0b5,
+    type: 3}
+  abilityData:
+    description:
+      name: 
+      casterTeamName: 
+    stats:
+      cooldown: 0
+      manaCost: 0
+      dotValue: 0
+      duration: 0
+      hpValue: 0
+  spawnedObject: {fileID: 1857320004693153027, guid: aa949fff332254260bcbaa6296a5b0fb,
+    type: 3}

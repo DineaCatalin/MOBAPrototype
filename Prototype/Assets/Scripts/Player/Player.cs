@@ -22,12 +22,15 @@ public class Player : MonoBehaviour
 
     PlayerController controller;
 
+    new Rigidbody2D rigidbody;
+
     void Awake()
     {
         // Load stats from config file
         stats = PlayerDataLoader.Load();
         controller = GetComponent<PlayerController>();
         shield = GetComponentInChildren<Shield>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // This function will be called when a player touches an item
@@ -163,6 +166,8 @@ public class Player : MonoBehaviour
     public void Root(int duration)
     {
         controller.isRooted = true;
+
+        StartCoroutine(RemoveRoot(duration));
     }
 
     IEnumerator RemoveRoot(int duration)
@@ -209,5 +214,23 @@ public class Player : MonoBehaviour
     public PlayerData GetStats()
     {
         return stats;
+    }
+
+    // This effect will throw the player in a random direction
+    public void Kockout(int force, int damage)
+    {
+
+        Debug.Log("Knocking out player");
+        Damage(damage);
+
+        float x = force * Mathf.Pow(-1, Random.Range(0,2));
+        
+        float y = force * Mathf.Pow(-1, Random.Range(0, 2));
+
+        Vector2 pushForce = new Vector2(x, y);
+
+        Debug.Log("Pushing with force " + pushForce);
+
+        rigidbody.AddForce(pushForce, ForceMode2D.Impulse);
     }
 }
