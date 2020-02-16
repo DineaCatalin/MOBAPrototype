@@ -48,7 +48,7 @@ public class AbilityCollider : MonoBehaviour
                 effect.ApplyEffect(player, abilityData.stats);
                 Debug.Log("Projectile has hit " + collision);
 
-                if (!isStatic)
+                if (!isStatic && abilityData.description.name != "Tornado")
                     Destroy(this.gameObject);
 
                 return;
