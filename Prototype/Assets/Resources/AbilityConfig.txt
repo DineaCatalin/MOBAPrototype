@@ -178,7 +178,7 @@
             "cooldown":1,
             "manaCost":1,
             "dotValue":1,
-            "duration":1,
+            "duration":10,
             "hpValue":1
          }
       },

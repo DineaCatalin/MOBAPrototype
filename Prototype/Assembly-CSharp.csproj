@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Abilities\Effects\KnockoutEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\PullEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\RootEffect.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Effects\RushArea.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\SlowEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Manager\AbilityManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileAbility.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\Flicker.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbilityToPoint.cs" />
+    <Compile Include="Assets\Scripts\Abilities\RushAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ShieldAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\SpawnAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
