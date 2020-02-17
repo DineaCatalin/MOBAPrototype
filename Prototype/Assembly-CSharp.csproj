@@ -114,6 +114,7 @@
     <None Include="Assets\Resources\SelectedAbilitiesConfig.txt" />
     <None Include="Assets\Resources\AbilityConfig.txt" />
     <None Include="Assets\Resources\PlayerConfig.txt" />
+    <None Include="Assets\Resources\ProjectileSpeedConfig.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
