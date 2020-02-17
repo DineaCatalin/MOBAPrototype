@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        // Assign id from gamemanager, do it over the network
+        // TODO: Assign id from gamemanager, do it over the network
 
         SetComponentIDs();
 
@@ -136,8 +136,34 @@ public class Player : MonoBehaviour
         // Check if we are dead
         if(stats.health <= 0)
         {
-            //Die
+            Die();
         }
+    }
+
+    void Die()
+    {
+        // Update match statistics etc.
+
+        // We will just set the GO as inactive
+        Debug.Log(gameObject + " Die and respawn in " + GameManager.respawnCooldown + " seconds");
+
+        gameObject.SetActive(false);
+
+        GameManager.Instance.KillAndRespawnPlayer(GameManager.respawnCooldown, this);
+    }
+
+    // This will be called once the player has been respawned (reactivated) to reset stats
+    public void Reset()
+    {
+        // Stats
+        stats.health = stats.maxHealth;
+        stats.mana = stats.maxMana;
+
+        // UI
+        healthBar.SetCurrentHealth(stats.health);
+        manaBar.SetCurrentMana(stats.mana);
+
+        gameObject.SetActive(true);
     }
 
     public void Heal(int heal)
@@ -158,7 +184,7 @@ public class Player : MonoBehaviour
     // Adds mana
     public void IncreaseMana(int mana)
     {
-        // Don't heal more then the maxHP
+        // Don't give more mana then the maxHP
         if (stats.mana + mana >= stats.maxMana)
         {
             stats.mana = stats.maxMana;
@@ -261,6 +287,10 @@ public class Player : MonoBehaviour
         return stats;
     }
 
+    //
+    // 
+    //
+
     // This effect will throw the player in a random direction
     public void Kockout(int force, int damage)
     {
@@ -285,19 +315,23 @@ public class Player : MonoBehaviour
 
         Vector3 direction = targetPosition - transform.position;
         direction.Normalize();
-        Debug.Log("Direction multiplying by " + force + " before is " + direction);
+        //Debug.Log("Direction multiplying by " + force + " before is " + direction);
         direction *= force;
-        Debug.Log("Direction after  is " + direction);
+        //Debug.Log("Direction after  is " + direction);
 
         rigidbody.AddForce(direction, ForceMode2D.Impulse);
     }
+
+    //
+    // Manage ID and the passing of the ID to other components
+    //
 
     void SetComponentIDs()
     {
         var children = GetComponentsInChildren<Transform>();
         foreach (var child in children)
         {
-            Debug.Log("Child is " + child.name);
+            //Debug.Log("Child is " + child.name);
             child.name = child.name + id;
         }
 

@@ -6,7 +6,7 @@ public class ManaBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
 
-    private void Start()
+    private void Awake()
     {
         Debug.Log("Mana bar init");
 
