@@ -24,7 +24,12 @@ public class Player : MonoBehaviour
 
     new Rigidbody2D rigidbody;
 
+    // ID of the player used to identify abilities
     [SerializeField] int id;
+
+    // UI of the player
+    public HealthBar healthBar;
+    public ManaBar manaBar; 
 
     void Awake()
     {
@@ -37,6 +42,13 @@ public class Player : MonoBehaviour
         controller = GetComponent<PlayerController>();
         shield = GetComponentInChildren<Shield>();
         rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        // Set health and mana bar values
+        healthBar.SetMaxHealth(stats.maxHealth);
+        manaBar.SetMaxMana(stats.maxMana);
     }
 
     // This function will be called when a player touches an item
@@ -119,6 +131,7 @@ public class Player : MonoBehaviour
             return;
 
         stats.health -= damage;
+        healthBar.SetCurrentHealth(stats.health);
 
         // Check if we are dead
         if(stats.health <= 0)
@@ -131,9 +144,15 @@ public class Player : MonoBehaviour
     {
         // Don't heal more then the maxHP
         if(stats.health + heal >= stats.maxHealth)
+        {
             stats.health = stats.maxHealth;
+            healthBar.SetCurrentHealth(stats.health);
+        }
         else
+        {
             stats.health += heal;
+            healthBar.SetCurrentHealth(stats.health);
+        } 
     }
 
     // Adds mana
@@ -141,9 +160,29 @@ public class Player : MonoBehaviour
     {
         // Don't heal more then the maxHP
         if (stats.mana + mana >= stats.maxMana)
+        {
             stats.mana = stats.maxMana;
+            manaBar.SetCurrentMana(stats.mana);
+        }
         else
+        {
             stats.mana += mana;
+            manaBar.SetCurrentMana(stats.mana);
+        } 
+    }
+
+    public void UseMana(int mana)
+    {
+        stats.mana -= mana;
+        manaBar.SetCurrentMana(stats.mana);
+    }
+
+    public bool EnoughManaForAbility(int manaCost)
+    {
+        if (stats.mana - manaCost < 0)
+            return false;
+
+        return true;
     }
 
     IEnumerator ApplyTickDamage(int numTicks, int damage)
