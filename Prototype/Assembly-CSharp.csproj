@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentManager.cs" />
+    <Compile Include="Assets\Scripts\Environment\Walls.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Item\ItemPool.cs" />

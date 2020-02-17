@@ -20,19 +20,24 @@ public class AbilityFactory : MonoBehaviour
     private void Awake()
     {
         SharedInstance = this;
-    }
 
-    private void Start()
-    {
+        // Initialize helper data structures
+
+        // This is for mapping the selected abilties
         mapper = new AbilityMapper();
-        abilityMap = new Dictionary<string, Ability>();
+
+        // This is the container of all abilities
+        // We will move all abilities from an array to a map because it is faster to access them
+        abilityMap = new Dictionary<string, Ability>(); 
 
         // Fill the AbilityMap
         for (int i = 0; i < abilityContainerArray.Length; i++)
         {
-            Debug.Log("AbilityFactory Adding ability with name " + abilityContainerArray[i].name);
             abilityMap.Add(abilityContainerArray[i].name, abilityContainerArray[i]);
         }
+
+        // Remove reference
+        abilityContainerArray = null;
     }
 
     public Ability[] GetCurrentAbilities()
@@ -40,6 +45,8 @@ public class AbilityFactory : MonoBehaviour
         Ability[] currentAbilities = new Ability[8];
 
         string abilityName;
+
+        Debug.Log("AbilityMapper ability 0 is " + mapper.GetAbilityNameForIndex(0));
 
         for (int i = 0; i < 8; i++)
         {

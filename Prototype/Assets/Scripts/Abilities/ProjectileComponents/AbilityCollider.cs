@@ -35,7 +35,7 @@ public class AbilityCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision.tag " + collision.tag + " casterTeamName" + abilityData.description.casterTeamName);
+        Debug.Log("collision.tag " + collision.tag + " casterTeamName" + abilityData.description.name);
         // Check if we've hit the player
         if (collision.tag.Contains("Team"))
         {

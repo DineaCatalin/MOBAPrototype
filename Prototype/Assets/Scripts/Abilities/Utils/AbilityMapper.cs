@@ -12,6 +12,8 @@ public class AbilityMapper
     // This has to be reworked but due to the fact this is a prototype we'll leave it like this
     public string GetAbilityNameForIndex(int abilityIndex)
     {
+        Debug.Log("GetAbilityNameForIndex getting ability for index " + abilityIndex);
+
         switch(abilityIndex)
         {
             case 1:

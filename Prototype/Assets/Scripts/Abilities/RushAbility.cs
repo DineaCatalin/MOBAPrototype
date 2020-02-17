@@ -11,9 +11,6 @@ public class RushAbility : Ability
         {
             rushArea = GameObject.Find("RushArea" + playerID);
         }
-            
-
-        Debug.Log("AAA Gameobject name is " + transform.parent.name);
     }
 
     public override void Cast()
