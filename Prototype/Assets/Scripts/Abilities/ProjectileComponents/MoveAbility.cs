@@ -11,7 +11,10 @@ public class MoveAbility : MonoBehaviour
 
     void OnEnable()
     {
-//        Debug.Log("MoveAbility::OnEnable");
+        // Projectile will have "(Clone)" added to the name as it was instatiated after a template GO
+        string correctName = name.Replace("(Clone)", "");
+        speed = AbilityDataCache.GetProjectileSpeed(correctName);
+
         moveDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         moveDirection.z = 0;
         moveDirection.Normalize();

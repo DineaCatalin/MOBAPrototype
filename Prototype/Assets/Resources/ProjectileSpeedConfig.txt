@@ -1,0 +1,5 @@
+﻿{ 
+   "FireballSpeed":10.0,
+   "FireStormSpeed":10.0,
+   "TornadoSpeed":10.0
+}

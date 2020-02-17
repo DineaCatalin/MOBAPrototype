@@ -30,3 +30,11 @@ public class AbilityDescription
     public string name;
     public string casterTeamName;
 }
+
+[Serializable]
+public class ProjectileSpeedConfig
+{
+    public float FireballSpeed;
+    public float FireStormSpeed;
+    public float TornadoSpeed;
+}
