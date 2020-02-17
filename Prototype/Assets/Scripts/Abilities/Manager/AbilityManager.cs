@@ -23,8 +23,6 @@ public class AbilityManager : MonoBehaviour
     {
         abilities = AbilityFactory.SharedInstance.GetCurrentAbilities();
 
-        //        Debug.Log("AbilityManager Start()");
-
         player = GetComponent<Player>();
 
         int playerID = player.GetID();
@@ -42,7 +40,8 @@ public class AbilityManager : MonoBehaviour
             spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
 
             spellIndicators[i].transform.parent = this.transform;
-            spellIndicators[i].transform.position = Vector3.zero;
+            spellIndicators[i].transform.localPosition = new Vector3(0,0,1);
+            Debug.Log("SpellIndicator position " + spellIndicators[i].transform.position);
 
             // Give the instantiated spell indicator also to the ability so it can use it later
             currentAbility.SetSpellIndicator(spellIndicators[i]);
@@ -52,11 +51,6 @@ public class AbilityManager : MonoBehaviour
         
         currentAbility = null;
         currentAbilityIndex = -1;
-    }
-
-    void LoadAbilities()
-    {
-
     }
 
     // Update is called once per frame
