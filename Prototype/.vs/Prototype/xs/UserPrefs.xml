@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/NewMonoBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="69" Column="26" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="50" Column="10" />
       <File FileName="Assets/Scripts/Item/Item.cs" />
       <File FileName="Assets/Scripts/Utils/FollowCursor.cs" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
@@ -12,12 +12,12 @@
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
       <File FileName="Assets/Scripts/Utils/FileHandler.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="52" Column="33" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="54" Column="6" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="26" Column="1" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
-      <File FileName="Assets/Resources/PlayerConfig.txt" Line="8" Column="2" />
-      <File FileName="Assets/Resources/AbilityConfig.txt" Line="23" Column="26" />
+      <File FileName="Assets/Resources/PlayerConfig.txt" Line="7" Column="15" />
+      <File FileName="Assets/Resources/AbilityConfig.txt" Line="192" Column="26" />
       <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" Line="10" Column="2" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" Line="14" Column="66" />
       <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" />
@@ -25,13 +25,13 @@
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" />
       <File FileName="Assets/Scripts/Utils/MimicRotation.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" Line="52" Column="31" />
       <File FileName="Assets/Scripts/Test/DummyController.cs" Line="31" Column="86" />
       <File FileName="Assets/Scripts/Environment/NewMonoBehaviour.cs" Line="20" Column="67" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbilityToPoint.cs" Line="16" Column="9" />
+      <File FileName="Assets/Scripts/GameManager/NewMonoBehaviour.cs" Line="17" Column="30" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="41" Column="13" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="107" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" Line="35" Column="35" NotebookId="1" />
@@ -43,8 +43,9 @@
       <File FileName="Assets/Resources/NewFile.txt" Line="5" Column="2" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/HealthBar.cs" Line="14" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="12" Column="6" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/NewMonoBehaviour.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/NewMonoBehaviour.cs" Line="5" Column="18" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/NewMonoBehaviour.cs" Line="9" Column="25" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/NewMonoBehaviour.cs" Line="23" Column="41" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="148" Column="43" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -53,21 +54,15 @@
             <Node name="Assets" expanded="True">
               <Node name="Resources" expanded="True" />
               <Node name="Scripts" expanded="True">
-                <Node name="Abilities" expanded="True">
-                  <Node name="Data" expanded="True" />
-                  <Node name="Effects" expanded="True" />
-                  <Node name="Manager" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
-                  <Node name="Utils" expanded="True" />
-                </Node>
                 <Node name="Command" expanded="True" />
                 <Node name="Environment" expanded="True" />
+                <Node name="GameManager" expanded="True">
+                  <Node name="GameManager.cs" selected="True" />
+                </Node>
                 <Node name="Item" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="Test" expanded="True" />
-                <Node name="UI" expanded="True">
-                  <Node name="NewMonoBehaviour.cs" selected="True" />
-                </Node>
+                <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
             </Node>

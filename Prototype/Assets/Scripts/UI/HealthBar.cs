@@ -6,10 +6,13 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
 
-    private void Start()
+    private void Awake()
     {
         if (slider == null)
             slider = GetComponent<Slider>();
+
+        if (slider == null)
+            Debug.Log("Slider is null wtf?");
     }
 
     public void SetMaxHealth(int maxHealth)
@@ -20,6 +23,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetCurrentHealth(int health)
     {
+        Debug.Log("HealthBar Setting health to " + health);
         slider.value = health;
     }
 }
