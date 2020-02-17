@@ -16,7 +16,7 @@ public class AbilityManager : MonoBehaviour
 
     Ability currentAbility;
 
-    PlayerData playerStats;
+    Player player;
 
     // Use this for initialization
     void Start()
@@ -25,9 +25,7 @@ public class AbilityManager : MonoBehaviour
 
         //        Debug.Log("AbilityManager Start()");
 
-        Player player = GetComponent<Player>();
-
-        playerStats = player.GetStats();
+        player = GetComponent<Player>();
 
         int playerID = player.GetID();
 
@@ -114,7 +112,7 @@ public class AbilityManager : MonoBehaviour
                 return;
             }
 
-            playerStats.mana -= currentAbility.GetManaCost();
+            player.UseMana(currentAbility.GetManaCost());
                 
             currentAbility.Cast();
 //            Debug.Log("AbilityManager: CastAbility After cast currentAbility is charging " + currentAbility.IsCharging());
@@ -170,9 +168,6 @@ public class AbilityManager : MonoBehaviour
 
     bool EnoughManaForSelectedAbility()
     {
-        if (playerStats.mana - currentAbility.GetManaCost() < 0)
-            return false;
-
-        return true;
+        return player.EnoughManaForAbility(currentAbility.GetManaCost());
     }
 }
