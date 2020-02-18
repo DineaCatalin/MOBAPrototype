@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/AbilityConfig.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/PUN2_GameLobby.cs">
     <Files>
       <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="50" Column="10" />
       <File FileName="Assets/Scripts/Item/Item.cs" />
@@ -17,7 +17,7 @@
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
       <File FileName="Assets/Resources/PlayerConfig.txt" />
-      <File FileName="Assets/Resources/AbilityConfig.txt" Line="197" Column="9" />
+      <File FileName="Assets/Resources/AbilityConfig.txt" />
       <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
       <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" />
@@ -29,7 +29,8 @@
       <File FileName="Assets/Scripts/Test/DummyController.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbilityToPoint.cs" />
       <File FileName="Assets/Resources/ProjectileSpeedConfig.txt" />
-      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" Line="8" Column="4" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="16" Column="2" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
@@ -47,23 +48,11 @@
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Resources" expanded="True">
-                <Node name="AbilityConfig.txt" selected="True" />
-              </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="Abilities" expanded="True">
-                  <Node name="Data" expanded="True" />
-                  <Node name="Effects" expanded="True" />
-                  <Node name="Manager" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
+                <Node name="Network" expanded="True">
+                  <Node name="PUN2_GameLobby.cs" selected="True" />
                 </Node>
-                <Node name="Command" expanded="True" />
-                <Node name="Environment" expanded="True" />
-                <Node name="GameManager" expanded="True" />
-                <Node name="Item" expanded="True" />
                 <Node name="Player" expanded="True" />
-                <Node name="Test" expanded="True" />
-                <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
             </Node>
