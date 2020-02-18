@@ -25,6 +25,9 @@ ScriptsOnlyBuild:
     - MimicRotation
     - MoveAbility
     - MoveAbilityToPoint
+    - PUN2_GameLobby
+    - PUN2_PlayerSync
+    - PUN2_RoomController
     - Player
     - PlayerController
     - ProjectileAbility
@@ -48,6 +51,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -85,39 +90,19 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
     - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 50
-      Script: {instanceID: 0}
-    - Class: 54
       Script: {instanceID: 0}
     - Class: 58
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
     - Class: 70
       Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -125,8 +110,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11154}
     - Class: 114
       Script: {instanceID: 11188}
-    - Class: 114
-      Script: {instanceID: 11328}
     - Class: 114
       Script: {instanceID: 11368}
     - Class: 114
@@ -137,8 +120,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11428}
     - Class: 114
       Script: {instanceID: 11534}
-    - Class: 114
-      Script: {instanceID: 11724}
     - Class: 114
       Script: {instanceID: 11734}
     - Class: 114
@@ -212,6 +193,89 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13226}
     - Class: 114
+      Script: {instanceID: 15654}
+    - Class: 114
+      Script: {instanceID: 44564}
+    - Class: 114
+      Script: {instanceID: 45664}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/GameLobby.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11328}
+    - Class: 114
+      Script: {instanceID: 11368}
+    - Class: 114
+      Script: {instanceID: 11724}
+    - Class: 114
+      Script: {instanceID: 11860}
+    - Class: 114
+      Script: {instanceID: 11972}
+    - Class: 114
+      Script: {instanceID: 12102}
+    - Class: 114
+      Script: {instanceID: 12502}
+    - Class: 114
+      Script: {instanceID: 12540}
+    - Class: 114
+      Script: {instanceID: 13210}
+    - Class: 114
       Script: {instanceID: 15320}
     - Class: 114
       Script: {instanceID: 15324}
@@ -239,6 +303,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15654}
     - Class: 114
       Script: {instanceID: 15678}
+    - Class: 114
+      Script: {instanceID: 25486}
+    - Class: 114
+      Script: {instanceID: 44564}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -264,8 +332,6 @@ ScriptsOnlyBuild:
     - Class: 213
       Script: {instanceID: 0}
     - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
@@ -1802,7 +1868,26 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Asteroids
     className: LobbyTopPanel
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PUN2_GameLobby
+  - hash:
+      serializedVersion: 2
+      Hash: 9ecf0891a8fd1a7bd6cfeb955f3372f8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PUN2_PlayerSync
+  - hash:
+      serializedVersion: 2
+      Hash: 85a2dea8518eeeb88f76f3ebfff75ea2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PUN2_RoomController
   platform: 2
   scenePathNames:
+  - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.1_OSX.app
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.2_OSX.app

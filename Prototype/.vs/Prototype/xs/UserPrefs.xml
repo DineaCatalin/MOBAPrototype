@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/PUN2_GameLobby.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/NewMonoBehaviour1.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="50" Column="10" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="18" Column="1" />
       <File FileName="Assets/Scripts/Item/Item.cs" />
       <File FileName="Assets/Scripts/Utils/FollowCursor.cs" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
@@ -29,7 +29,10 @@
       <File FileName="Assets/Scripts/Test/DummyController.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbilityToPoint.cs" />
       <File FileName="Assets/Resources/ProjectileSpeedConfig.txt" />
-      <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" Line="8" Column="4" />
+      <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" />
+      <File FileName="Assets/Scripts/Network/NewMonoBehaviour.cs" Line="4" Column="61" />
+      <File FileName="Assets/Scripts/Network/NewMonoBehaviour1.cs" Line="4" Column="59" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="16" Column="2" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
@@ -41,7 +44,7 @@
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/HealthBar.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="18" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -49,11 +52,13 @@
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
+                <Node name="Abilities" expanded="True">
+                  <Node name="Effects" expanded="True" />
+                </Node>
                 <Node name="Network" expanded="True">
-                  <Node name="PUN2_GameLobby.cs" selected="True" />
+                  <Node name="NewMonoBehaviour1.cs" selected="True" />
                 </Node>
                 <Node name="Player" expanded="True" />
-                <Node name="Utils" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -63,7 +68,6 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7e8af0b9-36af-4f26-9fad-b605c3e6c651" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
