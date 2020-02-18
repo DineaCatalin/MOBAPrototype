@@ -3,6 +3,7 @@ using System.IO;
 
 public static class FileHandler
 {
+    // Doesn't work at build runtime 
     public static void WriteString(string text, string resourceFile)
     {
         string path = "Assets/Resources/" + resourceFile + ".txt";
