@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     // UI of the player
     public HealthBar healthBar;
-    public ManaBar manaBar; 
+    public ManaBar manaBar;
 
     void Awake()
     {
@@ -159,7 +159,7 @@ public class Player : MonoBehaviour
         stats.health = stats.maxHealth;
         stats.mana = stats.maxMana;
 
-        // UI
+        // UI1
         healthBar.SetCurrentHealth(stats.health);
         manaBar.SetCurrentMana(stats.mana);
 
