@@ -20,8 +20,9 @@ public class ProjectileAbility : Ability
     private void Start()
     {
         if (castOrigin == null)
+        {
             castOrigin = GameObject.Find("CastOrigin" + playerID).transform;
-
+        }
     }
 
     public override void Cast()
@@ -29,8 +30,6 @@ public class ProjectileAbility : Ability
         base.Cast();
 
         //  Debug.Log("ProjectileAbility is casting " + abilityData.description.name);
-
-        
 
         Instantiate(projectile, castOrigin.position, Quaternion.identity);
     }

@@ -3,7 +3,12 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    // This is where the abilitymanager, transform and player scripts are
+    [SerializeField] GameObject player;
+
     AbilityManager abilityManager;
+    Transform playerTransform;
+  
 
     // We will disable the movement function when this is true
     public bool isRooted;
@@ -19,8 +24,9 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        stats = GetComponent<Player>().GetStats();
-        abilityManager = GetComponent<AbilityManager>();
+        stats = player.GetComponent<Player>().GetStats();
+        abilityManager = player.GetComponent<AbilityManager>();
+        playerTransform = player.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -63,14 +69,14 @@ public class PlayerController : MonoBehaviour
             movementIncrement += Vector3.right;
         }
 
-        transform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
+        playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
     }
 
     void HandleRotation()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 perpendicular = transform.position - mousePos;
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
+        playerTransform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }
 
     void HandleAbilityCasting()
@@ -157,7 +163,7 @@ public class PlayerController : MonoBehaviour
             movementIncrement += Vector3.right;
         }
 
-        transform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
+        playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
     }
 
 }

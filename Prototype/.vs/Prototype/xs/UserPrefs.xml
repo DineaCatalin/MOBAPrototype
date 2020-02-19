@@ -1,64 +1,33 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/NewMonoBehaviour1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/PUN2_PlayerSync.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/Item/Item.cs" />
-      <File FileName="Assets/Scripts/Utils/FollowCursor.cs" />
-      <File FileName="Assets/Scripts/Utils/Utils.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerData.cs" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
-      <File FileName="Assets/Scripts/Utils/FileHandler.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
-      <File FileName="Assets/Resources/PlayerConfig.txt" />
-      <File FileName="Assets/Resources/AbilityConfig.txt" />
-      <File FileName="Assets/Resources/SelectedAbilitiesConfig.txt" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="32" Column="2" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="48" Column="52" />
       <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" />
-      <File FileName="Assets/Resources/ItemConfig.txt" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" />
       <File FileName="Assets/Scripts/Utils/MimicRotation.cs" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" />
-      <File FileName="Assets/Scripts/Test/DummyController.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbilityToPoint.cs" />
-      <File FileName="Assets/Resources/ProjectileSpeedConfig.txt" />
-      <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" />
-      <File FileName="Assets/Scripts/Network/NewMonoBehaviour.cs" Line="4" Column="61" />
-      <File FileName="Assets/Scripts/Network/NewMonoBehaviour1.cs" Line="4" Column="59" />
-      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="16" Column="2" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/ItemPool.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerDataLoader.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/ItemData.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/HealthBar.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="18" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" />
+      <File FileName="Assets/Scripts/Utils/FollowAtDistance.cs" Line="18" Column="6" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="8" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="Photon" expanded="True" />
+              <Node name="Resources" expanded="True" />
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Effects" expanded="True" />
                 </Node>
+                <Node name="Command" expanded="True" />
+                <Node name="GameManager" expanded="True" />
+                <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True">
-                  <Node name="NewMonoBehaviour1.cs" selected="True" />
+                  <Node name="PUN2_PlayerSync.cs" selected="True" />
                 </Node>
                 <Node name="Player" expanded="True" />
+                <Node name="Utils" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -68,6 +37,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0fcc7cc3-ba8d-4fa1-b7ba-e5179f32ca96" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

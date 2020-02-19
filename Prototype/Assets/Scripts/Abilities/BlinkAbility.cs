@@ -11,7 +11,11 @@ public class BlinkAbility : Ability
     private void Start()
     {
         if (playerTransform == null)
+        {
+            // Due to the fact that the player is instantiated over the network the object
+            // we are working on now is a clone so it has the string "(Clone)" attached to its name
             playerTransform = GameObject.Find("Player" + playerID).transform;
+        }
     }
 
     public override void Cast()
