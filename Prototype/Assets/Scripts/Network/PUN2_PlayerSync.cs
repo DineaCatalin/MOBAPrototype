@@ -21,23 +21,28 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
 
     Vector3 latestPos;
     Quaternion latestRot;
-    Vector3 velocity;
+    Vector2 velocity;
     float angularVelocity;
 
     bool valuesReceived;
 
+    //Lag compensation
+    float currentTime = 0;
+    double currentPacketTime = 0;
+    double lastPacketTime = 0;
+    Vector3 positionAtLastPacket = Vector3.zero;
+    Quaternion rotationAtLastPacket = Quaternion.identity;
+
     void Start()
     {
-        Debug.Assert(player2Sync == null, "PUN2_PlayerSync No player attached!");
+        // Player is local
+        rb = player2Sync.GetComponent<Rigidbody2D>();
+
+        playerTransform = player2Sync.transform;
 
         if (photonView.IsMine)
         {
-            Debug.Log("PUN2_PlayerSync photon view is mine");
-            // Player is local
-            rb = player2Sync.GetComponent<Rigidbody2D>();
-            playerTransform = player2Sync.transform;
 
-            // Set main healthbar to this player
         }
         else
         {
@@ -57,9 +62,14 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
     {
         if (!photonView.IsMine && valuesReceived)
         {
-            //Update Object position and Rigidbody parameters
-            transform.position = Vector3.Lerp(transform.position, latestPos, Time.deltaTime * 5);
-            playerTransform.rotation = Quaternion.Lerp(transform.rotation, latestRot, Time.deltaTime * 5);
+            //Lag compensation
+            double timeToReachGoal = currentPacketTime - lastPacketTime;
+            currentTime += Time.deltaTime;
+
+            //Update remote player
+            playerTransform.position = Vector3.Lerp(positionAtLastPacket, latestPos, (float)(currentTime / timeToReachGoal));
+            playerTransform.rotation = Quaternion.Lerp(rotationAtLastPacket, latestRot, (float)(currentTime / timeToReachGoal));
+
             rb.velocity = velocity;
             rb.angularVelocity = angularVelocity;
         }
@@ -80,8 +90,15 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             //Network player, receive data
             latestPos = (Vector3)stream.ReceiveNext();
             latestRot = (Quaternion)stream.ReceiveNext();
-            velocity = (Vector3)stream.ReceiveNext();
+            velocity = (Vector2)stream.ReceiveNext();
             angularVelocity = (float)stream.ReceiveNext();
+
+            //Lag compensation
+            currentTime = 0.0f;
+            lastPacketTime = currentPacketTime;
+            currentPacketTime = info.SentServerTime;
+            positionAtLastPacket = playerTransform.position;
+            rotationAtLastPacket = playerTransform.rotation;
 
             valuesReceived = true;
         }
