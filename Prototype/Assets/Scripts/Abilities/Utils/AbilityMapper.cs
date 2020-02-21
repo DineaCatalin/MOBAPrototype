@@ -14,7 +14,7 @@ public class AbilityMapper
     {
         Debug.Log("GetAbilityNameForIndex getting ability for index " + abilityIndex);
 
-        switch(abilityIndex)
+        switch (abilityIndex)
         {
             case 1:
                 return data.ability1;
