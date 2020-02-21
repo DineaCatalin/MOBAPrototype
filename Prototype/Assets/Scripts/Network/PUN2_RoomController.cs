@@ -26,6 +26,7 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
             spawnPoint = Utils.GetRandomScreenPoint();
         }
 
+        Debug.Log("PUN2_RoomController spawning player");
         //We're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
         PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint, Quaternion.identity, 0);
     }

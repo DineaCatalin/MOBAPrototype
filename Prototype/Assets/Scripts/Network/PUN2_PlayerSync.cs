@@ -32,6 +32,7 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
 
         if (photonView.IsMine)
         {
+            Debug.Log("PUN2_PlayerSync photon view is mine");
             // Player is local
             rb = player2Sync.GetComponent<Rigidbody2D>();
             playerTransform = player2Sync.transform;
@@ -85,6 +86,19 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             valuesReceived = true;
         }
     }
+
+    //void OnCollisionEnter(Collision contact)
+    //{
+    //    if (!photonView.IsMine)
+    //    {
+    //        Transform collisionObjectRoot = contact.transform.root;
+    //        if (collisionObjectRoot.tag.Contains("Team"))
+    //        {
+    //            //Transfer PhotonView of Rigidbody to our local player
+    //            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+    //        }
+    //    }
+    //}
 }
 
 

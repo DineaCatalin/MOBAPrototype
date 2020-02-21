@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         stats = player.GetComponent<Player>().GetStats();
         abilityManager = player.GetComponent<AbilityManager>();
-        playerTransform = player.GetComponent<Transform>();
+        playerTransform = player.transform;
     }
 
     // Update is called once per frame
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     void HandleRotation()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 perpendicular = transform.position - mousePos;
+        Vector3 perpendicular = playerTransform.position - mousePos;
         playerTransform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }
 
