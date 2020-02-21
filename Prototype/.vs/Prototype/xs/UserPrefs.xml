@@ -1,22 +1,23 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Utils/NewMonoBehaviour1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
     <Files>
       <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="33" Column="1" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="24" Column="39" />
       <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" />
       <File FileName="Assets/Scripts/Utils/MimicRotation.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="14" Column="26" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="28" Column="45" />
       <File FileName="Assets/Scripts/Utils/FollowAtDistance.cs" />
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="10" Column="35" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="33" Column="62" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="5" Column="28" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="10" Column="29" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="22" Column="6" />
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" Line="22" Column="6" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" Line="62" Column="4" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="30" Column="6" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="18" Column="18" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="49" Column="10" />
       <File FileName="Assets/Scripts/Utils/FileHandler.cs" Line="8" Column="6" />
-      <File FileName="Assets/Scripts/Abilities/Utils/NewMonoBehaviour.cs" Line="21" Column="20" />
-      <File FileName="Assets/Scripts/Abilities/Utils/NewMonoBehaviour1.cs" Line="25" Column="20" />
+      <File FileName="Assets/Scripts/Abilities/Utils/NewMonoBehaviour1.cs" Line="9" Column="20" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="343" Column="21" />
+      <File FileName="Assets/Plugins/Photon/PhotonUnityNetworking/Code/PhotonView.cs" Line="133" Column="25" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,9 +26,12 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
-                  <Node name="Utils" expanded="True">
-                    <Node name="NewMonoBehaviour1.cs" selected="True" />
-                  </Node>
+                  <Node name="Effects" expanded="True" />
+                  <Node name="Utils" expanded="True" />
+                </Node>
+                <Node name="Network" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="Player.cs" selected="True" />
                 </Node>
               </Node>
             </Node>

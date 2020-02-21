@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public enum Buff
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour
 
     PlayerController controller;
 
-    new Rigidbody2D rigidbody;
+    Rigidbody2D rigidBody;
 
     // ID of the player used to identify abilities
     [SerializeField] int id;
@@ -35,13 +36,15 @@ public class Player : MonoBehaviour
     {
         // TODO: Assign id from gamemanager, do it over the network
 
+        id = GetComponentInParent<PhotonView>().ViewID;
+
         SetComponentIDs();
 
         // Load stats from config file
         stats = PlayerDataLoader.Load();
         controller = GetComponent<PlayerController>();
         shield = GetComponentInChildren<Shield>();
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -306,7 +309,7 @@ public class Player : MonoBehaviour
 
         Debug.Log("Pushing with force " + pushForce);
 
-        rigidbody.AddForce(pushForce, ForceMode2D.Impulse);
+        rigidBody.AddForce(pushForce, ForceMode2D.Impulse);
     }
 
     public void PullToLocation(Vector3 targetPosition, int force, int damage)
@@ -319,7 +322,7 @@ public class Player : MonoBehaviour
         direction *= force;
         //Debug.Log("Direction after  is " + direction);
 
-        rigidbody.AddForce(direction, ForceMode2D.Impulse);
+        rigidBody.AddForce(direction, ForceMode2D.Impulse);
     }
 
     //

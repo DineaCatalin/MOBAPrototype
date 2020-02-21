@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     // This is where the abilitymanager, transform and player scripts are
-    [SerializeField] GameObject player;
+    public GameObject player;
 
     AbilityManager abilityManager;
     Transform playerTransform;

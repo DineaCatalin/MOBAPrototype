@@ -60,6 +60,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.ServerSettings
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -133,8 +135,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12024}
     - Class: 114
       Script: {instanceID: 12102}
-    - Class: 114
-      Script: {instanceID: 12138}
     - Class: 114
       Script: {instanceID: 12148}
     - Class: 114
@@ -448,7 +448,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 8ae3331b163cc121825eeed3975d6c4d
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: ChatGui
   - hash:
@@ -496,7 +496,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: ee1dba1a186ac062d564e9eb73a1c56f
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Photon.Chat.UtilityScripts
     className: TextToggleIsOnTransition
   - hash:
@@ -622,7 +622,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 57068c697717dd51af9abb23157cd794
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Photon.Realtime.Demo
     className: ConnectAndJoinRandomLb
   - hash:
@@ -796,7 +796,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: b25c2463ba9144686d18d7707733226b
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: NamePickGui
   - hash:
@@ -970,7 +970,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Photon.Chat.UtilityScripts
     className: EventSystemSpawner
   - hash:
@@ -1012,7 +1012,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 7602c8d40ade510f4c0e781c7062b246
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: ChannelSelector
   - hash:
@@ -1030,13 +1030,13 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: IgnoreUiRaycastWhenInactive
   - hash:
       serializedVersion: 2
       Hash: 18d89cb858d0cf8a1f38bb786789eaa7
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: ChatAppIdCheckerUI
   - hash:
@@ -1228,7 +1228,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 4fe8955e1c662935371b0936cafbb89b
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Photon.Chat.UtilityScripts
     className: TextButtonTransition
   - hash:
@@ -1372,7 +1372,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: ae1347d9113eee8b83c5c8047dcf31a8
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: FriendItem
   - hash:
@@ -1606,7 +1606,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Photon.Chat.UtilityScripts
     className: OnStartDelete
   - hash:
@@ -1919,4 +1919,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.3_OSX.app
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.4_OSX.app
