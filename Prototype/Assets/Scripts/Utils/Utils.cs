@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 public static class Utils
 {
@@ -16,5 +17,10 @@ public static class Utils
     public static Vector3 GetMousePosition()
     {
         return Camera.main.WorldToScreenPoint(Input.mousePosition);
+    }
+
+    public static string RemoveCloneFromName(string name)
+    {
+        return Regex.Replace(name, @"(Clone)", "");
     }
 }

@@ -29,9 +29,9 @@ public class ProjectileAbility : Ability
     {
         base.Cast();
 
-        //  Debug.Log("ProjectileAbility is casting " + abilityData.description.name);
+        string projectileName = projectile.name.Replace("(Clone)", "");
 
-        Instantiate(projectile, castOrigin.position, Quaternion.identity);
+        AbilitySpawner.Instance.SpawnProjectile(projectileName, castOrigin.position, Quaternion.identity, Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
 }

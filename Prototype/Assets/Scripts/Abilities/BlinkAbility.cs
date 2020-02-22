@@ -22,11 +22,15 @@ public class BlinkAbility : Ability
     {
         base.Cast();
 
+        //playerTransform.gameObject.SetActive(false);
+
         blinkPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         blinkPosition.z = 0;
 
         // Set player position to the mouse position
         playerTransform.position = blinkPosition;
+
+        //playerTransform.gameObject.SetActive(true);
     }
 
 }

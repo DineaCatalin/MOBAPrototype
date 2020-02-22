@@ -6,16 +6,17 @@ ScriptsOnlyBuild:
     - AbilityDuration
     - AbilityFactory
     - AbilityManager
+    - AbilitySpawner
     - ActivationDelay
     - BlinkAbility
     - DOTEffect
     - DestroyAfterCollisions
     - DustDuskAbility
     - EnvironmentManager
+    - ExitHandler
     - Flicker
     - FollowAtDistance
     - FollowCursor
-    - GameManager
     - HealEffect
     - HealthBar
     - Item
@@ -41,6 +42,7 @@ ScriptsOnlyBuild:
     - SlowEffect
     - SpawnAbility
     - SpawnInMouseDirection
+    - TestProjectile
     - Walls
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
@@ -52,6 +54,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -197,6 +201,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13642}
     - Class: 114
       Script: {instanceID: 13660}
+    - Class: 114
+      Script: {instanceID: 31754}
+    - Class: 114
+      Script: {instanceID: 35514}
+    - Class: 114
+      Script: {instanceID: 52760}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -244,6 +254,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 70
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -271,13 +283,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11438}
     - Class: 114
+      Script: {instanceID: 11444}
+    - Class: 114
+      Script: {instanceID: 11500}
+    - Class: 114
+      Script: {instanceID: 11506}
+    - Class: 114
+      Script: {instanceID: 11636}
+    - Class: 114
       Script: {instanceID: 11858}
+    - Class: 114
+      Script: {instanceID: 11940}
     - Class: 114
       Script: {instanceID: 12024}
     - Class: 114
       Script: {instanceID: 12030}
     - Class: 114
+      Script: {instanceID: 12102}
+    - Class: 114
+      Script: {instanceID: 12148}
+    - Class: 114
       Script: {instanceID: 12152}
+    - Class: 114
+      Script: {instanceID: 12160}
+    - Class: 114
+      Script: {instanceID: 12162}
     - Class: 114
       Script: {instanceID: 12252}
     - Class: 114
@@ -287,11 +317,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12340}
     - Class: 114
+      Script: {instanceID: 12344}
+    - Class: 114
+      Script: {instanceID: 12386}
+    - Class: 114
+      Script: {instanceID: 12490}
+    - Class: 114
+      Script: {instanceID: 12538}
+    - Class: 114
       Script: {instanceID: 12542}
     - Class: 114
       Script: {instanceID: 12564}
     - Class: 114
       Script: {instanceID: 12624}
+    - Class: 114
+      Script: {instanceID: 12676}
     - Class: 114
       Script: {instanceID: 12712}
     - Class: 114
@@ -301,21 +341,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12840}
     - Class: 114
+      Script: {instanceID: 12858}
+    - Class: 114
+      Script: {instanceID: 12936}
+    - Class: 114
       Script: {instanceID: 12948}
+    - Class: 114
+      Script: {instanceID: 12966}
     - Class: 114
       Script: {instanceID: 12968}
     - Class: 114
       Script: {instanceID: 12976}
     - Class: 114
+      Script: {instanceID: 13032}
+    - Class: 114
+      Script: {instanceID: 13034}
+    - Class: 114
+      Script: {instanceID: 13048}
+    - Class: 114
+      Script: {instanceID: 13070}
+    - Class: 114
       Script: {instanceID: 13124}
     - Class: 114
       Script: {instanceID: 13190}
     - Class: 114
+      Script: {instanceID: 13504}
+    - Class: 114
       Script: {instanceID: 13512}
+    - Class: 114
+      Script: {instanceID: 13586}
     - Class: 114
       Script: {instanceID: 13634}
     - Class: 114
       Script: {instanceID: 13642}
+    - Class: 114
+      Script: {instanceID: 13660}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1623,7 +1683,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: c3d40b4845fc76d4306cb0fc93a6e0b6
+      Hash: 02d7f80a5b26d3fa9a6f0fe928286ac5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Test
@@ -1915,6 +1975,24 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 0e8f333c4576f83886890bf3354d7b50
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TestProjectile
+  - hash:
+      serializedVersion: 2
+      Hash: 5afe1126db22769b4126b6b322bae634
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AbilitySpawner
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ExitHandler
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity

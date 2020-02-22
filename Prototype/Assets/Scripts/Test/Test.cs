@@ -9,10 +9,14 @@ public class Test : MonoBehaviour
     //[SerializeField] PlayerData data;
     //[SerializeField] AbilityMapperData data;
     //[SerializeField] ItemDataList itemDataList;
-    [SerializeField] List<string> list;
+    //[SerializeField] List<string> list;
+
+    [SerializeField] ProjectileAbility testAbility;
 
     private void Start()
     {
+        testAbility = Resources.Load<ProjectileAbility>("FireballAbility");
+
         // Create json
         //dataList = new AbiliyDataList
         //{
@@ -60,12 +64,12 @@ public class Test : MonoBehaviour
         //Debug.Log(jsonString);
         //FileHandler.WriteString(jsonString, "SelectedAbilitiesConfig");
 
-        string jsonString = JsonUtility.ToJson(list);
-        Debug.Log(jsonString);
+        //string jsonString = JsonUtility.ToJson(list);
+        //Debug.Log(jsonString);
 
-        List<string> l = new List<string>() { "AAA", "BBB" };
-        string jsonString2 = JsonUtility.ToJson(l);
-        Debug.Log(jsonString2);
+        //List<string> l = new List<string>() { "AAA", "BBB" };
+        //string jsonString2 = JsonUtility.ToJson(l);
+        //Debug.Log(jsonString2);
 
     }
 }
