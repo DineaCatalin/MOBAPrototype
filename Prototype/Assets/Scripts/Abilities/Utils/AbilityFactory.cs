@@ -11,7 +11,7 @@ public class AbilityFactory : MonoBehaviour
     [SerializeField] Ability[] abilityContainerArray;
 
     // We will move the ability GOs here for easier access
-    Dictionary<string, Ability> abilityMap;
+    public Dictionary<string, Ability> abilityMap;
 
     Ability templateAbility;
 
@@ -20,6 +20,9 @@ public class AbilityFactory : MonoBehaviour
     private void Awake()
     {
         SharedInstance = this;
+
+        // Load all abilities from the Resource folder
+        //LoadAbilities();
 
         // Initialize helper data structures
 
@@ -76,5 +79,26 @@ public class AbilityFactory : MonoBehaviour
         Regex.Replace(key, @"\s+", "");
         Debug.Log("AbilityFactory key after  " + key);
         return abilityMap[key];
+    }
+
+    // Call this to load abilities from the Resource folder
+    void LoadAbilities()
+    {
+        abilityContainerArray[0] = Resources.Load<ProjectileAbility>("FireballAbility");
+        abilityContainerArray[1] = Resources.Load<ProjectileAbility>("FireStormAbility");
+        abilityContainerArray[2] = Resources.Load<ProjectileAbility>("BlastAbility");
+        abilityContainerArray[3] = Resources.Load<ProjectileAbility>("TraceAbility");
+        abilityContainerArray[4] = Resources.Load<ProjectileAbility>("BubbleAbility");
+        abilityContainerArray[5] = Resources.Load<ProjectileAbility>("WaterRainAbility");
+        abilityContainerArray[6] = Resources.Load<ProjectileAbility>("ManaSphereAbility");
+        abilityContainerArray[7] = Resources.Load<ProjectileAbility>("IceWallAbility");
+        abilityContainerArray[8] = Resources.Load<ProjectileAbility>("SpikesAbility");
+        abilityContainerArray[9] = Resources.Load<ProjectileAbility>("RootsAbility");
+        abilityContainerArray[10] = Resources.Load<ProjectileAbility>("EarthquakeAbility");
+        abilityContainerArray[11] = Resources.Load<ProjectileAbility>("DustDuskAbility");
+        abilityContainerArray[12] = Resources.Load<ProjectileAbility>("PushAbility");
+        abilityContainerArray[13] = Resources.Load<ProjectileAbility>("RushAbility");
+        abilityContainerArray[14] = Resources.Load<ProjectileAbility>("BlinkAbility");
+        abilityContainerArray[15] = Resources.Load<ProjectileAbility>("TornadoAbility");
     }
 }

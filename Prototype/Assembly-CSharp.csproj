@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\Item\ItemPool.cs" />
     <Compile Include="Assets\Scripts\Match\Match.cs" />
     <Compile Include="Assets\Scripts\Match\MatchTeam.cs" />
+    <Compile Include="Assets\Scripts\Network\AbilitySpawner.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_GameLobby.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_PlayerSync.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_RoomController.cs" />
@@ -120,14 +121,16 @@
     <Compile Include="Assets\Scripts\Utils\FollowCursor.cs" />
     <Compile Include="Assets\Scripts\Utils\LookAtMouse.cs" />
     <Compile Include="Assets\Scripts\Utils\MimicRotation.cs" />
+    <Compile Include="Assets\Scripts\Utils\ExitHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\SpawnInMouseDirection.cs" />
     <Compile Include="Assets\Scripts\Utils\StopCanvasRotation.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
-    <None Include="Assets\Resources\AbilityConfig.txt" />
-    <None Include="Assets\Resources\SelectedAbilitiesConfig.txt" />
-    <None Include="Assets\Resources\ItemConfig.txt" />
-    <None Include="Assets\Resources\ProjectileSpeedConfig.txt" />
-    <None Include="Assets\Resources\PlayerConfig.txt" />
+    <Compile Include="Assets\TestProjectile.cs" />
+    <None Include="Assets\Config\Resources\AbilityConfig.txt" />
+    <None Include="Assets\Config\Resources\SelectedAbilitiesConfig.txt" />
+    <None Include="Assets\Config\Resources\ItemConfig.txt" />
+    <None Include="Assets\Config\Resources\ProjectileSpeedConfig.txt" />
+    <None Include="Assets\Config\Resources\PlayerConfig.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

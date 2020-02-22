@@ -16,7 +16,7 @@ public static class FileHandler
 
     public static string ReadString(string resourceFile)
     {
-        string path = "Assets/Resources/" + resourceFile + ".txt";
+        string path = "Assets/Config/Resources" + resourceFile + ".txt";
         var textFile = Resources.Load<TextAsset>(resourceFile);
 
         return textFile.text;

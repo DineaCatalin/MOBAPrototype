@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,12 +22,15 @@ public class PlayerController : MonoBehaviour
 
     Vector3 movementIncrement;
 
+    PhotonView photonView;
+
     // Use this for initialization
     void Start()
     {
         stats = player.GetComponent<Player>().GetStats();
         abilityManager = player.GetComponent<AbilityManager>();
         playerTransform = player.transform;
+        photonView = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -89,8 +93,15 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            abilityManager.CastAbility();
+            //abilityManager.CastAbility();
+            photonView.RPC("Cast", RpcTarget.All);
         }
+    }
+
+    [PunRPC]
+    void Cast()
+    {
+        abilityManager.CastAbility();
     }
 
     void HandleAbilitySelection()

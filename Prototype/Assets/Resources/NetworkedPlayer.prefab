@@ -104,7 +104,7 @@ MonoBehaviour:
   player2Sync: {fileID: 3295094496928400526}
   localScripts:
   - {fileID: 3295094496822912773}
-  - {fileID: 3295094496928400518}
+  - {fileID: 0}
   localObjects: []
 --- !u!114 &3295094496822912775
 MonoBehaviour:

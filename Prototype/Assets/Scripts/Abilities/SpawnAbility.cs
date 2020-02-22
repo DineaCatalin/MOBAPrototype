@@ -10,6 +10,8 @@ public class SpawnAbility : Ability
 
     [SerializeField] bool mimicPlayerRotation = true;
 
+    Quaternion rotation;
+
     // Use this for initialization
     void Start()
     {
@@ -27,11 +29,12 @@ public class SpawnAbility : Ability
             
         Debug.Log("SpawnAbility spellIndicator has ");
 
-        //Instantiate(spawnedObject, spawnPosition, spellIndicator.transform.rotation);
-
         if (mimicPlayerRotation)
-            Instantiate(spawnedObject, spawnPosition, spellIndicator.transform.rotation);
+            rotation = spellIndicator.transform.rotation;
         else
-            Instantiate(spawnedObject, spawnPosition, Quaternion.identity);
+            rotation = Quaternion.identity;
+
+        string projectileName = spawnedObject.name.Replace("(Clone)", "");
+        AbilitySpawner.Instance.SpawnAbility(projectileName, spawnPosition, rotation);
     }
 }
