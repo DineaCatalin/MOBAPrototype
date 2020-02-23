@@ -20,7 +20,7 @@ public class RushArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("RushArea OnTriggerEnter2D collided with " + collision.tag);
+        Debug.Log("RushArea OnTriggerEnter2D castername " + abilityData.description.casterTeamName + " ability name " + abilityData.description.name + " collided with " + collision.tag);
         if(collision.tag == abilityData.description.casterTeamName)
         {
             Player player = collision.GetComponent<Player>();

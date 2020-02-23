@@ -22,7 +22,7 @@ public class ManaBar : MonoBehaviour
 
     public void SetCurrentMana(int mana)
     {
-        Debug.Log("Mana setting mana to " + mana);
+        //Debug.Log("Mana setting mana to " + mana);
         slider.value = mana;
     }
 }

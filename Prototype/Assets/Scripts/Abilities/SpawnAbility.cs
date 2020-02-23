@@ -25,7 +25,7 @@ public class SpawnAbility : Ability
         Debug.Log("SpawnAbility is casting " + abilityData.description.name + " at position " + Utils.GetMousePosition());
 
         spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        spawnPosition.z = 0;
+        spawnPosition.z = 1;
             
         Debug.Log("SpawnAbility spellIndicator has ");
 

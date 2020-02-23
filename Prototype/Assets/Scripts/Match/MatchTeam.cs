@@ -7,6 +7,13 @@ public class MatchTeam
     public Player player1;
     public Player player2;
 
+    int teamID;
+
+    public MatchTeam(int teamID)
+    {
+        this.teamID = teamID;
+    }
+
     int score;
     public int Score
     {
@@ -20,6 +27,8 @@ public class MatchTeam
         if(player1 == null)
         {
             player1 = player;
+            
+            player.SetTeamSpecificData(teamID);
             return true;
         }
 
@@ -27,10 +36,30 @@ public class MatchTeam
         if (player2 == null)
         {
             player2 = player;
+            player.SetTeamSpecificData(teamID);
             return true;
         }
 
         // Team is full so can't set another playerID
+        return false;
+    }
+
+    // Set a player to a specific team
+    public bool SetPlayer(Player player, int teamID)
+    {
+        if (teamID == 1)
+        {
+            player1 = player;
+            player.SetTeamSpecificData(teamID);
+            return true;
+        } 
+        else if (teamID == 2)
+        {
+            player2 = player;
+            player.SetTeamSpecificData(teamID);
+            return true;
+        }
+
         return false;
     }
 

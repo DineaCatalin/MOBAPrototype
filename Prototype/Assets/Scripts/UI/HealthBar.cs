@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetCurrentHealth(int health)
     {
-        Debug.Log("HealthBar Setting health to " + health);
+        //Debug.Log("HealthBar Setting health to " + health);
         slider.value = health;
     }
 }

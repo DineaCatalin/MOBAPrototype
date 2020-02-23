@@ -44,5 +44,6 @@ MonoBehaviour:
   - ActivatePlayerRPC
   - DeactivatePlayerRPC
   - ActivatePlayerShieldRPC
+  - AddPlayerRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0

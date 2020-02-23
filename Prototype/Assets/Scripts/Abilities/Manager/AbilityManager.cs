@@ -5,14 +5,12 @@ using System;
 public class AbilityManager : MonoBehaviour
 {
     const int numAbilities = 8;
-    string teamName;
 
     int currentAbilityIndex;
 
-    [SerializeField] Ability[] abilities;
+    Ability[] abilities;
 
-    //[SerializeField] GameObject[] projectiles;
-    [SerializeField] GameObject[] spellIndicators;
+    GameObject[] spellIndicators;
 
     Ability currentAbility;
 
@@ -29,13 +27,14 @@ public class AbilityManager : MonoBehaviour
 
         spellIndicators = new GameObject[abilities.Length];
 
-        //TODO: Load all abilities and set their casterTeamName to teamName and set the to be inactive
+        // Load all abilities and set the to be inactive
         // Also set the correct spell indicators for the player
         for (int i = 0; i < abilities.Length; i++)
         {
             currentAbility = abilities[i];
             currentAbility.Load();
             currentAbility.SetPlayerID(playerID);
+            currentAbility.SetCasterTeamName(player.teamName);
 
             spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
 
@@ -165,4 +164,13 @@ public class AbilityManager : MonoBehaviour
     {
         return player.EnoughManaForAbility(currentAbility.GetManaCost());
     }
+
+    // Set the caster team name for all the abilities so that they collide with the other team
+    //public void SetAbilityCasterTeamName(string casterTeamName)
+    //{
+    //    for (int i = 0; i < abilities.Length; i++)
+    //    {
+    //        abilities[i].SetCasterTeamName(casterTeamName);
+    //    }
+    //}
 }
