@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/ProjectileAbility.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/ShieldManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="25" Column="55" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="35" Column="44" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
       <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" />
       <File FileName="Assets/Scripts/Utils/MimicRotation.cs" />
@@ -15,10 +15,10 @@
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" />
       <File FileName="Assets/Scripts/Utils/FileHandler.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="339" Column="1" />
       <File FileName="Assets/Plugins/Photon/PhotonUnityNetworking/Code/PhotonView.cs" />
       <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="35" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/Ability.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
       <File FileName="Assets/Scripts/Test/Test.cs" />
@@ -30,15 +30,26 @@
       <File FileName="Assets/Scripts/Utils/ActivationDelay.cs" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="57" Column="60" />
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbilityToPoint.cs" />
+      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
+      <File FileName="Assets/Plugins/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs" />
+      <File FileName="Assets/Scripts/Player/ShieldManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="Plugins" expanded="True">
+                <Node name="Photon" expanded="True">
+                  <Node name="PhotonUnityNetworking" expanded="True">
+                    <Node name="Code" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
@@ -46,12 +57,13 @@
                   <Node name="Manager" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
                   <Node name="Utils" expanded="True" />
-                  <Node name="ProjectileAbility.cs" selected="True" />
                 </Node>
                 <Node name="Environment" expanded="True" />
                 <Node name="GameManager" expanded="True" />
                 <Node name="Network" expanded="True" />
-                <Node name="Player" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="ShieldManager.cs" selected="True" />
+                </Node>
                 <Node name="Test" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
@@ -63,7 +75,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="26b6a837-47fe-4537-bdc6-42f6a4b23015" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dd4c9e40-ff0b-4319-89bc-fb4e162817f4" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

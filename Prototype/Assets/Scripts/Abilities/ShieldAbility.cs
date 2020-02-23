@@ -25,7 +25,7 @@ public class ShieldAbility : Ability
     {
         base.Cast();
 
-        Debug.Log("CAsting Shield ability");
+        Debug.Log("Casting Shield ability");
 
         // See if the mouse if pointing at the same player
         //ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -53,7 +53,8 @@ public class ShieldAbility : Ability
             if (hit.collider.gameObject.tag == teamTag)
             {
                 Player player = hit.collider.gameObject.GetComponent<Player>();
-                player.ApplyShield(abilityData.stats.hpValue);
+                Debug.Log("ShieldAbility activating shield with " + abilityData.stats.hpValue + " through controller for player " + playerID);
+                ShieldManager.Instance.ActivatePlayerShield(abilityData.stats.hpValue, player.GetID());
             }
         }
 

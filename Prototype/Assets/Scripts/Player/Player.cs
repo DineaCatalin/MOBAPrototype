@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     // This will be activated by the bubble shield ability
     Shield shield;
 
-    PlayerController controller;
+    public PlayerController controller;
 
     Rigidbody2D rigidBody;
 
@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     // UI of the player
     public HealthBar healthBar;
     public ManaBar manaBar;
+
+    public PhotonView photonView;
 
     void Awake()
     {
@@ -153,6 +155,17 @@ public class Player : MonoBehaviour
         gameObject.SetActive(false);
 
         GameManager.Instance.KillAndRespawnPlayer(GameManager.respawnCooldown, this);
+    }
+
+    // Will be used for synching the teleport mechanic over the network
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void Activate()
+    {
+        gameObject.SetActive(true);
     }
 
     // This will be called once the player has been respawned (reactivated) to reset stats
@@ -280,9 +293,11 @@ public class Player : MonoBehaviour
         stats.speed += slowValue;
     }
 
-    public void ApplyShield(int armor)
+    // Set the shield only if the player is the 1 clicked
+    public void ActivateShield(int armor, int playerID)
     {
-        shield.SetArmor(armor);
+        if (id == playerID)
+            shield.SetArmor(armor);
     }
 
     public PlayerData GetStats()

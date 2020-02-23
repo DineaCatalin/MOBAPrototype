@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Photon.Pun;
 
 public class EnvironmentManager : MonoBehaviour
 {
@@ -9,11 +10,15 @@ public class EnvironmentManager : MonoBehaviour
     SpriteRenderer dustDuskRenderer;
     Transform dustDuskTransform;
 
+    PhotonView photonView;
+
     public static EnvironmentManager Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
+
+        photonView = GetComponent<PhotonView>();
     }
 
     private void Start()
@@ -27,10 +32,16 @@ public class EnvironmentManager : MonoBehaviour
 
     public void TriggerDustDusk(int duration)
     {
-        // We can add a fade here later
-        dustDusk.SetActive(true);
+        photonView.RPC("ActivateDustDusk", RpcTarget.All);
 
         StartCoroutine(HideDuskDust(duration));
+    }
+
+    [PunRPC]
+    void ActivateDustDusk()
+    {
+        // We can add a fade here later
+        dustDusk.SetActive(true);
     }
 
     IEnumerator HideDuskDust(float time)
@@ -42,6 +53,12 @@ public class EnvironmentManager : MonoBehaviour
 
     // Can make fade later out of it
     void RemoveDusk()
+    {
+        photonView.RPC("RemoveDustDusk", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void RemoveDustDusk()
     {
         dustDusk.SetActive(false);
     }

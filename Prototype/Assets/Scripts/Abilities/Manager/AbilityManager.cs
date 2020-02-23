@@ -96,6 +96,7 @@ public class AbilityManager : MonoBehaviour
     
     public void CastAbility()
     {
+        Debug.Log("Player " + player.GetID() + " is casting");
         if(!currentAbility.IsCharging())
         {
             // Check if we have enough mana
