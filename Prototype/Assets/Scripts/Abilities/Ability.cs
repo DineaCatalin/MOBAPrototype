@@ -89,4 +89,9 @@ public abstract class Ability : MonoBehaviour
     {
         playerID = id;
     }
+
+    public void SetCasterTeamName(string teamName)
+    {
+        abilityData.description.casterTeamName = teamName;
+    }
 }

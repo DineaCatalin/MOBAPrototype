@@ -35,17 +35,18 @@ public class AbilitySpawner : MonoBehaviour
         Instantiate(projectileMap[projectileName], position, rotation);
     }
 
-    public void SpawnProjectile(string name, Vector3 position, Quaternion rotation, Vector3 direction)
+    public void SpawnProjectile(string name, Vector3 position, Quaternion rotation, Vector3 direction, int layer)
     {
-        photonView.RPC("SpawnProjectileAbility", RpcTarget.All, name, position, rotation, direction);
+        photonView.RPC("SpawnProjectileAbility", RpcTarget.All, name, position, rotation, direction, layer);
     }
 
     [PunRPC]
-    void SpawnProjectileAbility(string projectileName, Vector3 position, Quaternion rotation, Vector3 direction)
+    void SpawnProjectileAbility(string projectileName, Vector3 position, Quaternion rotation, Vector3 direction, int layer)
     {
         Debug.Log("AbilitySpawner Spawn rotation is " + rotation);
 
         GameObject projectile = Instantiate(projectileMap[projectileName], position, rotation);
+        projectile.layer = layer;
 
         MoveAbility movement = projectile.GetComponent<MoveAbility>();
         movement.SetDirection(direction);

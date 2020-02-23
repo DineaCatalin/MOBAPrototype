@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\UI\ManaBar.cs" />
     <Compile Include="Assets\Scripts\UI\StatsBar.cs" />
     <Compile Include="Assets\Scripts\Utils\ActivationDelay.cs" />
+    <Compile Include="Assets\Scripts\Utils\AppManager.cs" />
     <Compile Include="Assets\Scripts\Utils\ExitHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\FileHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\FixRotation.cs" />

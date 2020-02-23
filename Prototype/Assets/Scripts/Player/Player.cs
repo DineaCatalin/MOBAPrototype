@@ -133,9 +133,14 @@ public class Player : MonoBehaviour
         // Manage shield : if the shield is active and the damage delt is not enogh to destroy
         // the shield don't appy damage to the player
         if (shield.IsActive() && !shield.IsDamageFatal(damage))
+        {
+            Debug.Log("Player " + id + " shield is active so no damage taken");
             return;
+        }
 
+        Debug.Log("Player " + id + " health before " + stats.health);
         stats.health -= damage;
+        Debug.Log("Player " + id + " health after " + stats.health);
         healthBar.SetCurrentHealth(stats.health);
 
         // Check if we are dead
@@ -310,10 +315,9 @@ public class Player : MonoBehaviour
     //
 
     // This effect will throw the player in a random direction
-    public void Kockout(int force, int damage)
+    public void Knockout(int force, int damage)
     {
-
-        Debug.Log("Knocking out player");
+        Debug.Log("Knocking out player " + id);
         Damage(damage);
 
         float x = force * Mathf.Pow(-1, Random.Range(0,2));
@@ -322,7 +326,7 @@ public class Player : MonoBehaviour
 
         Vector2 pushForce = new Vector2(x, y);
 
-        Debug.Log("Pushing with force " + pushForce);
+        Debug.Log("Pushing with force " + pushForce + " player with id " + id);
 
         rigidBody.AddForce(pushForce, ForceMode2D.Impulse);
     }
@@ -358,5 +362,23 @@ public class Player : MonoBehaviour
     public int GetID()
     {
         return id;
+    }
+
+    // This will be called when the player is assigned to a team
+    // The layer and tag of the player will be different depending on the team
+    public void SetTeamSpecificData(int teamID)
+    { 
+        gameObject.tag = "Team" + teamID;
+        gameObject.layer = LayerMask.NameToLayer("Team" + teamID + "Player");
+
+        Debug.Log("Player SetTeamSpecificData tag " + gameObject.tag + " layer " + gameObject.layer);
+
+        teamName = "Team" + teamID;
+
+        // We will also set the color of the sprite here temporarily
+        if (teamID == 2)
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 }

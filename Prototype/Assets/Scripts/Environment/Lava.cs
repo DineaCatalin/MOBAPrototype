@@ -14,7 +14,7 @@ public class Lava : MonoBehaviour
         if (collision.tag.Contains("Team"))
         {
             Player player = collision.GetComponent<Player>();
-            player.Kockout(pushBackForce, damage);
+            player.Knockout(pushBackForce, damage);
         }
     }
 }

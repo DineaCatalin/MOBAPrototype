@@ -8,12 +8,12 @@ ScriptsOnlyBuild:
     - AbilityManager
     - AbilitySpawner
     - ActivationDelay
+    - AppManager
     - BlinkAbility
     - DOTEffect
     - DestroyAfterCollisions
     - DustDuskAbility
     - EnvironmentManager
-    - ExitHandler
     - Flicker
     - FollowAtDistance
     - FollowCursor
@@ -56,6 +56,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -155,8 +157,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12254}
     - Class: 114
       Script: {instanceID: 12322}
-    - Class: 114
-      Script: {instanceID: 12334}
     - Class: 114
       Script: {instanceID: 12348}
     - Class: 114
@@ -382,6 +382,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13650}
     - Class: 114
       Script: {instanceID: 13668}
+    - Class: 114
+      Script: {instanceID: 78336}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1455,7 +1457,7 @@ ScriptsOnlyBuild:
     className: AppVersionProperty
   - hash:
       serializedVersion: 2
-      Hash: 6b455d796249179011ee85e34264b15d
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilityManager
@@ -2005,6 +2007,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AppManager
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity

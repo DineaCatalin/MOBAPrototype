@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Photon.Pun;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PUN2_RoomController : MonoBehaviourPunCallbacks
 {
@@ -21,6 +22,15 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
             return;
         }
 
+        // Assign room properties from the master client
+        // Current team ID is used to know
+        if(PhotonNetwork.IsMasterClient)
+        {
+            Hashtable roomProperties = new Hashtable();
+            roomProperties.Add("spawnedPlayerTeamID", 0);
+            PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
+        }
+
         if(spawnPoint == Vector3.zero)
         {
             spawnPoint = Utils.GetRandomScreenPoint();
@@ -39,7 +49,7 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         Debug.Log("PUN2_RoomController Instantiating player " + player.GetID());
 
         // Now we add the player to the GameMangers Player Container
-        GameManager.Instance.AddPlayer(player);    
+        GameManager.Instance.AddPlayer(player.GetID());    
     }
 
     void OnGUI()
