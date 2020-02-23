@@ -5,7 +5,9 @@ using Photon.Pun;
 public class PlayerController : MonoBehaviour
 {
     // This is where the abilitymanager, transform and player scripts are
-    public GameObject player;
+
+    //public GameObject playerGO;
+     public Player player;
 
     AbilityManager abilityManager;
     Transform playerTransform;
@@ -27,10 +29,15 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        stats = player.GetComponent<Player>().GetStats();
+        //player = playerGO.GetComponent<Player>();
+        stats = player.GetStats();
+
         abilityManager = player.GetComponent<AbilityManager>();
         playerTransform = player.transform;
         photonView = GetComponent<PhotonView>();
+
+        // Pass a reference of the photonView to the player so that it can use it to call RPC's
+        player.photonView = photonView;
     }
 
     // Update is called once per frame
@@ -176,5 +183,4 @@ public class PlayerController : MonoBehaviour
 
         playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
     }
-
 }

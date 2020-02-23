@@ -22,7 +22,8 @@ public class BlinkAbility : Ability
     {
         base.Cast();
 
-        //playerTransform.gameObject.SetActive(false);
+        Debug.Log("BlinkAbility Deactivating player " + playerID);
+        GameManager.Instance.DeactivatePlayer(playerID);
 
         blinkPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         blinkPosition.z = 0;
@@ -30,7 +31,8 @@ public class BlinkAbility : Ability
         // Set player position to the mouse position
         playerTransform.position = blinkPosition;
 
-        //playerTransform.gameObject.SetActive(true);
+        Debug.Log("BlinkAbility Activating player " + playerID);
+        GameManager.Instance.ActivatePlayer(playerID);
     }
 
 }
