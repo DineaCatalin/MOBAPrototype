@@ -15,6 +15,7 @@ public class Lava : MonoBehaviour
         {
             Player player = collision.GetComponent<Player>();
             player.Knockout(pushBackForce, damage);
+            InteractionManager.Instance.KnockOutPlayer(pushBackForce, damage);
         }
     }
 }

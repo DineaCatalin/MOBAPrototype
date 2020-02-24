@@ -24,7 +24,6 @@ public class ProjectileAbility : Ability
         if (castOrigin == null)
         {
             castOrigin = GameObject.Find("CastOrigin" + playerID).transform;
-            castOrigin.position = new Vector3(castOrigin.position.x, castOrigin.position.y, 1);
 
             // Get layer name for the projectile
             // If its the player is in team1 the layer name will be Team1Ability if player is in team2 the layer name will be Team2Ability

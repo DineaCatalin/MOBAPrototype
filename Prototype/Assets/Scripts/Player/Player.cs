@@ -310,6 +310,28 @@ public class Player : MonoBehaviour
         return stats;
     }
 
+    public int GetHealth()
+    {
+        return stats.health;
+    }
+
+    public void SetHealth(int health)
+    {
+        stats.health = health;
+        healthBar.SetCurrentHealth(health);
+    }
+
+    public int GetMana()
+    {
+        return stats.health;
+    }
+
+    public void SetMana(int mana)
+    {
+        stats.mana = mana;
+        manaBar.SetCurrentMana(mana);
+    }
+
     //
     // 
     //

@@ -20,7 +20,7 @@ public abstract class Ability : MonoBehaviour
     bool isCharging;
 
     // 
-    protected int playerID;       
+    protected int playerID;
 
     // This is the helper that will guide the player to cast the ability
     // Will be empty for empty abilities
