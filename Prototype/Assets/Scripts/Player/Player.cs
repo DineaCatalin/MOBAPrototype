@@ -119,7 +119,8 @@ public class Player : MonoBehaviour
     // Will apply damage over time
     public void ApplyDOT(int numTicks, int damage)
     {
-        StartCoroutine(ApplyTickDamage(numTicks, damage));
+        if(gameObject.activeSelf)
+            StartCoroutine(ApplyTickDamage(numTicks, damage));
     }
 
     // Will heal over time
@@ -157,7 +158,7 @@ public class Player : MonoBehaviour
         // We will just set the GO as inactive
         Debug.Log(gameObject + " Die and respawn in " + GameManager.respawnCooldown + " seconds");
 
-        gameObject.SetActive(false);
+        Deactivate();
 
         GameManager.Instance.KillAndRespawnPlayer(GameManager.respawnCooldown, this);
     }
@@ -165,12 +166,16 @@ public class Player : MonoBehaviour
     // Will be used for synching the teleport mechanic over the network
     public void Deactivate()
     {
+        healthBar.gameObject.SetActive(false);
+        manaBar.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 
     public void Activate()
     {
         gameObject.SetActive(true);
+        healthBar.gameObject.SetActive(true);
+        manaBar.gameObject.SetActive(true);
     }
 
     // This will be called once the player has been respawned (reactivated) to reset stats
@@ -184,7 +189,7 @@ public class Player : MonoBehaviour
         healthBar.SetCurrentHealth(stats.health);
         manaBar.SetCurrentMana(stats.mana);
 
-        gameObject.SetActive(true);
+        Activate();
     }
 
     public void Heal(int heal)
