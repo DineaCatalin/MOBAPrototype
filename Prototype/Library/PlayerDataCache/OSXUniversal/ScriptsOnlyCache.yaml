@@ -1187,7 +1187,7 @@ ScriptsOnlyBuild:
     className: CountOfPlayersInRoomProperty
   - hash:
       serializedVersion: 2
-      Hash: 8f9b7705155c2a8afcac95fc5ce2aa64
+      Hash: 1df5043f0424ac97346ea8f965958921
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilityCollider
@@ -1541,7 +1541,7 @@ ScriptsOnlyBuild:
     className: CameraWork
   - hash:
       serializedVersion: 2
-      Hash: f2b50d7b5000baf83504547cbcc4959b
+      Hash: f022ee041c28f97f80cf4c471b17f371
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnAbility
