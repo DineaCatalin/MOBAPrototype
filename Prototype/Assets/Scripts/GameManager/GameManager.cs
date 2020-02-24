@@ -112,4 +112,29 @@ public class GameManager : MonoBehaviour
         
         return teamID;
     }
+
+    // The controller will take care of passing the message to the player to activate it's shield
+    // from the ShieldAbility. It will do this because the photonView is attached to the GO the controller is attached,
+    // so we can't call RPC's from the components on the child object aka the Player component
+    public void ActivatePlayerShield(int armor, int playerID)
+    {
+        Debug.Log("GameManager ActivatePlayerShield with " + armor + " armor for player " + playerID);
+        photonView.RPC("ActivatePlayerShieldRPC", RpcTarget.All, armor, playerID);
+    }
+
+    [PunRPC]
+    void ActivatePlayerShieldRPC(int armor, int playerID)
+    {
+        Debug.Log("GameManager ActivatePlayerShieldRPC with " + armor + " armor for player " + playerID);
+        if (playerMap[playerID] == null)
+            return;
+
+        playerMap[playerID].ActivateShield(armor);
+    }
+
+    public void KnockOutPlayer(int force, int damage, int playerID)
+    {
+        Debug.Log("GameManager KnockOutPlayer");
+        playerMap[playerID].Knockout(force, damage);
+    }
 }

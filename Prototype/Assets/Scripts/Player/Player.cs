@@ -299,10 +299,9 @@ public class Player : MonoBehaviour
     }
 
     // Set the shield only if the player is the 1 clicked
-    public void ActivateShield(int armor, int playerID)
+    public void ActivateShield(int armor)
     {
-        if (id == playerID)
-            shield.SetArmor(armor);
+        shield.SetArmor(armor);
     }
 
     public PlayerData GetStats()

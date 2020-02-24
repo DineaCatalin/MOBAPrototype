@@ -10,7 +10,7 @@ public class RushArea : MonoBehaviour
     AbilityData abilityData;
     float speedBoost;
 
-    private void Start()
+    private void Awake()
     {
         abilityData = AbilityDataCache.GetDataForAbility(name);
         speedBoost = abilityData.stats.dotValue;

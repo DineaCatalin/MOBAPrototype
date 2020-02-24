@@ -8,9 +8,6 @@ public class AbilityCollider : MonoBehaviour
     AbilityData abilityData;
     AbilityEffect effect;
 
-    [SerializeField] bool isBuffForTeam;
-
-
     // Will be used to load the AbilityData, has to be the same as the ability Monobehav. that is creating it
     [SerializeField] new string name; 
 
@@ -18,9 +15,10 @@ public class AbilityCollider : MonoBehaviour
     // It will also not move so we need a mechanism to destroy it after it's duration is gone
     bool isStatic;
 
-    private void Start()
+    private void Awake()
     {
         abilityData = AbilityDataCache.GetDataForAbility(name);
+
         effect = GetComponent<AbilityEffect>();
 
         if (GetComponent<AbilityDuration>() != null)

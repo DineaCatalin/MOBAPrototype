@@ -23,4 +23,22 @@ public static class Utils
     {
         return Regex.Replace(name, @"(Clone)", "");
     }
+
+    // Will switch from from Team1Ability to Team2Ability or vice versa
+    public static string SwitchPlayerLayerName(string layerName)
+    {
+        if(layerName.Contains("1"))
+        {
+            layerName = layerName.Replace("1", "2");
+            return layerName;
+        }
+        else if(layerName.Contains("2"))
+        {
+            layerName = layerName.Replace("2", "1");
+            return layerName;
+        }
+
+        // For some reason this func is called on a string that is not a player layer name
+        return layerName;
+    }
 }

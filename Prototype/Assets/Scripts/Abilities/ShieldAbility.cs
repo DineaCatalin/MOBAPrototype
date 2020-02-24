@@ -54,7 +54,7 @@ public class ShieldAbility : Ability
             {
                 Player player = hit.collider.gameObject.GetComponent<Player>();
                 Debug.Log("ShieldAbility activating shield with " + abilityData.stats.hpValue + " through controller for player " + playerID);
-                InteractionManager.Instance.ActivatePlayerShield(abilityData.stats.hpValue, player.GetID());
+                GameManager.Instance.ActivatePlayerShield(abilityData.stats.hpValue, player.GetID());
             }
         }
 

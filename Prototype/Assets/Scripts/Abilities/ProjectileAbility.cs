@@ -11,6 +11,7 @@ public class ProjectileAbility : Ability
     [SerializeField] Transform castOrigin;
 
     int projectileLayer;
+    string projectileName;
 
     public override void Load()
     {
@@ -31,14 +32,13 @@ public class ProjectileAbility : Ability
             layerName = layerName.Replace("Player", "Ability");
 
             projectileLayer = LayerMask.NameToLayer(layerName);
+            projectileName = projectile.name.Replace("(Clone)", "");
         }
     }
 
     public override void Cast()
     {
         base.Cast();
-
-        string projectileName = projectile.name.Replace("(Clone)", "");
 
         AbilitySpawner.Instance.SpawnProjectile(projectileName, castOrigin.position, Quaternion.identity, Camera.main.ScreenToWorldPoint(Input.mousePosition), projectileLayer);
     }
