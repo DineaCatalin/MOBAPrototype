@@ -41,18 +41,37 @@ public class AbilityCollider : MonoBehaviour
         {
             // If the ability is for my team and the tag of the hit object is the same of my team
             // Or the ability is for enemies and the tag is different then the one of my team
-            if ((isBuffForTeam && collision.tag == abilityData.description.casterTeamName)
-                || collision.tag != abilityData.description.casterTeamName)
+            //if ((isBuffForTeam && collision.tag == abilityData.description.casterTeamName)
+            //    || collision.tag != abilityData.description.casterTeamName)
+            //{
+            //    Player player = collision.GetComponent<Player>();
+            //    effect.ApplyEffect(player, abilityData.stats);
+            //    Debug.Log("Projectile has hit " + collision);
+
+            //    if (!isStatic && abilityData.description.name != "Tornado")
+            //    {
+            //        Debug.Log("Destroting projectile " + this.gameObject.name + " that hit player " + player.GetID());
+            //        Destroy(this.gameObject);
+            //    }
+
+
+            //    return;
+            //}
+
+            Player player = collision.GetComponent<Player>();
+            effect.ApplyEffect(player, abilityData.stats);
+            Debug.Log("Projectile has hit " + collision);
+
+            if (!isStatic && abilityData.description.name != "Tornado")
             {
-                Player player = collision.GetComponent<Player>();
-                effect.ApplyEffect(player, abilityData.stats);
-                Debug.Log("Projectile has hit " + collision);
-
-                if (!isStatic && abilityData.description.name != "Tornado")
-                    Destroy(this.gameObject);
-
-                return;
+                Debug.Log("Destroting projectile " + this.gameObject.name + " that hit player " + player.GetID());
+                Destroy(this.gameObject);
             }
+
+
+            return;
+
+
         }
         // We hit an ice wall so apply some damage
         else if(collision.tag == "Ice Wall")

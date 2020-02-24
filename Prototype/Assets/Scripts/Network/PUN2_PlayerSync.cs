@@ -9,6 +9,8 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
     // The GO that contains the player will take care of doing the sync
     public GameObject player2Sync;
 
+    Player player;
+
     //List of the scripts that should only be active for the local player (ex. PlayerController, MouseLook etc.)
     public MonoBehaviour[] localScripts;
 
@@ -33,12 +35,21 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
     Vector3 positionAtLastPacket = Vector3.zero;
     Quaternion rotationAtLastPacket = Quaternion.identity;
 
+    // Health and mana
+    int health;
+    int lastHealth;
+    int mana;
+    int lastMana;
+
     void Start()
     {
         // Player is local
-        rb = player2Sync.GetComponent<Rigidbody2D>();
+        LoadDependencies();
 
-        playerTransform = player2Sync.transform;
+        health = player.GetHealth();
+        lastHealth = health;
+        mana = player.GetMana();
+        lastMana = mana;
 
         if (photonView.IsMine)
         {
@@ -58,6 +69,13 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
         }
     }
 
+    void LoadDependencies()
+    {
+        rb = player2Sync.GetComponent<Rigidbody2D>();
+        player = player2Sync.GetComponent<Player>();
+        playerTransform = player2Sync.transform;
+    }
+
     void Update()
     {
         if (!photonView.IsMine && valuesReceived)
@@ -72,6 +90,18 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
 
             rb.velocity = velocity;
             rb.angularVelocity = angularVelocity;
+
+            if(health != lastHealth)
+            {
+                player.SetHealth(health);
+                lastHealth = health;
+            }
+
+            if (mana != lastMana)
+            {
+                player.SetMana(mana);
+                lastMana = mana;
+            }
         }
     }
 
@@ -80,13 +110,28 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
         if (stream.IsWriting)
         {
             //We own this player: send the others our data
+            // Transform
             stream.SendNext(playerTransform.position);
             stream.SendNext(playerTransform.rotation);
+
+            // Rigidbody
             stream.SendNext(rb.velocity);
             stream.SendNext(rb.angularVelocity);
+
+            // Health and mana
+            stream.SendNext(player.GetStats().health);
+            stream.SendNext(player.GetStats().mana);
         }
         else
         {
+            if (playerTransform == null)
+            {
+                Debug.Log("PUN2_PlayerSync OnPhotonSerializeView playerTransform is null wtf? Returning");
+                LoadDependencies();
+                return;
+            }
+                
+            Debug.Log("PUN2_PlayerSync OnPhotonSerializeView Start not my player " + photonView.ViewID);
             //Network player, receive data
             latestPos = (Vector3)stream.ReceiveNext();
             latestRot = (Quaternion)stream.ReceiveNext();
@@ -97,8 +142,14 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             currentTime = 0.0f;
             lastPacketTime = currentPacketTime;
             currentPacketTime = info.SentServerTime;
+
+            
+            Debug.Log("PUN2_PlayerSync OnPhotonSerializeView After transform check not my player " + photonView.ViewID);
             positionAtLastPacket = playerTransform.position;
             rotationAtLastPacket = playerTransform.rotation;
+            // Health and mana
+            health = (int)stream.ReceiveNext();
+            mana = (int)stream.ReceiveNext();
 
             valuesReceived = true;
         }

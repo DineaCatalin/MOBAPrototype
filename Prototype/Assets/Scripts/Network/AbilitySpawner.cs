@@ -11,6 +11,8 @@ public class AbilitySpawner : MonoBehaviour
 
     Dictionary<string, GameObject> projectileMap;
 
+    //Dictionary<int, GameObject> activeProjectiles;
+
     PhotonView photonView;
 
     public static AbilitySpawner Instance;
@@ -50,6 +52,8 @@ public class AbilitySpawner : MonoBehaviour
 
         MoveAbility movement = projectile.GetComponent<MoveAbility>();
         movement.SetDirection(direction);
+
+        //activeProjectiles.Add(projectile.GetInstanceID(), projectile);
     }
 
     // We load all the projectiles from the list into the map(Dictionary) and empty the list

@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 3295094496822912773}
   - component: {fileID: 3295094496822912772}
   - component: {fileID: 3295094496822912775}
-  - component: {fileID: 3316164845299301183}
+  - component: {fileID: 7292343904365838546}
   m_Layer: 0
   m_Name: NetworkedPlayer
   m_TagString: Untagged
@@ -103,7 +103,6 @@ MonoBehaviour:
   player2Sync: {fileID: 3295094496928400526}
   localScripts:
   - {fileID: 3295094496822912773}
-  - {fileID: 3295094496928400518}
   localObjects: []
 --- !u!114 &3295094496822912775
 MonoBehaviour:
@@ -127,7 +126,7 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3316164845299301183
+--- !u!114 &7292343904365838546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +135,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3295094496822912769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd57cc31ed5cb417bbf13adffc9f82fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 72348b227a3574d299df7b10b86aa416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3295094496928400526

@@ -8,9 +8,9 @@
          "stats":{ 
             "cooldown":1,
             "manaCost":2,
-            "dotValue":1,
+            "dotValue":0,
             "duration":5,
-            "hpValue":10
+            "hpValue":50
          }
       },
       { 

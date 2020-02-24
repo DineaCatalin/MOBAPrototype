@@ -104,12 +104,12 @@
     <Compile Include="Assets\Scripts\Network\PUN2_GameLobby.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_PlayerSync.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_RoomController.cs" />
+    <Compile Include="Assets\Scripts\Player\InteractionManager.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDataLoader.cs" />
     <Compile Include="Assets\Scripts\Player\Shield.cs" />
-    <Compile Include="Assets\Scripts\Player\ShieldManager.cs" />
     <Compile Include="Assets\Scripts\Test\DummyController.cs" />
     <Compile Include="Assets\Scripts\Test\Test.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
