@@ -1,23 +1,26 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/Lava.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Effects/RootEffect.cs">
     <Files>
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="137" Column="58" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="37" Column="30" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="60" Column="59" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="42" Column="1" />
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="36" Column="67" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="30" Column="56" />
-      <File FileName="Assets/Config/Resources/AbilityConfig.txt" Line="159" Column="9" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="32" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="24" Column="68" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="129" Column="51" />
-      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="41" Column="52" />
-      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="16" Column="2" />
-      <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" Line="9" Column="53" />
-      <File FileName="Assets/Scripts/Player/InteractionManager.cs" Line="19" Column="6" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="58" Column="14" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Environment/Lava.cs" Line="18" Column="72" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
+      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="57" Column="9" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
+      <File FileName="Assets/Config/Resources/AbilityConfig.txt" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
+      <File FileName="Assets/Scripts/Utils/Utils.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" />
+      <File FileName="Assets/Scripts/Player/InteractionManager.cs" />
+      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="263" Column="17" />
+      <File FileName="Assets/Scripts/Environment/Lava.cs" Line="14" Column="1" />
+      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="41" Column="26" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="116" Column="20" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" Line="9" Column="31" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -29,13 +32,13 @@
               </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
-                  <Node name="Effects" expanded="True" />
+                  <Node name="Effects" expanded="True">
+                    <Node name="RootEffect.cs" selected="True" />
+                  </Node>
                   <Node name="Manager" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
                 </Node>
-                <Node name="Environment" expanded="True">
-                  <Node name="Lava.cs" selected="True" />
-                </Node>
+                <Node name="Environment" expanded="True" />
                 <Node name="GameManager" expanded="True" />
                 <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
@@ -49,7 +52,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c6495c12-d7b3-4686-a534-b40f6919add5" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7c355170-33b4-46c6-be0d-5bb2ca1e1bbd" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

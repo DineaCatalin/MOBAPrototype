@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     Shield shield;
 
     public PlayerController controller;
+    public InteractionManager interactionManager;
 
     Rigidbody2D rigidBody;
 
@@ -44,7 +45,8 @@ public class Player : MonoBehaviour
 
         // Load stats from config file
         stats = PlayerDataLoader.Load();
-        controller = GetComponent<PlayerController>();
+        controller = GetComponentInParent<PlayerController>();
+        interactionManager = GetComponentInParent<InteractionManager>();
         shield = GetComponentInChildren<Shield>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
