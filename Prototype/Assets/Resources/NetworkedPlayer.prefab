@@ -209,6 +209,7 @@ MonoBehaviour:
     power: 0
     speed: 0
   controller: {fileID: 0}
+  interactionManager: {fileID: 0}
   id: 1
   healthBar: {fileID: 3295094497718086378}
   manaBar: {fileID: 3295094498066622084}

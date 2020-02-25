@@ -22,5 +22,12 @@ public class InteractionManager : MonoBehaviour
         player = playerController.player;
     }
 
+    // This will be called by the root effect and then from the player because we need to disable the movement
+    // Only for the player who owns the photon view, otherwise the player's controller will be disabled
+    public void RootPlayer(int duration)
+    {
+        if (photonView.IsMine)
+            player.Root(duration);
+    }
 
 }
