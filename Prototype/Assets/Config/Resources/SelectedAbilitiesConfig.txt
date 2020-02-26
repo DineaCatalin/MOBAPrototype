@@ -2,7 +2,7 @@
    "ability1":"Fireball",
    "ability2":"Tornado",
    "ability3":"Bubble",
-   "ability4":"IceWall",    
+   "ability4":"IceWall",
    "ability5":"Roots",
    "ability6":"Blink",
    "ability7":"DustDusk",
