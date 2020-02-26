@@ -170,12 +170,19 @@ public class GameManager : MonoBehaviour
         playerMap[playerID].Knockout(force, damage);
     }
 
-    private void AddPlayerIDToRoomProperties(int playerID, int index)
+    public void RemovePlayer(int playerID)
     {
-        // Assign the new value to the room properties
-        Hashtable roomProperties = new Hashtable();
-        roomProperties.Add("ID_Player_" + index, playerID);
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
+        photonView.RPC("RemovePlayerRPC", RpcTarget.All, playerID);
+    }
+
+    [PunRPC]
+    void RemovePlayerRPC(int playerID)
+    {
+        if(playerMap.ContainsKey(playerID))
+        {
+            Debug.Log("Removing from playerMap player : " + playerID);
+            playerMap.Remove(playerID);
+        }
     }
 
     void SyncPlayerMap()
@@ -206,8 +213,14 @@ public class GameManager : MonoBehaviour
             // We found an ID that is not in our local map
             if (!playerMap.ContainsKey(playerID))
             {
-                Player player = GameObject.Find("Player" + playerID).GetComponent<Player>();
-                playerMap.Add(playerID, player);
+                Debug.Log("GameManager SyncPlayerMapRPC Finding player with ID " + playerID);
+                GameObject playerGO = GameObject.Find("Player" + playerID);
+
+                if(playerGO != null)
+                {
+                    Player player = playerGO.GetComponent<Player>();
+                    playerMap.Add(playerID, player);
+                }
             }
         }
     }
