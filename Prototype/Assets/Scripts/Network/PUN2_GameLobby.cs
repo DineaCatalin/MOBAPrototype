@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
 public class PUN2_GameLobby : MonoBehaviourPunCallbacks
 {
+
     //Our player name
     string playerName = "Player 1";
     //Users are separated from each other by gameversion (which allows you to make breaking changes).
@@ -17,6 +17,8 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
     Vector2 roomListScroll = Vector2.zero;
     bool joiningRoom = false;
 
+    LoadBalancingClient loadBalancingClient;
+
     // Use this for initialization
     void Start()
     {
@@ -25,10 +27,13 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
 
         if (!PhotonNetwork.IsConnected)
         {
-            //Set the App version before connecting
+            ////Set the App version before connecting
             PhotonNetwork.PhotonServerSettings.AppSettings.AppVersion = gameVersion;
-            // Connect to the photon master-server. We use the settings saved in PhotonServerSettings (a .asset file in this project)
+
+            //// Connect to the photon master-server. We use the settings saved in PhotonServerSettings (a .asset file in this project)
             PhotonNetwork.ConnectUsingSettings();
+
+            //PhotonNetwork.ConnectToRegion("eu");
         }
     }
 
@@ -41,6 +46,7 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
     {
         Debug.Log("OnConnectedToMaster");
         //After we connected to Master server, join the Lobby
+        Debug.Log("PUN2 client connected to region: " + PhotonNetwork.CloudRegion);
         PhotonNetwork.JoinLobby(TypedLobby.Default);
     }
 
@@ -82,7 +88,7 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
                 RoomOptions roomOptions = new RoomOptions();
                 roomOptions.IsOpen = true;
                 roomOptions.IsVisible = true;
-                roomOptions.MaxPlayers = (byte)4; // Our game will only support 4 players as it is a 2v2 game
+                roomOptions.MaxPlayers = (byte)4; //Set any number
 
                 PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
             }
@@ -179,7 +185,7 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
         Debug.Log("OnCreatedRoom");
         //Set our player name
         PhotonNetwork.NickName = playerName;
-        //Load the Scene called GameLevel (Make sure it's added to build settings)
+        //Load the Scene called GameLevel (Make sure it's added to build settings)JoinLobby
         PhotonNetwork.LoadLevel("GameLevel");
     }
 

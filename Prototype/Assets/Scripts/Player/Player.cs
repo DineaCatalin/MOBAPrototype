@@ -158,11 +158,11 @@ public class Player : MonoBehaviour
         // Update match statistics etc.
 
         // We will just set the GO as inactive
-        Debug.Log(gameObject + " Die and respawn in " + GameManager.respawnCooldown + " seconds");
+        Debug.Log(gameObject + " Die and respawn in " + GameManager.RESPAWN_COOLDOWN + " seconds");
 
         Deactivate();
 
-        GameManager.Instance.KillAndRespawnPlayer(GameManager.respawnCooldown, this);
+        GameManager.Instance.KillAndRespawnPlayer(GameManager.RESPAWN_COOLDOWN, this);
     }
 
     // Will be used for synching the teleport mechanic over the network

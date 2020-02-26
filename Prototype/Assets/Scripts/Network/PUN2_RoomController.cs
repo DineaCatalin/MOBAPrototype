@@ -24,14 +24,20 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
 
         // Assign room properties from the master client
         // Current team ID is used to know
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
         {
             Hashtable roomProperties = new Hashtable();
             roomProperties.Add("spawnedPlayerTeamID", 0);
+
+            for (int i = 0; i < GameManager.MAX_PLAYERS; i++)
+            {
+                roomProperties.Add("ID_Player_" + i.ToString(), 0);
+            }
+
             PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
         }
 
-        if(spawnPoint == Vector3.zero)
+        if (spawnPoint == Vector3.zero)
         {
             spawnPoint = Utils.GetRandomScreenPoint();
         }

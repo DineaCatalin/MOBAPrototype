@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
 {
     // TODO: Load this from a config later
     // PLS don't leave it like this
-    public static float respawnCooldown = 5f;
+    public static float RESPAWN_COOLDOWN = 5f;
+    public static float MAX_PLAYERS = 4;
+
+    const float ADD_PLAYER_DELAY = 1f;
 
     public static GameManager Instance;
 
@@ -43,10 +46,8 @@ public class GameManager : MonoBehaviour
         player.Reset();
     }
 
-    // Will be called when a player connects to the game
     public void AddPlayer(int playerID)
     {
-        Debug.Log("GameManager Adding player " + playerID);
         photonView.RPC("AddPlayerRPC", RpcTarget.All, playerID);
     }
 
@@ -58,12 +59,43 @@ public class GameManager : MonoBehaviour
         // Find player with playerID. We would have sent the player directly as a parameter to the RPC
         // but it doens't work, so we send the ID and every client has to find the Player by itself
         // We say it's fine because this is triggered only at the beginning of the match when the players are added
-        Player player = GameObject.Find("Player" + playerID).GetComponent<Player>();
+        GameObject player = GameObject.Find("Player" + playerID);
 
-        playerMap.Add(playerID, player);
+        if(player == null)
+        {
+            StartCoroutine(AddPlayerDelayed(playerID, ADD_PLAYER_DELAY));
+        }
+        else
+        {
+            AddPlayerNoDelay(playerID);
+        }
+    }
+
+    // We will call this coroutine so that the game has time to instantiate the player
+    // so that we can find it 
+    IEnumerator AddPlayerDelayed(int playerID, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Debug.Log("GameManager AddPlayerDelayed " + playerID);
+
+        AddPlayerNoDelay(playerID);
+    }
+
+    void AddPlayerNoDelay(int playerID)
+    {
+        Player player = GameObject.Find("Player" + playerID).GetComponent<Player>();
 
         int teamID = GetTeamToAssign();
         match.AssignPlayer(player, teamID);
+
+        if (!playerMap.ContainsKey(playerID))
+        {
+            playerMap.Add(playerID, player);
+
+            // Make sure the other clients have all the players added to their local map
+            SyncPlayerMap();
+        }
     }
 
     public Player GetPlayer(int playerID)
@@ -136,5 +168,47 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GameManager KnockOutPlayer");
         playerMap[playerID].Knockout(force, damage);
+    }
+
+    private void AddPlayerIDToRoomProperties(int playerID, int index)
+    {
+        // Assign the new value to the room properties
+        Hashtable roomProperties = new Hashtable();
+        roomProperties.Add("ID_Player_" + index, playerID);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
+    }
+
+    void SyncPlayerMap()
+    {
+        int[] playerIDs = new int[playerMap.Count];
+        int index = 0;
+
+        // Get all the players we have in our map locally
+        foreach (KeyValuePair<int, Player> mapValue in playerMap)
+        {
+            playerIDs[index] = mapValue.Key;
+            index++;
+        }
+
+        photonView.RPC("SyncPlayerMapRPC", RpcTarget.Others, playerIDs);
+    }
+
+    [PunRPC]
+    void SyncPlayerMapRPC(int[] playerIDs)
+    {
+        int playerID;
+
+        // Loop all the ids in the map to see if our local map has all of them
+        for (int i = 0; i < playerIDs.Length; i++)
+        {
+            playerID = playerIDs[i];
+
+            // We found an ID that is not in our local map
+            if (!playerMap.ContainsKey(playerID))
+            {
+                Player player = GameObject.Find("Player" + playerID).GetComponent<Player>();
+                playerMap.Add(playerID, player);
+            }
+        }
     }
 }
