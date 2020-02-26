@@ -14,6 +14,7 @@ public class SpawnAbility : Ability
 
     int projectileLayer;
     [SerializeField] bool isBuffForTeam;
+    //[SerializeField] bool 
 
     string projectileName;
 

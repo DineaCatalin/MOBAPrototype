@@ -1,26 +1,28 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Effects/RootEffect.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="137" Column="58" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="136" Column="42" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="57" Column="9" />
+      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" />
       <File FileName="Assets/Scripts/Abilities/Ability.cs" />
       <File FileName="Assets/Config/Resources/AbilityConfig.txt" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="112" Column="36" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" />
       <File FileName="Assets/Scripts/Player/InteractionManager.cs" />
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="263" Column="17" />
-      <File FileName="Assets/Scripts/Environment/Lava.cs" Line="14" Column="1" />
-      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="41" Column="26" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="116" Column="20" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" Line="9" Column="31" />
+      <File FileName="Assets/Scripts/Player/Player.cs" />
+      <File FileName="Assets/Scripts/Environment/Lava.cs" />
+      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
+      <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -30,16 +32,23 @@
               <Node name="Config" expanded="True">
                 <Node name="Resources" expanded="True" />
               </Node>
+              <Node name="Plugins" expanded="True">
+                <Node name="Photon" expanded="True">
+                  <Node name="PhotonUnityNetworking" expanded="True">
+                    <Node name="Code" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
-                  <Node name="Effects" expanded="True">
-                    <Node name="RootEffect.cs" selected="True" />
-                  </Node>
+                  <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
                 </Node>
                 <Node name="Environment" expanded="True" />
-                <Node name="GameManager" expanded="True" />
+                <Node name="GameManager" expanded="True">
+                  <Node name="GameManager.cs" selected="True" />
+                </Node>
                 <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="Utils" expanded="True" />
@@ -52,7 +61,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7c355170-33b4-46c6-be0d-5bb2ca1e1bbd" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9f5fab3c-6a3d-41b9-8b23-0c4424660cf1" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

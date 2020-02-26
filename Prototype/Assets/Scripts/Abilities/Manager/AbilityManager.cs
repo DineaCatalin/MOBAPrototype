@@ -34,7 +34,8 @@ public class AbilityManager : MonoBehaviour
             currentAbility = abilities[i];
             currentAbility.Load();
             currentAbility.SetPlayerID(playerID);
-            currentAbility.SetCasterTeamName(player.teamName);
+            currentAbility.SetCasterTeamName(player.teamName);  // TODO: Remove
+            currentAbility.gameObject.layer = player.gameObject.layer;
 
             spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
 
