@@ -11,6 +11,9 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
     //Player spawn point
     public Vector3 spawnPoint;
 
+    // This will be set when the player is spawned and will be used to remove the player from the 
+    int localPlayerID;
+
     // Use this for initialization
     void Start()
     {
@@ -52,6 +55,10 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         // the player, abilitymanager etc scripts on it so to get the player script we do the following "chain"
         Player player = playerGO.GetComponent<PlayerController>().player.GetComponent<Player>();
 
+        // Cache the ID of our local player
+        if(photonView.IsMine)
+            localPlayerID = player.GetID();
+
         Debug.Log("PUN2_RoomController Instantiating player " + player.GetID());
 
         // Now we add the player to the GameMangers Player Container
@@ -83,6 +90,11 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
+        Debug.Log("PUN2_RoomController OnLeftRoom removing from playerMap player " + localPlayerID);
+
+        // Remove the player from the GameManager playerMap
+        GameManager.Instance.RemovePlayer(localPlayerID);
+
         //We have left the Room, return back to the GameLobby
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameLobby");
     }
