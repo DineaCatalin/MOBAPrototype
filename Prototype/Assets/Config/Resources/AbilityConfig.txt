@@ -10,7 +10,7 @@
             "manaCost":2,
             "dotValue":1,
             "duration":5,
-            "hpValue":10
+            "hpValue":5
          }
       },
       { 
