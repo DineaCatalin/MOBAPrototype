@@ -14,7 +14,6 @@ public class SpawnAbility : Ability
 
     int projectileLayer;
     [SerializeField] bool isBuffForTeam;
-    //[SerializeField] bool 
 
     string projectileName;
 
@@ -26,12 +25,16 @@ public class SpawnAbility : Ability
         string layerName = LayerMask.LayerToName(GameObject.Find("Player" + playerID).layer);
         layerName = layerName.Replace("Player", "Ability");
 
+        projectileName = spawnedObject.name.Replace("(Clone)", "");
+
+        // If it's an ice wall leave the layer to be the default one so that all players can interact with it
+        if (name.Contains("IceWall"))
+            return;
+
         if (isBuffForTeam)
             layerName = Utils.SwitchPlayerLayerName(layerName);
 
         projectileLayer = LayerMask.NameToLayer(layerName);
-
-        projectileName = spawnedObject.name.Replace("(Clone)", "");
     }
 
     public override void Cast()
