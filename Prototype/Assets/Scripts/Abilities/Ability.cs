@@ -31,6 +31,7 @@ public abstract class Ability : MonoBehaviour
 
     public virtual void Load()
     {
+        Debug.Log("Ability Load name is " + name);
         abilityData = AbilityDataCache.GetDataForAbility(name);
 
         //Debug.Log("Ability Base is loading ability with cooldown" + abilityData.stats.cooldown);

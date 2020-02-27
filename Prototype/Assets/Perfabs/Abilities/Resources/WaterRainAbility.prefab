@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c15e07b375094b43aa855d1c51e49da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Water Rain
   isInstant: 0
   spellIndicator: {fileID: 8012968941612022332, guid: eb9cd8f30045f4cc58b1612646bd6617,
     type: 3}
@@ -59,3 +59,5 @@ MonoBehaviour:
       hpValue: 0
   spawnedObject: {fileID: 7268611563194761343, guid: 674eb06bf58844ee29686c4151f12e59,
     type: 3}
+  mimicPlayerRotation: 1
+  isBuffForTeam: 0

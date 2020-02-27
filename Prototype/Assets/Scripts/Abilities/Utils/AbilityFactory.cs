@@ -49,15 +49,18 @@ public class AbilityFactory : MonoBehaviour
 
         string abilityName;
 
-        Debug.Log("AbilityMapper ability 0 is " + mapper.GetAbilityNameForIndex(0));
+        Debug.Log("AbilityMapper GetCurrentAbilities ability 0 is " + mapper.GetAbilityNameForIndex(0));
 
         for (int i = 0; i < 8; i++)
         {
             // Get 1st ability
             abilityName = mapper.GetAbilityNameForIndex(i + 1); // i+1 because array is 0 indexed and mapper is 1 indexed
 
+            Debug.Log("AbilityFactory GetCurrentAbilities ability " + (i + 1) + " is " + abilityName);
+
             // Spawn it and add it to the list
             currentAbilities[i] = CreateAbility(abilityName);
+            Debug.Log("AbilityFactory GetCurrentAbilities after ability is created name is  " + currentAbilities[i].name);
         }
 
         return currentAbilities;
