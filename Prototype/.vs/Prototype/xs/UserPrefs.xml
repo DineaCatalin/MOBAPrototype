@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/RushAbility.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/NewMonoBehaviour.cs">
     <Files>
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="136" Column="42" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="26" Column="9" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="43" Column="48" />
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="32" Column="61" />
+      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="27" Column="1" />
       <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="33" Column="6" />
       <File FileName="Assets/Config/Resources/AbilityConfig.txt" Line="18" Column="33" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="6" Column="38" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" />
@@ -32,7 +32,8 @@
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="46" Column="41" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" Line="13" Column="41" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="23" Column="67" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" Line="14" Column="61" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" Line="14" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Utils/NewMonoBehaviour.cs" Line="4" Column="26" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -49,13 +50,14 @@
                   <Node name="Manager" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
                   <Node name="Utils" expanded="True" />
-                  <Node name="RushAbility.cs" selected="True" />
                 </Node>
                 <Node name="Environment" expanded="True" />
                 <Node name="GameManager" expanded="True" />
                 <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
-                <Node name="Utils" expanded="True" />
+                <Node name="Utils" expanded="True">
+                  <Node name="NewMonoBehaviour.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

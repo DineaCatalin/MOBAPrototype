@@ -38,10 +38,7 @@ public class AbilityDataCache : MonoBehaviour
         {
             // Map them by the name
             Debug.Log("AbilityDataCache LoadAbilityData " + abilityData.description.name);
-
-            // Add the ability data if it is not contained already
-            if(!dataMap.ContainsKey(abilityData.description.name))
-                dataMap.Add(abilityData.description.name, abilityData);
+            dataMap.Add(abilityData.description.name, abilityData);
         }
 
         loadedAbilityData.dataList.Clear();
