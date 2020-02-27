@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/AbilitySpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs">
     <Files>
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="136" Column="42" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="26" Column="9" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
-      <File FileName="Assets/Config/Resources/AbilityConfig.txt" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="54" Column="20" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="33" Column="6" />
+      <File FileName="Assets/Config/Resources/AbilityConfig.txt" Line="18" Column="33" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
@@ -24,12 +24,13 @@
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
       <File FileName="Assets/Scripts/Player/Shield.cs" />
       <File FileName="Assets/Config/Resources/PlayerConfig.txt" />
-      <File FileName="Assets/Config/Resources/ProjectileSpeedConfig.txt" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="42" Column="21" NotebookId="1" />
-      <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
+      <File FileName="Assets/Config/Resources/ProjectileSpeedConfig.txt" Line="5" Column="2" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" Line="15" Column="58" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="33" Column="1" NotebookId="1" />
+      <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" Line="2" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="46" Column="41" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" Line="13" Column="41" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="23" Column="67" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -44,14 +45,14 @@
                   <Node name="Data" expanded="True" />
                   <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
+                  <Node name="ProjectileComponents" expanded="True">
+                    <Node name="MoveAbility.cs" selected="True" />
+                  </Node>
                   <Node name="Utils" expanded="True" />
                 </Node>
                 <Node name="Environment" expanded="True" />
                 <Node name="GameManager" expanded="True" />
-                <Node name="Network" expanded="True">
-                  <Node name="AbilitySpawner.cs" selected="True" />
-                </Node>
+                <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
