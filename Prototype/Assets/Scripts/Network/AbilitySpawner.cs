@@ -52,7 +52,9 @@ public class AbilitySpawner : MonoBehaviour
         projectile.layer = layer;
 
         MoveAbility movement = projectile.GetComponent<MoveAbility>();
-        movement.SetDirection(direction);
+
+        if(movement != null)
+            movement.SetDirection(direction);
 
         //activeProjectiles.Add(projectile.GetInstanceID(), projectile);
     }
