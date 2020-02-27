@@ -6,9 +6,23 @@ public class StateManager : MonoBehaviour
 {
     [SerializeField] GameObject managedObject;
 
-    public void Activate()
+    public void Activate(float duration)
     {
         managedObject.SetActive(true);
+
+        StartCoroutine(Deactivate(duration));
+    }
+
+    IEnumerator Deactivate(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        managedObject.SetActive(false);
+    }
+
+    public void SetLayer(int layer)
+    {
+        managedObject.layer = layer;
     }
 
     public void Deactivate()

@@ -21,7 +21,7 @@ public class RushArea : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("RushArea OnTriggerEnter2D castername " + abilityData.description.casterTeamName + " ability name " + abilityData.description.name + " collided with " + collision.tag);
-        if(collision.tag == abilityData.description.casterTeamName)
+        if(collision.tag.Contains("Team"))
         {
             Player player = collision.GetComponent<Player>();
             player.GetStats().speed += speedBoost;

@@ -28,7 +28,6 @@ ScriptsOnlyBuild:
     - ManaBar
     - MimicRotation
     - MoveAbility
-    - MoveAbilityToPoint
     - PUN2_GameLobby
     - PUN2_PlayerSync
     - PUN2_RoomController
@@ -44,7 +43,7 @@ ScriptsOnlyBuild:
     - SlowEffect
     - SpawnAbility
     - SpawnInMouseDirection
-    - TestProjectile
+    - StateManager
     - Walls
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
@@ -66,6 +65,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.ServerSettings
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -120,8 +121,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11438}
     - Class: 114
-      Script: {instanceID: 11444}
-    - Class: 114
       Script: {instanceID: 11484}
     - Class: 114
       Script: {instanceID: 11502}
@@ -163,8 +162,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12470}
     - Class: 114
       Script: {instanceID: 12496}
-    - Class: 114
-      Script: {instanceID: 12502}
     - Class: 114
       Script: {instanceID: 12546}
     - Class: 114
@@ -209,6 +206,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13652}
     - Class: 114
       Script: {instanceID: 13670}
+    - Class: 114
+      Script: {instanceID: 35344}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -284,8 +283,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11394}
     - Class: 114
       Script: {instanceID: 11438}
-    - Class: 114
-      Script: {instanceID: 11444}
     - Class: 114
       Script: {instanceID: 11484}
     - Class: 114
@@ -382,6 +379,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13652}
     - Class: 114
       Script: {instanceID: 13670}
+    - Class: 114
+      Script: {instanceID: 35344}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -663,7 +662,7 @@ ScriptsOnlyBuild:
     className: BezierSpline
   - hash:
       serializedVersion: 2
-      Hash: ad39e2361350a3a3f17ca37efdaa01e4
+      Hash: 1be0cb049f481f99861252a257ff232b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RushAbility
@@ -957,7 +956,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 087829d815d3562ab0dc1c48eb76d2c6
+      Hash: 991934bb9406d7c8d4ad2b6a27e5db9f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -2011,6 +2010,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 38bac1df720fde004802345998688a57
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StateManager
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity

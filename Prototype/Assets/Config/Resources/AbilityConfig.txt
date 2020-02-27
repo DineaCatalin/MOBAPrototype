@@ -164,7 +164,7 @@
          "stats":{ 
             "cooldown":1,
             "manaCost":1,
-            "dotValue":5,
+            "dotValue":10,
             "duration":1,
             "hpValue":2
          }

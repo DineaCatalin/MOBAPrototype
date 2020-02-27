@@ -47,5 +47,6 @@ MonoBehaviour:
   - AddPlayerRPC
   - SyncPlayerMapRPC
   - RemovePlayerRPC
+  - ActivateRushAreaRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
