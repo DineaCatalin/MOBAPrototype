@@ -18,7 +18,7 @@
       },
       { 
          "name":"Power Sphere",
-         "duration":5.0,
+         "duration":5.0,awa1
          "health":0,
          "mana":0,
          "powerMultiplier":2.0,

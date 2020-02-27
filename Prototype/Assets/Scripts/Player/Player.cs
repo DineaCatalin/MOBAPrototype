@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
     public PlayerController controller;
     public InteractionManager interactionManager;
+    public StateManager rushAreaManager;
 
     Rigidbody2D rigidBody;
 
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
         controller = GetComponentInParent<PlayerController>();
         interactionManager = GetComponentInParent<InteractionManager>();
         shield = GetComponentInChildren<Shield>();
+        rushAreaManager = GetComponentInChildren<StateManager>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
@@ -309,6 +311,11 @@ public class Player : MonoBehaviour
     public void ActivateShield(int armor)
     {
         shield.SetArmor(armor);
+    }
+
+    public void ActivateRushArea(float duration)
+    {
+        rushAreaManager.Activate(duration);
     }
 
     public PlayerData GetStats()

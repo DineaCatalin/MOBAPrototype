@@ -224,4 +224,18 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void ActivateRushArea(float duration, int playerID)
+    {
+        photonView.RPC("ActivateRushAreaRPC", RpcTarget.All, duration, playerID);
+    }
+
+    [PunRPC]
+    void ActivateRushAreaRPC(float duration, int playerID)
+    {
+        if(playerMap.ContainsKey(playerID))
+        {
+            playerMap[playerID].ActivateRushArea(duration);
+        }
+    }
 }
