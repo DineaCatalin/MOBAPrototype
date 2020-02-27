@@ -143,7 +143,6 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             lastPacketTime = currentPacketTime;
             currentPacketTime = info.SentServerTime;
 
-            
             Debug.Log("PUN2_PlayerSync OnPhotonSerializeView After transform check not my player " + photonView.ViewID);
             positionAtLastPacket = playerTransform.position;
             rotationAtLastPacket = playerTransform.rotation;

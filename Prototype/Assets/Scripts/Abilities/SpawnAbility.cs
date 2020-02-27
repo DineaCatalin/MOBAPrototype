@@ -55,6 +55,4 @@ public class SpawnAbility : Ability
 
         AbilitySpawner.Instance.SpawnAbility(projectileName, spawnPosition, rotation, projectileLayer);
     }
-
-    
 }

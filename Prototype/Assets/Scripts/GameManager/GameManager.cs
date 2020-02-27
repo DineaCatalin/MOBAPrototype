@@ -238,4 +238,18 @@ public class GameManager : MonoBehaviour
             playerMap[playerID].ActivateRushArea(duration);
         }
     }
+
+    public void PullPlayer(Vector3 pullTarget, int force, int damage, int playerID)
+    {
+        photonView.RPC("PullPlayerRPC", RpcTarget.All, pullTarget, force, damage, playerID);
+    }
+
+    [PunRPC]
+    void PullPlayerRPC(Vector3 pullTarget, int force, int damage, int playerID)
+    {
+        if(playerMap[playerID] != null)
+        {
+            playerMap[playerID].PullToLocation(pullTarget, force, damage);
+        }
+    }
 }
