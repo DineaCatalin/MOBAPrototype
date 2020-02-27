@@ -24,7 +24,7 @@ public class AbilitySpawner : MonoBehaviour
         LoadMap();
         photonView = GetComponent<PhotonView>();
     }
-    
+
     public void SpawnAbility(string name, Vector3 position, Quaternion rotation, int layer)
     {
         photonView.RPC("SpawnStaticAbility", RpcTarget.All, name, position, rotation, layer);
