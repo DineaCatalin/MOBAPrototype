@@ -22,7 +22,7 @@ public class AbilityDataCache : MonoBehaviour
     // Will return us the AbilityData of a specific ability
     public static AbilityData GetDataForAbility(string abilityName)
     {
-        Debug.Log("AbilityData GetDataForAbility name is " + abilityName);
+        Debug.Log("AbilityDataCache GetDataForAbility name is " + abilityName);
         return dataMap[abilityName];
     }
 
@@ -37,7 +37,11 @@ public class AbilityDataCache : MonoBehaviour
         foreach (var abilityData in loadedAbilityData.dataList)
         {
             // Map them by the name
-            dataMap.Add(abilityData.description.name, abilityData);
+            Debug.Log("AbilityDataCache LoadAbilityData " + abilityData.description.name);
+
+            // Add the ability data if it is not contained already
+            if(!dataMap.ContainsKey(abilityData.description.name))
+                dataMap.Add(abilityData.description.name, abilityData);
         }
 
         loadedAbilityData.dataList.Clear();

@@ -1,10 +1,10 @@
 ﻿{ 
-   "ability1":"Fireball",
-   "ability2":"Tornado",
-   "ability3":"Bubble",
-   "ability4":"IceWall",
-   "ability5":"Roots",
-   "ability6":"Blink",
-   "ability7":"DustDusk",
-   "ability8":"Earthquake"
+   "ability1":"FireStorm",
+   "ability2":"Blast",
+   "ability3":"Trace",
+   "ability4":"WaterRain",
+   "ability5":"ManaSphere",
+   "ability6":"Spikes",
+   "ability7":"Push",
+   "ability8":"Rush"
 }

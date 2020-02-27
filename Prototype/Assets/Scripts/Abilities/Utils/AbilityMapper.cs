@@ -43,6 +43,13 @@ public class AbilityMapper
         Debug.Log(dataString);
         data = JsonUtility.FromJson<AbilityMapperData>(dataString);
         Debug.Log("AbilityMapper 1st " + data.ability1);
+        Debug.Log("AbilityMapper 2nd " + data.ability2);
+        Debug.Log("AbilityMapper 3rd " + data.ability3);
+        Debug.Log("AbilityMapper 4th " + data.ability4);
+        Debug.Log("AbilityMapper 5th " + data.ability5);
+        Debug.Log("AbilityMapper 6th " + data.ability6);
+        Debug.Log("AbilityMapper 7th " + data.ability7);
+        Debug.Log("AbilityMapper 8th " + data.ability8);
     }
 }
 
