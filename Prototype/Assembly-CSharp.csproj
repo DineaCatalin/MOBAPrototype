@@ -125,6 +125,7 @@
     <Compile Include="Assets\Scripts\Utils\LookAtMouse.cs" />
     <Compile Include="Assets\Scripts\Utils\MimicRotation.cs" />
     <Compile Include="Assets\Scripts\Utils\SpawnInMouseDirection.cs" />
+    <Compile Include="Assets\Scripts\Utils\StateManager.cs" />
     <Compile Include="Assets\Scripts\Utils\StopCanvasRotation.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\TestProjectile.cs" />

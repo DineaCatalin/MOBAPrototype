@@ -3,24 +3,23 @@ using System.Collections;
 
 public class RushAbility : Ability
 {
-    [SerializeField] GameObject rushArea;
+    StateManager rushAreaManager;
 
     private void Start()
     {
-        if (rushArea == null)
-        {
-            // Due to the fact that the player is instantiated over the network the object
-            // we are working on now is a clone so it has the string "(Clone)" attached to its name
-            rushArea = GameObject.Find("RushArea" + playerID);
-            rushArea.SetActive(false);
-        }
-    }
+        // Find and cache the GO of the RushArea
+        rushAreaManager = GameObject.Find("RushAreaContainer" + playerID).GetComponent<StateManager>();
+
+        // Deactivateso that the player doesn't start wthe
+        // Rush ability activated
+        rushAreaManager.Deactivate();
+    }   
 
     public override void Cast()
     {
         base.Cast();
 
-        rushArea.SetActive(true);
+        rushAreaManager.Activate();
 
         StartCoroutine(RemoveRushArea(abilityData.stats.duration));
     }
@@ -29,6 +28,6 @@ public class RushAbility : Ability
     {
         yield return new WaitForSeconds(duration);
 
-        rushArea.SetActive(false);
+        rushAreaManager.Deactivate();
     }
 }
