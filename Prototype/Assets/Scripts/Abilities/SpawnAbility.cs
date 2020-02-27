@@ -27,8 +27,8 @@ public class SpawnAbility : Ability
 
         projectileName = spawnedObject.name.Replace("(Clone)", "");
 
-        // If it's an ice wall leave the layer to be the default one so that all players can interact with it
-        if (name.Contains("IceWall"))
+        // If it's an ice wall or a mana sphere leave the layer to be the default one so that all players can interact with it
+        if (name.Contains("IceWall") || name.Contains("Mana"))
             return;
 
         if (isBuffForTeam)
