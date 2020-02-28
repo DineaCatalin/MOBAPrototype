@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/ItemData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager/GameManager.cs">
     <Files>
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="138" Column="54" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="17" Column="19" />
@@ -13,7 +13,7 @@
       <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" Line="11" Column="1" />
       <File FileName="Assets/Scripts/Player/InteractionManager.cs" />
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="225" Column="60" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="81" Column="44" />
       <File FileName="Assets/Scripts/Environment/Lava.cs" />
       <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" />
       <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="103" Column="39" />
@@ -26,7 +26,7 @@
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
       <File FileName="Assets/Scripts/Utils/SpawnInMouseDirection.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" Line="9" Column="2" />
-      <File FileName="Assets/Scripts/Item/Item.cs" Line="19" Column="6" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="20" Column="56" />
       <File FileName="Assets/Scripts/Item/ItemData.cs" Line="11" Column="33" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="15" Column="25" NotebookId="1" />
       <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" NotebookId="1" />
@@ -34,13 +34,13 @@
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" NotebookId="1" />
-      <File FileName="Assets/Config/Resources/ItemConfig.txt" Line="18" Column="9" NotebookId="1" />
+      <File FileName="Assets/Config/Resources/ItemConfig.txt" Line="4" Column="27" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" NotebookId="1" />
-      <File FileName="Assets/Plugins/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/PullEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="9" Column="6" NotebookId="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="270" Column="34" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="327" Column="30" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/ItemPool.cs" Line="101" Column="6" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -50,15 +50,22 @@
               <Node name="Config" expanded="True">
                 <Node name="Resources" expanded="True" />
               </Node>
+              <Node name="Plugins" expanded="True">
+                <Node name="Photon" expanded="True">
+                  <Node name="PhotonUnityNetworking" expanded="True">
+                    <Node name="Code" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
                 </Node>
-                <Node name="GameManager" expanded="True" />
-                <Node name="Item" expanded="True">
-                  <Node name="ItemData.cs" selected="True" />
+                <Node name="GameManager" expanded="True">
+                  <Node name="GameManager.cs" selected="True" />
                 </Node>
+                <Node name="Item" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
