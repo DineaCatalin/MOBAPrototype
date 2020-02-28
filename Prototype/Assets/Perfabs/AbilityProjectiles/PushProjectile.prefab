@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3347051673203707803}
   - component: {fileID: 1536780715382448440}
   - component: {fileID: 4930741653218467233}
-  - component: {fileID: 4209857175430978705}
   - component: {fileID: 5564025419468103715}
   - component: {fileID: 9104612191158251904}
   m_Layer: 10
@@ -50,6 +49,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -113,21 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f59c0183efaf41fd8cdd0fe6e808575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBuffForTeam: 0
   name: Push
---- !u!114 &4209857175430978705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3347051673203707800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caa104dbd916c4c76a347999a69748f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angleCorrection: 90
 --- !u!114 &5564025419468103715
 MonoBehaviour:
   m_ObjectHideFlags: 0

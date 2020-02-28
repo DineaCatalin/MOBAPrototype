@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6425128974039810947}
   - component: {fileID: 7064464372337421600}
   - component: {fileID: 3689638218188624313}
-  - component: {fileID: -3659786256974819191}
   - component: {fileID: 4210543092152560699}
   - component: {fileID: 3088594531143990646}
   m_Layer: 10
@@ -114,21 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f59c0183efaf41fd8cdd0fe6e808575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBuffForTeam: 0
   name: Blast
---- !u!114 &-3659786256974819191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6425128974039810944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caa104dbd916c4c76a347999a69748f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angleCorrection: 90
 --- !u!114 &4210543092152560699
 MonoBehaviour:
   m_ObjectHideFlags: 0
