@@ -9,6 +9,6 @@ public class HealEffect : AbilityEffect
         player.Heal(stats.hpValue);
 
         // Some heal over time
-        player.ApplyHeal(stats.duration, stats.dotValue);
+        player.HealOverTime(stats.duration, stats.dotValue);
     }
 }

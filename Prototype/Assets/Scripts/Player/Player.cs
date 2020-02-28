@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
 
     public PhotonView photonView;
 
+    // Used to track if the player is being healed by Water Rain
+    //bool healEffectActive;
+
     void Awake()
     {
         // TODO: Assign id from gamemanager, do it over the network
@@ -51,6 +54,8 @@ public class Player : MonoBehaviour
         shield = GetComponentInChildren<Shield>();
         rushAreaManager = GetComponentInChildren<StateManager>();
         rigidBody = GetComponent<Rigidbody2D>();
+
+       // healEffectActive = false;
     }
 
     private void Start()
@@ -128,7 +133,7 @@ public class Player : MonoBehaviour
     }
 
     // Will heal over time
-    public void ApplyHeal(int numTicks, int heal)
+    public void HealOverTime(int numTicks, int heal)
     {
         StartCoroutine(ApplyTickHeal(numTicks, heal));
     }

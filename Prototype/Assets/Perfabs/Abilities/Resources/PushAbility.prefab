@@ -59,4 +59,5 @@ MonoBehaviour:
       hpValue: 0
   projectile: {fileID: 3347051673203707800, guid: 8bf4de7b49edd4590ba549a01b565d3b,
     type: 3}
-  castOrigin: {fileID: 0}
+  mimicPlayerRotation: 1
+  useCastOrigin: 0

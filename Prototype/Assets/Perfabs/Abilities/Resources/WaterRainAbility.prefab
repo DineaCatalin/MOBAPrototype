@@ -60,4 +60,4 @@ MonoBehaviour:
   spawnedObject: {fileID: 7268611563194761343, guid: 674eb06bf58844ee29686c4151f12e59,
     type: 3}
   mimicPlayerRotation: 1
-  isBuffForTeam: 0
+  isBuffForTeam: 1

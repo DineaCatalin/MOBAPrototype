@@ -55,10 +55,8 @@ public class AbilitySpawner : MonoBehaviour
 
         if(movement != null)
             movement.SetDirection(direction);
-
-        //activeProjectiles.Add(projectile.GetInstanceID(), projectile);
     }
-
+    
     // We load all the projectiles from the list into the map(Dictionary) and empty the list
     void LoadMap()
     {
