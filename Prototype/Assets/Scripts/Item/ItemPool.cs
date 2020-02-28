@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
+using Photon.Pun;
+using System.Collections.Generic;
 
 public class ItemPool : MonoBehaviour
 {
@@ -24,12 +26,17 @@ public class ItemPool : MonoBehaviour
 
     ItemData[] itemDatas;
 
+    PhotonView photonView;
+
     // Cache the template for the mana item so we can grab the data from outside
     //static ItemData manaItemTemplate;
 
     // Use this for initialization
     void Start()
     {
+        // Cache photonView
+        photonView = GetComponent<PhotonView>();
+
         // Call this to get the item data from the config file
         LoadItemData();
 
@@ -45,15 +52,14 @@ public class ItemPool : MonoBehaviour
             poolSize = minSize;
         }
 
-
         // TODO: Load items
         // For the moment we are gonna do random items
         for (int i = 0; i < poolSize; i++)
         {
             Item item = Instantiate(templateItem, transform);
             item.index = i;     // Set the index of out item so that we can easily grab it later
-            item.SetAttributes(itemDatas[Random.Range(0, itemDatas.Length)]);   //Set item data
-            Debug.Log("Getting color for name " + item.name);
+            item.SetAttributes(itemDatas[i % itemDatas.Length]);   //Set item data
+            Debug.LogError("ItemPool Start Getting color for name " + item.itemData.name);
 
             // Set color
             item.GetComponent<SpriteRenderer>().color = GetItemColor(item.itemData.name);
@@ -69,26 +75,30 @@ public class ItemPool : MonoBehaviour
         InvokeRepeating("SpawnItem", 5f, 5f);
     }
 
-
-    public static void DeactivateItem(int index)
-    {
-        items[index].gameObject.SetActive(false);
-    }
-
-
-    // Spawn an item in the specified position
-    void SpawnItem(Vector3 position)
-    {
-        Item item = items[currentIndex];
-        item.transform.position = position;
-        item.gameObject.SetActive(true);
-        currentIndex = (currentIndex + 1) % poolSize;
-    }
-
     // Spawns item in a random location
     void SpawnItem()
     {
-        SpawnItem(Utils.GetRandomScreenPoint());
+        if(PhotonNetwork.IsMasterClient)
+        {
+            Vector2 randomPoint = Utils.GetRandomScreenPoint();
+            photonView.RPC("SpawnItemRPC", RpcTarget.All, randomPoint.x, randomPoint.y, currentIndex);
+            currentIndex++;
+        }
+    }
+
+    [PunRPC]
+    void SpawnItemRPC(float posX, float posY, int index)
+    {
+        SpawnItem(new Vector3(posX, posY, 0), index);
+    }
+
+    // Spawn an item in the specified position
+    void SpawnItem(Vector3 position, int index)
+    {
+        Debug.Log("ItemPool SpawnItem currentIndex is " + index + " name is " + items[index].itemData.name);
+        Item item = items[index];
+        item.transform.position = position;
+        item.gameObject.SetActive(true);
     }
 
     void LoadItemData()
@@ -104,19 +114,15 @@ public class ItemPool : MonoBehaviour
         {
             itemDatas[index] = itemData;
             index++;
-
-            // Cache mana item, we could do this for all items but not now
-            //if (itemData.name == "Mana Sphere")
-            //    manaItemTemplate = itemData;
         }
 
         loadedItemData.itemList.Clear();
     }
 
-    //static ItemData GetManaItemTemplate()
-    //{
-    //    return manaItemTemplate;
-    //}
+    public static void DeactivateItem(int index)
+    {
+        items[index].gameObject.SetActive(false);
+    }
 
     Color GetItemColor(string itemName)
     {

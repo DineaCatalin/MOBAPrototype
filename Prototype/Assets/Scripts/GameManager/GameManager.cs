@@ -315,7 +315,7 @@ public class GameManager : MonoBehaviour
     }
 
     [PunRPC]
-    void PlayerPowerPickupRPC(int duration, float power, int playerID)
+    void PlayerPowerPickupRPC(float duration, float power, int playerID)
     {
         if (playerMap[playerID] != null)
         {
@@ -324,7 +324,7 @@ public class GameManager : MonoBehaviour
     }
 
     [PunRPC]
-    void PlayerSpeedPickupRPC(int duration, float speed, int playerID)
+    void PlayerSpeedPickupRPC(float duration, float speed, int playerID)
     {
         if (playerMap[playerID] != null)
         {

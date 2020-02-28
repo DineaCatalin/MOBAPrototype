@@ -55,5 +55,6 @@ MonoBehaviour:
   - PlayerManaPickupRPC
   - PlayerPowerPickupRPC
   - PlayerSpeedPickupRPC
+  - SpawnItemRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1

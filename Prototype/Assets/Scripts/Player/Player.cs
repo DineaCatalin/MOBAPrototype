@@ -76,12 +76,12 @@ public class Player : MonoBehaviour
         IncreaseMana(value);
     }
 
-    public void PickUpSpeedItem(int duration, float value)
+    public void PickUpSpeedItem(float duration, float value)
     {
         AddBuff(Buff.speed, duration, value);
     }
 
-    public void PickUpPowerItem(int duration, float value)
+    public void PickUpPowerItem(float duration, float value)
     {
         AddBuff(Buff.power, duration, value);
     }

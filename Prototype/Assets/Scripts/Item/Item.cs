@@ -34,7 +34,6 @@ public class Item : MonoBehaviour
                 ItemPool.DeactivateItem(index);
             else
                 Destroy(gameObject);
-
         }
     }
 }
