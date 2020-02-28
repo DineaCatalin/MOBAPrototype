@@ -65,25 +65,25 @@ public class Player : MonoBehaviour
         manaBar.SetMaxMana(stats.maxMana);
     }
 
-    // This function will be called when a player touches an item
-    // The player will receive different stats or buffs depending on the item
-    public void PickupItem(ItemData item)
+    // Not the best way to do it but the items are simple in this prototype
+    public void PickUpHPItem(int value)
     {
-        if (item.health > 0)
-            Heal(item.health);
+        Heal(value);
+    }
 
-        if(item.mana > 0)
-            IncreaseMana(item.mana);
+    public void PickUpManaItem(int value)
+    {
+        IncreaseMana(value);
+    }
 
-        if (item.powerMultiplier > 0)
-        {
-            AddBuff(Buff.power, item.powerMultiplier, item.duration);
-        }
+    public void PickUpSpeedItem(int duration, float value)
+    {
+        AddBuff(Buff.speed, duration, value);
+    }
 
-        if (item.speedMultiplier > 0)
-        {
-            AddBuff(Buff.speed, item.speedMultiplier, item.duration);
-        }
+    public void PickUpPowerItem(int duration, float value)
+    {
+        AddBuff(Buff.power, duration, value);
     }
 
     //
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
     //
 
     // 
-    void AddBuff(Buff buff, float buffValue, float duration)
+    void AddBuff(Buff buff, float duration, float buffValue)
     {
         if(buff == Buff.power)
         {

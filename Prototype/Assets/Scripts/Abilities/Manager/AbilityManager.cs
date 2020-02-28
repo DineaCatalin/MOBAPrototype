@@ -115,8 +115,6 @@ public class AbilityManager : MonoBehaviour
             player.UseMana(currentAbility.GetManaCost());
                 
             currentAbility.Cast();
-//            Debug.Log("AbilityManager: CastAbility After cast currentAbility is charging " + currentAbility.IsCharging());
-
             DeselectAbility();
         }
 

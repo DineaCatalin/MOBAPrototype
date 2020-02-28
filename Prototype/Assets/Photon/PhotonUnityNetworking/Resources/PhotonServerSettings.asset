@@ -49,5 +49,11 @@ MonoBehaviour:
   - SpawnStaticAbility
   - SyncPlayerMapRPC
   - WaterRainHealPlayerRPC
+  - HealPlayerNoStacksRPC
+  - PlayerItemPickupRPC
+  - PlayerHealthPickupRPC
+  - PlayerManaPickupRPC
+  - PlayerPowerPickupRPC
+  - PlayerSpeedPickupRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
