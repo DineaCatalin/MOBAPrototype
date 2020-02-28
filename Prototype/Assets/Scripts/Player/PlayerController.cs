@@ -100,15 +100,8 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            //abilityManager.CastAbility();
-            photonView.RPC("Cast", RpcTarget.All);
+            abilityManager.CastAbility();
         }
-    }
-
-    [PunRPC]
-    void Cast()
-    {
-        abilityManager.CastAbility();
     }
 
     void HandleAbilitySelection()

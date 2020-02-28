@@ -1,44 +1,46 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/ItemData.cs">
     <Files>
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="138" Column="54" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="17" Column="19" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="42" Column="58" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="67" Column="64" />
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="67" Column="10" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="62" Column="27" />
       <File FileName="Assets/Config/Resources/AbilityConfig.txt" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="11" Column="38" />
+      <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" Line="11" Column="1" />
       <File FileName="Assets/Scripts/Player/InteractionManager.cs" />
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="221" Column="80" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="225" Column="60" />
       <File FileName="Assets/Scripts/Environment/Lava.cs" />
       <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="103" Column="39" />
       <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
       <File FileName="Assets/Scripts/Player/Shield.cs" />
-      <File FileName="Assets/Config/Resources/PlayerConfig.txt" />
+      <File FileName="Assets/Config/Resources/PlayerConfig.txt" Line="7" Column="15" />
       <File FileName="Assets/Config/Resources/ProjectileSpeedConfig.txt" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
       <File FileName="Assets/Scripts/Utils/SpawnInMouseDirection.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" Line="9" Column="2" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="19" Column="6" />
+      <File FileName="Assets/Scripts/Item/ItemData.cs" Line="11" Column="33" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="15" Column="25" NotebookId="1" />
       <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" NotebookId="1" />
-      <File FileName="Assets/Config/Resources/ItemConfig.txt" NotebookId="1" />
+      <File FileName="Assets/Config/Resources/ItemConfig.txt" Line="18" Column="9" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" NotebookId="1" />
       <File FileName="Assets/Plugins/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/PullEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="11" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="256" Column="86" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="9" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="270" Column="34" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -50,17 +52,13 @@
               </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
-                  <Node name="Data" expanded="True" />
                   <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
-                  <Node name="Utils" expanded="True" />
                 </Node>
-                <Node name="Environment" expanded="True" />
-                <Node name="GameManager" expanded="True">
-                  <Node name="GameManager.cs" selected="True" />
+                <Node name="GameManager" expanded="True" />
+                <Node name="Item" expanded="True">
+                  <Node name="ItemData.cs" selected="True" />
                 </Node>
-                <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>

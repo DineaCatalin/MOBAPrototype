@@ -253,17 +253,82 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void WaterRainHealPlayer(int initialHeal, int healTicks, int healTickValue, int playerID)
+    public void HealPlayerNoStacks(int initialHeal, int healTicks, int healTickValue, int playerID)
     {
-        photonView.RPC("WaterRainHealPlayerRPC", RpcTarget.All, initialHeal, healTicks, healTickValue, playerID);
+        photonView.RPC("HealPlayerNoStacksRPC", RpcTarget.All, initialHeal, healTicks, healTickValue, playerID);
     }
 
     [PunRPC]
-    void WaterRainHealPlayerRPC(int initialHeal, int healTicks, int healTickValue, int playerID)
+    void HealPlayerNoStacksRPC(int initialHeal, int healTicks, int healTickValue, int playerID)
     {
         if(playerMap[playerID] != null)
         {
             playerMap[playerID].WaterRainHeal(initialHeal, healTicks, healTickValue);
+        }
+    }
+
+    public void PlayerItemPickup(ItemData itemData ,int playerID)
+    {
+        switch(itemData.name)
+        {
+            case "HP Sphere":
+            {
+                photonView.RPC("PlayerHealthPickupRPC", RpcTarget.All, itemData.health, playerID);
+                break;
+            }
+            case "Mana Sphere":
+            {
+                    photonView.RPC("PlayerManaPickupRPC", RpcTarget.All, itemData.mana, playerID);
+                    break;
+            }
+            case "Power Sphere":
+            {
+                    photonView.RPC("PlayerPowerPickupRPC", RpcTarget.All, itemData.duration, itemData.powerMultiplier, playerID);
+                    break;
+            }
+            case "Speed Sphere":
+            {
+                    photonView.RPC("PlayerSpeedPickupRPC", RpcTarget.All, itemData.duration, itemData.speedMultiplier, playerID);
+                    break;
+            }
+            default:
+                return;
+        }
+    }
+
+    [PunRPC]
+    void PlayerHealthPickupRPC(int heath, int playerID)
+    {
+        if (playerMap[playerID] != null)
+        {
+            playerMap[playerID].PickUpHPItem(heath);
+        }
+    }
+
+    [PunRPC]
+    void PlayerManaPickupRPC(int mana, int playerID)
+    {
+        if (playerMap[playerID] != null)
+        {
+            playerMap[playerID].PickUpManaItem(mana);
+        }
+    }
+
+    [PunRPC]
+    void PlayerPowerPickupRPC(int duration, float power, int playerID)
+    {
+        if (playerMap[playerID] != null)
+        {
+            playerMap[playerID].PickUpPowerItem(duration, power);
+        }
+    }
+
+    [PunRPC]
+    void PlayerSpeedPickupRPC(int duration, float speed, int playerID)
+    {
+        if (playerMap[playerID] != null)
+        {
+            playerMap[playerID].PickUpSpeedItem(duration, speed);
         }
     }
 }

@@ -12,12 +12,6 @@ public class Item : MonoBehaviour
     // we will use this index to activate/deactivate the item when needed
     public int index;
 
-    // Use this to temporarily set the values, the actual values will be set from a config file later
-    private void Start()
-    {
-        
-    }
-
     public void SetAttributes(ItemData data)
     {
         itemData = data;
@@ -31,7 +25,8 @@ public class Item : MonoBehaviour
             Debug.Log("Player has collided with item : power " + itemData.powerMultiplier + " speed " + itemData.speedMultiplier);
 
             Player player = collision.GetComponent<Player>();
-            player.PickupItem(itemData);
+            //player.PickupItem(itemData);
+            GameManager.Instance.PlayerItemPickup(itemData, player.GetID());
 
             // Send the item back to the pool if it belongs to the pool
             // Items with index smaller then 0 will be items spawned by abilities
