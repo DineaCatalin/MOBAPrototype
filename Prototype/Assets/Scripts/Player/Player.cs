@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     public PhotonView photonView;
 
     // Used to track if the player is being healed by Water Rain
-    //bool healEffectActive;
+    bool healEffectActive;
 
     void Awake()
     {
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         rushAreaManager = GetComponentInChildren<StateManager>();
         rigidBody = GetComponent<Rigidbody2D>();
 
-       // healEffectActive = false;
+       healEffectActive = false;
     }
 
     private void Start()
@@ -216,6 +216,20 @@ public class Player : MonoBehaviour
         } 
     }
 
+    // Is the same as heal and healover time but it will not trigger if
+    // the player is already healing from water rain heal
+    public void WaterRainHeal(int initialHeal, int healTicks, int healTickValue)
+    {
+        if(!healEffectActive)
+        {
+            Debug.Log("Player WaterRainHeal applying heal");
+            healEffectActive = true;
+
+            Heal(initialHeal);
+            HealOverTime(healTicks, healTickValue);
+        }
+    }
+
     // Adds mana
     public void IncreaseMana(int mana)
     {
@@ -264,6 +278,8 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(1f);
             Heal(heal);
         }
+
+        healEffectActive = false;
     }
 
 

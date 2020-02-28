@@ -252,4 +252,18 @@ public class GameManager : MonoBehaviour
             playerMap[playerID].PullToLocation(pullTarget, force, damage);
         }
     }
+
+    public void WaterRainHealPlayer(int initialHeal, int healTicks, int healTickValue, int playerID)
+    {
+        photonView.RPC("WaterRainHealPlayerRPC", RpcTarget.All, initialHeal, healTicks, healTickValue, playerID);
+    }
+
+    [PunRPC]
+    void WaterRainHealPlayerRPC(int initialHeal, int healTicks, int healTickValue, int playerID)
+    {
+        if(playerMap[playerID] != null)
+        {
+            playerMap[playerID].WaterRainHeal(initialHeal, healTicks, healTickValue);
+        }
+    }
 }

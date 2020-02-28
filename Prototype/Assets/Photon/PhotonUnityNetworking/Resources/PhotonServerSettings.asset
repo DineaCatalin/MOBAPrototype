@@ -48,5 +48,6 @@ MonoBehaviour:
   - SpawnProjectileAbility
   - SpawnStaticAbility
   - SyncPlayerMapRPC
+  - WaterRainHealPlayerRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
