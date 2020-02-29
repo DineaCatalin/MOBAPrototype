@@ -59,7 +59,7 @@ public class ItemPool : MonoBehaviour
             Item item = Instantiate(templateItem, transform);
             item.index = i;     // Set the index of out item so that we can easily grab it later
             item.SetAttributes(itemDatas[i % itemDatas.Length]);   //Set item data
-            Debug.LogError("ItemPool Start Getting color for name " + item.itemData.name);
+            Debug.Log("ItemPool Start Getting color for name " + item.itemData.name);
 
             // Set color
             item.GetComponent<SpriteRenderer>().color = GetItemColor(item.itemData.name);

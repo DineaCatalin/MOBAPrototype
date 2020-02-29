@@ -1,7 +1,7 @@
 ﻿{ 
    "ability1":"FireStorm",
    "ability2":"Blast",
-   "ability3":"Trace",
+   "ability3":"Tornado",
    "ability4":"WaterRain",
    "ability5":"ManaSphere",
    "ability6":"Spikes",

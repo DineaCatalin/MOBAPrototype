@@ -331,4 +331,18 @@ public class GameManager : MonoBehaviour
             playerMap[playerID].PickUpSpeedItem(duration, speed);
         }
     }
+
+    public void SlowPlayer(int duration, int slowValue, int playerID)
+    {
+        photonView.RPC("SlowPlayerRPC", RpcTarget.All, duration, slowValue, playerID);
+    }
+
+    [PunRPC]
+    void SlowPlayerRPC(int duration, int slowValue, int playerID)
+    {
+        if (playerMap[playerID] != null)
+        {
+            playerMap[playerID].Slow(duration, slowValue);
+        }
+    }
 }

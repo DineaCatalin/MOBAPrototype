@@ -10,7 +10,8 @@ public class SlowEffect : AbilityEffect
     {
         Debug.Log("SlowEffect");
 
-        player.Slow(stats.duration, stats.dotValue);
+        //player.Slow(stats.duration, stats.dotValue);
+        GameManager.Instance.SlowPlayer(stats.duration, stats.dotValue, player.GetID());
 
         if (applyDamage)
             player.Damage(stats.hpValue);

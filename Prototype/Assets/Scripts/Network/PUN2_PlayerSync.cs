@@ -41,21 +41,18 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
     int mana;
     int lastMana;
 
-    void Start()
+    void Awake()
     {
-        // Player is local
-        LoadDependencies();
+        rb = player2Sync.GetComponent<Rigidbody2D>();
+        player = player2Sync.GetComponent<Player>();
+        playerTransform = player2Sync.transform;
 
         health = player.GetHealth();
         lastHealth = health;
         mana = player.GetMana();
         lastMana = mana;
 
-        if (photonView.IsMine)
-        {
-
-        }
-        else
+        if (!photonView.IsMine)
         {
             //Player is Remote, deactivate the scripts and object that should only be enabled for the local player
             for (int i = 0; i < localScripts.Length; i++)
@@ -67,13 +64,6 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
                 localObjects[i].SetActive(false);
             }
         }
-    }
-
-    void LoadDependencies()
-    {
-        rb = player2Sync.GetComponent<Rigidbody2D>();
-        player = player2Sync.GetComponent<Player>();
-        playerTransform = player2Sync.transform;
     }
 
     void Update()
@@ -124,13 +114,6 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
         }
         else
         {
-            if (playerTransform == null)
-            {
-                Debug.Log("PUN2_PlayerSync OnPhotonSerializeView playerTransform is null wtf? Returning");
-                LoadDependencies();
-                return;
-            }
-                
             Debug.Log("PUN2_PlayerSync OnPhotonSerializeView Start not my player " + photonView.ViewID);
             //Network player, receive data
             latestPos = (Vector3)stream.ReceiveNext();
@@ -154,18 +137,18 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
         }
     }
 
-    void OnCollisionEnter(Collision contact)
-    {
-        if (!photonView.IsMine)
-        {
-            Transform collisionObjectRoot = contact.transform.root;
-            if (collisionObjectRoot.tag.Contains("Team"))
-            {
-                //Transfer PhotonView of Rigidbody to our local player
-                photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
-            }
-        }
-    }
+    //void OnCollisionEnter(Collision contact)
+    //{
+    //    if (!photonView.IsMine)
+    //    {
+    //        Transform collisionObjectRoot = contact.transform.root;
+    //        if (collisionObjectRoot.tag.Contains("Team"))
+    //        {
+    //            //Transfer PhotonView of Rigidbody to our local player
+    //            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+    //        }
+    //    }
+    //}
 }
 
 

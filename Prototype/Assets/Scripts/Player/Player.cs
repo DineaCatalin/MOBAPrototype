@@ -39,6 +39,10 @@ public class Player : MonoBehaviour
     // Used to track if the player is being healed by Water Rain
     bool healEffectActive;
 
+    // Will help us determine if the player is already slowed so that the slow effect doesn't
+    // stack and slow the player way to much
+    bool isPlayerSlowed;
+
     void Awake()
     {
         // TODO: Assign id from gamemanager, do it over the network
@@ -304,28 +308,41 @@ public class Player : MonoBehaviour
     // Slow the player for duration seconds by slowValue
     public void Slow(int slowValue, float duration)
     {
-        // Descrease the players speed
-        stats.speed -= slowValue;
+        Debug.Log("Player Slow slowing by " + slowValue);
 
-        // If the slow is more then the speed set the speed to 0
-        // so that we don't have negative movement speed
-        if (stats.speed < 0)
+        if(!isPlayerSlowed)
         {
-            // The slow value will be our speed value now because we will use
-            // this to restore our speed after the slow effect is over
-            slowValue = (int)stats.speed;
-            stats.speed = 0;
-        }
+            float speedDiff = Mathf.Abs(stats.speed - slowValue);
 
-        StartCoroutine(RemoveSlow(slowValue, duration));
+            // Descrease the players speed
+            stats.speed -= slowValue;
+
+            // If the slow is more then the speed set the speed to 0
+            // so that we don't have negative movement speed
+            if (stats.speed < 0)
+            {
+                // The slow value will be our speed value now because we will use
+                // this to restore our speed after the slow effect is over
+                slowValue = slowValue - (int)speedDiff;
+                stats.speed = 0;
+            }
+
+            isPlayerSlowed = true;
+
+            StartCoroutine(RemoveSlow(slowValue, duration));            
+        }
     }
 
     IEnumerator RemoveSlow(int slowValue, float duration)
     {
         yield return new WaitForSeconds(duration);
 
+        Debug.Log("Player RemoveSlow adding speed " + slowValue);
+
         // Reset speed to the original value
         stats.speed += slowValue;
+
+        isPlayerSlowed = false;
     }
 
     // Set the shield only if the player is the 1 clicked
