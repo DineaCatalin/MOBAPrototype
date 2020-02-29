@@ -529,6 +529,11 @@ PrefabInstance:
       propertyPath: dustDusk
       value: 
       objectReference: {fileID: 964118914}
+    - target: {fileID: 1490346526, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
+      propertyPath: spellIndicatorOutOfRangeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7801554a70be74594a629080da22b500,
+        type: 3}
     - target: {fileID: 683628319989916904, guid: 121c322c230bf427ba93c2017361d06e,
         type: 3}
       propertyPath: m_LocalPosition.x

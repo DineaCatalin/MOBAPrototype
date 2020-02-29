@@ -123,19 +123,19 @@ public class PlayerController : MonoBehaviour
         {
             SwitchSelectedAbility(4);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        else if (Input.GetKeyDown(KeyCode.R))
         {
             SwitchSelectedAbility(5);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        else if (Input.GetKeyDown(KeyCode.T))
         {
             SwitchSelectedAbility(6);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        else if (Input.GetKeyDown(KeyCode.F))
         {
             SwitchSelectedAbility(7);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        else if (Input.GetKeyDown(KeyCode.C))
         {
             SwitchSelectedAbility(8);
         }
