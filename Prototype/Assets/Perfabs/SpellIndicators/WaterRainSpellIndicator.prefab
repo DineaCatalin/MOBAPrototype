@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4827338415396801694}
   - component: {fileID: 1537448691712823740}
   - component: {fileID: 5374698302515368017}
+  - component: {fileID: -1559700900681747801}
   m_Layer: 0
   m_Name: WaterRainSpellIndicator
   m_TagString: Untagged
@@ -94,3 +95,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47a4252d766e4f92805104091eec6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1559700900681747801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8012968941612022332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67cea5d9f249240328af2e539aee3a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaInCastRange: 5
+  alphaOutOfCastRange: 1
+  playerID: 1001
+  castRange: 0

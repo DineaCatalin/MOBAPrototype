@@ -1,48 +1,48 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/SpawnAbility.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Config/Resources/CastRangeConfig.txt">
     <Files>
-      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="19" Column="67" />
+      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="24" Column="52" />
       <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" />
-      <File FileName="Assets/Scripts/Player/InteractionManager.cs" Line="30" Column="34" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="34" Column="33" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="59" Column="62" />
+      <File FileName="Assets/Scripts/Player/InteractionManager.cs" />
+      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" />
       <File FileName="Assets/Scripts/Environment/Lava.cs" />
       <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="97" Column="68" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" Line="14" Column="45" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
       <File FileName="Assets/Scripts/Player/Shield.cs" />
-      <File FileName="Assets/Config/Resources/PlayerConfig.txt" Line="1" Column="1" />
-      <File FileName="Assets/Config/Resources/ProjectileSpeedConfig.txt" Line="1" Column="1" />
+      <File FileName="Assets/Config/Resources/PlayerConfig.txt" />
+      <File FileName="Assets/Config/Resources/ProjectileSpeedConfig.txt" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
       <File FileName="Assets/Scripts/Utils/SpawnInMouseDirection.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
       <File FileName="Assets/Scripts/Item/Item.cs" />
       <File FileName="Assets/Scripts/Item/ItemData.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" Line="17" Column="26" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="23" Column="9" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="96" Column="23" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="48" Column="41" />
-      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" Line="12" Column="21" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="61" Column="43" />
-      <File FileName="Assets/Scripts/Abilities/SpellIndicators/NewMonoBehaviour.cs" Line="24" Column="40" />
-      <File FileName="Assets/Config/Resources/AbilityConfig.txt" Line="44" Column="26" />
-      <File FileName="Assets/Config/Resources/NewFile.txt" Line="7" Column="23" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="39" Column="57" NotebookId="1" />
-      <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" Line="10" Column="2" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="96" Column="40" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
+      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
+      <File FileName="Assets/Config/Resources/AbilityConfig.txt" />
+      <File FileName="Assets/Scripts/Abilities/SpellIndicators/SpellIndicator.cs" Line="10" Column="52" />
+      <File FileName="Assets/Config/Resources/CastRangeConfig.txt" Line="7" Column="26" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="37" Column="1" NotebookId="1" />
+      <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="85" Column="55" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" Line="37" Column="21" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" NotebookId="1" />
       <File FileName="Assets/Config/Resources/ItemConfig.txt" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/PullEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="345" Column="26" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/ItemPool.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="135" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" Line="43" Column="36" NotebookId="1" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -50,7 +50,9 @@
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Config" expanded="True">
-                <Node name="Resources" expanded="True" />
+                <Node name="Resources" expanded="True">
+                  <Node name="CastRangeConfig.txt" selected="True" />
+                </Node>
               </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
@@ -58,7 +60,6 @@
                   <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
                   <Node name="SpellIndicators" expanded="True" />
-                  <Node name="SpawnAbility.cs" selected="True" />
                 </Node>
                 <Node name="GameManager" expanded="True" />
                 <Node name="Item" expanded="True" />
