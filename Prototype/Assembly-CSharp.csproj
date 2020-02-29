@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Abilities\RushAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ShieldAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\SpawnAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\SpellIndicators\SpellIndicator.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityFactory.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Assets\Scripts\Utils\StopCanvasRotation.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\TestProjectile.cs" />
+    <None Include="Assets\Config\Resources\CastRangeConfig.txt" />
     <None Include="Assets\Config\Resources\AbilityConfig.txt" />
     <None Include="Assets\Config\Resources\SelectedAbilitiesConfig.txt" />
     <None Include="Assets\Config\Resources\ItemConfig.txt" />

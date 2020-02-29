@@ -38,3 +38,15 @@ public class ProjectileSpeedConfig
     public float FireStormSpeed;
     public float TornadoSpeed;
 }
+
+[Serializable]
+public class AbilityCastRangeConfig
+{
+    public float TraceCastRange;
+    public float IceWallCastRange;
+    public float RootsCastRange;
+    public float SpikesCastRange;
+    public float ManaSphereCastRange;
+    public float WaterRainCastRange;
+    public float BlinkCastRange;
+}

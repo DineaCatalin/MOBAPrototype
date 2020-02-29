@@ -8,7 +8,7 @@ public class BlinkAbility : Ability
 
     Vector3 blinkPosition;
 
-    float castRange = 5f;
+    float castRange;
 
     private void Start()
     {
@@ -19,8 +19,8 @@ public class BlinkAbility : Ability
             playerTransform = GameObject.Find("Player" + playerID).transform;
         }
 
-        // TODO: Load cast range from config
-
+        // Load cast range from config
+        castRange = AbilityDataCache.GetAbilityCastRange("Blink");
     }
 
     public override bool Cast()

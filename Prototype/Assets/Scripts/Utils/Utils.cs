@@ -16,7 +16,7 @@ public static class Utils
 
     public static Vector3 GetMousePosition()
     {
-        return Camera.main.WorldToScreenPoint(Input.mousePosition);
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     public static string RemoveCloneFromName(string name)

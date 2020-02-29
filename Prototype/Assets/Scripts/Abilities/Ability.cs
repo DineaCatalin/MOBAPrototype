@@ -92,5 +92,10 @@ public abstract class Ability : MonoBehaviour
     public void SetPlayerID(int id)
     {
         playerID = id;
+
+        SpellIndicator spellInd = GetComponent<SpellIndicator>();
+
+        if (spellInd != null)
+            spellInd.playerID = id;
     }
 }

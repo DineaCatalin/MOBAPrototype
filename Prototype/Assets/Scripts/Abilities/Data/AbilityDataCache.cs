@@ -10,6 +10,8 @@ public class AbilityDataCache : MonoBehaviour
     //static Dictionary<string, float> projectileSpeedMap;
     static ProjectileSpeedConfig projectileSpeedConfig;
 
+    static AbilityCastRangeConfig castRangeConfig;
+
     [SerializeField] AbilityDataList loadedAbilityData;
 
     // Use this for initialization
@@ -17,6 +19,7 @@ public class AbilityDataCache : MonoBehaviour
     {
         LoadAbilityData();
         LoadProjectileSpeeds();
+        LoadAbilityCastRange();
     }
 
     // Will return us the AbilityData of a specific ability
@@ -50,6 +53,12 @@ public class AbilityDataCache : MonoBehaviour
         projectileSpeedConfig = JsonUtility.FromJson<ProjectileSpeedConfig>(dataString);
     }
 
+    void LoadAbilityCastRange()
+    {
+        string dataString = FileHandler.ReadString("CastRangeConfig");
+        castRangeConfig = JsonUtility.FromJson<AbilityCastRangeConfig>(dataString);
+    }
+
     // Could do this with a dict but we have only 3 entries
     public static float GetProjectileSpeed(string name)
     {
@@ -63,6 +72,36 @@ public class AbilityDataCache : MonoBehaviour
 
             case "TornadoProjectile":
                 return projectileSpeedConfig.TornadoSpeed;
+
+            default:
+                return 0f;
+        }
+    }
+
+    public static float GetAbilityCastRange(string name)
+    {
+        switch (name)
+        {
+            case "Blink":
+                return castRangeConfig.BlinkCastRange;
+
+            case "IceWall":
+                return castRangeConfig.IceWallCastRange;
+
+            case "Trace":
+                return castRangeConfig.TraceCastRange;
+
+            case "Roots":
+                return castRangeConfig.RootsCastRange;
+
+            case "Spikes":
+                return castRangeConfig.SpikesCastRange;
+
+            case "ManaSphere":
+                return castRangeConfig.ManaSphereCastRange;
+
+            case "WaterRain":
+                return castRangeConfig.WaterRainCastRange;
 
             default:
                 return 0f;

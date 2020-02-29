@@ -17,7 +17,7 @@ public class SpawnAbility : Ability
 
     string projectileName;
 
-    float castRange = 7f;
+    float castRange;
 
     Transform playerTransform;
 
@@ -35,8 +35,10 @@ public class SpawnAbility : Ability
 
         projectileName = spawnedObject.name.Replace("(Clone)", "");
 
-        // TODO: load castRange based on projectile name
-        
+        // Load castRange based on projectile name
+        string abilityBaseName = projectileName.Replace("Projectile", "");
+        Debug.Log("SpawnAbility Start name for cast range config is " + abilityBaseName);
+        castRange = AbilityDataCache.GetAbilityCastRange(abilityBaseName);
 
         // If it's an ice wall or a mana sphere leave the layer to be the default one so that all players can interact with it
         if (name.Contains("IceWall") || name.Contains("Mana"))
