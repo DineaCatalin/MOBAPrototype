@@ -17,7 +17,7 @@ public abstract class Ability : MonoBehaviour
     //AbilityData abilityData;
 
     // Can we cast the ability or is it still on cooldown
-    bool isCharging;
+    protected bool isCharging = false;
 
     // 
     protected int playerID;
@@ -57,11 +57,14 @@ public abstract class Ability : MonoBehaviour
     }
 
     // Cast the ability, as this is the base class we will only set the isCharging flag
-    public virtual void Cast()
+    public virtual bool Cast()
+    {
+        return true;
+    }
+
+    public void ResetCharging()
     {
         isCharging = true;
-
-//          Debug.Log("Ability BaseClass is casting");
     }
 
     public bool IsCharging()
@@ -89,10 +92,5 @@ public abstract class Ability : MonoBehaviour
     public void SetPlayerID(int id)
     {
         playerID = id;
-    }
-
-    public void SetCasterTeamName(string teamName)
-    {
-        abilityData.description.casterTeamName = teamName;
     }
 }

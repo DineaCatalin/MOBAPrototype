@@ -34,7 +34,6 @@ public class AbilityManager : MonoBehaviour
             currentAbility = abilities[i];
             currentAbility.Load();
             currentAbility.SetPlayerID(playerID);
-            currentAbility.SetCasterTeamName(player.teamName);  // TODO: Remove
             currentAbility.gameObject.layer = player.gameObject.layer;
 
             spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
@@ -98,9 +97,11 @@ public class AbilityManager : MonoBehaviour
     {
         Debug.Log("Player " + player.GetID() + " is casting");
 
-        // For network player
+        //// For network player
         if (currentAbility == null)
             return;
+
+        Debug.Log("AbilityManager CastAbility ability " + currentAbility.name + " isCharging " + currentAbility.IsCharging());
 
         if(!currentAbility.IsCharging())
         {
@@ -112,10 +113,13 @@ public class AbilityManager : MonoBehaviour
                 return;
             }
 
-            player.UseMana(currentAbility.GetManaCost());
-                
-            currentAbility.Cast();
-            DeselectAbility();
+            // If the ability was cast with success
+            if(currentAbility.Cast())
+            {
+                player.UseMana(currentAbility.GetManaCost());
+                DeselectAbility();
+                return;
+            }
         }
 
     }
@@ -160,6 +164,7 @@ public class AbilityManager : MonoBehaviour
     void DeselectAbility()
     {
         spellIndicators[currentAbilityIndex].SetActive(false);
+        currentAbility.ResetCharging();
         currentAbility = null;
         currentAbilityIndex = -1;
     }

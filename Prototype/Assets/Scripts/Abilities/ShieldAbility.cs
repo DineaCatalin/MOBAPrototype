@@ -12,7 +12,7 @@ public class ShieldAbility : Ability
         Load();
     }
 
-    public override void Cast()
+    public override bool Cast()
     {
         base.Cast();
 
@@ -32,8 +32,12 @@ public class ShieldAbility : Ability
                 Player player = hit.collider.gameObject.GetComponent<Player>();
                 Debug.Log("ShieldAbility activating shield with " + abilityData.stats.hpValue + " through controller for player " + playerID);
                 GameManager.Instance.ActivatePlayerShield(abilityData.stats.hpValue, player.GetID());
+
+                return true;
             }
         }
 
+        isCharging = false;
+        return false;
     }
 }

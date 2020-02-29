@@ -53,7 +53,7 @@ public class ProjectileAbility : Ability
         projectileName = projectile.name.Replace("(Clone)", "");
     }
 
-    public override void Cast()
+    public override bool Cast()
     {
         base.Cast();
 
@@ -68,6 +68,8 @@ public class ProjectileAbility : Ability
             castPosition = new Vector3(castOrigin.position.x, castOrigin.position.y, 1);
 
         AbilitySpawner.Instance.SpawnProjectile(projectileName, castPosition, spawnRotation, Camera.main.ScreenToWorldPoint(Input.mousePosition), projectileLayer);
+
+        return true;
     }
 
 }
