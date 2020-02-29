@@ -49,4 +49,6 @@ public class AbilityCastRangeConfig
     public float ManaSphereCastRange;
     public float WaterRainCastRange;
     public float BlinkCastRange;
+    public float EarthquakeCastRange;
+    public float BubbleCastRange;
 }

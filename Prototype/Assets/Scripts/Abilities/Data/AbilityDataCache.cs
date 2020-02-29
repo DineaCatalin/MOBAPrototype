@@ -110,6 +110,12 @@ public class AbilityDataCache : MonoBehaviour
             case "WaterRain":
                 return castRangeConfig.WaterRainCastRange;
 
+            case "Earthquake":
+                return castRangeConfig.EarthquakeCastRange;
+
+            case "Bubble":
+                return castRangeConfig.BubbleCastRange;
+
             default:
             {
                 Debug.Log("AbilityDataCache GetAbilityCastRange default from name " + name);

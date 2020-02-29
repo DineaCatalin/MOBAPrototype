@@ -1,15 +1,15 @@
 ﻿Fireball
-Fire Storm
+FireStorm
 Blast
 Trace
 Bubble
-Water Rain
-Mana Sphere
-Ice Wall
+WaterRain
+ManaSphere
+IceWall
 Spikes
 Roots
 Earthquake
-Dust Dusk
+DustDusk
 Push
 Rush
 Blink
