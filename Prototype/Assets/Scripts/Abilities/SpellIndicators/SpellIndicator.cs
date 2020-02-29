@@ -3,17 +3,25 @@ using System.Collections;
 
 public class SpellIndicator : MonoBehaviour
 {
-    [SerializeField] float alphaInCastRange;
-    [SerializeField] float alphaOutOfCastRange = 25;
+    [Range(0, 10)]
+    [SerializeField] float alphaInCastRange = 5;
 
-    public int playerID;
-    public float castRange;
+    [Range(0, 10)]
+    [SerializeField] float alphaOutOfCastRange = 1;
+
+    [HideInInspector] public int playerID;
+    [HideInInspector] public float castRange;
+
+    Sprite outOfRangeSprite;
+    Sprite inRangeSprite;
 
     Transform playerTransform;
     SpriteRenderer spriteRenderer;
 
     private void Start()
     {
+        Debug.Log("SpellIndicator for player " + playerID);
+
         playerTransform = GameObject.Find("Player" + playerID).transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -21,22 +29,34 @@ public class SpellIndicator : MonoBehaviour
         string spName = name.Replace("SpellIndicator(Clone)", "");
         Debug.Log("SpellIndicator after name is " + spName);
 
-        castRange = AbilityDataCache.GetAbilityCastRange(name);
+        castRange = AbilityDataCache.GetAbilityCastRange(spName);
+        Debug.Log("SpellIndicator castRange is " + castRange);
 
-        alphaInCastRange = spriteRenderer.color.a;
+        alphaInCastRange = alphaInCastRange / 10;
+        alphaOutOfCastRange = alphaOutOfCastRange / 10;
+
+        inRangeSprite = spriteRenderer.sprite;
+        outOfRangeSprite = AbilityDataCache.GetSpellIndicatorOutOfRangeSprite();
     }
 
     // Update is called once per frame
     void Update()
     {
         float distance = Vector2.Distance(playerTransform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        Debug.Log("SpellIndicator distance " + distance + " distance to castrange " + (distance - castRange));
 
         Color color = spriteRenderer.color;
 
         if (distance > castRange)
-            color.a = alphaOutOfCastRange;
+        {
+            //color.a = alphaOutOfCastRange;
+            spriteRenderer.sprite = outOfRangeSprite;
+        }
         else
-            color.a = alphaInCastRange;
+        {
+            //color.a = alphaInCastRange;
+            spriteRenderer.sprite = inRangeSprite;
+        }
 
         spriteRenderer.color = color;
     }

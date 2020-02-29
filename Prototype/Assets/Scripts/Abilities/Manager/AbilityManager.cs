@@ -40,7 +40,6 @@ public class AbilityManager : MonoBehaviour
 
             spellIndicators[i].transform.parent = this.transform;
             spellIndicators[i].transform.localPosition = new Vector3(0,0,1);
-            Debug.Log("SpellIndicator position " + spellIndicators[i].transform.position);
 
             // Give the instantiated spell indicator also to the ability so it can use it later
             currentAbility.SetSpellIndicator(spellIndicators[i]);

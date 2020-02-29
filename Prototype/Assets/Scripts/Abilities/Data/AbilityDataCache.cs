@@ -14,12 +14,18 @@ public class AbilityDataCache : MonoBehaviour
 
     [SerializeField] AbilityDataList loadedAbilityData;
 
+    [SerializeField] Sprite spellIndicatorOutOfRangeSprite;
+
+    static Sprite spellIndicatorOutOfRange;
+
     // Use this for initialization
     void Awake()
     {
         LoadAbilityData();
         LoadProjectileSpeeds();
         LoadAbilityCastRange();
+
+        spellIndicatorOutOfRange = spellIndicatorOutOfRangeSprite;
     }
 
     // Will return us the AbilityData of a specific ability
@@ -56,6 +62,7 @@ public class AbilityDataCache : MonoBehaviour
     void LoadAbilityCastRange()
     {
         string dataString = FileHandler.ReadString("CastRangeConfig");
+        Debug.Log("AbilityDataCache LoadAbilityCastRange " + dataString);
         castRangeConfig = JsonUtility.FromJson<AbilityCastRangeConfig>(dataString);
     }
 
@@ -104,7 +111,16 @@ public class AbilityDataCache : MonoBehaviour
                 return castRangeConfig.WaterRainCastRange;
 
             default:
+            {
+                Debug.Log("AbilityDataCache GetAbilityCastRange default from name " + name);
                 return 0f;
+            }
+                
         }
+    }
+
+    public static Sprite GetSpellIndicatorOutOfRangeSprite()
+    {
+        return spellIndicatorOutOfRange;
     }
 }

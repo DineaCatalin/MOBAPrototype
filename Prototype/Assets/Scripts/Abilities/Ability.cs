@@ -93,9 +93,9 @@ public abstract class Ability : MonoBehaviour
     {
         playerID = id;
 
-        SpellIndicator spellInd = GetComponent<SpellIndicator>();
+        SpellIndicator spellIndicatorComp = spellIndicator.GetComponent<SpellIndicator>();
 
-        if (spellInd != null)
-            spellInd.playerID = id;
+        if (spellIndicatorComp != null)
+            spellIndicatorComp.playerID = id;
     }
 }
