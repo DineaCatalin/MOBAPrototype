@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67cea5d9f249240328af2e539aee3a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alphaInCastRange: 125
-  alphaOutOfCastRange: 25
+  alphaInCastRange: 5
+  alphaOutOfCastRange: 1
   playerID: 0
   castRange: 0

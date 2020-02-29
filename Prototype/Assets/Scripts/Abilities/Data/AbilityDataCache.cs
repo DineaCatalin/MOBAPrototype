@@ -115,7 +115,6 @@ public class AbilityDataCache : MonoBehaviour
                 Debug.Log("AbilityDataCache GetAbilityCastRange default from name " + name);
                 return 0f;
             }
-                
         }
     }
 
