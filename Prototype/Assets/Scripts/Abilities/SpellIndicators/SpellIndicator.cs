@@ -18,6 +18,9 @@ public class SpellIndicator : MonoBehaviour
     Transform playerTransform;
     SpriteRenderer spriteRenderer;
 
+    Vector3 inRangeScale;
+    Vector3 outOfRangeSpriteScale;
+
     private void Start()
     {
         Debug.Log("SpellIndicator for player " + playerID);
@@ -37,6 +40,9 @@ public class SpellIndicator : MonoBehaviour
 
         inRangeSprite = spriteRenderer.sprite;
         outOfRangeSprite = AbilityDataCache.GetSpellIndicatorOutOfRangeSprite();
+
+        inRangeScale = spriteRenderer.transform.localScale;
+        outOfRangeSpriteScale = new Vector3(0.36f, 0.36f, 1);
     }
 
     // Update is called once per frame
@@ -51,11 +57,13 @@ public class SpellIndicator : MonoBehaviour
         {
             //color.a = alphaOutOfCastRange;
             spriteRenderer.sprite = outOfRangeSprite;
+            spriteRenderer.transform.localScale = outOfRangeSpriteScale;
         }
         else
         {
             //color.a = alphaInCastRange;
             spriteRenderer.sprite = inRangeSprite;
+            spriteRenderer.transform.localScale = inRangeScale;
         }
 
         spriteRenderer.color = color;

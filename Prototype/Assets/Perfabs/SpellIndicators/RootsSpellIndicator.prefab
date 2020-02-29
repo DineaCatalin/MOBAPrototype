@@ -109,6 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alphaInCastRange: 5
-  alphaOutOfCastRange: 25
+  alphaOutOfCastRange: 1
   playerID: 0
   castRange: 0

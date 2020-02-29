@@ -133,6 +133,7 @@
     <None Include="Assets\Config\Resources\CastRangeConfig.txt" />
     <None Include="Assets\Config\Resources\AbilityConfig.txt" />
     <None Include="Assets\Config\Resources\SelectedAbilitiesConfig.txt" />
+    <None Include="Assets\Config\Resources\AbilityNames.txt" />
     <None Include="Assets\Config\Resources\ItemConfig.txt" />
     <None Include="Assets\Config\Resources\ProjectileSpeedConfig.txt" />
     <None Include="Assets\Config\Resources\PlayerConfig.txt" />
