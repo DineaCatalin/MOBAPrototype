@@ -27,12 +27,14 @@ public class RushAbility : Ability
         rushAreaManager.Deactivate();
     }   
 
-    public override void Cast()
+    public override bool Cast()
     {
         base.Cast();
 
         //rushAreaManager.Activate(abilityData.stats.duration);
         GameManager.Instance.ActivateRushArea(abilityData.stats.duration, playerID);
+
+        return true;
     }
 
 }

@@ -8,6 +8,8 @@ public class BlinkAbility : Ability
 
     Vector3 blinkPosition;
 
+    float castRange = 5f;
+
     private void Start()
     {
         if (playerTransform == null)
@@ -16,23 +18,35 @@ public class BlinkAbility : Ability
             // we are working on now is a clone so it has the string "(Clone)" attached to its name
             playerTransform = GameObject.Find("Player" + playerID).transform;
         }
+
+        // TODO: Load cast range from config
+
     }
 
-    public override void Cast()
+    public override bool Cast()
     {
         base.Cast();
 
         Debug.Log("BlinkAbility Deactivating player " + playerID);
-        GameManager.Instance.DeactivatePlayer(playerID);
 
         blinkPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         blinkPosition.z = 0;
+
+        Debug.Log("BlinkAbility distance is " + Vector2.Distance(playerTransform.position, blinkPosition));
+
+        // We have exceeded the cast range
+        if (Vector2.Distance(playerTransform.position, blinkPosition) > castRange)
+            return false;
+
+        GameManager.Instance.DeactivatePlayer(playerID);
 
         // Set player position to the mouse position
         playerTransform.position = blinkPosition;
 
         Debug.Log("BlinkAbility Activating player " + playerID);
         GameManager.Instance.ActivatePlayer(playerID);
+
+        return true;
     }
 
 }

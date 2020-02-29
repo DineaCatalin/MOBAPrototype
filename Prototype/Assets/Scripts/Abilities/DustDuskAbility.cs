@@ -3,10 +3,12 @@ using System.Collections;
 
 public class DustDuskAbility : Ability
 {
-    public override void Cast()
+    public override bool Cast()
     {
         base.Cast();
 
         EnvironmentManager.Instance.TriggerDustDusk(abilityData.stats.duration);
+
+        return true;
     }
 }

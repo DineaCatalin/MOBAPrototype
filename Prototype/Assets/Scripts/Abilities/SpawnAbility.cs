@@ -17,15 +17,26 @@ public class SpawnAbility : Ability
 
     string projectileName;
 
+    float castRange = 7f;
+
+    Transform playerTransform;
+
     // Use this for initialization
     void Start()
     {
         base.Load();
 
-        string layerName = LayerMask.LayerToName(GameObject.Find("Player" + playerID).layer);
+        // Cache transform to later check for cast range 
+        GameObject playerGO = GameObject.Find("Player" + playerID);
+        playerTransform = playerGO.transform;
+
+        string layerName = LayerMask.LayerToName(playerGO.layer);
         layerName = layerName.Replace("Player", "Ability");
 
         projectileName = spawnedObject.name.Replace("(Clone)", "");
+
+        // TODO: load castRange based on projectile name
+        
 
         // If it's an ice wall or a mana sphere leave the layer to be the default one so that all players can interact with it
         if (name.Contains("IceWall") || name.Contains("Mana"))
@@ -37,7 +48,7 @@ public class SpawnAbility : Ability
         projectileLayer = LayerMask.NameToLayer(layerName);
     }
 
-    public override void Cast()
+    public override bool Cast()
     {
         base.Cast();
 
@@ -45,7 +56,16 @@ public class SpawnAbility : Ability
 
         spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         spawnPosition.z = 1;
-            
+
+        Debug.Log("Spawnability distance is " + Vector3.Distance(playerTransform.position, spawnPosition) + " cast range is " + castRange);
+
+        // We have exceeded the cast range
+        if (Vector3.Distance(playerTransform.position, spawnPosition) > castRange)
+        {
+            Debug.Log("Spawnability returning");
+            return false;
+        } 
+
         Debug.Log("SpawnAbility spellIndicator has ");
 
         if (mimicPlayerRotation)
@@ -54,5 +74,7 @@ public class SpawnAbility : Ability
             rotation = Quaternion.identity;
 
         AbilitySpawner.Instance.SpawnAbility(projectileName, spawnPosition, rotation, projectileLayer);
+
+        return true;
     }
 }
