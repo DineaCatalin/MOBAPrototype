@@ -65,6 +65,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.ServerSettings
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -2024,4 +2026,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Elements_v_0.5/Prototype.exe
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Elements_v_0.5/Prototyp/Prototype.exe
