@@ -136,7 +136,7 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":1,
+            "cooldown":10,
             "manaCost":1,
             "dotValue":5,
             "duration":5,

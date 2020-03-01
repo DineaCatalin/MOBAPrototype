@@ -171,9 +171,7 @@ public class Player : MonoBehaviour
         // We will just set the GO as inactive
         Debug.Log(gameObject + " Die and respawn in " + GameManager.RESPAWN_COOLDOWN + " seconds");
 
-        Deactivate();
-
-        GameManager.Instance.KillAndRespawnPlayer(GameManager.RESPAWN_COOLDOWN, this);
+        GameManager.Instance.KillAndRespawnPlayer(GameManager.RESPAWN_COOLDOWN, this.id);
     }
 
     // Will be used for synching the teleport mechanic over the network
@@ -394,7 +392,6 @@ public class Player : MonoBehaviour
         Damage(damage);
 
         float x = force * Mathf.Pow(-1, Random.Range(0,2));
-        
         float y = force * Mathf.Pow(-1, Random.Range(0, 2));
 
         Vector2 pushForce = new Vector2(x, y);
@@ -410,9 +407,7 @@ public class Player : MonoBehaviour
 
         Vector3 direction = targetPosition - transform.position;
         direction.Normalize();
-        //Debug.Log("Direction multiplying by " + force + " before is " + direction);
         direction *= force;
-        //Debug.Log("Direction after  is " + direction);
 
         rigidBody.AddForce(direction, ForceMode2D.Impulse);
     }

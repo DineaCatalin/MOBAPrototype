@@ -31,19 +31,29 @@ public class GameManager : MonoBehaviour
         match = new Match();
     }
 
-    public void KillAndRespawnPlayer(float respawnTimer, Player player)
+    public void KillAndRespawnPlayer(float respawnTimer, int playerID)
     {
-        StartCoroutine(SpawnPlayerWithDelay(respawnTimer, player));
+        photonView.RPC("KillAndRespawnPlayerRPC", RpcTarget.All, respawnTimer, playerID);
     }
 
-    IEnumerator SpawnPlayerWithDelay(float respawnTimer, Player player)
+    [PunRPC]
+    public void KillAndRespawnPlayerRPC(float respawnTimer, int playerID)
+    {
+        if(playerMap[playerID] != null)
+        {
+            playerMap[playerID].Deactivate();
+            StartCoroutine(SpawnPlayerWithDelay(respawnTimer, playerID));
+        }
+    }
+
+    IEnumerator SpawnPlayerWithDelay(float respawnTimer, int playerID)
     {
         // Wait respawntimer out
         yield return new WaitForSeconds(respawnTimer);
 
         // "Respawn" player by activating the player's GO and reset health and mana
         // The player will take care of doing this
-        player.Reset();
+        playerMap[playerID].Reset();
     }
 
     public void AddPlayer(int playerID)
@@ -343,6 +353,40 @@ public class GameManager : MonoBehaviour
         if (playerMap[playerID] != null)
         {
             playerMap[playerID].Slow(duration, slowValue);
+        }
+    }
+
+    public void SlowAndDamagePlayer(int duration, int slowValue, int damage, int playerID)
+    {
+        photonView.RPC("SlowAndDamagePlayerRPC", RpcTarget.All, duration, slowValue, damage, playerID);
+    }
+
+    [PunRPC]
+    void SlowAndDamagePlayerRPC(int duration, int slowValue, int damage, int playerID)
+    {
+        Player player = playerMap[playerID];
+
+        if (player != null)
+        {
+            player.Slow(duration, slowValue);
+            player.Damage(damage);
+        }
+    }
+
+    public void DamagePlayerWithDOT(int initialDamage, int dotDamage, int dotTicks, int playerID)
+    {
+        photonView.RPC("DamagePlayerWithDOTRPC", RpcTarget.All, initialDamage, dotDamage, dotTicks, playerID);
+    }
+
+    [PunRPC]
+    void DamagePlayerWithDOTRPC(int initialDamage, int dotDamage, int dotTicks, int playerID)
+    {
+        Player player = playerMap[playerID];
+
+        if (player != null)
+        {
+            player.Damage(initialDamage);
+            player.ApplyDOT(dotTicks, dotDamage);
         }
     }
 }
