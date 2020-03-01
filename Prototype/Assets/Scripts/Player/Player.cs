@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
 
     // ID of the player used to identify abilities
     [SerializeField] int id;
+    private int teamID;
 
     // UI of the player
     public HealthBar healthBar;
@@ -166,12 +167,10 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        // Update match statistics etc.
-
         // We will just set the GO as inactive
         Debug.Log(gameObject + " Die and respawn in " + GameManager.RESPAWN_COOLDOWN + " seconds");
 
-        GameManager.Instance.KillAndRespawnPlayer(GameManager.RESPAWN_COOLDOWN, this.id);
+        GameManager.Instance.KillAndRespawnPlayer(GameManager.RESPAWN_COOLDOWN, this.id, this.teamID);
     }
 
     // Will be used for synching the teleport mechanic over the network
@@ -441,6 +440,7 @@ public class Player : MonoBehaviour
 
         Debug.Log("Player SetTeamSpecificData tag " + gameObject.tag + " layer " + gameObject.layer);
 
+        this.teamID = teamID;
         teamName = "Team" + teamID;
 
         // We will also set the color of the sprite here temporarily

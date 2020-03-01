@@ -14,11 +14,21 @@ public class MatchTeam
         this.teamID = teamID;
     }
 
-    int score;
-    public int Score
+    public bool HasPlayer(int playerID)
     {
-        get { return score;  }
-        set { score = value; }
+        if (player1 == null)
+            return false;
+
+        if (player1.GetID() == playerID)
+            return true;
+
+        if (player2 == null)
+            return false;
+
+        if (player2.GetID() == playerID)
+            return true;
+
+        return false;
     }
 
     public bool SetPlayer(Player player)
@@ -27,7 +37,7 @@ public class MatchTeam
         if(player1 == null)
         {
             player1 = player;
-            
+            Debug.Log("MatchTeam SetPlayer Setting player 1 to " + player.GetID());
             player.SetTeamSpecificData(teamID);
             return true;
         }
@@ -36,6 +46,7 @@ public class MatchTeam
         if (player2 == null)
         {
             player2 = player;
+            Debug.Log("MatchTeam SetPlayer Setting player 2 to " + player.GetID());
             player.SetTeamSpecificData(teamID);
             return true;
         }
