@@ -31,18 +31,23 @@ public class GameManager : MonoBehaviour
         match = new Match();
     }
 
-    public void KillAndRespawnPlayer(float respawnTimer, int playerID)
+    public void KillAndRespawnPlayer(float respawnTimer, int playerID, int teamID)
     {
-        photonView.RPC("KillAndRespawnPlayerRPC", RpcTarget.All, respawnTimer, playerID);
+        photonView.RPC("KillAndRespawnPlayerRPC", RpcTarget.All, respawnTimer, playerID, teamID);
     }
 
     [PunRPC]
-    public void KillAndRespawnPlayerRPC(float respawnTimer, int playerID)
+    public void KillAndRespawnPlayerRPC(float respawnTimer, int playerID, int teamIDKilledPlayer)
     {
         if(playerMap[playerID] != null)
         {
             playerMap[playerID].Deactivate();
             StartCoroutine(SpawnPlayerWithDelay(respawnTimer, playerID));
+
+            // Add the score to the team that has killed the player with @playerID
+            Debug.Log("GameManager KillAndRespawnPlayerRPC score. Player has been killed " + playerID);
+
+            match.IncreaseTeamScore(teamIDKilledPlayer);
         }
     }
 
@@ -97,6 +102,7 @@ public class GameManager : MonoBehaviour
         Player player = GameObject.Find("Player" + playerID).GetComponent<Player>();
 
         int teamID = GetTeamToAssign();
+
         match.AssignPlayer(player, teamID);
 
         if (!playerMap.ContainsKey(playerID))
@@ -140,7 +146,7 @@ public class GameManager : MonoBehaviour
     {
         int teamID = (int)PhotonNetwork.CurrentRoom.CustomProperties["spawnedPlayerTeamID"];
 
-        if (teamID == 0)
+        if(teamID == 0)
             teamID = 1;
         else
             teamID = (teamID % 2) + 1;
