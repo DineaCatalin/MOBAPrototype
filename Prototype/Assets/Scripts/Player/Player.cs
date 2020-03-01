@@ -11,15 +11,18 @@ public enum Buff
 
 public class Player : MonoBehaviour
 {
+    // ID of the player used to identify abilities
+    [SerializeField] int id;
+    private int teamID;
+
     // Tells us in which team our player is
     // For now we default it to 1
     public string teamName = "Team1";
 
+    public PhotonView photonView;
+
     // Defines the stats of our player like health, mana, power, speed
     [SerializeField] PlayerData stats;
-
-    // This will be activated by the bubble shield ability
-    Shield shield;
 
     public PlayerController controller;
     public InteractionManager interactionManager;
@@ -27,27 +30,29 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rigidBody;
 
-    // ID of the player used to identify abilities
-    [SerializeField] int id;
-    private int teamID;
+    // This will be activated by the bubble shield ability
+    Shield shield;
 
     // UI of the player
     public HealthBar healthBar;
     public ManaBar manaBar;
 
-    public PhotonView photonView;
+    int healthRegen;
+    int manaRegen;
 
-    // Used to track if the player is being healed by Water Rain
-    bool healEffectActive;
+    // This will tell us when a player is receiving damage over time
+    // We will not regen the player while this is happening
+    bool isRecevingDOT;
 
     // Will help us determine if the player is already slowed so that the slow effect doesn't
     // stack and slow the player way to much
     bool isPlayerSlowed;
 
+    // Used to track if the player is being healed by Water Rain
+    bool healEffectActive;
+
     void Awake()
     {
-        // TODO: Assign id from gamemanager, do it over the network
-
         id = GetComponentInParent<PhotonView>().ViewID;
 
         SetComponentIDs();
@@ -60,7 +65,8 @@ public class Player : MonoBehaviour
         rushAreaManager = GetComponentInChildren<StateManager>();
         rigidBody = GetComponent<Rigidbody2D>();
 
-       healEffectActive = false;
+        healEffectActive = false;
+        isRecevingDOT = false;
     }
 
     private void Start()
@@ -68,6 +74,21 @@ public class Player : MonoBehaviour
         // Set health and mana bar values
         healthBar.SetMaxHealth(stats.maxHealth);
         manaBar.SetMaxMana(stats.maxMana);
+
+        // Load health regen and mana regen from config
+        healthRegen = 1;
+        manaRegen = 1;
+
+        InvokeRepeating("RegenerateStats", 1, 3);
+    }
+
+    void RegenerateStats()
+    {
+        if (isRecevingDOT)
+            return;
+        Debug.Log("Player RegenerateStats");
+        Heal(healthRegen);
+        IncreaseMana(manaRegen);
     }
 
     // Not the best way to do it but the items are simple in this prototype
@@ -134,7 +155,10 @@ public class Player : MonoBehaviour
     public void ApplyDOT(int numTicks, int damage)
     {
         if(gameObject.activeSelf)
+        {
+            isRecevingDOT = true;
             StartCoroutine(ApplyTickDamage(numTicks, damage));
+        }
     }
 
     // Will heal over time
@@ -269,6 +293,9 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(1f);
             Damage(damage);
         }
+
+        // DOT has finished 
+        isRecevingDOT = false;
     }
 
     IEnumerator ApplyTickHeal(int numTicks, int heal)
