@@ -43,6 +43,7 @@ public class Match
 
     public int AssignPlayer(Player player)
     {
+        // This logic has to be changed
         if (team1.SetPlayer(player))
         {
             return 1;

@@ -200,7 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e306558cc6540fba5be7aba5a09900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 1
   teamName: Team1
+  photonView: {fileID: 0}
   stats:
     health: 0
     maxHealth: 0
@@ -211,10 +213,8 @@ MonoBehaviour:
   controller: {fileID: 0}
   interactionManager: {fileID: 0}
   rushAreaManager: {fileID: 0}
-  id: 1
   healthBar: {fileID: 3295094497718086378}
   manaBar: {fileID: 3295094498066622084}
-  photonView: {fileID: 0}
 --- !u!212 &3295094496928400515
 SpriteRenderer:
   m_ObjectHideFlags: 0
