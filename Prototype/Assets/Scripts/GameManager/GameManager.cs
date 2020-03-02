@@ -33,7 +33,22 @@ public class GameManager : MonoBehaviour
 
     public void KillAndRespawnPlayer(float respawnTimer, int playerID, int teamID)
     {
+        if(photonView.IsMine)
+        {
+            // Increase score here so that only 1 client will do it
+            match.IncreaseTeamScore(teamID);
+
+            // Call RPC so that others update their score
+            photonView.RPC("UpdateScoreRPC", RpcTarget.OthersBuffered, teamID);
+
+        }
         photonView.RPC("KillAndRespawnPlayerRPC", RpcTarget.All, respawnTimer, playerID, teamID);
+    }
+
+    [PunRPC]
+    void UpdateScoreRPC(int teamIDKilledPlayer)
+    {
+        match.IncreaseTeamScore(teamIDKilledPlayer);
     }
 
     [PunRPC]
@@ -46,8 +61,6 @@ public class GameManager : MonoBehaviour
 
             // Add the score to the team that has killed the player with @playerID
             Debug.Log("GameManager KillAndRespawnPlayerRPC score. Player has been killed " + playerID);
-
-            match.IncreaseTeamScore(teamIDKilledPlayer);
         }
     }
 
@@ -103,7 +116,8 @@ public class GameManager : MonoBehaviour
 
         int teamID = GetTeamToAssign();
 
-        match.AssignPlayer(player, teamID);
+        player.SetTeamSpecificData(teamID);
+        //match.AssignPlayer(player, teamID);
 
         if (!playerMap.ContainsKey(playerID))
         {

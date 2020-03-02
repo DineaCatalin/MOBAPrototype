@@ -60,5 +60,6 @@ MonoBehaviour:
   - SlowAndDamagePlayerRPC
   - DamagePlayerWithDOTRPC
   - KillAndRespawnPlayerRPC
+  - UpdateScoreRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
