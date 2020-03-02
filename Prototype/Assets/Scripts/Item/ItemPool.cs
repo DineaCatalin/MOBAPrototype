@@ -81,7 +81,7 @@ public class ItemPool : MonoBehaviour
         if(PhotonNetwork.IsMasterClient)
         {
             Vector2 randomPoint = Utils.GetRandomScreenPoint();
-            photonView.RPC("SpawnItemRPC", RpcTarget.All, randomPoint.x, randomPoint.y, currentIndex);
+            photonView.RPC("SpawnItemRPC", RpcTarget.AllBuffered, randomPoint.x, randomPoint.y, currentIndex);
             currentIndex++;
         }
     }
