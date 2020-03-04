@@ -90,8 +90,11 @@
     <Compile Include="Assets\Scripts\Abilities\SpellIndicators\SpellIndicator.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityFactory.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraSize.cs" />
+    <Compile Include="Assets\Scripts\Collider\ReliableOnTriggerExit.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />
+    <Compile Include="Assets\Scripts\Environment\AreaLimiter.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentManager.cs" />
     <Compile Include="Assets\Scripts\Environment\Lava.cs" />
     <Compile Include="Assets\Scripts\Environment\Walls.cs" />

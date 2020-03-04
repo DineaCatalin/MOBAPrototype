@@ -409,4 +409,32 @@ public class GameManager : MonoBehaviour
             player.ApplyDOT(dotTicks, dotDamage);
         }
     }
+
+    public void ApplyArenaLimiterDamage(int damage, float damageInterval, int playerID)
+    {
+        photonView.RPC("ApplyArenaLimiterDamageRPC", RpcTarget.All, damage, damageInterval, playerID);
+    }
+
+    [PunRPC]
+    public void ApplyArenaLimiterDamageRPC(int damage, float damageInterval, int playerID)
+    {
+        if(playerMap[playerID] != null)
+        {
+            playerMap[playerID].ApplyArenaLimiterDOT(damage, damageInterval);
+        }
+    }
+
+    public void DisableArenaLimiterDOT(int playerID)
+    {
+        photonView.RPC("ApplyArenaLimiterDamageRPC", RpcTarget.All, playerID);
+    }
+
+    [PunRPC]
+    public void DisableArenaLimiterDOTRPC(int playerID)
+    {
+        if(playerMap[playerID] != null)
+        {
+            playerMap[playerID].DisableArenaLimiterDOT();
+        }
+    }
 }
