@@ -61,5 +61,7 @@ MonoBehaviour:
   - DamagePlayerWithDOTRPC
   - KillAndRespawnPlayerRPC
   - UpdateScoreRPC
+  - ApplyArenaLimiterDamageRPC
+  - DisableArenaLimiterDOTRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1

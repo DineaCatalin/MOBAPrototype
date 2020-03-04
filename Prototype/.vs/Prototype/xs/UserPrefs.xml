@@ -1,54 +1,12 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Match/Match.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/AreaLimiter.cs">
     <Files>
-      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="36" Column="10" />
-      <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" />
-      <File FileName="Assets/Scripts/Player/InteractionManager.cs" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="197" Column="50" />
-      <File FileName="Assets/Scripts/Environment/Lava.cs" />
-      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
-      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="65" Column="39" />
-      <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
-      <File FileName="Assets/Scripts/Player/Shield.cs" />
-      <File FileName="Assets/Config/Resources/PlayerConfig.txt" />
-      <File FileName="Assets/Config/Resources/ProjectileSpeedConfig.txt" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
-      <File FileName="Assets/Scripts/Utils/SpawnInMouseDirection.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
-      <File FileName="Assets/Scripts/Item/Item.cs" />
-      <File FileName="Assets/Scripts/Item/ItemData.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
-      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
-      <File FileName="Assets/Config/Resources/AbilityConfig.txt" />
-      <File FileName="Assets/Scripts/Abilities/SpellIndicators/SpellIndicator.cs" />
-      <File FileName="Assets/Config/Resources/CastRangeConfig.txt" />
-      <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" />
-      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="41" Column="58" />
-      <File FileName="Assets/Scripts/UI/GameUI.cs" Line="30" Column="48" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="32" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" NotebookId="1" />
-      <File FileName="Assets/Config/Resources/ItemConfig.txt" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/PullEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/ItemPool.cs" Line="80" Column="6" NotebookId="1" />
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" NotebookId="1" />
-      <File FileName="Assets/Plugins/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Match/Match.cs" Line="29" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Collider/ReliableOnTriggerExit.cs" Line="25" Column="38" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiter.cs" Line="29" Column="71" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="171" Column="37" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="508" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="437" Column="55" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="427" Column="52" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -59,16 +17,12 @@
                 <Node name="Resources" expanded="True" />
               </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="Abilities" expanded="True" />
-                <Node name="GameManager" expanded="True" />
-                <Node name="Item" expanded="True" />
-                <Node name="Match" expanded="True">
-                  <Node name="Match.cs" selected="True" />
+                <Node name="Collider" expanded="True" />
+                <Node name="Environment" expanded="True">
+                  <Node name="AreaLimiter.cs" selected="True" />
                 </Node>
-                <Node name="Network" expanded="True" />
+                <Node name="GameManager" expanded="True" />
                 <Node name="Player" expanded="True" />
-                <Node name="UI" expanded="True" />
-                <Node name="Utils" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -78,7 +32,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c5693c0c-4ca6-4883-861b-956a144aea07" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a614762b-4213-463e-af59-00d03a6e3f80" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

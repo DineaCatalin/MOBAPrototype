@@ -51,6 +51,11 @@ public class Player : MonoBehaviour
     // Used to track if the player is being healed by Water Rain
     bool healEffectActive;
 
+    // Used to store the coroutine that is called when the player enters the Area Limiter zone
+    // and starts taking damage. This variable is used to stop the coroutine that damages the player
+    // Without it we couldn't stop the coroutine as we woudn't have a reference to it
+    Coroutine dotCoroutine;
+
     void Awake()
     {
         id = GetComponentInParent<PhotonView>().ViewID;
@@ -158,6 +163,29 @@ public class Player : MonoBehaviour
         {
             isRecevingDOT = true;
             StartCoroutine(ApplyTickDamage(numTicks, damage));
+        }
+    }
+
+    // This will be triggered by the AreaLimiter and will only be deactivated when
+    // the player leaves the Area limiter 
+    public void ApplyArenaLimiterDOT(int damage, float damageInterval)
+    {
+        Debug.Log("Player ApplyArenaLimiterDOT damage " + damage + " damageInterval " + damageInterval);
+        dotCoroutine = StartCoroutine(ApplyDOTInfinite(damage, damageInterval));
+    }
+
+    public void DisableArenaLimiterDOT()
+    {
+        Debug.Log("Player " + id + " DisableArenaLimiterDOT");
+        StopCoroutine(dotCoroutine);
+    }
+
+    IEnumerator ApplyDOTInfinite(int damage, float damageInterval)
+    {
+        while(true)
+        {
+            Damage(damage);
+            yield return new WaitForSeconds(damageInterval);
         }
     }
 
