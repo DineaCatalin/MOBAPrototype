@@ -478,7 +478,6 @@ public class Player : MonoBehaviour
             //Debug.Log("Child is " + child.name);
             child.name = child.name + id;
         }
-
     }
 
     public int GetID()
