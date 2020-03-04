@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/AreaLimiter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/AreaLimiterManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Collider/ReliableOnTriggerExit.cs" Line="25" Column="38" />
-      <File FileName="Assets/Scripts/Environment/AreaLimiter.cs" Line="29" Column="71" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="171" Column="37" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="508" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="437" Column="55" NotebookId="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="427" Column="52" NotebookId="1" />
+      <File FileName="Assets/Scripts/Collider/ReliableOnTriggerExit.cs" Line="37" Column="1" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiter.cs" Line="35" Column="45" />
+      <File FileName="Assets/AreaLimiterManager.cs" Line="39" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="468" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +18,7 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Collider" expanded="True" />
                 <Node name="Environment" expanded="True">
-                  <Node name="AreaLimiter.cs" selected="True" />
+                  <Node name="AreaLimiterManager.cs" selected="True" />
                 </Node>
                 <Node name="GameManager" expanded="True" />
                 <Node name="Player" expanded="True" />
@@ -32,7 +31,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a614762b-4213-463e-af59-00d03a6e3f80" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="38212615-361b-416f-b117-602d71c7609b" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
