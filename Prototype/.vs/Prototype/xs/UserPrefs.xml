@@ -1,11 +1,16 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/AreaLimiterManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/AreaLimiter.cs">
     <Files>
-      <File FileName="Assets/Scripts/Collider/ReliableOnTriggerExit.cs" Line="37" Column="1" />
-      <File FileName="Assets/Scripts/Environment/AreaLimiter.cs" Line="35" Column="45" />
-      <File FileName="Assets/AreaLimiterManager.cs" Line="39" Column="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="468" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiter.cs" Line="33" Column="50" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="171" Column="71" NotebookId="1" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="66" Column="33" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="49" Column="21" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="40" Column="1" NotebookId="1" />
+      <File FileName="Assets/MatchClock.cs" Line="10" Column="9" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,12 +21,18 @@
                 <Node name="Resources" expanded="True" />
               </Node>
               <Node name="Scripts" expanded="True">
+                <Node name="Abilities" expanded="True">
+                  <Node name="Manager" expanded="True" />
+                  <Node name="Utils" expanded="True" />
+                </Node>
                 <Node name="Collider" expanded="True" />
                 <Node name="Environment" expanded="True">
-                  <Node name="AreaLimiterManager.cs" selected="True" />
+                  <Node name="AreaLimiter.cs" selected="True" />
                 </Node>
                 <Node name="GameManager" expanded="True" />
+                <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
+                <Node name="Utils" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -31,7 +42,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="38212615-361b-416f-b117-602d71c7609b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8ec3c782-08f9-454c-bf59-eebc2294c4ac" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

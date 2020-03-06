@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Environment\AreaLimiterManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\Ability.cs" />
     <Compile Include="Assets\Scripts\Abilities\BlinkAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\Data\AbilityData.cs" />
@@ -96,6 +95,7 @@
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />
     <Compile Include="Assets\Scripts\Environment\AreaLimiter.cs" />
+    <Compile Include="Assets\Scripts\Environment\AreaLimiterManager.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentManager.cs" />
     <Compile Include="Assets\Scripts\Environment\Lava.cs" />
     <Compile Include="Assets\Scripts\Environment\Walls.cs" />
@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Item\ItemPool.cs" />
     <Compile Include="Assets\Scripts\Match\Match.cs" />
+    <Compile Include="Assets\Scripts\Match\MatchClock.cs" />
     <Compile Include="Assets\Scripts\Network\AbilitySpawner.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_GameLobby.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_PlayerSync.cs" />
