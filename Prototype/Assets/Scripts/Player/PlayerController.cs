@@ -176,4 +176,5 @@ public class PlayerController : MonoBehaviour
 
         playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
     }
+
 }

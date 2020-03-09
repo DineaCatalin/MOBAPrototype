@@ -12,13 +12,23 @@ public class EnvironmentManager : MonoBehaviour
 
     PhotonView photonView;
 
+    // This will help us position the walls and area limiters in the same pla
+    public Vector2 environmentSize;
+
     public static EnvironmentManager Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
-
         photonView = GetComponent<PhotonView>();
+
+        // Let the master client decide what the environment size is based on it's screen size
+        // and then update the rest of the clients with this value
+        if (PhotonNetwork.IsMasterClient)
+        {
+            environmentSize = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+            photonView.RPC("SetEnvironmentSize", RpcTarget.OthersBuffered, environmentSize.x, environmentSize.y);
+        }
     }
 
     private void Start()
@@ -28,6 +38,12 @@ public class EnvironmentManager : MonoBehaviour
 
         ResizeToScreenSize();
         dustDusk.SetActive(false);
+    }
+
+    [PunRPC]
+    void SetEnvironmentSize(float x, float y)
+    {
+        environmentSize = new Vector2(x, y);
     }
 
     public void TriggerDustDusk(int duration)

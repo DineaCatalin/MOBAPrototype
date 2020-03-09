@@ -24,6 +24,12 @@ public class AreaLimiterManager : MonoBehaviour
     int secondsPerMin = 60;
     float growthIncrementRate;      // How many times a second will the GO grow
 
+    public void StartZoneExpansion()
+    {
+        // GameManager will start this on match start
+        StartCoroutine("ApplyGrowth");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +38,29 @@ public class AreaLimiterManager : MonoBehaviour
         for (int i = 0; i < areaLimiters.Length; i++)
         {
             areaLimiters[i].localScale = Vector3.one * initialScale;
+            areaLimiters[i].gameObject.SetActive(false);
         }
 
-        StartCoroutine("ApplyGrowth");
+        EventManager.StartListening("StartMatch", new System.Action(OnMatchStart));
+
+        Invoke("PositionAreaLimiters", 1f);
+    }
+
+    // This will position the area containers ( 2 in this case )
+    // Will need to rewrite this function to make it position more then 2 elements
+    void PositionAreaLimiters()
+    {
+        Vector3 environmentSize = EnvironmentManager.Instance.environmentSize;
+
+        // Set 1st area limiter in the upper left corner
+        areaLimiters[0].transform.position = new Vector3(-environmentSize.x, environmentSize.y, 0);
+        areaLimiters[0].gameObject.SetActive(true);
+
+        // Set 2nd area limiter in the lower right corner
+        areaLimiters[1].transform.position = new Vector3(environmentSize.x, -environmentSize.y, 0);
+        areaLimiters[1].gameObject.SetActive(true);
+
+        Debug.Log("SYNC_ENV_POS Area Limiter NW " + areaLimiters[0].transform.position + " Area Limiter SE " + areaLimiters[1].transform.position);
     }
 
     IEnumerator ApplyGrowth()
@@ -54,5 +80,10 @@ public class AreaLimiterManager : MonoBehaviour
 
             currentStep++;
         }
+    }
+
+    void OnMatchStart()
+    {
+        StartCoroutine(ApplyGrowth());
     }
 }
