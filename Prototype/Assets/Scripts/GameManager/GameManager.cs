@@ -29,6 +29,31 @@ public class GameManager : MonoBehaviour
         playerMap = new Dictionary<int, Player>();
 
         match = new Match();
+
+        // REMOVE
+        Debug.LogError("TEST ERROR CALL TO BE HELP US OPEN THE LOG FILE IN THE TEST BUILDS!");
+    }
+
+    // TODO: Rework this logic later
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if(PhotonNetwork.IsMasterClient)
+            {
+                photonView.RPC("StartMatch", RpcTarget.All);
+            }
+        }
+    }
+
+    [PunRPC]
+    public void StartMatch()
+    {
+        // Close the room so that other players can't connect
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+
+        // Fire match start event
+        EventManager.TriggerEvent("StartMatch");
     }
 
     public void KillAndRespawnPlayer(float respawnTimer, int playerID, int teamID)

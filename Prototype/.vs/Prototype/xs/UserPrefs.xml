@@ -1,16 +1,24 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/AreaLimiter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Match/Match.cs">
     <Files>
-      <File FileName="Assets/Scripts/Environment/AreaLimiter.cs" Line="33" Column="50" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="171" Column="71" NotebookId="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiter.cs" Line="27" Column="72" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" Line="31" Column="6" />
+      <File FileName="Assets/Scripts/Camera/CameraSize.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Environment/Walls.cs" Line="16" Column="12" />
+      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="30" Column="59" />
+      <File FileName="Assets/Scripts/Events/NewMonoBehaviour.cs" Line="21" Column="35" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="40" Column="40" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="501" Column="25" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="23" Column="10" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="66" Column="33" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="49" Column="21" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="40" Column="1" NotebookId="1" />
-      <File FileName="Assets/MatchClock.cs" Line="10" Column="9" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Match/MatchClock.cs" Line="20" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/InteractionManager.cs" Line="11" Column="27" NotebookId="1" />
+      <File FileName="Assets/Scripts/Match/Match.cs" Line="6" Column="13" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,15 +29,12 @@
                 <Node name="Resources" expanded="True" />
               </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="Abilities" expanded="True">
-                  <Node name="Manager" expanded="True" />
-                  <Node name="Utils" expanded="True" />
-                </Node>
-                <Node name="Collider" expanded="True" />
-                <Node name="Environment" expanded="True">
-                  <Node name="AreaLimiter.cs" selected="True" />
-                </Node>
+                <Node name="Environment" expanded="True" />
+                <Node name="Events" expanded="True" />
                 <Node name="GameManager" expanded="True" />
+                <Node name="Match" expanded="True">
+                  <Node name="Match.cs" selected="True" />
+                </Node>
                 <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="Utils" expanded="True" />
@@ -42,7 +47,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8ec3c782-08f9-454c-bf59-eebc2294c4ac" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cc18d225-8813-4a27-9b35-38ebc9778e94" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

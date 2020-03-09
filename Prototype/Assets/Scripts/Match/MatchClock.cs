@@ -11,33 +11,53 @@ public class MatchClock : MonoBehaviour
     public TextMeshProUGUI text;
     private float timeLeft;
 
+    bool isClockRunning;
+
     private void Awake()
     {
+        StopClock();
         timeLeft = GetInitialTime();
+
+        EventManager.StartListening("StartMatch", new System.Action(OnMatchStart));
 
         // TODO: Load match time from configuration
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (timeLeft > 0f)
+        if (timeLeft > 0f && isClockRunning)
         {
-            //  Update countdown clock
+            // Update countdown clock
             timeLeft -= Time.deltaTime;
             Minutes = GetLeftMinutes();
             Seconds = GetLeftSeconds();
 
-            //  Show current clock
+            // Show current clock
             if (timeLeft > 0f)
             {
                 text.text = Minutes + ":" + Seconds.ToString("00");
             }
             else
             {
-                //  The countdown clock has finished
+                // The countdown clock has finished
                 text.text = "0:00";
             }
         }
+    }
+
+    void OnMatchStart()
+    {
+        StartClock();
+    }
+
+    public void StartClock()
+    {
+        isClockRunning = true;
+    }
+
+    public void StopClock()
+    {
+        isClockRunning = false;
     }
 
     private float GetInitialTime()
