@@ -79,11 +79,11 @@
     <Compile Include="Assets\Plugins\Photon\PhotonRealtime\Code\SupportLogger.cs" />
     <Compile Include="Assets\Plugins\Photon\PhotonRealtime\Code\WebRpc.cs" />
     <None Include="Assets\Plugins\Photon\PhotonRealtime\Code\changes-realtime.txt" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.3.1f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
