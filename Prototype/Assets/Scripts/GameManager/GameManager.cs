@@ -35,12 +35,16 @@ public class GameManager : MonoBehaviour
     bool matchStarted = false;
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !matchStarted)
+        if(PhotonNetwork.IsMasterClient)
         {
-            if(PhotonNetwork.IsMasterClient)
+            if (Input.GetKeyDown(KeyCode.Space) && !matchStarted)
             {
                 photonView.RPC("StartMatch", RpcTarget.All);
                 matchStarted = true;
+            }
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                photonView.RPC("StartRound", RpcTarget.All);
             }
         }
     }
@@ -53,6 +57,13 @@ public class GameManager : MonoBehaviour
 
         // Fire match start event
         EventManager.TriggerEvent("StartMatch");
+    }
+
+    [PunRPC]
+    public void StartRound()
+    {
+        // Fire new round event
+        EventManager.TriggerEvent("StartRound");
     }
 
     public void KillAndRespawnPlayer(float respawnTimer, int playerID, int teamID)

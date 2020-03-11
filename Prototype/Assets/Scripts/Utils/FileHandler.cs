@@ -52,4 +52,6 @@ public static class FileHandler
         resultText = System.IO.File.ReadAllText(persistentDataPathFile);
         return resultText;
     }
+
+
 }

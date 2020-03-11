@@ -8,6 +8,9 @@ public class MatchClock : MonoBehaviour
     public int Minutes = 3;
     public int Seconds = 0;
 
+    int InitialMinutes;
+    int InitialSeconds;
+
     public TextMeshProUGUI text;
     private float timeLeft;
 
@@ -16,9 +19,12 @@ public class MatchClock : MonoBehaviour
     private void Awake()
     {
         StopClock();
-        timeLeft = GetInitialTime();
+
+        InitialMinutes = Minutes;
+        InitialSeconds = Seconds;
 
         EventManager.StartListening("StartMatch", new System.Action(OnMatchStart));
+        EventManager.StartListening("StartRound", new System.Action(OnMatchStart));
 
         // TODO: Load match time from configuration
     }
@@ -47,12 +53,13 @@ public class MatchClock : MonoBehaviour
 
     void OnMatchStart()
     {
-        StartClock();
+        ResetClock();
     }
 
-    public void StartClock()
+    void ResetClock()
     {
         isClockRunning = true;
+        timeLeft = GetInitialTime();
     }
 
     public void StopClock()
@@ -62,7 +69,7 @@ public class MatchClock : MonoBehaviour
 
     private float GetInitialTime()
     {
-        return Minutes * 60f + Seconds;
+        return InitialMinutes * 60f + InitialSeconds;
     }
 
     private int GetLeftMinutes()

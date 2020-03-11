@@ -24,6 +24,9 @@ public class AreaLimiterManager : MonoBehaviour
     int secondsPerMin = 60;
     float growthIncrementRate;      // How many times a second will the GO grow
 
+    // We use this so we can cancel the grow coroutine and restart it when we start a new round
+    Coroutine growCoroutine;
+
     public void StartZoneExpansion()
     {
         // GameManager will start this on match start
@@ -42,6 +45,7 @@ public class AreaLimiterManager : MonoBehaviour
         }
 
         EventManager.StartListening("StartMatch", new System.Action(OnMatchStart));
+        EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
 
         Invoke("PositionAreaLimiters", 1f);
     }
@@ -84,6 +88,18 @@ public class AreaLimiterManager : MonoBehaviour
 
     void OnMatchStart()
     {
-        StartCoroutine(ApplyGrowth());
+        growCoroutine = StartCoroutine(ApplyGrowth());
+    }
+
+    void OnRoundStart()
+    {
+        StopCoroutine(growCoroutine);
+
+        for (int i = 0; i < areaLimiters.Length; i++)
+        {
+            areaLimiters[i].localScale = Vector3.one * initialScale;
+        }
+
+        growCoroutine = StartCoroutine(ApplyGrowth());
     }
 }
