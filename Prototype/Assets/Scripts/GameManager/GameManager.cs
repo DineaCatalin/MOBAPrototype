@@ -29,19 +29,18 @@ public class GameManager : MonoBehaviour
         playerMap = new Dictionary<int, Player>();
 
         match = new Match();
-
-        // REMOVE
-        Debug.LogError("TEST ERROR CALL TO BE HELP US OPEN THE LOG FILE IN THE TEST BUILDS!");
     }
 
     // TODO: Rework this logic later
+    bool matchStarted = false;
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && !matchStarted)
         {
             if(PhotonNetwork.IsMasterClient)
             {
                 photonView.RPC("StartMatch", RpcTarget.All);
+                matchStarted = true;
             }
         }
     }

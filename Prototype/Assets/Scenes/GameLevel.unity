@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 190944532}
   - component: {fileID: 190944531}
   m_Layer: 0
-  m_Name: AreaLimiter (1)
+  m_Name: AreaLimiterNW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -852,7 +852,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4976306
+  orthographic size: 5.862832
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1484,6 +1484,18 @@ MonoBehaviour:
   Minutes: 3
   Seconds: 0
   text: {fileID: 255652222}
+--- !u!114 &1367822868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367822857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d52dfa092fae4bc59f1cf714d1ef2ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1514248298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,7 +1697,7 @@ GameObject:
   - component: {fileID: 1994095728}
   - component: {fileID: 1994095731}
   m_Layer: 0
-  m_Name: AreaLimiter
+  m_Name: AreaLimiterSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

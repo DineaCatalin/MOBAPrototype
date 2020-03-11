@@ -66,11 +66,11 @@
     <Compile Include="Assets\Plugins\Photon\PhotonUnityNetworking\Demos\DemoSlotRacer\Scripts\BezierCurve\Editor\BezierCurveInspector.cs" />
     <Compile Include="Assets\Plugins\Photon\PhotonUnityNetworking\Demos\DemoSlotRacer\Scripts\BezierCurve\Editor\BezierSplineInspector.cs" />
     <Compile Include="Assets\Plugins\Photon\PhotonUnityNetworking\Demos\DemoSlotRacer\Scripts\BezierCurve\Editor\LineInspector.cs" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>

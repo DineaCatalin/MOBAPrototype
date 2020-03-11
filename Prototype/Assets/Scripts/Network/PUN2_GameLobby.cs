@@ -59,6 +59,12 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
 
     void OnGUI()
     {
+        GUIStyle style = new GUIStyle();
+        style.fontSize = 45; //change the font size
+
+        // For test build
+        GUI.Label(new Rect(0, Screen.height - 100, 30, 20),"CONFIG FILES LOCATION: " + Application.persistentDataPath, style);
+
         GUI.Window(0, new Rect(Screen.width / 2 - 450, Screen.height / 2 - 200, 900, 400), LobbyWindow, "Lobby");
     }
 

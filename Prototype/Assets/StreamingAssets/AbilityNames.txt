@@ -1,0 +1,16 @@
+﻿Fireball
+FireStorm
+Blast
+Trace
+Bubble
+WaterRain
+ManaSphere
+IceWall
+Spikes
+Roots
+Earthquake
+DustDusk
+Push
+Rush
+Blink
+Tornado

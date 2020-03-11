@@ -166,11 +166,11 @@
     <None Include="Assets\Plugins\Photon\PhotonUnityNetworking\Demos\Shared Assets\Skin\eurof_tt.txt" />
     <None Include="Assets\Plugins\Photon\PhotonUnityNetworking\Demos\Shared Assets\Skin\3dText.shader" />
     <None Include="Assets\Plugins\Photon\PhotonUnityNetworking\Demos\DemoSlotRacer\Kenney Assets\Copyrights.txt" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>/Users/catalin.dinea/git/MOBAPrototype/Prototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.3.1f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
