@@ -22,6 +22,8 @@ public abstract class Ability : MonoBehaviour
     // 
     protected int playerID;
 
+    AbilityUI abilityUI;
+
     // This is the helper that will guide the player to cast the ability
     // Will be empty for empty abilities
     [SerializeField] protected GameObject spellIndicator;
@@ -38,6 +40,12 @@ public abstract class Ability : MonoBehaviour
         cooldown = abilityData.stats.cooldown;
     }
 
+    public void SetUI(AbilityUI ui)
+    {
+        abilityUI = ui;
+        abilityUI.Load(abilityData);
+    }
+
     public void UpdateCooldown()
     {
         currentCooldown -= Time.deltaTime;
@@ -48,17 +56,24 @@ public abstract class Ability : MonoBehaviour
         {
             currentCooldown = cooldown;
             isCharging = false;
+            abilityUI.StopCooldown();
+        }
+        else
+        {
+            abilityUI.UpdateCooldown(currentCooldown);
         }
     }
 
-    public void ResetCooldown()
-    {
-        currentCooldown = cooldown;
-    }
+    //public void ResetCooldown()
+    //{
+    //    currentCooldown = cooldown;
+    //    abilityUI.ActivateCooldown();
+    //}
 
     // Cast the ability, as this is the base class we will only set the isCharging flag
     public virtual bool Cast()
     {
+        abilityUI.ActivateCooldown();
         return true;
     }
 

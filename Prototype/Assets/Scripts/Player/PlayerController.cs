@@ -4,10 +4,7 @@ using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
 {
-    // This is where the abilitymanager, transform and player scripts are
-
-    //public GameObject playerGO;
-     public Player player;
+    public Player player;
 
     AbilityManager abilityManager;
     Transform playerTransform;
@@ -15,10 +12,6 @@ public class PlayerController : MonoBehaviour
 
     // We will disable the movement function when this is true
     public bool isRooted;
-
-    // We will use the arrows for moving dummy players
-    // Used only for testing 
-    [SerializeField] bool isDummy;
     
     PlayerData stats;
 
@@ -35,21 +28,11 @@ public class PlayerController : MonoBehaviour
         abilityManager = player.GetComponent<AbilityManager>();
         playerTransform = player.transform;
         photonView = GetComponent<PhotonView>();
-
-        // Pass a reference of the photonView to the player so that it can use it to call RPC's
-        player.photonView = photonView;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Delete this later
-        if(isDummy)
-        {
-            HandleDummyMovement();
-            return;
-        }
-
         HandleMovement();       
         HandleRotation();
         HandleAbilitySelection();
@@ -149,32 +132,4 @@ public class PlayerController : MonoBehaviour
 
         abilityManager.SetCurrentAbility(index);  
     }
-
-    void HandleDummyMovement()
-    {
-        if (isRooted)
-            return;
-
-        movementIncrement = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.UpArrow))       // UP
-        {
-            movementIncrement += Vector3.up;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))       // DOWN
-        {
-            movementIncrement += Vector3.down;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))       // LEFT
-        {
-            movementIncrement += Vector3.left;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))       // RIGHT
-        {
-            movementIncrement += Vector3.right;
-        }
-
-        playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
-    }
-
 }
