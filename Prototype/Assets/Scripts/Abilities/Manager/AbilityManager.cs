@@ -8,6 +8,9 @@ public class AbilityManager : MonoBehaviour
 
     int currentAbilityIndex;
 
+    // Insert all the Ability UIs in the inspector
+    public AbilityUI[] abilityUIs;
+
     Ability[] abilities;
 
     GameObject[] spellIndicators;
@@ -27,12 +30,15 @@ public class AbilityManager : MonoBehaviour
 
         spellIndicators = new GameObject[abilities.Length];
 
+        AbilityUI[] uis = AbilityUIContainer.Instance.abilitieUIs;
+
         // Load all abilities and set the to be inactive
         // Also set the correct spell indicators for the player
         for (int i = 0; i < abilities.Length; i++)
         {
             currentAbility = abilities[i];
             currentAbility.Load();
+            currentAbility.SetUI(uis[i]);
             currentAbility.SetPlayerID(playerID);
             currentAbility.gameObject.layer = player.gameObject.layer;
 

@@ -19,7 +19,8 @@ public class Player : MonoBehaviour
     // For now we default it to 1
     public string teamName = "Team1";
 
-    public PhotonView photonView;
+    // Will tell us if the player is local or controlled over the network
+    //[HideInInspector] public bool isLocal;
 
     // Defines the stats of our player like health, mana, power, speed
     [SerializeField] PlayerData stats;
@@ -58,6 +59,10 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        //PhotonView photonView = GetComponentInParent<PhotonView>();
+        //id = photonView.ViewID;
+        //isLocal = photonView.IsMine;
+
         id = GetComponentInParent<PhotonView>().ViewID;
 
         SetComponentIDs();

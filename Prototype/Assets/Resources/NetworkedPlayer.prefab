@@ -87,7 +87,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3295094496928400513}
   isRooted: 0
-  isDummy: 0
 --- !u!114 &3295094496822912772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +102,7 @@ MonoBehaviour:
   player2Sync: {fileID: 3295094496928400526}
   localScripts:
   - {fileID: 3295094496822912773}
+  - {fileID: 3295094496928400518}
   localObjects: []
 --- !u!114 &3295094496822912775
 MonoBehaviour:
@@ -188,6 +188,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab08caad5c3b432e81f924971a73af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityUIs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &3295094496928400513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   teamName: Team1
-  photonView: {fileID: 0}
   stats:
     health: 0
     maxHealth: 0
