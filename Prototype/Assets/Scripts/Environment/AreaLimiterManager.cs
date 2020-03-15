@@ -44,8 +44,9 @@ public class AreaLimiterManager : MonoBehaviour
             areaLimiters[i].gameObject.SetActive(false);
         }
 
-        EventManager.StartListening("StartMatch", new System.Action(OnMatchStart));
+        EventManager.StartListening("StartMatch", new System.Action(OnRoundStart));
         EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
+        EventManager.StartListening("RoundEnd", new System.Action(OnRoundEnd));
 
         Invoke("PositionAreaLimiters", 1f);
     }
@@ -86,12 +87,12 @@ public class AreaLimiterManager : MonoBehaviour
         }
     }
 
-    void OnMatchStart()
+    void OnRoundStart()
     {
         growCoroutine = StartCoroutine(ApplyGrowth());
     }
 
-    void OnRoundStart()
+    void OnRoundEnd()
     {
         StopCoroutine(growCoroutine);
 
@@ -99,7 +100,5 @@ public class AreaLimiterManager : MonoBehaviour
         {
             areaLimiters[i].localScale = Vector3.one * initialScale;
         }
-
-        growCoroutine = StartCoroutine(ApplyGrowth());
     }
 }

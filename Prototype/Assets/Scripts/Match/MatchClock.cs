@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
@@ -10,11 +10,14 @@ public class MatchClock : MonoBehaviour
 
     int InitialMinutes;
     int InitialSeconds;
+    int DrawSeconds;
 
     public TextMeshProUGUI text;
     private float timeLeft;
 
     bool isClockRunning;
+
+    PhotonView photonView;
 
     private void Awake()
     {
@@ -23,10 +26,14 @@ public class MatchClock : MonoBehaviour
         InitialMinutes = Minutes;
         InitialSeconds = Seconds;
 
-        EventManager.StartListening("StartMatch", new System.Action(OnMatchStart));
-        EventManager.StartListening("StartRound", new System.Action(OnMatchStart));
+        photonView = GetComponent<PhotonView>();
+
+        EventManager.StartListening("StartMatch", new Action(OnMatchStart));
+        EventManager.StartListening("StartRound", new Action(OnMatchStart));
+        EventManager.StartListening("RoundDraw", new Action(OnRoundDraw));
 
         // TODO: Load match time from configuration
+        DrawSeconds = 15;
     }
 
     private void FixedUpdate()
@@ -47,6 +54,10 @@ public class MatchClock : MonoBehaviour
             {
                 // The countdown clock has finished
                 text.text = "0:00";
+
+                // Send round ended event and stop the clock
+                EventManager.TriggerEvent("RoundEnd");
+                StopClock();
             }
         }
     }
@@ -54,6 +65,12 @@ public class MatchClock : MonoBehaviour
     void OnMatchStart()
     {
         ResetClock();
+    }
+
+    void OnRoundDraw()
+    {
+        isClockRunning = true;
+        Seconds = DrawSeconds;
     }
 
     void ResetClock()

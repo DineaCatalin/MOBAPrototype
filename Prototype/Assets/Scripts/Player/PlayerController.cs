@@ -2,13 +2,24 @@
 using System.Collections;
 using Photon.Pun;
 
+public enum AbilityInputKey
+{
+    Ability1 = KeyCode.Alpha1,
+    Ability2 = KeyCode.Alpha2,
+    Ability3 = KeyCode.Alpha3,
+    Ability4 = KeyCode.Alpha4,
+    Ability5 = KeyCode.R,
+    Ability6 = KeyCode.T,
+    Ability7 = KeyCode.F,
+    Ability8 = KeyCode.C
+}
+
 public class PlayerController : MonoBehaviour
 {
     public Player player;
 
     AbilityManager abilityManager;
     Transform playerTransform;
-  
 
     // We will disable the movement function when this is true
     public bool isRooted;
@@ -90,39 +101,38 @@ public class PlayerController : MonoBehaviour
     void HandleAbilitySelection()
     {
         // Could initialize keys somewhere else but for now do it here
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(Input.GetKeyDown((KeyCode)AbilityInputKey.Ability1))
         {
             SwitchSelectedAbility(1);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability2))
         {
             SwitchSelectedAbility(2);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability3))
         {
             SwitchSelectedAbility(3);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability4))
         {
             SwitchSelectedAbility(4);
         }
-        else if (Input.GetKeyDown(KeyCode.R))
+        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability5))
         {
             SwitchSelectedAbility(5);
         }
-        else if (Input.GetKeyDown(KeyCode.T))
+        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability6))
         {
             SwitchSelectedAbility(6);
         }
-        else if (Input.GetKeyDown(KeyCode.F))
+        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability7))
         {
             SwitchSelectedAbility(7);
         }
-        else if (Input.GetKeyDown(KeyCode.C))
+        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability8))
         {
             SwitchSelectedAbility(8);
         }
-
     }
 
     void SwitchSelectedAbility(int index)

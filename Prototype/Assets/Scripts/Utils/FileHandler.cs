@@ -4,6 +4,8 @@ using System;
 
 public static class FileHandler
 {
+    static bool readFromStreamingAssets = true;
+
     // Doesn't work at build runtime 
     public static void WriteString(string text, string resourceFile)
     {
@@ -20,6 +22,12 @@ public static class FileHandler
         string resultText = "EMPTY";
         string persistentDataPathFile = Application.persistentDataPath + "/" + resourceFile + ".txt";
         string streamingAssetsFilePath = Application.streamingAssetsPath + "/" + resourceFile + ".txt";
+
+        // Debug
+        if(readFromStreamingAssets)
+        {
+            return System.IO.File.ReadAllText(streamingAssetsFilePath);
+        }
 
         // Try to read from persistenPath
         try
