@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     // PLS don't leave it like this
     public static float RESPAWN_COOLDOWN = 5f;
     public static float MAX_PLAYERS = 4;
+    public static int ROUNDS_TO_WIN = 10;       // Many rounds a team will need to win to win the mactch
 
     const float ADD_PLAYER_DELAY = 1f;
 
@@ -44,9 +45,15 @@ public class GameManager : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.N))
             {
-                photonView.RPC("StartRound", RpcTarget.All);
+                photonView.RPC("RoundEnd", RpcTarget.All);
             }
         }
+    }
+
+    // Handle match end logic
+    public void EndMatch(int winnerTeamID)
+    {
+        
     }
 
     [PunRPC]
