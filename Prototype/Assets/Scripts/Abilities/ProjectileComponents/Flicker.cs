@@ -17,6 +17,6 @@ public class Flicker : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         gameObject.SetActive(false);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

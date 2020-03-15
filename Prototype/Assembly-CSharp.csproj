@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\Abilities\Effects\RushArea.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\SlowEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\Manager\AbilityManager.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Pool\AbilityProjectilePool.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityCollider.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityDuration.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Assets\Scripts\Utils\FollowCursor.cs" />
     <Compile Include="Assets\Scripts\Utils\LookAtMouse.cs" />
     <Compile Include="Assets\Scripts\Utils\MimicRotation.cs" />
+    <Compile Include="Assets\Scripts\Utils\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Utils\SpawnInMouseDirection.cs" />
     <Compile Include="Assets\Scripts\Utils\StateManager.cs" />
     <Compile Include="Assets\Scripts\Utils\StopCanvasRotation.cs" />

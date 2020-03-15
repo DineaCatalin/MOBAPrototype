@@ -16,6 +16,7 @@ public class DestroyAfterCollisions : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

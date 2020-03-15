@@ -34,7 +34,13 @@ public class AbilitySpawner : MonoBehaviour
     void SpawnStaticAbility(string projectileName, Vector3 position, Quaternion rotation, int layer)
     {
         Debug.Log("AbilitySpawner Spawn rotation is " + rotation);
-        GameObject spawned = Instantiate(projectileMap[projectileName], position, rotation);
+        //GameObject spawned = Instantiate(projectileMap[projectileName], position, rotation);
+
+        GameObject spawned = AbilityProjectilePool.Instance.GetProjectile(projectileName);
+        spawned.transform.position = position;
+        spawned.transform.rotation = rotation;
+        spawned.SetActive(true);
+
         spawned.layer = layer;
     }
 
@@ -48,8 +54,16 @@ public class AbilitySpawner : MonoBehaviour
     {
         Debug.Log("AbilitySpawner Spawn rotation is " + rotation);
 
-        GameObject projectile = Instantiate(projectileMap[projectileName], position, rotation);
+        //GameObject projectile = Instantiate(projectileMap[projectileName], position, rotation);
+
+        // TODO: Add Pool here
+        GameObject projectile = AbilityProjectilePool.Instance.GetProjectile(projectileName);
+        projectile.transform.position = position;
+        projectile.transform.rotation = rotation;
+
         projectile.layer = layer;
+
+        projectile.SetActive(true);
 
         MoveAbility movement = projectile.GetComponent<MoveAbility>();
 
@@ -63,11 +77,13 @@ public class AbilitySpawner : MonoBehaviour
         projectileMap = new Dictionary<string, GameObject>();
 
         // Load the Dictionary
-        foreach (var projectile in projectiles)
-        {
-            Debug.Log("AbilitySpawner adding projectile with name " + projectile.name);
-            projectileMap.Add(projectile.name, projectile);
-        }
+        //foreach (var projectile in projectiles)
+        //{
+        //    Debug.Log("AbilitySpawner adding projectile with name " + projectile.name);
+        //    projectileMap.Add(projectile.name, projectile);
+        //}
+
+        AbilityProjectilePool.Instance.InitWithObjectList(projectiles);
 
         // Clear and remove refference
         projectiles.Clear();
