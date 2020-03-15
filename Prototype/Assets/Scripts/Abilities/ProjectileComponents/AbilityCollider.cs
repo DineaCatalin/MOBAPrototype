@@ -44,7 +44,8 @@ public class AbilityCollider : MonoBehaviour
             if (!isStatic && abilityData.description.name != "Tornado")
             {
                 Debug.Log("Destroting projectile " + this.gameObject.name + " that hit player " + player.GetID());
-                Destroy(this.gameObject);
+                gameObject.SetActive(false);
+                //Destroy(this.gameObject);
             }
 
             return;
@@ -62,7 +63,7 @@ public class AbilityCollider : MonoBehaviour
 
             // Destroy the ability after the collision
             gameObject.SetActive(false);
-            Destroy(gameObject);
+            //Destroy(gameObject);
 
             return;
         }
@@ -71,7 +72,8 @@ public class AbilityCollider : MonoBehaviour
         else if(collision.tag == "Wall" && !isStatic)
         {
             Debug.Log("Collided with wall");
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
+            //Destroy(this.gameObject);
             return;
         }
 
@@ -88,7 +90,8 @@ public class AbilityCollider : MonoBehaviour
                 if(collision.tag == "Spikes" || collision.tag == "Roots")
                 {
                     collision.gameObject.SetActive(false);
-                    Destroy(this.gameObject);
+                    //estroy(this.gameObject);
+                    gameObject.SetActive(false);
                 }
                 break;
 
@@ -96,7 +99,8 @@ public class AbilityCollider : MonoBehaviour
                 if (collision.tag == "Fire Strom" || collision.tag == "Water Rain")
                 {
                     collision.gameObject.SetActive(false);
-                    Destroy(this.gameObject);
+                    //Destroy(this.gameObject);
+                    gameObject.SetActive(false);
                 }
                 break;
         }
