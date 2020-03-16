@@ -105,6 +105,7 @@ public class AbilityDataCache : MonoBehaviour
                 return castRangeConfig.SpikesCastRange;
 
             case "ManaSphere":
+            case "Mana Sphere":
                 return castRangeConfig.ManaSphereCastRange;
 
             case "WaterRain":

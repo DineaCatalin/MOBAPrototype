@@ -31,7 +31,7 @@ public class AbilitySpawner : MonoBehaviour
     [PunRPC]
     void SpawnStaticAbility(string projectileName, Vector3 position, Quaternion rotation, int layer)
     {
-        Debug.Log("AbilitySpawner Spawn rotation is " + rotation);
+        Debug.Log("AbilitySpawner Spawning " + projectileName);
         //GameObject spawned = Instantiate(projectileMap[projectileName], position, rotation);
 
         GameObject spawned = AbilityProjectilePool.Instance.GetProjectile(projectileName);
@@ -50,14 +50,12 @@ public class AbilitySpawner : MonoBehaviour
     [PunRPC]
     void SpawnProjectileAbility(string projectileName, Vector3 position, Quaternion rotation, Vector3 direction, int layer)
     {
-        Debug.Log("AbilitySpawner Spawn rotation is " + rotation);
-
         //GameObject projectile = Instantiate(projectileMap[projectileName], position, rotation);
 
         GameObject projectile = AbilityProjectilePool.Instance.GetProjectile(projectileName);
         projectile.transform.position = position;
         projectile.transform.rotation = rotation;
-
+        Debug.Log("AbilitySpawner SpawnProjectileAbility position " + position);
         projectile.layer = layer;
 
         projectile.SetActive(true);

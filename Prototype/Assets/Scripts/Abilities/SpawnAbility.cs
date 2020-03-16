@@ -21,6 +21,10 @@ public class SpawnAbility : Ability
 
     Transform playerTransform;
 
+    // This will help with the render order of the spawned abilities vs projectiles
+    // Projectiles will be rendered above the spawned static abilities
+    int zOrder = 2;
+
     // Use this for initialization
     void Start()
     {
@@ -57,7 +61,7 @@ public class SpawnAbility : Ability
         Debug.Log("SpawnAbility is casting " + abilityData.description.name + " at position " + Utils.GetMousePosition());
 
         spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        spawnPosition.z = 1;
+        spawnPosition.z = zOrder;
 
         Debug.Log("Spawnability distance is " + Vector3.Distance(playerTransform.position, spawnPosition) + " cast range is " + castRange);
 

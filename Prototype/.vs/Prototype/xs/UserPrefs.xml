@@ -1,26 +1,30 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/AbilityDraftLogic.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Data/AbilityDataCache.cs">
     <Files>
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="28" Column="94" />
+      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="34" Column="20" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
-      <File FileName="Assets/Scripts/Audio/Sound.cs" Line="12" Column="32" />
-      <File FileName="Assets/Scripts/Audio/AudioManager.cs" Line="19" Column="38" />
-      <File FileName="Assets/Config/Resources/CastRangeConfig.txt" Line="1" Column="1" />
-      <File FileName="Assets/Config/Resources/ItemConfig.txt" Line="14" Column="21" />
-      <File FileName="Assets/Config/Resources/PlayerConfig.txt" Line="1" Column="1" />
-      <File FileName="Assets/Config/Resources/ProjectileSpeedConfig.txt" Line="3" Column="26" />
-      <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" Line="4" Column="25" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" Line="17" Column="31" />
-      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="20" Column="51" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="72" Column="34" />
-      <File FileName="Assets/Scripts/Match/MatchClock.cs" Line="59" Column="52" />
-      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="32" Column="51" />
+      <File FileName="Assets/Scripts/Audio/Sound.cs" />
+      <File FileName="Assets/Scripts/Audio/AudioManager.cs" />
+      <File FileName="Assets/Config/Resources/CastRangeConfig.txt" />
+      <File FileName="Assets/Config/Resources/ItemConfig.txt" />
+      <File FileName="Assets/Config/Resources/PlayerConfig.txt" />
+      <File FileName="Assets/Config/Resources/ProjectileSpeedConfig.txt" />
+      <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
+      <File FileName="Assets/Scripts/Match/MatchClock.cs" />
+      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="44" Column="41" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="18" Column="28" NotebookId="1" />
-      <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" Line="24" Column="28" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="45" Column="57" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Pool/AbilityProjectilePool.cs" Line="58" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="107" Column="32" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -32,7 +36,12 @@
               </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
+                  <Node name="Data" expanded="True">
+                    <Node name="AbilityDataCache.cs" selected="True" />
+                  </Node>
                   <Node name="Manager" expanded="True" />
+                  <Node name="Pool" expanded="True" />
+                  <Node name="ProjectileComponents" expanded="True" />
                   <Node name="Utils" expanded="True" />
                 </Node>
                 <Node name="Audio" expanded="True" />
@@ -42,9 +51,7 @@
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
-                <Node name="UI" expanded="True">
-                  <Node name="AbilityDraftLogic.cs" selected="True" />
-                </Node>
+                <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
