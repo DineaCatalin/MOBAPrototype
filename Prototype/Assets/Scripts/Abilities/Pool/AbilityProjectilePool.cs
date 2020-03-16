@@ -12,8 +12,6 @@ public class AbilityProjectilePool : MonoBehaviour
     Dictionary<string, GameObject[]> poolMap;
     Dictionary<string, int> poolConfig;
 
-    GameObject templateGO;
-
     // Use this for initialization
     void Awake()
     {
@@ -24,7 +22,7 @@ public class AbilityProjectilePool : MonoBehaviour
 
         poolConfig.Add("BlastProjectile", 4);
         poolConfig.Add("EarthquakeProjectile", 4);
-        poolConfig.Add("FireballProjectile", 4);
+        poolConfig.Add("FireballProjectile", 1);
         poolConfig.Add("FireStormProjectile", 4);
         poolConfig.Add("IceWallProjectile", 4);
         poolConfig.Add("PushProjectile", 4);
@@ -52,11 +50,10 @@ public class AbilityProjectilePool : MonoBehaviour
     {
         GameObject[] pool = new GameObject[size];
 
-        templateGO = template;
-
         for (int i = 0; i < size; i++)
         {
             pool[i] = Instantiate(template, transform);
+            pool[i].name = template.name;
             pool[i].SetActive(false);
         }
 
@@ -74,6 +71,7 @@ public class AbilityProjectilePool : MonoBehaviour
 
         // Get the next index
         currentIndex = (currentIndex + 1) % poolSize;
+        Debug.Log("ObjectPool GetNext " + name + "Current Index is " + currentIndex);
 
         GameObject poolObject = poolMap[name][currentIndex];
 
@@ -91,6 +89,7 @@ public class AbilityProjectilePool : MonoBehaviour
             GameObject[] pool = poolMap[name];
 
             // First we will loop the pool to check for a free spot
+            Debug.Log("ObjectPool GetNext Looping objects to find unactive. Length " + pool.Length);
             for (int i = 0; i < pool.Length; i++)
             {
                 if (pool[i].activeSelf == false)
@@ -105,13 +104,22 @@ public class AbilityProjectilePool : MonoBehaviour
             // so that we can create a new object, this is very expensive so in the ideal case
             // it should be never called
             poolSize++;
+            Debug.Log("ObjectPool GetNext Pool size before expansion " + pool.Length);
             Array.Resize<GameObject>(ref pool, poolSize);
+            Debug.Log("ObjectPool GetNext Pool size after expansion " + pool.Length + " original pool size " + poolMap[name].Length);
             currentIndex = poolSize - 1;
+            Debug.Log("ObjectPool GetNext Adding new object to index " + currentIndex);
             poolConfig[name] = currentIndex;
 
-            pool[currentIndex] = Instantiate(templateGO, transform);
-            
-            Debug.Log("ObjectPool GetNext free object not found increasing Pull side to " + currentIndex);
+            // Set the name of the new object to the name of the object that was used as a template
+            // for the Instantiate() otherwise the new object it will have "(Clone)" added to it's name
+            pool[currentIndex] = Instantiate(pool[currentIndex - 1], transform);
+            pool[currentIndex].name = pool[currentIndex - 1].name;
+
+            poolMap[name] = pool;
+
+            Debug.Log("ObjectPool GetNext Adding new object : " + pool[currentIndex].name);
+            Debug.Log("ObjectPool GetNext free object not found increasing Pull side to " + poolSize);
 
             return pool[currentIndex];
         }

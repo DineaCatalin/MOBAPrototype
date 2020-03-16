@@ -28,6 +28,10 @@ public class ProjectileAbility : Ability
     //float spawnAngle;
     Quaternion spawnRotation;
 
+    // This will help with the render order of the spawned abilities vs projectiles
+    // Projectiles will be rendered above the spawned static abilities
+    int zOrder = 1;
+
     public override void Load()
     {
         base.Load();
@@ -62,10 +66,7 @@ public class ProjectileAbility : Ability
         else
             spawnRotation = Quaternion.identity;
 
-        if (useCastOrigin)
-            castPosition = castOrigin.position;
-        else           // We are spawning the projectile in the middle of the player so make it appear under the player
-            castPosition = new Vector3(castOrigin.position.x, castOrigin.position.y, 1);
+        castPosition = new Vector3(castOrigin.position.x, castOrigin.position.y, zOrder);
 
         AbilitySpawner.Instance.SpawnProjectile(projectileName, castPosition, spawnRotation, Camera.main.ScreenToWorldPoint(Input.mousePosition), projectileLayer);
 

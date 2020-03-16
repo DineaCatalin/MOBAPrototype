@@ -9,8 +9,8 @@ public class AbilityDuration : MonoBehaviour
 
     [SerializeField] float duration;
 
-    // Use this for initialization
-    void Start()
+    // We use OnEnable because the GO that uses this component is used in an ObjectPool
+    void OnEnable()
     {
         duration = AbilityDataCache.GetDataForAbility(name).stats.duration;
 
@@ -23,7 +23,7 @@ public class AbilityDuration : MonoBehaviour
     IEnumerator Disable()
     {
         yield return new WaitForSeconds(duration);
-
+        Debug.Log("AbilityDuration Disable");
         gameObject.SetActive(false);
         //Destroy(gameObject);
     }
