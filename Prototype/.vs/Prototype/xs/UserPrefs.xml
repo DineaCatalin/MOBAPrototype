@@ -1,30 +1,54 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/AbilitySpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="22" Column="25" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
+      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="28" Column="94" NotebookId="2" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" NotebookId="2" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" NotebookId="2" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" NotebookId="2" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" NotebookId="2" />
+      <File FileName="Assets/Scripts/Audio/Sound.cs" Line="12" Column="32" NotebookId="2" />
+      <File FileName="Assets/Scripts/Audio/AudioManager.cs" Line="19" Column="38" NotebookId="2" />
+      <File FileName="Assets/Config/Resources/CastRangeConfig.txt" Line="1" Column="1" NotebookId="2" />
+      <File FileName="Assets/Config/Resources/ItemConfig.txt" Line="14" Column="21" NotebookId="2" />
+      <File FileName="Assets/Config/Resources/PlayerConfig.txt" Line="1" Column="1" NotebookId="2" />
+      <File FileName="Assets/Config/Resources/ProjectileSpeedConfig.txt" Line="3" Column="26" NotebookId="2" />
+      <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" Line="4" Column="25" NotebookId="2" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" Line="17" Column="31" NotebookId="2" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="20" Column="51" NotebookId="2" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="48" Column="41" NotebookId="2" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="44" Column="41" NotebookId="3" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="18" Column="28" NotebookId="3" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" Line="48" Column="9" NotebookId="3" />
     </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="3360" Y="23" Width="1920" Height="1035">
+        <Files>
+          <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="94" Column="9" />
+          <File FileName="Assets/Config/Resources/AbilityNames.txt" Line="14" Column="5" NotebookId="1" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="Config" expanded="True">
+                <Node name="Resources" expanded="True" />
+              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
-                  <Node name="Data" expanded="True" />
-                  <Node name="Pool" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
+                  <Node name="Manager" expanded="True" />
+                  <Node name="Utils" expanded="True" />
                 </Node>
+                <Node name="Audio" expanded="True" />
                 <Node name="Environment" expanded="True" />
                 <Node name="Events" expanded="True" />
-                <Node name="GameManager" expanded="True" />
-                <Node name="Match" expanded="True" />
-                <Node name="Network" expanded="True">
-                  <Node name="AbilitySpawner.cs" selected="True" />
+                <Node name="GameManager" expanded="True">
+                  <Node name="GameManager.cs" selected="True" />
                 </Node>
+                <Node name="Match" expanded="True" />
+                <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
@@ -38,7 +62,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="82a567d0-c71f-4278-b10e-36ce38401767" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="598cf050-8036-4a8f-9bb6-11e2ebecec25" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

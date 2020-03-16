@@ -11,8 +11,6 @@ public class AbilitySpawner : MonoBehaviour
 
     Dictionary<string, GameObject> projectileMap;
 
-    //Dictionary<int, GameObject> activeProjectiles;
-
     PhotonView photonView;
 
     public static AbilitySpawner Instance;
@@ -56,7 +54,6 @@ public class AbilitySpawner : MonoBehaviour
 
         //GameObject projectile = Instantiate(projectileMap[projectileName], position, rotation);
 
-        // TODO: Add Pool here
         GameObject projectile = AbilityProjectilePool.Instance.GetProjectile(projectileName);
         projectile.transform.position = position;
         projectile.transform.rotation = rotation;

@@ -24,8 +24,6 @@ public class AbilityFactory : MonoBehaviour
         // Load all abilities from the Resource folder
         //LoadAbilities();
 
-        // Initialize helper data structures
-
         // This is for mapping the selected abilties
         mapper = new AbilityMapper();
 

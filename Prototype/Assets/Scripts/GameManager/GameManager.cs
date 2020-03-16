@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.N))
             {
-                photonView.RPC("RoundEnd", RpcTarget.All);
+                photonView.RPC("EndRound", RpcTarget.All);
             }
         }
     }
@@ -54,6 +54,12 @@ public class GameManager : MonoBehaviour
     public void EndMatch(int winnerTeamID)
     {
         
+    }
+
+    [PunRPC]
+    void EndRound()
+    {
+        EventManager.TriggerEvent("RoundEnd");
     }
 
     [PunRPC]

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 using Photon.Pun;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
@@ -17,6 +17,8 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
     // Use this for initialization
     void Start()
     {
+        EventManager.StartListening("DraftFinished", new Action(OnDraftFinished));
+
         //In case we started this demo with the wrong scene being active, simply load the menu scene
         if (PhotonNetwork.CurrentRoom == null)
         {
@@ -44,7 +46,10 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         {
             spawnPoint = Utils.GetRandomScreenPoint();
         }
+    }
 
+    void OnDraftFinished()
+    {
         Debug.Log("PUN2_RoomController spawning player");
 
         //We're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
@@ -56,13 +61,13 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         Player player = playerGO.GetComponent<PlayerController>().player.GetComponent<Player>();
 
         // Cache the ID of our local player
-        if(photonView.IsMine)
+        if (photonView.IsMine)
             localPlayerID = player.GetID();
 
         Debug.Log("PUN2_RoomController Instantiating player " + player.GetID());
 
         // Now we add the player to the GameMangers Player Container
-        GameManager.Instance.AddPlayer(player.GetID());    
+        GameManager.Instance.AddPlayer(player.GetID());
     }
 
     void OnGUI()

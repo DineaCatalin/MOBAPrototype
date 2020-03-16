@@ -66,5 +66,6 @@ MonoBehaviour:
   - SetEnvironmentSize
   - StartMatch
   - StartRound
+  - EndRound
   DisableAutoOpenWizard: 1
   ShowSettings: 1
