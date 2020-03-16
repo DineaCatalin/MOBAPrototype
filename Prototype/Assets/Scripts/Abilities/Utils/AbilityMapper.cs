@@ -2,11 +2,21 @@
 
 public class AbilityMapper
 {
-    AbilityMapperData data;
+    static AbilityMapperData data;
 
     public AbilityMapper()
     {
-        LoadData();
+        if(data == null)
+        {
+            LoadData();
+            Debug.Log("AbilityMapper loading data from file");
+        }
+        
+    }
+
+    public static void SetData(AbilityMapperData mapperData)
+    {
+        data = mapperData;
     }
 
     // This has to be reworked but due to the fact this is a prototype we'll leave it like this
@@ -39,6 +49,8 @@ public class AbilityMapper
 
     void LoadData()
     {
+        // TODO: Add the SelectedAbilityConfig from the draft screen instead
+
         string dataString = FileHandler.ReadString("SelectedAbilitiesConfig");
         Debug.Log(dataString);
         data = JsonUtility.FromJson<AbilityMapperData>(dataString);
