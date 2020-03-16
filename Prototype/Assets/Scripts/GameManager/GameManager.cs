@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     void EndRound()
     {
         EventManager.TriggerEvent("RoundEnd");
+        EventManager.TriggerEvent("StartRound");
     }
 
     [PunRPC]

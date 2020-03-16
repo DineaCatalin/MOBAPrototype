@@ -8,9 +8,18 @@ public class AbilityDraftLogic : MonoBehaviour
 {
     // Reference so that we can change the UI in the selected abilities column in the middle of the screen
     public TextMeshProUGUI[] selectedAbilityTexts;
+    public TextMeshProUGUI helperText;
+
     public const string unselectedAbilityName = "No ability selected";
 
+    public string ABILITY_ALREADY_SELETED = "Ability is already selected";
+    public string ABILITIES_FULL = "Abilities full. Remove first";
+    public string ABILITIES_NOT_SET = "Not all Abilities have been selected";
+
     AbilityMapperData selectedAbilityData;
+
+    // We use this so that we don't create a new TextMeshProUGUI we call DeselectAbility()
+    TextMeshProUGUI cachedText;
 
     private void Start()
     {
@@ -30,7 +39,11 @@ public class AbilityDraftLogic : MonoBehaviour
 
         // Check if ability is selected
         if (AbilityIsSelected(currentAbilityName))
+        {
+            helperText.text = ABILITY_ALREADY_SELETED;
             return;
+        }
+            
 
         // Insert ability in the 1st free spot
         InsertAbility(currentAbilityName);
@@ -58,11 +71,13 @@ public class AbilityDraftLogic : MonoBehaviour
             if (selectedAbilityTexts[i].text.Equals(unselectedAbilityName))
             {
                 selectedAbilityTexts[i].text = abilityName;
+                helperText.text = "";
                 Debug.Log("AbilityDraftLogic InsertAbility inserting ability at index " + i);
                 return;
             }
         }
 
+        helperText.text = ABILITIES_FULL;
         Debug.Log("AbilityDraftLogic InsertAbility no free space to add ability");
     }
 
@@ -70,8 +85,15 @@ public class AbilityDraftLogic : MonoBehaviour
     public void DeselectAbility()
     {
         Debug.Log("AbilityDraftLogic DeselectAbility ");
-        Debug.Log("AbilityDraftLogic DeselectAbility " + EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>().text);
-        EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>().text = unselectedAbilityName;
+        cachedText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>();
+        Debug.Log("AbilityDraftLogic DeselectAbility " + cachedText.text);
+
+        if(cachedText.text != unselectedAbilityName)
+        {
+            cachedText.text = unselectedAbilityName;
+            helperText.text = "";
+        }
+
     }
 
     public void FinishAbilitySelection()
@@ -81,8 +103,7 @@ public class AbilityDraftLogic : MonoBehaviour
             if (selectedAbilityTexts[i].text.Equals(unselectedAbilityName))
             {
                 Debug.Log("AbilityDraftLogic FinishAbilitySelection All abilities have not been selected");
-
-                // Also change helper text here
+                helperText.text = ABILITIES_NOT_SET;
                 return;
             }
         }
@@ -90,7 +111,6 @@ public class AbilityDraftLogic : MonoBehaviour
         SetAbilityData();
 
         EventManager.TriggerEvent("DraftFinished");
-
         
         gameObject.SetActive(false);
         Destroy(this.gameObject);
