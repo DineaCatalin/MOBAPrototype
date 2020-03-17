@@ -14,8 +14,6 @@ public class ShieldAbility : Ability
 
     public override bool Cast()
     {
-        base.Cast();
-
         Debug.Log("Casting Shield ability");
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -35,7 +33,7 @@ public class ShieldAbility : Ability
 
                 abilityUI.ActivateCooldown();
 
-                return true;
+                return base.Cast();
             }
         }
 

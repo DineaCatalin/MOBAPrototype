@@ -29,13 +29,11 @@ public class RushAbility : Ability
 
     public override bool Cast()
     {
-        base.Cast();
-
         //rushAreaManager.Activate(abilityData.stats.duration);
         GameManager.Instance.ActivateRushArea(abilityData.stats.duration, playerID);
         abilityUI.ActivateCooldown();
 
-        return true;
+        return base.Cast();
     }
 
 }

@@ -25,8 +25,6 @@ public class BlinkAbility : Ability
 
     public override bool Cast()
     {
-        base.Cast();
-
         Debug.Log("BlinkAbility Deactivating player " + playerID);
 
         blinkPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -48,7 +46,7 @@ public class BlinkAbility : Ability
 
         abilityUI.ActivateCooldown();
 
-        return true;
+        return base.Cast();
     }
 
 }

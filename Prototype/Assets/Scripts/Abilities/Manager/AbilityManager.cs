@@ -43,13 +43,11 @@ public class AbilityManager : MonoBehaviour
             currentAbility.gameObject.layer = player.gameObject.layer;
 
             spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
-
             spellIndicators[i].transform.parent = this.transform;
             spellIndicators[i].transform.localPosition = new Vector3(0,0,1);
 
             // Give the instantiated spell indicator also to the ability so it can use it later
             currentAbility.SetSpellIndicator(spellIndicators[i]);
-
             spellIndicators[i].SetActive(false);
         }
         
@@ -74,8 +72,6 @@ public class AbilityManager : MonoBehaviour
         // We are choosin the same ability so toggle it off
         if (currentAbilityIndex  == index)
         {
-            Debug.Log("SetCurrentAbility: Index is the same " + index);
-
             currentAbility = null;
             currentAbilityIndex = -1;
             spellIndicators[index].SetActive(false);
@@ -85,8 +81,6 @@ public class AbilityManager : MonoBehaviour
         // Cast if the ability is instant
         if (abilities[index].isInstant)
             abilities[index].Cast();
-
-        Debug.Log("SetCurrentAbility: Changing index to " + index);
 
         // Disable old spell indicator if it is stil active
         if(currentAbilityIndex != -1)
@@ -100,12 +94,6 @@ public class AbilityManager : MonoBehaviour
     
     public void CastAbility()
     {
-        Debug.Log("Player " + player.GetID() + " is casting");
-
-        //// For network player
-        if (currentAbility == null)
-            return;
-
         Debug.Log("AbilityManager CastAbility ability " + currentAbility.name + " isCharging " + currentAbility.IsCharging());
 
         if(!currentAbility.IsCharging())
@@ -121,6 +109,7 @@ public class AbilityManager : MonoBehaviour
             // If the ability was cast with success
             if(currentAbility.Cast())
             {
+                Debug.Log("AbilityManager CastAbility ability has been cast " + currentAbility.name);
                 player.UseMana(currentAbility.GetManaCost());
                 DeselectAbility();
                 return;
