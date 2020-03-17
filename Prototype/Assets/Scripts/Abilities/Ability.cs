@@ -22,7 +22,7 @@ public abstract class Ability : MonoBehaviour
     // 
     protected int playerID;
 
-    AbilityUI abilityUI;
+    protected AbilityUI abilityUI;
 
     // This is the helper that will guide the player to cast the ability
     // Will be empty for empty abilities
@@ -73,7 +73,6 @@ public abstract class Ability : MonoBehaviour
     // Cast the ability, as this is the base class we will only set the isCharging flag
     public virtual bool Cast()
     {
-        abilityUI.ActivateCooldown();
         return true;
     }
 

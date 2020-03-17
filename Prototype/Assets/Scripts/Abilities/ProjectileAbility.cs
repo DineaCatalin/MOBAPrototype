@@ -70,6 +70,8 @@ public class ProjectileAbility : Ability
 
         AbilitySpawner.Instance.SpawnProjectile(projectileName, castPosition, spawnRotation, Camera.main.ScreenToWorldPoint(Input.mousePosition), projectileLayer);
 
+        abilityUI.ActivateCooldown();
+
         return true;
     }
 
