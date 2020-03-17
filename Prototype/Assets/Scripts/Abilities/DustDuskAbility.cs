@@ -9,6 +9,8 @@ public class DustDuskAbility : Ability
 
         EnvironmentManager.Instance.TriggerDustDusk(abilityData.stats.duration);
 
+        abilityUI.ActivateCooldown();
+
         return true;
     }
 }

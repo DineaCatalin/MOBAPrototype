@@ -33,6 +33,8 @@ public class ShieldAbility : Ability
                 Debug.Log("ShieldAbility activating shield with " + abilityData.stats.hpValue + " through controller for player " + playerID);
                 GameManager.Instance.ActivatePlayerShield(abilityData.stats.hpValue, player.GetID());
 
+                abilityUI.ActivateCooldown();
+
                 return true;
             }
         }

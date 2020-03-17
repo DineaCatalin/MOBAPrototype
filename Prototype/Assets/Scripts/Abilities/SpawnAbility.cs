@@ -80,6 +80,7 @@ public class SpawnAbility : Ability
             rotation = Quaternion.identity;
 
         AbilitySpawner.Instance.SpawnAbility(projectileName, spawnPosition, rotation, projectileLayer);
+        abilityUI.ActivateCooldown();
 
         return true;
     }

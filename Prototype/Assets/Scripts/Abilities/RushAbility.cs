@@ -33,6 +33,7 @@ public class RushAbility : Ability
 
         //rushAreaManager.Activate(abilityData.stats.duration);
         GameManager.Instance.ActivateRushArea(abilityData.stats.duration, playerID);
+        abilityUI.ActivateCooldown();
 
         return true;
     }
