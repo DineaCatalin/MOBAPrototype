@@ -30,7 +30,7 @@
          "health":0,
          "mana":0,
          "powerMultiplier":0.0,
-         "speedMultiplier":2.0
+         "speedMultiplier":1.35
       }
    ]
 }

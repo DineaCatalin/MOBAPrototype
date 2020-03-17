@@ -6,7 +6,7 @@ using UnityEngine;
 public class MatchClock : MonoBehaviour
 {
     public int Minutes = 3;
-    public int Seconds = 0;
+    public int Seconds = 1;
 
     int InitialMinutes;
     int InitialSeconds;
@@ -33,11 +33,12 @@ public class MatchClock : MonoBehaviour
         EventManager.StartListening("RoundDraw", new Action(OnRoundDraw));
 
         // TODO: Load match time from configuration
-        DrawSeconds = 15;
+        DrawSeconds = 16;
     }
 
     private void FixedUpdate()
     {
+        Debug.Log("MatchClock FixedUpdate timeLeft " + timeLeft + " isClockRunning " + isClockRunning);
         if (timeLeft > 0f && isClockRunning)
         {
             // Update countdown clock
@@ -56,8 +57,9 @@ public class MatchClock : MonoBehaviour
                 text.text = "0:00";
 
                 // Send round ended event and stop the clock
-                EventManager.TriggerEvent("RoundEnd");
+                Debug.Log("MatchClock time is over triggering round end");
                 StopClock();
+                EventManager.TriggerEvent("RoundEnd");
             }
         }
     }
@@ -69,8 +71,9 @@ public class MatchClock : MonoBehaviour
 
     void OnRoundDraw()
     {
+        Debug.Log("MatchClock OnRoundDraw");
         isClockRunning = true;
-        Seconds = DrawSeconds;
+        timeLeft = DrawSeconds;
     }
 
     void ResetClock()

@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StreamingAssets/ItemConfig.txt">
     <Files>
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="26" Column="17" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
@@ -15,23 +15,28 @@
       <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
-      <File FileName="Assets/Scripts/Match/MatchClock.cs" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="317" Column="49" />
+      <File FileName="Assets/Scripts/Match/MatchClock.cs" Line="62" Column="52" />
       <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
-      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="75" Column="25" />
+      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" Line="33" Column="46" />
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="22" Column="17" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="80" Column="21" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="11" Column="26" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="42" Column="6" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="24" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="140" Column="50" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="406" Column="33" />
+      <File FileName="Assets/Scripts/Utils/StateManager.cs" Line="25" Column="37" />
+      <File FileName="Assets/Scripts/Match/Match.cs" Line="72" Column="49" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="31" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="15" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" Line="50" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Pool/AbilityProjectilePool.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilityUI.cs" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="198" Column="9" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/ItemConfig.txt" Line="33" Column="29" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -55,13 +60,13 @@
                 <Node name="GameManager" expanded="True" />
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
-                <Node name="Player" expanded="True">
-                  <Node name="PlayerController.cs" selected="True" />
-                </Node>
+                <Node name="Player" expanded="True" />
                 <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
-              <Node name="StreamingAssets" expanded="True" />
+              <Node name="StreamingAssets" expanded="True">
+                <Node name="ItemConfig.txt" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
