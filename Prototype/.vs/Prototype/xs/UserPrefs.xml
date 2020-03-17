@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Ability.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerController.cs">
     <Files>
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="26" Column="17" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
@@ -18,19 +18,20 @@
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
       <File FileName="Assets/Scripts/Match/MatchClock.cs" />
       <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="73" Column="38" />
-      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" Line="36" Column="38" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="12" Column="16" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="58" Column="27" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="44" Column="41" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="124" Column="58" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="22" Column="17" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="80" Column="21" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="11" Column="26" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="42" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="60" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Pool/AbilityProjectilePool.cs" Line="58" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="98" Column="26" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="49" Column="38" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" Line="12" Column="38" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/AbilityUI.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Pool/AbilityProjectilePool.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/AbilityUI.cs" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -47,7 +48,6 @@
                   <Node name="Pool" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
                   <Node name="Utils" expanded="True" />
-                  <Node name="Ability.cs" selected="True" />
                 </Node>
                 <Node name="Audio" expanded="True" />
                 <Node name="Environment" expanded="True" />
@@ -55,7 +55,9 @@
                 <Node name="GameManager" expanded="True" />
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
-                <Node name="Player" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="PlayerController.cs" selected="True" />
+                </Node>
                 <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
@@ -68,7 +70,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="598cf050-8036-4a8f-9bb6-11e2ebecec25" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e0ade6e2-22de-46d5-99c2-3bcad3525b5e" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -27,6 +27,8 @@ public class AbilityUI : MonoBehaviour
         // If the ability is a number it will the name will contain Alpha
         // For example 1 will be "Alpha1" so we will take out the Alpha substring 
         abilityKey.text = code.ToString().Replace("Alpha", "");
+
+        StopCooldown();
     }
 
     public void UpdateCooldown(float currentCooldown)

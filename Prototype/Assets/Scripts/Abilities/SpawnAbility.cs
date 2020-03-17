@@ -56,8 +56,6 @@ public class SpawnAbility : Ability
 
     public override bool Cast()
     {
-        base.Cast();
-
         Debug.Log("SpawnAbility is casting " + abilityData.description.name + " at position " + Utils.GetMousePosition());
 
         spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -82,6 +80,6 @@ public class SpawnAbility : Ability
         AbilitySpawner.Instance.SpawnAbility(projectileName, spawnPosition, rotation, projectileLayer);
         abilityUI.ActivateCooldown();
 
-        return true;
+        return base.Cast();
     }
 }

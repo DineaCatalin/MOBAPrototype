@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
-            if(abilityManager.NoAbilitySelected() || abilityManager.IsCurrentAbilityCharging())
+            if (abilityManager.NoAbilitySelected() || abilityManager.IsCurrentAbilityCharging())
             {
                 // Maybe show a UI text saying the current ability is still charging
                 return;
@@ -139,7 +139,6 @@ public class PlayerController : MonoBehaviour
     {
         // We do this so that the number of the ability becomes the position in the array
         index--;
-
         abilityManager.SetCurrentAbility(index);  
     }
 }

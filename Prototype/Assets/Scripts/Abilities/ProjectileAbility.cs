@@ -59,7 +59,7 @@ public class ProjectileAbility : Ability
 
     public override bool Cast()
     {
-        base.Cast();
+        Debug.Log("ProjectileAbility Cast casting " + projectileName);
 
         if (mimicPlayerRotation)
             spawnRotation = spellIndicator.transform.rotation;
@@ -72,7 +72,7 @@ public class ProjectileAbility : Ability
 
         abilityUI.ActivateCooldown();
 
-        return true;
+        return base.Cast();
     }
 
 }

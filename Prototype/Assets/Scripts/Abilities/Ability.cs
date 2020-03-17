@@ -17,7 +17,7 @@ public abstract class Ability : MonoBehaviour
     //AbilityData abilityData;
 
     // Can we cast the ability or is it still on cooldown
-    protected bool isCharging = false;
+    protected bool isCharging = true;
 
     // 
     protected int playerID;
@@ -33,7 +33,6 @@ public abstract class Ability : MonoBehaviour
 
     public virtual void Load()
     {
-        Debug.Log("Ability Load name is " + name);
         abilityData = AbilityDataCache.GetDataForAbility(name);
 
         //Debug.Log("Ability Base is loading ability with cooldown" + abilityData.stats.cooldown);
@@ -48,31 +47,28 @@ public abstract class Ability : MonoBehaviour
 
     public void UpdateCooldown()
     {
-        currentCooldown -= Time.deltaTime;
-        //Debug.Log(abilityData.description.name + " Updating cooldown " + currentCooldown);
+        if(isCharging)
+        {
+            currentCooldown -= Time.deltaTime;
 
-        // Reset cooldown
-        if(currentCooldown <= 0)
-        {
-            currentCooldown = cooldown;
-            isCharging = false;
-            abilityUI.StopCooldown();
-        }
-        else
-        {
-            abilityUI.UpdateCooldown(currentCooldown);
+            // Reset cooldown
+            if (currentCooldown <= 0)
+            {
+                currentCooldown = cooldown;
+                isCharging = false;
+                abilityUI.StopCooldown();
+            }
+            else
+            {
+                abilityUI.UpdateCooldown(currentCooldown);
+            }
         }
     }
-
-    //public void ResetCooldown()
-    //{
-    //    currentCooldown = cooldown;
-    //    abilityUI.ActivateCooldown();
-    //}
 
     // Cast the ability, as this is the base class we will only set the isCharging flag
     public virtual bool Cast()
     {
+        ResetCharging();
         return true;
     }
 
