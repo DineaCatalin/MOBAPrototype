@@ -14,12 +14,10 @@ public abstract class Ability : MonoBehaviour
 
     // Cache the cooldown value of this ability
     float cooldown;
-    //AbilityData abilityData;
 
     // Can we cast the ability or is it still on cooldown
     protected bool isCharging = true;
 
-    // 
     protected int playerID;
 
     protected AbilityUI abilityUI;

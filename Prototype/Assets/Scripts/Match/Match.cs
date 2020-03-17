@@ -52,13 +52,15 @@ public class Match
         // Team 1 WON
         if (team1Score > team2Score)
         {
+            Debug.Log("Match FinishRound team 1 won round");
             team1Rounds++;
             GameUI.Instance.SetTeamRounds(team1Rounds, TEAM_1_ID);
         }
 
         // Team 2 WON
-        else if (team1Score > team2Score)
+        else if (team2Score > team1Score)
         {
+            Debug.Log("Match FinishRound team 2 won round");
             team2Rounds++;
             GameUI.Instance.SetTeamRounds(team2Rounds, TEAM_2_ID);
         }
@@ -66,6 +68,7 @@ public class Match
         // We have a draw so extend the round
         else if(team1Score == team2Score)
         {
+            Debug.Log("Match FinishRound Draw");
             EventManager.TriggerEvent("RoundDraw");
             return;
         }
@@ -77,11 +80,17 @@ public class Match
     {
         if(team1Score >= maxRoundsForTeam)
         {
+            Debug.Log("Match FinishRound Team1 won ");
             GameManager.Instance.EndMatch(TEAM_1_ID);
         }
-        if(team1Score >= maxRoundsForTeam)
+        else if(team1Score >= maxRoundsForTeam)
         {
+            Debug.Log("Match FinishRound Team2 won ");
             GameManager.Instance.EndMatch(TEAM_2_ID);
+        }
+        else   // Go to next round
+        {
+            EventManager.TriggerEvent("StartRound");
         }
     }
 }
