@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Photon.Pun;
 
 public enum AbilityInputKey
@@ -11,7 +10,8 @@ public enum AbilityInputKey
     Ability5 = KeyCode.R,
     Ability6 = KeyCode.T,
     Ability7 = KeyCode.F,
-    Ability8 = KeyCode.C
+    Ability8 = KeyCode.C,
+    AbilityManaCharge = KeyCode.LeftShift    
 }
 
 public class PlayerController : MonoBehaviour
@@ -30,11 +30,13 @@ public class PlayerController : MonoBehaviour
 
     PhotonView photonView;
 
+    bool charging;
+
     // Use this for initialization
     void Start()
     {
-        //player = playerGO.GetComponent<Player>();
         stats = player.GetStats();
+        charging = false;
 
         abilityManager = player.GetComponent<AbilityManager>();
         playerTransform = player.transform;
@@ -44,6 +46,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (HandleManaCharge())
+            return;
+
         HandleMovement();       
         HandleRotation();
         HandleAbilitySelection();
@@ -96,6 +101,27 @@ public class PlayerController : MonoBehaviour
 
             abilityManager.CastAbility();
         }
+    }
+
+    bool HandleManaCharge()
+    {
+        if(Input.GetKey((KeyCode)AbilityInputKey.AbilityManaCharge))
+        {
+            if(!charging)
+            {
+                player.StartManaCharge();
+                charging = true;
+            }
+                
+            return true;
+        }
+        else if(Input.GetKeyUp((KeyCode)AbilityInputKey.AbilityManaCharge))
+        {
+            player.StopManaCharge();
+            charging = false;
+        }
+
+        return false;
     }
 
     void HandleAbilitySelection()

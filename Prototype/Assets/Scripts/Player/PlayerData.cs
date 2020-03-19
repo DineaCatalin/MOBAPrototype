@@ -8,4 +8,5 @@ public class PlayerData
     public int maxMana;     // The max mana has, can be increased with items
     public float power;
     public float speed;
+    public float manaChargePerSecond;
 }

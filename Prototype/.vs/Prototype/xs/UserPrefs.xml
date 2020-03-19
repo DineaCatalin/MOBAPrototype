@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Effects/DOTEffect.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StreamingAssets/PlayerConfig.txt">
     <Files>
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="26" Column="17" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
@@ -22,42 +22,32 @@
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/Ability.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="19" Column="26" />
       <File FileName="Assets/Scripts/Utils/StateManager.cs" />
       <File FileName="Assets/Scripts/Match/Match.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="17" Column="6" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="31" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="6" Column="39" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="48" Column="20" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="119" Column="62" NotebookId="1" />
       <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Pool/AbilityProjectilePool.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="36" Column="26" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilityUI.cs" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/AbilityConfig.txt" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/ItemConfig.txt" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="27" Column="41" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerData.cs" Line="11" Column="37" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/PlayerConfig.txt" Line="8" Column="26" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Config" expanded="True">
-                <Node name="Resources" expanded="True" />
-              </Node>
+              <Node name="Config" expanded="True" />
               <Node name="Scripts" expanded="True">
-                <Node name="Abilities" expanded="True">
-                  <Node name="Data" expanded="True" />
-                  <Node name="Effects" expanded="True">
-                    <Node name="DOTEffect.cs" selected="True" />
-                  </Node>
-                  <Node name="Manager" expanded="True" />
-                  <Node name="Pool" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
-                  <Node name="Utils" expanded="True" />
-                </Node>
                 <Node name="Audio" expanded="True" />
                 <Node name="Environment" expanded="True" />
                 <Node name="Events" expanded="True" />
@@ -68,7 +58,9 @@
                 <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
-              <Node name="StreamingAssets" expanded="True" />
+              <Node name="StreamingAssets" expanded="True">
+                <Node name="PlayerConfig.txt" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

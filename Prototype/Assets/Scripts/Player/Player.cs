@@ -54,6 +54,12 @@ public class Player : MonoBehaviour
     // Without it we couldn't stop the coroutine as we woudn't have a reference to it
     Coroutine dotCoroutine;
 
+    // Will be activated when player starts charging mana and will be stoped when the players
+    // releases the mana charge key
+    Coroutine manaChargeCoroutine;
+    int manaCoroutineCallsPerSecond;
+    int manaChargePerTick;
+
     void Awake()
     {
         id = GetComponentInParent<PhotonView>().ViewID;
@@ -70,6 +76,10 @@ public class Player : MonoBehaviour
 
         healEffectActive = false;
         isRecevingDOT = false;
+
+        manaCoroutineCallsPerSecond = 5;
+        manaChargePerTick = (int)(stats.manaChargePerSecond / manaCoroutineCallsPerSecond);
+
     }
 
     private void Start()
@@ -91,8 +101,30 @@ public class Player : MonoBehaviour
             return;
         Debug.Log("Player RegenerateStats");
         Heal(healthRegen);
-        IncreaseMana(manaRegen);
+        //IncreaseMana(manaRegen);
     }
+
+    public void StartManaCharge()
+    {
+        Debug.Log("Player StartManaCharge");
+        manaChargeCoroutine = StartCoroutine(ChargeMana());
+    }
+
+    public void StopManaCharge()
+    {
+        Debug.Log("Player StopManaCharge");
+        StopCoroutine(manaChargeCoroutine);
+    }
+
+    IEnumerator ChargeMana()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(1f / manaCoroutineCallsPerSecond);
+            IncreaseMana(manaChargePerTick);
+        }
+    }
+
 
     // Not the best way to do it but the items are simple in this prototype
     public void PickUpHPItem(int value)
