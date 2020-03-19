@@ -2159,4 +2159,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.5_OSX.app
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.9_OSX.app
