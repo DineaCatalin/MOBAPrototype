@@ -218,6 +218,7 @@ MonoBehaviour:
     maxMana: 0
     power: 0
     speed: 0
+    manaChargePerSecond: 0
   controller: {fileID: 0}
   interactionManager: {fileID: 0}
   rushAreaManager: {fileID: 0}
