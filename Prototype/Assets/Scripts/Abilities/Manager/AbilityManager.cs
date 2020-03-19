@@ -80,7 +80,13 @@ public class AbilityManager : MonoBehaviour
 
         // Cast if the ability is instant
         if (abilities[index].isInstant)
-            abilities[index].Cast();
+        {
+            currentAbility = abilities[index];
+            currentAbilityIndex = index;
+            CastAbility();
+            return;
+        }
+            
 
         // Disable old spell indicator if it is stil active
         if(currentAbilityIndex != -1)
@@ -167,13 +173,4 @@ public class AbilityManager : MonoBehaviour
     {
         return player.EnoughManaForAbility(currentAbility.GetManaCost());
     }
-
-    // Set the caster team name for all the abilities so that they collide with the other team
-    //public void SetAbilityCasterTeamName(string casterTeamName)
-    //{
-    //    for (int i = 0; i < abilities.Length; i++)
-    //    {
-    //        abilities[i].SetCasterTeamName(casterTeamName);
-    //    }
-    //}
 }

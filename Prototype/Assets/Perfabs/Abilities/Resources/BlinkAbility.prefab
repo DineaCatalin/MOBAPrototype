@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Blink
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 8321681968884971577, guid: d4282bc64c45e48c5ae4145ff8d2cc00,
     type: 3}
   abilityData:
@@ -57,3 +57,4 @@ MonoBehaviour:
       dotValue: 0
       duration: 0
       hpValue: 0
+  playerTransform: {fileID: 0}
