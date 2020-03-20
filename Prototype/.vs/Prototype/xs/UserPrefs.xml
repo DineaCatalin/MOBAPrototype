@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StreamingAssets/PlayerConfig.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Effects/SlowEffect.cs">
     <Files>
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="26" Column="17" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
@@ -15,31 +15,39 @@
       <File FileName="Assets/Config/Resources/SelectedAbilitiesConfig.txt" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityMapper.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="345" Column="46" />
       <File FileName="Assets/Scripts/Match/MatchClock.cs" Line="73" Column="6" />
       <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="19" Column="26" />
+      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="22" Column="45" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="27" Column="57" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="29" Column="30" />
       <File FileName="Assets/Scripts/Utils/StateManager.cs" />
       <File FileName="Assets/Scripts/Match/Match.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="6" Column="39" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="9" Column="6" />
+      <File FileName="Assets/StreamingAssets/AbilityNames.txt" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="54" Column="41" />
+      <File FileName="Assets/Scripts/Abilities/Effects/PullEffect.cs" Line="9" Column="11" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" Line="14" Column="45" />
+      <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" Line="13" Column="25" />
+      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="8" Column="11" />
+      <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" Line="9" Column="56" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="48" Column="20" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="119" Column="62" NotebookId="1" />
       <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Pool/AbilityProjectilePool.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="36" Column="26" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="19" Column="16" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilityUI.cs" NotebookId="1" />
-      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="22" Column="26" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/ItemConfig.txt" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="27" Column="41" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerData.cs" Line="11" Column="37" NotebookId="1" />
-      <File FileName="Assets/StreamingAssets/PlayerConfig.txt" Line="8" Column="26" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerData.cs" Line="10" Column="24" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/PlayerConfig.txt" Line="4" Column="15" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Shield.cs" Line="29" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -48,6 +56,12 @@
             <Node name="Assets" expanded="True">
               <Node name="Config" expanded="True" />
               <Node name="Scripts" expanded="True">
+                <Node name="Abilities" expanded="True">
+                  <Node name="Effects" expanded="True">
+                    <Node name="SlowEffect.cs" selected="True" />
+                  </Node>
+                  <Node name="ProjectileComponents" expanded="True" />
+                </Node>
                 <Node name="Audio" expanded="True" />
                 <Node name="Environment" expanded="True" />
                 <Node name="Events" expanded="True" />
@@ -58,9 +72,7 @@
                 <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
-              <Node name="StreamingAssets" expanded="True">
-                <Node name="PlayerConfig.txt" selected="True" />
-              </Node>
+              <Node name="StreamingAssets" expanded="True" />
             </Node>
           </Node>
         </State>

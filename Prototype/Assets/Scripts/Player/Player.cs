@@ -186,6 +186,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void DamageAndDOT(int initialDamage, int dotTicks, int dotDamage)
+    {
+        if (shield.IsActive())
+        {
+            Debug.Log("Player DamageAndDOT shield is active");
+            Damage(initialDamage);
+        }
+        else
+        {
+            Debug.Log("Player DamageAndDOT shield is not active also applying DOT");
+            Damage(initialDamage);
+            ApplyDOT(dotTicks, dotDamage);
+        }
+    }
+
     // Will apply damage over time
     public void ApplyDOT(int numTicks, int damage)
     {
@@ -229,8 +244,9 @@ public class Player : MonoBehaviour
     {
         // Manage shield : if the shield is active and the damage delt is not enogh to destroy
         // the shield don't appy damage to the player
-        if (shield.IsActive() && !shield.IsDamageFatal(ref damage))
+        if (shield.IsActive())
         {
+            shield.Damage(ref damage);
             Debug.Log("Player " + id + " shield is active so no damage taken");
             return;
         }

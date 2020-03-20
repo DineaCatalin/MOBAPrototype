@@ -22,26 +22,16 @@ public class Shield : MonoBehaviour
     }
 
     //
-    public bool IsDamageFatal(ref int damage)
+    public void Damage(ref int damage)
     {
         Debug.Log("Shield IsDamageFatal armor " + armor + " damage taken " + damage);
         armor -= damage;
 
-        if (armor < 0)
+        if (armor <= 0)
         {
             spriteRenderer.enabled = false;
-            return true;
+            armor = 0;
         }
-
-        // If the damage source had just enough damage to destroy the shield make sure
-        // the Player.Damage() method won't apply the damage to the player
-        if(armor == 0)
-        {
-            spriteRenderer.enabled = false;
-            damage = 0;
-        }
-        
-        return false;
     }
 
     public bool IsActive()

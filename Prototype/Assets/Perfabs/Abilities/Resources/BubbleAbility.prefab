@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Bubble
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 2192939120301424611, guid: bf8441026d59948abb66f78b5e6dd190,
     type: 3}
   abilityData:

@@ -454,8 +454,9 @@ public class GameManager : MonoBehaviour
 
         if (player != null)
         {
-            player.Damage(initialDamage);
-            player.ApplyDOT(dotTicks, dotDamage);
+            //player.Damage(initialDamage);
+            //player.ApplyDOT(dotTicks, dotDamage);
+            player.DamageAndDOT(initialDamage, dotTicks, dotDamage);
         }
     }
 

@@ -11,9 +11,15 @@ public class SlowEffect : AbilityEffect
         Debug.Log("SlowEffect");
 
         if (applyDamage)
-            GameManager.Instance.SlowAndDamagePlayer(stats.duration, stats.dotValue, stats.hpValue, player.GetID());
+        {
+            //GameManager.Instance.SlowAndDamagePlayer(stats.duration, stats.dotValue, stats.hpValue, player.GetID());
+            player.Slow(stats.dotValue, stats.duration);
+            player.Damage(stats.hpValue);
+        }
         else
-            GameManager.Instance.SlowPlayer(stats.duration, stats.dotValue, player.GetID());
-
+        {
+            //GameManager.Instance.SlowPlayer(stats.duration, stats.dotValue, player.GetID());
+            player.Slow(stats.dotValue, stats.duration);
+        }
     }
 }

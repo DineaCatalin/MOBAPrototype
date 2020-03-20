@@ -7,9 +7,14 @@ public class ShieldAbility : Ability
     Vector2 mousePosition;
     RaycastHit2D hit;
 
+    Player player;
+
     private void Start()
     {
         Load();
+
+        if(isInstant)
+            player = GameObject.Find("Player" + playerID).GetComponent<Player>();
     }
 
     public override bool Cast()
@@ -19,7 +24,14 @@ public class ShieldAbility : Ability
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         hit = Physics2D.Raycast(mousePosition, Vector2.zero, 0);
-        if (hit)
+
+        if(isInstant)
+        {
+            GameManager.Instance.ActivatePlayerShield(abilityData.stats.hpValue, player.GetID());
+            abilityUI.ActivateCooldown();
+            return base.Cast();
+        }
+        else if (hit)
         {
             Debug.Log("We clicked on object with tag " + hit.collider.gameObject.tag);
 
@@ -27,7 +39,7 @@ public class ShieldAbility : Ability
             // This means that the object we clicked in in the same layer as our player or team mate
             if (hit.collider.gameObject.layer == gameObject.layer)
             {
-                Player player = hit.collider.gameObject.GetComponent<Player>();
+                player = hit.collider.gameObject.GetComponent<Player>();
                 Debug.Log("ShieldAbility activating shield with " + abilityData.stats.hpValue + " through controller for player " + playerID);
                 GameManager.Instance.ActivatePlayerShield(abilityData.stats.hpValue, player.GetID());
 
