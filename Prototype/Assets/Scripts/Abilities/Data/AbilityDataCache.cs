@@ -74,6 +74,12 @@ public class AbilityDataCache : MonoBehaviour
             case "FireballProjectile":
                 return projectileSpeedConfig.FireballSpeed;
 
+            case "IceballProjectile":
+                return projectileSpeedConfig.IceballSpeed;
+
+            case "LightningballProjectile":
+                return projectileSpeedConfig.LightningballSpeed;
+
             case "FireStormProjectile":
                 return projectileSpeedConfig.FireStormSpeed;
 

@@ -7,10 +7,49 @@
          },
          "stats":{ 
             "cooldown":1,
-            "manaCost":2,
+            "manaCost":0,
             "dotValue":1,
             "duration":5,
-            "hpValue":5
+            "hpValue":15
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Iceball",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":1,
+            "manaCost":0,
+            "dotValue":2,
+            "duration":5,
+            "hpValue":10
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Lightningball",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":1,
+            "manaCost":0,
+            "dotValue":10,
+            "duration":0,
+            "hpValue":10
+         }
+      },
+      { 
+         "description":{ 
+            "name":"Heal",
+            "casterTeamName":"Team1"
+         },
+         "stats":{ 
+            "cooldown":5,
+            "manaCost":0,
+            "dotValue":0,
+            "duration":0,
+            "hpValue":10
          }
       },
       { 
@@ -19,11 +58,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":5,
-            "manaCost":5,
-            "dotValue":1,
+            "cooldown":10,
+            "manaCost":10,
+            "dotValue":2,
             "duration":5,
-            "hpValue":10
+            "hpValue":30
          }
       },
       { 
@@ -36,7 +75,7 @@
             "manaCost":15,
             "dotValue":2,
             "duration":5,
-            "hpValue":10
+            "hpValue":25
          }
       },
       { 
@@ -45,11 +84,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":20,
+            "cooldown":3,
             "manaCost":20,
-            "dotValue":5,
-            "duration":5,
-            "hpValue":5
+            "dotValue":4,
+            "duration":3,
+            "hpValue":8
          }
       },
       { 
@@ -59,10 +98,10 @@
          },
          "stats":{ 
             "cooldown":5,
-            "manaCost":5,
+            "manaCost":0,
             "dotValue":0,
             "duration":0,
-            "hpValue":10
+            "hpValue":1
          }
       },
       { 
@@ -71,11 +110,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":20,
+            "cooldown":10,
             "manaCost":10,
-            "dotValue":3,
+            "dotValue":2,
             "duration":5,
-            "hpValue":0
+            "hpValue":20
          }
       },
       { 
@@ -97,8 +136,8 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":25,
-            "manaCost":25,
+            "cooldown":5,
+            "manaCost":20,
             "dotValue":0,
             "duration":0,
             "hpValue":0
@@ -110,11 +149,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":10,
+            "cooldown":15,
             "manaCost":5,
             "dotValue":5,
             "duration":3,
-            "hpValue":5
+            "hpValue":35
          }
       },
       { 
@@ -124,7 +163,7 @@
          },
          "stats":{ 
             "cooldown":10,
-            "manaCost":5,
+            "manaCost":20,
             "dotValue":0,
             "duration":3,
             "hpValue":0
@@ -136,11 +175,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":15,
+            "cooldown":10,
             "manaCost":10,
-            "dotValue":5,
+            "dotValue":10,
             "duration":5,
-            "hpValue":10
+            "hpValue":30
          }
       },
       { 
@@ -149,11 +188,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":20,
+            "cooldown":15,
             "manaCost":10,
-            "dotValue":5,
+            "dotValue":0,
             "duration":5,
-            "hpValue":2
+            "hpValue":0
          }
       },
       { 
@@ -162,11 +201,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":5,
-            "manaCost":5,
-            "dotValue":10,
+            "cooldown":3,
+            "manaCost":10,
+            "dotValue":13,
             "duration":1,
-            "hpValue":2
+            "hpValue":20
          }
       },
       { 
@@ -189,9 +228,9 @@
          },
          "stats":{ 
             "cooldown":5,
-            "manaCost":5,
-            "dotValue":1,
-            "duration":1,
+            "manaCost":0,
+            "dotValue":0,
+            "duration":0,
             "hpValue":0
          }
       },
@@ -201,11 +240,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{ 
-            "cooldown":7,
-            "manaCost":10,
-            "dotValue":5,
+            "cooldown":5,
+            "manaCost":20,
+            "dotValue":8,
             "duration":1,
-            "hpValue":10
+            "hpValue":25
          }
       }                     
    ]

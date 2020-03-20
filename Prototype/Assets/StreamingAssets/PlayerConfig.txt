@@ -4,6 +4,6 @@
    "mana":100,
    "maxMana":100,
    "power":1.0,
-   "speed":5.0,
-   "manaChargePerSecond":10
+   "speed":6.0,
+   "manaChargePerSecond":20
 }

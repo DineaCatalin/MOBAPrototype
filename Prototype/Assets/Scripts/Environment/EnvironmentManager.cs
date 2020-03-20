@@ -48,7 +48,7 @@ public class EnvironmentManager : MonoBehaviour
 
     public void TriggerDustDusk(int duration)
     {
-        photonView.RPC("ActivateDustDusk", RpcTarget.All);
+        photonView.RPC("ActivateDustDusk", RpcTarget.Others);
 
         StartCoroutine(HideDuskDust(duration));
     }

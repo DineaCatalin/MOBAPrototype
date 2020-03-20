@@ -35,6 +35,8 @@ public class AbilityDescription
 public class ProjectileSpeedConfig
 {
     public float FireballSpeed;
+    public float IceballSpeed;
+    public float LightningballSpeed;
     public float FireStormSpeed;
     public float TornadoSpeed;
 }

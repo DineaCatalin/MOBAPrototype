@@ -38,7 +38,7 @@ public class MatchClock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("MatchClock FixedUpdate timeLeft " + timeLeft + " isClockRunning " + isClockRunning);
+        //Debug.Log("MatchClock FixedUpdate timeLeft " + timeLeft + " isClockRunning " + isClockRunning);
         if (timeLeft > 0f && isClockRunning)
         {
             // Update countdown clock
@@ -57,7 +57,7 @@ public class MatchClock : MonoBehaviour
                 text.text = "0:00";
 
                 // Send round ended event and stop the clock
-                Debug.Log("MatchClock time is over triggering round end");
+                //Debug.Log("MatchClock time is over triggering round end");
                 StopClock();
                 EventManager.TriggerEvent("RoundEnd");
             }

@@ -1,5 +1,7 @@
 ﻿{ 
-   "FireballSpeed":10.0,
-   "FireStormSpeed":10.0,
-   "TornadoSpeed":10.0
+   "FireballSpeed":20.0,
+   "IceballSpeed":20.0,
+   "LightningballSpeed":20.0,
+   "FireStormSpeed":12.0,
+   "TornadoSpeed":17.0
 }

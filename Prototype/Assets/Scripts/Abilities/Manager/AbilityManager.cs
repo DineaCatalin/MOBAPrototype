@@ -4,7 +4,7 @@ using System;
 
 public class AbilityManager : MonoBehaviour
 {
-    const int numAbilities = 8;
+    const int numAbilities = 7;
 
     int currentAbilityIndex;
 
@@ -87,15 +87,16 @@ public class AbilityManager : MonoBehaviour
             return;
         }
             
-
         // Disable old spell indicator if it is stil active
         if(currentAbilityIndex != -1)
+        {
             spellIndicators[currentAbilityIndex].SetActive(false);
+        }
+            
 
         currentAbilityIndex = index;
         currentAbility = abilities[index];
         spellIndicators[index].SetActive(true);
-        
     }
     
     public void CastAbility()

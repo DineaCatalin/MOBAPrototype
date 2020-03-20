@@ -67,6 +67,7 @@ public abstract class Ability : MonoBehaviour
     public virtual bool Cast()
     {
         ResetCharging();
+        abilityUI.ActivateCooldown();
         return true;
     }
 

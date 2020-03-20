@@ -44,8 +44,6 @@ public class BlinkAbility : Ability
         Debug.Log("BlinkAbility Activating player " + playerID);
         GameManager.Instance.ActivatePlayer(playerID);
 
-        abilityUI.ActivateCooldown();
-
         return base.Cast();
     }
 

@@ -3,14 +3,15 @@ using Photon.Pun;
 
 public enum AbilityInputKey
 {
-    Ability1 = KeyCode.Alpha1,
-    Ability2 = KeyCode.Alpha2,
-    Ability3 = KeyCode.Alpha3,
-    Ability4 = KeyCode.Alpha4,
-    Ability5 = KeyCode.R,
-    Ability6 = KeyCode.T,
-    Ability7 = KeyCode.F,
-    Ability8 = KeyCode.C,
+    // Ability1 Will be left  click 
+    // Ability2 Will be right click 
+    Ability1 = KeyCode.Mouse0,
+    Ability2 = KeyCode.Mouse1,
+    Ability3 = KeyCode.Space,
+    Ability4 = KeyCode.Alpha1,
+    Ability5 = KeyCode.Alpha2,
+    Ability6 = KeyCode.Alpha3,
+    Ability7 = KeyCode.Alpha4,
     AbilityManaCharge = KeyCode.LeftShift    
 }
 
@@ -51,8 +52,10 @@ public class PlayerController : MonoBehaviour
 
         HandleMovement();       
         HandleRotation();
-        HandleAbilitySelection();
-        HandleAbilityCasting();
+
+        if(!HandleAbilityCasting())
+            HandleAbilitySelection();
+
     }
 
     void HandleMovement()
@@ -89,18 +92,21 @@ public class PlayerController : MonoBehaviour
         playerTransform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }
 
-    void HandleAbilityCasting()
+    bool HandleAbilityCasting()
     {
         if(Input.GetMouseButton(0))
         {
             if (abilityManager.NoAbilitySelected() || abilityManager.IsCurrentAbilityCharging())
             {
                 // Maybe show a UI text saying the current ability is still charging
-                return;
+                return false;
             }
 
             abilityManager.CastAbility();
+            return true;
         }
+
+        return false;
     }
 
     bool HandleManaCharge()
@@ -127,13 +133,15 @@ public class PlayerController : MonoBehaviour
     void HandleAbilitySelection()
     {
         // Could initialize keys somewhere else but for now do it here
-        if(Input.GetKeyDown((KeyCode)AbilityInputKey.Ability1))
+        if(Input.GetMouseButtonDown(0))
         {
             SwitchSelectedAbility(1);
+            return;
         }
-        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability2))
+        else if (Input.GetMouseButtonDown(1))
         {
             SwitchSelectedAbility(2);
+            return;
         }
         else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability3))
         {
@@ -154,10 +162,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability7))
         {
             SwitchSelectedAbility(7);
-        }
-        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability8))
-        {
-            SwitchSelectedAbility(8);
         }
     }
 
