@@ -14,8 +14,6 @@ public class AbilityUIContainer : MonoBehaviour
         Instance = this;
     }
 
-    
-
     public AbilityUI GetUIForAbility(int index)
     {
         return abilitieUIs[index];

@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - AbilityFactory
     - AbilityManager
     - AbilityProjectilePool
+    - AbilitySelectButton
     - AbilitySpawner
     - AbilityUI
     - AbilityUIContainer
@@ -27,6 +28,7 @@ ScriptsOnlyBuild:
     - FollowCursor
     - GameManager
     - GameUI
+    - HealAbility
     - HealEffect
     - HealthBar
     - InteractionManager
@@ -35,6 +37,7 @@ ScriptsOnlyBuild:
     - KnockoutEffect
     - LookAtMouse
     - ManaBar
+    - ManaBurnEffect
     - MatchClock
     - MimicRotation
     - MoveAbility
@@ -251,6 +254,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13718}
     - Class: 114
       Script: {instanceID: 13722}
+    - Class: 114
+      Script: {instanceID: 198850}
+    - Class: 114
+      Script: {instanceID: 200236}
+    - Class: 114
+      Script: {instanceID: 206590}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -436,6 +445,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13702}
     - Class: 114
       Script: {instanceID: 13722}
+    - Class: 114
+      Script: {instanceID: 198850}
+    - Class: 114
+      Script: {instanceID: 200236}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1047,7 +1060,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: ce17535bec8e993250695ea3ecc61a8b
+      Hash: a7cfe878b1c2feb23676df2047b278d6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -2155,8 +2168,32 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ManaBurnEffect
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DamageEffect
+  - hash:
+      serializedVersion: 2
+      Hash: 1be0cb049f481f99861252a257ff232b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HealAbility
+  - hash:
+      serializedVersion: 2
+      Hash: 196bce7742500b5d84344cc29b3ca32b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AbilitySelectButton
   platform: 19
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/Windows/Elements_v_0.8.Windows/Elements/Elements_v_0.9.Windows/Prototype.exe
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/Windows/Elements_v_0.93_Windows/Prototype.exe

@@ -43,13 +43,13 @@ public class AbilityFactory : MonoBehaviour
 
     public Ability[] GetCurrentAbilities()
     {
-        Ability[] currentAbilities = new Ability[8];
+        Ability[] currentAbilities = new Ability[7];
 
         string abilityName;
 
         Debug.Log("AbilityMapper GetCurrentAbilities ability 0 is " + mapper.GetAbilityNameForIndex(0));
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 7; i++)
         {
             // Get 1st ability
             abilityName = mapper.GetAbilityNameForIndex(i + 1); // i+1 because array is 0 indexed and mapper is 1 indexed
@@ -101,5 +101,8 @@ public class AbilityFactory : MonoBehaviour
         abilityContainerArray[13] = Resources.Load<ProjectileAbility>("RushAbility");
         abilityContainerArray[14] = Resources.Load<ProjectileAbility>("BlinkAbility");
         abilityContainerArray[15] = Resources.Load<ProjectileAbility>("TornadoAbility");
+        abilityContainerArray[16] = Resources.Load<ProjectileAbility>("IceballAbility");
+        abilityContainerArray[17] = Resources.Load<ProjectileAbility>("LightningballAbility");
+        abilityContainerArray[18] = Resources.Load<ProjectileAbility>("HealAbility");
     }
 }

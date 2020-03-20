@@ -5,6 +5,5 @@
    "ability4":"Bubble",
    "ability5":"Blink",
    "ability6":"Spikes",
-   "ability7":"Earthquake",
-   "ability8":"DustDusk"
+   "ability7":"Earthquake"
 }

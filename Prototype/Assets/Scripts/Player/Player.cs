@@ -79,7 +79,6 @@ public class Player : MonoBehaviour
 
         manaCoroutineCallsPerSecond = 5;
         manaChargePerTick = (int)(stats.manaChargePerSecond / manaCoroutineCallsPerSecond);
-
     }
 
     private void Start()

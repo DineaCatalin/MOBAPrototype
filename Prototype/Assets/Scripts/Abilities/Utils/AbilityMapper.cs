@@ -6,12 +6,13 @@ public class AbilityMapper
 
     public AbilityMapper()
     {
-        if(data == null)
+        Debug.Log("AbilityMapper data " + data);
+
+        if (data == null)
         {
             LoadData();
             Debug.Log("AbilityMapper loading data from file");
         }
-        
     }
 
     public static void SetData(AbilityMapperData mapperData)
@@ -40,8 +41,8 @@ public class AbilityMapper
                 return data.ability6;
             case 7:
                 return data.ability7;
-            case 8:
-                return data.ability8;
+            //case 8:
+            //    return data.ability8;
             default:
                 return null;
         }
@@ -61,7 +62,7 @@ public class AbilityMapper
         Debug.Log("AbilityMapper 5th " + data.ability5);
         Debug.Log("AbilityMapper 6th " + data.ability6);
         Debug.Log("AbilityMapper 7th " + data.ability7);
-        Debug.Log("AbilityMapper 8th " + data.ability8);
+        //Debug.Log("AbilityMapper 8th " + data.ability8);
     }
 }
 
@@ -77,5 +78,5 @@ public class AbilityMapperData
     public string ability5;
     public string ability6;
     public string ability7;
-    public string ability8;
+    //public string ability8;
 }

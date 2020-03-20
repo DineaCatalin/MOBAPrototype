@@ -18,17 +18,44 @@ public class AbilityUI : MonoBehaviour
 
     float cooldown;
 
+    KeyCode keyCode;
+
     private void Start()
     {
         // Get the KeyCode for the ability that has the index = id 
         AbilityInputKey key = GetKeyCodeForID(id);
-        KeyCode code = (KeyCode)key;
 
-        // If the ability is a number it will the name will contain Alpha
-        // For example 1 will be "Alpha1" so we will take out the Alpha substring 
-        abilityKey.text = code.ToString().Replace("Alpha", "");
+        keyCode = (KeyCode)key;
+
+        if (keyCode == KeyCode.Mouse0 || keyCode == KeyCode.Mouse1)
+        {
+            HandleMouseKey();
+        }
+        else
+        {
+            HandleKeyboardKey();
+        }
 
         StopCooldown();
+    }
+
+    void HandleKeyboardKey()
+    {
+        // If the ability is a number it will the name will contain Alpha
+        // For example 1 will be "Alpha1" so we will take out the Alpha substring 
+        abilityKey.text = keyCode.ToString().Replace("Alpha", "");
+    }
+
+    void HandleMouseKey()
+    {
+        if(keyCode == KeyCode.Mouse0)
+        {
+            abilityKey.text = "C1";
+        }
+        else if(keyCode == KeyCode.Mouse1)
+        {
+            abilityKey.text = "C2";
+        }
     }
 
     public void UpdateCooldown(float currentCooldown)
@@ -90,10 +117,10 @@ public class AbilityUI : MonoBehaviour
                 {
                     return AbilityInputKey.Ability7;
                 }
-            case 8:
-                {
-                    return AbilityInputKey.Ability8;
-                }
+            //case 8:
+            //    {
+            //        return AbilityInputKey.Ability8;
+            //    }
 
             default:
                 {
