@@ -276,11 +276,12 @@ public class Player : MonoBehaviour
         healthBar.gameObject.SetActive(false);
         manaBar.gameObject.SetActive(false);
         gameObject.SetActive(false);
+        // TODO: change to disable collider and spriterenderer
     }
 
     public void Activate()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(true); 
         healthBar.gameObject.SetActive(true);
         manaBar.gameObject.SetActive(true);
     }

@@ -17,7 +17,7 @@ public class AbilityData
 [Serializable]
 public class AbilityStats
 {
-    public int cooldown;     // Time till you can cast the ability again
+    public float cooldown;     // Time till you can cast the ability again
     public int manaCost;     // How much mana will this ability cost?
     public int dotValue;     // Damage over time damage tick
     public int duration;     // Damage over time durration
