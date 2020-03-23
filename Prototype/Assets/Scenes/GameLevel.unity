@@ -1475,18 +1475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c124379a0f0a34864b13f106f50c820a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &203028753 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235616455069676771, guid: 2fcd21682f74242088272b121683a3d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 510453918}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dfbbc89955664582b8fcf4fa587f072, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &206567712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,12 +2679,12 @@ PrefabInstance:
     - target: {fileID: 3295094496822912774, guid: 2fcd21682f74242088272b121683a3d5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.12
+      value: 1.97
       objectReference: {fileID: 0}
     - target: {fileID: 3295094496822912774, guid: 2fcd21682f74242088272b121683a3d5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18816736
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 3295094496822912774, guid: 2fcd21682f74242088272b121683a3d5,
         type: 3}
@@ -2748,11 +2736,6 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3295094496928400513, guid: 2fcd21682f74242088272b121683a3d5,
-        type: 3}
-      propertyPath: rushAreaManager
-      value: 
-      objectReference: {fileID: 203028753}
     - target: {fileID: 3295094497525738806, guid: 2fcd21682f74242088272b121683a3d5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2763,12 +2746,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3295094498315639367, guid: 2fcd21682f74242088272b121683a3d5,
+    - target: {fileID: 3295094497677129776, guid: 2fcd21682f74242088272b121683a3d5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726021551014104072, guid: 2fcd21682f74242088272b121683a3d5,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3295094498315639367, guid: 2fcd21682f74242088272b121683a3d5,
+    - target: {fileID: 8726021551014104072, guid: 2fcd21682f74242088272b121683a3d5,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2842,7 +2830,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.8534074
+  orthographic size: 3.6601481
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

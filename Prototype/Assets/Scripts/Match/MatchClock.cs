@@ -57,7 +57,7 @@ public class MatchClock : MonoBehaviour
                 text.text = "0:00";
 
                 // Send round ended event and stop the clock
-                //Debug.Log("MatchClock time is over triggering round end");
+                Debug.Log("MatchClock time is over triggering round end");
                 StopClock();
                 EventManager.TriggerEvent("RoundEnd");
             }

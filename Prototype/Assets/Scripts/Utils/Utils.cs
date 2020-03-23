@@ -11,6 +11,11 @@ public static class Utils
         float spawnX = Random.Range
             (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
 
+        // Do it only on half of the total screen area so that so clients don't get spawned outside
+        // the wall that is set by the master client
+        spawnX /= 2;
+        spawnY /= 2;
+
         return new Vector2(spawnX, spawnY);
     }
 

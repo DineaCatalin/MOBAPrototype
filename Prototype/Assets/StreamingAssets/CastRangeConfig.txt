@@ -5,7 +5,7 @@
    "SpikesCastRange":9.0,
    "ManaSphereCastRange":10.0,
    "WaterRainCastRange":6.0,
-   "BlinkCastRange":10.0,
+   "BlinkCastRange":15.0,
    "EarthquakeCastRange":7.0,
    "BubbleCastRange":10.0
 }

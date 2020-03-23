@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     // TODO: Load this from a config later
     // PLS don't leave it like this
-    public static float RESPAWN_COOLDOWN = 5f;
+    public static float RESPAWN_COOLDOWN = 3f;
     public static float MAX_PLAYERS = 4;
     public static int ROUNDS_TO_WIN = 10;       // Many rounds a team will need to win to win the mactch
 
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         playerMap = new Dictionary<int, Player>();
 
         match = new Match();
+        EventManager.StartListening("RoundEnd", new System.Action(OnRoundEnd));
     }
 
     // TODO: Rework this logic later
@@ -43,25 +44,30 @@ public class GameManager : MonoBehaviour
                 photonView.RPC("StartMatch", RpcTarget.All);
                 matchStarted = true;
             }
-            if (Input.GetKeyDown(KeyCode.N))
-            {
-                photonView.RPC("EndRound", RpcTarget.All);
-            }
+            //if (Input.GetKeyDown(KeyCode.N))
+            //{
+            //    photonView.RPC("EndRoundRPC", RpcTarget.All);
+            //}
         }
     }
 
-    // Handle match end logic
-    public void EndMatch(int winnerTeamID)
+    void OnRoundEnd()
     {
-        
-    }
-
-    [PunRPC]
-    void EndRound()
-    {
-        EventManager.TriggerEvent("RoundEnd");
         EventManager.TriggerEvent("StartRound");
     }
+
+    //// Handle match end logic
+    public void EndMatch(int winnerTeamID)
+    {
+
+    }
+
+    //[PunRPC]
+    //void EndRoundRPC()
+    //{
+    //    EventManager.TriggerEvent("RoundEnd");
+    //    EventManager.TriggerEvent("StartRound");
+    //}
 
     [PunRPC]
     public void StartMatch()
@@ -105,7 +111,7 @@ public class GameManager : MonoBehaviour
     {
         if(playerMap[playerID] != null)
         {
-            playerMap[playerID].Deactivate();
+            playerMap[playerID].HandlePlayerDeath();
             StartCoroutine(SpawnPlayerWithDelay(respawnTimer, playerID));
 
             // Add the score to the team that has killed the player with @playerID
@@ -120,7 +126,7 @@ public class GameManager : MonoBehaviour
 
         // "Respawn" player by activating the player's GO and reset health and mana
         // The player will take care of doing this
-        playerMap[playerID].Reset();
+        playerMap[playerID].Activate();
     }
 
     public void AddPlayer(int playerID)

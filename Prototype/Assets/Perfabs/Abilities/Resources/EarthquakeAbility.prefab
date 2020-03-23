@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Earthquake
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 214773896778560653, guid: 67d61d0222c6c4684922e849a654bd05,
     type: 3}
   abilityData:
@@ -59,3 +59,5 @@ MonoBehaviour:
       hpValue: 0
   spawnedObject: {fileID: 8441949558110838355, guid: 4aa410f207e1648a08bb3f4ddb8aabe2,
     type: 3}
+  mimicPlayerRotation: 1
+  isBuffForTeam: 0

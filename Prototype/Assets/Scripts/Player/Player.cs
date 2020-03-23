@@ -60,6 +60,8 @@ public class Player : MonoBehaviour
     int manaCoroutineCallsPerSecond;
     int manaChargePerTick;
 
+    float baseSpeed;
+
     void Awake()
     {
         id = GetComponentInParent<PhotonView>().ViewID;
@@ -79,6 +81,8 @@ public class Player : MonoBehaviour
 
         manaCoroutineCallsPerSecond = 5;
         manaChargePerTick = (int)(stats.manaChargePerSecond / manaCoroutineCallsPerSecond);
+
+        baseSpeed = stats.speed;
     }
 
     private void Start()
@@ -112,7 +116,8 @@ public class Player : MonoBehaviour
     public void StopManaCharge()
     {
         Debug.Log("Player StopManaCharge");
-        StopCoroutine(manaChargeCoroutine);
+        if(manaChargeCoroutine != null)
+            StopCoroutine(manaChargeCoroutine);
     }
 
     IEnumerator ChargeMana()
@@ -270,13 +275,32 @@ public class Player : MonoBehaviour
         GameManager.Instance.KillAndRespawnPlayer(GameManager.RESPAWN_COOLDOWN, this.id, this.teamID);
     }
 
-    // Will be used for synching the teleport mechanic over the network
     public void Deactivate()
     {
         healthBar.gameObject.SetActive(false);
         manaBar.gameObject.SetActive(false);
         gameObject.SetActive(false);
-        // TODO: change to disable collider and spriterenderer
+    }
+
+    // Will be used for synching the teleport mechanic over the network
+    public void HandlePlayerDeath()
+    {
+        Deactivate();
+
+        // Reset stats here so that player doesn't appear with 0 hp and mana
+        // Stats
+        stats.health = stats.maxHealth;
+        stats.mana = stats.maxMana;
+
+        // UI
+        healthBar.SetCurrentHealth(stats.health);
+        manaBar.SetCurrentMana(stats.mana);
+
+        // Handle slow and root
+        controller.isRooted = false;
+        stats.speed = baseSpeed;
+
+        //StopManaCharge();
     }
 
     public void Activate()
@@ -284,20 +308,6 @@ public class Player : MonoBehaviour
         gameObject.SetActive(true); 
         healthBar.gameObject.SetActive(true);
         manaBar.gameObject.SetActive(true);
-    }
-
-    // This will be called once the player has been respawned (reactivated) to reset stats
-    public void Reset()
-    {
-        // Stats
-        stats.health = stats.maxHealth;
-        stats.mana = stats.maxMana;
-
-        // UI1
-        healthBar.SetCurrentHealth(stats.health);
-        manaBar.SetCurrentMana(stats.mana);
-
-        Activate();
     }
 
     public void Heal(int heal)
@@ -400,15 +410,12 @@ public class Player : MonoBehaviour
         controller.isRooted = false;
     }
 
-
-    // Methods for slowing the player
-
     // Slow the player for duration seconds by slowValue
     public void Slow(int slowValue, float duration)
     {
         Debug.Log("Player Slow slowing by " + slowValue);
 
-        if(!isPlayerSlowed)
+        if (!isPlayerSlowed)
         {
             float speedDiff = Mathf.Abs(stats.speed - slowValue);
 

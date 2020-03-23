@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Ice Wall
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 828117023986373255, guid: 70941a2094bb747f199ae26601cc2f12,
     type: 3}
   abilityData:
@@ -59,3 +59,5 @@ MonoBehaviour:
       hpValue: 0
   spawnedObject: {fileID: 6582468246873901728, guid: 21c0dfbbfab234d00af9ab39f6664fbe,
     type: 3}
+  mimicPlayerRotation: 1
+  isBuffForTeam: 0

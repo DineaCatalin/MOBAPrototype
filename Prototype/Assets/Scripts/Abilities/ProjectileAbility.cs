@@ -16,6 +16,7 @@ public class ProjectileAbility : Ability
     Vector3 castPosition;
 
     [SerializeField] bool mimicPlayerRotation = false;
+    [SerializeField] bool invertRotation = false;
 
     [Tooltip("If true will use the cast origin that is a child of the player, otherwise it will use the players position")]
     [SerializeField] bool useCastOrigin = true;
@@ -65,6 +66,9 @@ public class ProjectileAbility : Ability
             spawnRotation = spellIndicator.transform.rotation;
         else
             spawnRotation = Quaternion.identity;
+
+        if (invertRotation)
+            spawnRotation *= Quaternion.Euler(0, 0, 180f);
 
         castPosition = new Vector3(castOrigin.position.x, castOrigin.position.y, zOrder);
 

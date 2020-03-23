@@ -91,31 +91,31 @@ public class AbilityUI : MonoBehaviour
         {
             case 1:
                 {
-                    return AbilityInputKey.Ability1;
+                    return AbilityInputKey.AttackAbility;
                 }
             case 2:
                 {
-                    return AbilityInputKey.Ability2;
+                    return AbilityInputKey.DefenseAbility;
                 }
             case 3:
                 {
-                    return AbilityInputKey.Ability3;
+                    return AbilityInputKey.MobilityAbility;
                 }
             case 4:
                 {
-                    return AbilityInputKey.Ability4;
+                    return AbilityInputKey.Ability1;
                 }
             case 5:
                 {
-                    return AbilityInputKey.Ability5;
+                    return AbilityInputKey.Ability2;
                 }
             case 6:
                 {
-                    return AbilityInputKey.Ability6;
+                    return AbilityInputKey.Ability3;
                 }
             case 7:
                 {
-                    return AbilityInputKey.Ability7;
+                    return AbilityInputKey.Ability4;
                 }
             //case 8:
             //    {
