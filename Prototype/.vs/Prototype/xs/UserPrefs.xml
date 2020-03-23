@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Ability.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/Utils.cs">
     <Files>
-      <File FileName="Assets/Scripts/Match/Match.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Match/Match.cs" Line="84" Column="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" />
       <File FileName="Assets/StreamingAssets/AbilityNames.txt" />
       <File FileName="Assets/Scripts/Abilities/Effects/PullEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" Line="17" Column="44" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" />
@@ -15,28 +15,35 @@
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/HealAbility.cs" />
       <File FileName="Assets/Scripts/UI/AbilityUIContainer.cs" />
-      <File FileName="Assets/StreamingAssets/CastRangeConfig.txt" />
+      <File FileName="Assets/StreamingAssets/CastRangeConfig.txt" Line="8" Column="26" />
       <File FileName="Assets/StreamingAssets/ProjectileSpeedConfig.txt" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="77" Column="49" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="86" Column="49" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="70" Column="28" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiter.cs" Line="4" Column="14" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="47" Column="52" />
+      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="10" Column="43" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="60" Column="60" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="116" Column="35" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" Line="90" Column="24" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="57" Column="30" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Pool/AbilityProjectilePool.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="28" Column="33" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/AbilityUI.cs" NotebookId="1" />
-      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/AbilityUI.cs" Line="118" Column="52" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="34" Column="20" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/ItemConfig.txt" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerData.cs" NotebookId="1" />
-      <File FileName="Assets/StreamingAssets/PlayerConfig.txt" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/Shield.cs" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/PlayerConfig.txt" Line="7" Column="15" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Shield.cs" Line="4" Column="1" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/SelectedAbilitiesConfig.txt" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" Line="33" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="13" Column="18" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="151" Column="15" NotebookId="1" />
+      <File FileName="Assets/Scripts/Match/MatchClock.cs" Line="62" Column="55" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -47,12 +54,7 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
-                  <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
-                  <Node name="Pool" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
-                  <Node name="Utils" expanded="True" />
-                  <Node name="Ability.cs" selected="True" />
                 </Node>
                 <Node name="Audio" expanded="True" />
                 <Node name="Environment" expanded="True" />
@@ -61,7 +63,9 @@
                 <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="UI" expanded="True" />
-                <Node name="Utils" expanded="True" />
+                <Node name="Utils" expanded="True">
+                  <Node name="Utils.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="StreamingAssets" expanded="True" />
             </Node>
@@ -76,6 +80,7 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/catalin.dinea/git/MOBAPrototype/Prototype/Assets/StreamingAssets/AbilityConfig.txt" relfile="Assets/StreamingAssets/AbilityConfig.txt" line="48" column="1" />
+      <Breakpoint file="/Users/catalin.dinea/git/MOBAPrototype/Prototype/Assets/StreamingAssets/AbilityConfig.txt" relfile="Assets/StreamingAssets/AbilityConfig.txt" line="58" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Water Rain
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 8012968941612022332, guid: eb9cd8f30045f4cc58b1612646bd6617,
     type: 3}
   abilityData:

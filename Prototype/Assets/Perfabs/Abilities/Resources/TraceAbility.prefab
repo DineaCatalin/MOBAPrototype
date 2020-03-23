@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Trace
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 4884786564034020115, guid: f8f549e14b3c84f3eba99ce9dda6b8b7,
     type: 3}
   abilityData:
@@ -59,3 +59,5 @@ MonoBehaviour:
       hpValue: 0
   spawnedObject: {fileID: 5557843480434893758, guid: c9b321674566e416cb156badad0d3d6f,
     type: 3}
+  mimicPlayerRotation: 1
+  isBuffForTeam: 0

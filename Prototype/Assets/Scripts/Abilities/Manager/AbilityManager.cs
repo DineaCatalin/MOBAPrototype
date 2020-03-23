@@ -118,8 +118,11 @@ public class AbilityManager : MonoBehaviour
             {
                 Debug.Log("AbilityManager CastAbility ability has been cast " + currentAbility.name);
                 player.UseMana(currentAbility.GetManaCost());
+                DisableAbility();
+            }
+            else if(currentAbility.isInstant)
+            {
                 DeselectAbility();
-                return;
             }
         }
 
@@ -162,10 +165,17 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
-    void DeselectAbility()
+    void DisableAbility()
     {
         spellIndicators[currentAbilityIndex].SetActive(false);
         currentAbility.ResetCharging();
+        currentAbility = null;
+        currentAbilityIndex = -1;
+    }
+
+    void DeselectAbility()
+    {
+        spellIndicators[currentAbilityIndex].SetActive(false);
         currentAbility = null;
         currentAbilityIndex = -1;
     }

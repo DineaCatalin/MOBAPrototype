@@ -742,7 +742,7 @@ ScriptsOnlyBuild:
     className: BezierSpline
   - hash:
       serializedVersion: 2
-      Hash: 1be0cb049f481f99861252a257ff232b
+      Hash: 9844403628ed6ba912fb95badaa12424
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RushAbility
@@ -1270,7 +1270,7 @@ ScriptsOnlyBuild:
     className: PhotonTransformView
   - hash:
       serializedVersion: 2
-      Hash: 893ea0b5f43c00cb2d1e6e4316ca2d92
+      Hash: 9b71bf71f25a72daaef9aa84056a138e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BlinkAbility
@@ -1654,7 +1654,7 @@ ScriptsOnlyBuild:
     className: PropertyCell
   - hash:
       serializedVersion: 2
-      Hash: 1c5d769aecf672befbfb20ae67e5abae
+      Hash: 1050cf84410fb6903b7273e1e35626c5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilityDataCache
@@ -1690,7 +1690,7 @@ ScriptsOnlyBuild:
     className: CameraWork
   - hash:
       serializedVersion: 2
-      Hash: f022ee041c28f97f80cf4c471b17f371
+      Hash: aa1e34bc11ed46dde0c24381fd329afe
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnAbility
@@ -1720,7 +1720,7 @@ ScriptsOnlyBuild:
     className: SpawnInMouseDirection
   - hash:
       serializedVersion: 2
-      Hash: 1be0cb049f481f99861252a257ff232b
+      Hash: 9844403628ed6ba912fb95badaa12424
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShieldAbility
@@ -1984,7 +1984,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomPlayerCountProperty
   - hash:
       serializedVersion: 2
-      Hash: 1be0cb049f481f99861252a257ff232b
+      Hash: 9844403628ed6ba912fb95badaa12424
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DustDuskAbility
@@ -2056,7 +2056,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomExpectedUsersProperty
   - hash:
       serializedVersion: 2
-      Hash: 49a6bcd0da40604233774358538c9f62
+      Hash: 3383b06bc7913e5231b554e9a2f3d0c4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ProjectileAbility
@@ -2182,7 +2182,7 @@ ScriptsOnlyBuild:
     className: DamageEffect
   - hash:
       serializedVersion: 2
-      Hash: 1be0cb049f481f99861252a257ff232b
+      Hash: 9844403628ed6ba912fb95badaa12424
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HealAbility
@@ -2196,4 +2196,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.93_OSX.app
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.95_OSX.app

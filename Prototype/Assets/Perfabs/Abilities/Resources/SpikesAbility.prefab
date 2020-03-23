@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Spikes
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 833557636805555732, guid: 297d542055888499e8862e65ecdae0b5,
     type: 3}
   abilityData:
@@ -60,3 +60,4 @@ MonoBehaviour:
   spawnedObject: {fileID: 1857320004693153027, guid: aa949fff332254260bcbaa6296a5b0fb,
     type: 3}
   mimicPlayerRotation: 0
+  isBuffForTeam: 0

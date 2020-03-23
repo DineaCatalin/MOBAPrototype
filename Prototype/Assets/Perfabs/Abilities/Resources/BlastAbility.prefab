@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Blast
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 4524698880060202927, guid: 4910676e2b98b447c955e2fb0b5b6587,
     type: 3}
   abilityData:
@@ -60,4 +60,5 @@ MonoBehaviour:
   projectile: {fileID: 6425128974039810944, guid: 543ac048b68c34f7bac2af4d4623b503,
     type: 3}
   mimicPlayerRotation: 1
-  useCastOrigin: 0
+  invertRotation: 1
+  useCastOrigin: 1

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Mana Sphere
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 8321681968884971577, guid: d4282bc64c45e48c5ae4145ff8d2cc00,
     type: 3}
   abilityData:
@@ -59,3 +59,5 @@ MonoBehaviour:
       hpValue: 0
   spawnedObject: {fileID: 5600110148904332731, guid: ea988fbccedef487a8c717dd42a67836,
     type: 3}
+  mimicPlayerRotation: 1
+  isBuffForTeam: 0

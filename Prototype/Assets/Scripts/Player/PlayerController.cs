@@ -5,13 +5,17 @@ public enum AbilityInputKey
 {
     // Ability1 Will be left  click 
     // Ability2 Will be right click 
-    Ability1 = KeyCode.Mouse0,
-    Ability2 = KeyCode.Mouse1,
-    Ability3 = KeyCode.Space,
-    Ability4 = KeyCode.Alpha1,
-    Ability5 = KeyCode.Alpha2,
-    Ability6 = KeyCode.Alpha3,
-    Ability7 = KeyCode.Alpha4,
+    AttackAbility = KeyCode.Mouse0,
+    DefenseAbility = KeyCode.Mouse1,
+    MobilityAbility = KeyCode.Space,
+    Ability1 = KeyCode.Alpha1,
+    Ability2 = KeyCode.Alpha2,
+    Ability3 = KeyCode.Alpha3,
+    Ability4 = KeyCode.Alpha4,
+    AbilityAlias1 = KeyCode.Z,
+    AbilityAlias2 = KeyCode.X,
+    AbilityAlias3 = KeyCode.C,
+    AbilityAlias4 = KeyCode.V,
     AbilityManaCharge = KeyCode.LeftShift    
 }
 
@@ -44,6 +48,8 @@ public class PlayerController : MonoBehaviour
         photonView = GetComponent<PhotonView>();
     }
 
+    bool abilityWasCast;
+
     // Update is called once per frame
     void Update()
     {
@@ -53,9 +59,8 @@ public class PlayerController : MonoBehaviour
         HandleMovement();       
         HandleRotation();
 
-        if(!HandleAbilityCasting())
-            HandleAbilitySelection();
-
+        HandleAbilityCasting();
+        HandleAbilitySelection();
     }
 
     void HandleMovement()
@@ -82,6 +87,7 @@ public class PlayerController : MonoBehaviour
             movementIncrement += Vector3.right;
         }
 
+        Debug.Log("PlayerController HandleMovement Moving player with speed " + stats.speed);
         playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
     }
 
@@ -103,9 +109,11 @@ public class PlayerController : MonoBehaviour
             }
 
             abilityManager.CastAbility();
+            abilityWasCast = true;
             return true;
         }
 
+        abilityWasCast = false;
         return false;
     }
 
@@ -132,34 +140,37 @@ public class PlayerController : MonoBehaviour
 
     void HandleAbilitySelection()
     {
-        // Could initialize keys somewhere else but for now do it here
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0) && !abilityWasCast)
         {
             SwitchSelectedAbility(1);
-            return;
+            //return;
         }
-        else if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
             SwitchSelectedAbility(2);
-            return;
+            //return;
         }
-        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability3))
+        if (Input.GetKeyDown((KeyCode)AbilityInputKey.MobilityAbility))
         {
             SwitchSelectedAbility(3);
         }
-        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability4))
+        if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability1) ||
+            Input.GetKeyDown((KeyCode)AbilityInputKey.AbilityAlias1))
         {
             SwitchSelectedAbility(4);
         }
-        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability5))
+        if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability2) ||
+            Input.GetKeyDown((KeyCode)AbilityInputKey.AbilityAlias2))
         {
             SwitchSelectedAbility(5);
         }
-        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability6))
+        if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability3) ||
+            Input.GetKeyDown((KeyCode)AbilityInputKey.AbilityAlias3))
         {
             SwitchSelectedAbility(6);
         }
-        else if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability7))
+        if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability4) || 
+            Input.GetKeyDown((KeyCode)AbilityInputKey.AbilityAlias4))
         {
             SwitchSelectedAbility(7);
         }

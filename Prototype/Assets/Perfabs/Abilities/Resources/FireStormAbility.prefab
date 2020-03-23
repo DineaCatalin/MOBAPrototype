@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Fire Storm
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 4524698880060202927, guid: 4910676e2b98b447c955e2fb0b5b6587,
     type: 3}
   abilityData:
@@ -59,4 +59,5 @@ MonoBehaviour:
       hpValue: 0
   projectile: {fileID: 6770403879752432852, guid: 72c30802f1e65475f93e2465158bd5ea,
     type: 3}
-  castOrigin: {fileID: 0}
+  mimicPlayerRotation: 0
+  useCastOrigin: 1

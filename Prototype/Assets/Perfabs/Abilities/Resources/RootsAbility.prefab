@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Roots
-  isInstant: 0
+  isInstant: 1
   spellIndicator: {fileID: 5980626208548181150, guid: 7b74bc97d7a284f89b0049ed0e8d7ad1,
     type: 3}
   abilityData:
@@ -60,3 +60,4 @@ MonoBehaviour:
   spawnedObject: {fileID: 3113322748043198587, guid: 3a2f4a1865e3e4a34991f29783464cf9,
     type: 3}
   mimicPlayerRotation: 0
+  isBuffForTeam: 0
