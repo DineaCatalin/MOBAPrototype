@@ -29,8 +29,6 @@ public class Match
         team1Score = 0;
         team2Score = 0;
         maxRoundsForTeam = GameManager.ROUNDS_TO_WIN;
-
-        //EventManager.StartListening("StartRound", new Action(FinishTimerRound));
     }
 
     public void FinishRoundNoTimer(int winningTeamID)

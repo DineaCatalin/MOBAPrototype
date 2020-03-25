@@ -311,7 +311,8 @@ public class Player : MonoBehaviour
 
     private void Reset()
     {
-        transform.position = Utils.GetRandomScreenPoint();
+        if(isNetworkActive)
+            transform.position = Utils.GetRandomScreenPoint();
 
         // Reset stats here so that player doesn't appear with 0 hp and mana
         // Stats
@@ -341,7 +342,6 @@ public class Player : MonoBehaviour
     void OnRoundStart()
     {
         Debug.Log("Player OnRoundStart");
-        //HandlePlayerDeath();
         Reset();
     }
 
@@ -451,11 +451,11 @@ public class Player : MonoBehaviour
     }
 
     // Slow the player for duration seconds by slowValue
-    public void Slow(int slowValue, float duration)
+    public void Slow(int slowValue, float duration, bool continuous = false)
     {
         Debug.Log("Player Slow slowing by " + slowValue);
 
-        if (!isPlayerSlowed)
+        if (!isPlayerSlowed || continuous)
         {
             float speedDiff = Mathf.Abs(stats.speed - slowValue);
 
