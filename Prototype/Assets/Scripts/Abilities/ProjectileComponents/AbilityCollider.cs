@@ -38,8 +38,11 @@ public class AbilityCollider : MonoBehaviour
         if (collision.tag.Contains("Team"))
         {
             Player player = collision.GetComponent<Player>();
-            effect.ApplyEffect(player, abilityData.stats);
-            Debug.Log("Projectile has hit " + collision);
+
+            if(player.isNetworkActive)
+            {
+                effect.ApplyEffect(player, abilityData.stats);
+            }
 
             if (!isStatic && abilityData.description.name != "Tornado")
             {

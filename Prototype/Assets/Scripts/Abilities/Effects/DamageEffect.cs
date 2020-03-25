@@ -2,6 +2,7 @@
 {
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
-        player.Damage(stats.hpValue);
+        if(player.isNetworkActive)
+            player.Damage(stats.hpValue);
     }
 }

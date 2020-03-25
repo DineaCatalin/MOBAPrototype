@@ -63,6 +63,12 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             {
                 localObjects[i].SetActive(false);
             }
+
+            player.isNetworkActive = false;
+        }
+        else
+        {
+            player.isNetworkActive = true;
         }
     }
 

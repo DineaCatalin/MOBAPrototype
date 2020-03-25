@@ -94,11 +94,12 @@ public class AreaLimiterManager : MonoBehaviour
 
     void OnRoundEnd()
     {
-        StopCoroutine(growCoroutine);
-
         for (int i = 0; i < areaLimiters.Length; i++)
         {
             areaLimiters[i].localScale = Vector3.one * initialScale;
         }
+
+        if(growCoroutine != null)
+            StopCoroutine(growCoroutine);
     }
 }

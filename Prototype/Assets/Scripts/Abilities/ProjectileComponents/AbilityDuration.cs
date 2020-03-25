@@ -9,6 +9,11 @@ public class AbilityDuration : MonoBehaviour
 
     [SerializeField] float duration;
 
+    private void Start()
+    {
+        EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
+    }
+
     // We use OnEnable because the GO that uses this component is used in an ObjectPool
     void OnEnable()
     {
@@ -26,5 +31,10 @@ public class AbilityDuration : MonoBehaviour
         Debug.Log("AbilityDuration Disable");
         gameObject.SetActive(false);
         //Destroy(gameObject);
+    }
+
+    void OnRoundStart()
+    {
+        gameObject.SetActive(false);
     }
 }
