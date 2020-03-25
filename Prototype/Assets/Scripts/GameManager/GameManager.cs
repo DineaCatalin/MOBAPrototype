@@ -29,8 +29,18 @@ public class GameManager : MonoBehaviour
         photonView = GetComponent<PhotonView>();
         playerMap = new Dictionary<int, Player>();
 
-        match = new Match();
         EventManager.StartListening("RoundEnd", new System.Action(OnRoundEnd));
+
+        match = new Match();
+        Hashtable roomProperties = new Hashtable();
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            // Assign the new value to the room properties
+            roomProperties.Add("Team1Rounds", 0);
+            roomProperties.Add("Team2Rounds", 0);
+            PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
+        }
     }
 
     // TODO: Rework this logic later
@@ -44,15 +54,29 @@ public class GameManager : MonoBehaviour
                 photonView.RPC("StartMatch", RpcTarget.All);
                 matchStarted = true;
             }
-            //if (Input.GetKeyDown(KeyCode.N))
-            //{
-            //    photonView.RPC("EndRoundRPC", RpcTarget.All);
-            //}
         }
     }
 
     void OnRoundEnd()
     {
+        Debug.Log("GameManager OnRoundEnd");
+        photonView.RPC("RoundEndRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RoundEndRPC()
+    {
+        // Sync match scores
+        match.SyncScore();
+
+        StartCoroutine("StartRoundWithDelay");
+    }
+
+    IEnumerator StartRoundWithDelay()
+    {
+        yield return new WaitForSeconds(2f);
+
+        Debug.Log("GameManager StartRoundWithDelay Starting round");
         EventManager.TriggerEvent("StartRound");
     }
 
@@ -61,13 +85,6 @@ public class GameManager : MonoBehaviour
     {
 
     }
-
-    //[PunRPC]
-    //void EndRoundRPC()
-    //{
-    //    EventManager.TriggerEvent("RoundEnd");
-    //    EventManager.TriggerEvent("StartRound");
-    //}
 
     [PunRPC]
     public void StartMatch()
@@ -97,7 +114,23 @@ public class GameManager : MonoBehaviour
             photonView.RPC("UpdateScoreRPC", RpcTarget.OthersBuffered, teamID);
 
         }
-        photonView.RPC("KillAndRespawnPlayerRPC", RpcTarget.All, respawnTimer, playerID, teamID);
+        photonView.RPC("KillAndRespawnPlayerRPC", RpcTarget.All, respawnTimer, playerID);
+    }
+
+    public void KillNetworkedPlayer(int playerID)
+    {
+        // Kill local player
+        KillPlayer(playerID);
+
+        // Make sure the rest of the clients did the same
+        photonView.RPC("KillPlayerRPC", RpcTarget.Others, playerID);
+        photonView.RPC("CheckRoundEndRPC", RpcTarget.MasterClient);
+
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+            
+        //    CheckRoundEnd();
+        //}
     }
 
     [PunRPC]
@@ -107,7 +140,77 @@ public class GameManager : MonoBehaviour
     }
 
     [PunRPC]
-    public void KillAndRespawnPlayerRPC(float respawnTimer, int playerID, int teamIDKilledPlayer)
+    void KillPlayerRPC(int playerID)
+    {
+        if (playerMap[playerID] != null)
+        {
+            playerMap[playerID].HandlePlayerDeath();
+
+            // Add the score to the team that has killed the player with @playerID
+            Debug.Log("GameManager KillPlayerRPC score. Player has been killed " + playerID);
+        }
+    }
+
+    [PunRPC]
+    void CheckRoundEndRPC()
+    {
+        Debug.Log("GameManager KillPlayerRPC We are in master client");
+        CheckRoundEnd();
+    }
+
+    void KillPlayer(int playerID)
+    {
+        if (playerMap[playerID] != null)
+        {
+            playerMap[playerID].HandlePlayerDeath();
+
+            // Add the score to the team that has killed the player with @playerID
+            Debug.Log("GameManager KillPlayerRPC score. Player has been killed " + playerID);
+        }
+    }
+
+    void CheckRoundEnd()
+    {
+        bool playerTeam1Alive = false;
+        bool playerTeam2Alive = false;
+        
+        foreach (Player player in playerMap.Values)
+        {
+            Debug.Log("GameManager CheckRoundEnd Checking player " + player.GetID() + " team " + player.teamID);
+
+            if (player.IsAlive())
+            {
+                if (player.teamID == 1)
+                    playerTeam1Alive = true;
+                else if(player.teamID == 2)
+                    playerTeam2Alive = true;
+
+                Debug.Log("GameManager CheckRoundEnd Player is alive " + player.GetID() + " from team " + player.teamID);
+            }
+        }
+
+        // Players from both teams are alive so continue
+        if (playerTeam1Alive && playerTeam2Alive)
+        {
+            Debug.Log("GameManager CheckRoundEnd players from both teams alive");
+            return;
+        }
+        // Team 1 WON
+        else if(playerTeam1Alive)
+        {
+            Debug.Log("GameManager CheckRoundEnd Team 1 won");
+            match.FinishRoundNoTimer(1);
+        }
+        // Team 2 WON
+        else if (playerTeam2Alive)
+        {
+            Debug.Log("GameManager CheckRoundEnd Team 2 won");
+            match.FinishRoundNoTimer(2);
+        }
+    }
+
+    [PunRPC]
+    public void KillAndRespawnPlayerRPC(float respawnTimer, int playerID)
     {
         if(playerMap[playerID] != null)
         {
@@ -434,7 +537,7 @@ public class GameManager : MonoBehaviour
     public void SlowAndDamagePlayer(int duration, int slowValue, int damage, int playerID)
     {
         photonView.RPC("SlowAndDamagePlayerRPC", RpcTarget.All, duration, slowValue, damage, playerID);
-    }
+    }   
 
     [PunRPC]
     void SlowAndDamagePlayerRPC(int duration, int slowValue, int damage, int playerID)

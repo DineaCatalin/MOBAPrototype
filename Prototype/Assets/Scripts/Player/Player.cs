@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 {
     // ID of the player used to identify abilities
     [SerializeField] int id;
-    private int teamID;
+    public int teamID;
 
     // Tells us in which team our player is
     // For now we default it to 1
@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public StateManager rushAreaManager;
 
     Rigidbody2D rigidBody;
+    Collider2D playerCollider;
 
     // This will be activated by the bubble shield ability
     Shield shield;
@@ -62,6 +63,10 @@ public class Player : MonoBehaviour
 
     float baseSpeed;
 
+    bool isAlive;
+
+    [HideInInspector] public bool isNetworkActive;
+
     void Awake()
     {
         id = GetComponentInParent<PhotonView>().ViewID;
@@ -75,6 +80,7 @@ public class Player : MonoBehaviour
         shield = GetComponentInChildren<Shield>();
         rushAreaManager = GetComponentInChildren<StateManager>();
         rigidBody = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
 
         healEffectActive = false;
         isRecevingDOT = false;
@@ -95,7 +101,12 @@ public class Player : MonoBehaviour
         healthRegen = 1;
         manaRegen = 1;
 
+        isAlive = true;
+
         InvokeRepeating("RegenerateStats", 1, 3);
+
+        // Start player at the beginning of the round
+        EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
     }
 
     void RegenerateStats()
@@ -270,9 +281,8 @@ public class Player : MonoBehaviour
     void Die()
     {
         // We will just set the GO as inactive
-        Debug.Log(gameObject + " Die and respawn in " + GameManager.RESPAWN_COOLDOWN + " seconds");
-
-        GameManager.Instance.KillAndRespawnPlayer(GameManager.RESPAWN_COOLDOWN, this.id, this.teamID);
+        Debug.Log("Player " + id + " Die()");
+        GameManager.Instance.KillNetworkedPlayer(this.id);
     }
 
     public void Deactivate()
@@ -280,12 +290,28 @@ public class Player : MonoBehaviour
         healthBar.gameObject.SetActive(false);
         manaBar.gameObject.SetActive(false);
         gameObject.SetActive(false);
+        //controller.gameObject.SetActive(false);
     }
 
     // Will be used for synching the teleport mechanic over the network
     public void HandlePlayerDeath()
     {
+        Debug.Log("Player HandlePlayerDeath");
+        isAlive = false;
+
         Deactivate();
+
+        // Handle slow and root
+        controller.isRooted = false;
+        stats.speed = baseSpeed;
+
+
+        StopManaCharge();
+    }
+
+    private void Reset()
+    {
+        transform.position = Utils.GetRandomScreenPoint();
 
         // Reset stats here so that player doesn't appear with 0 hp and mana
         // Stats
@@ -296,18 +322,32 @@ public class Player : MonoBehaviour
         healthBar.SetCurrentHealth(stats.health);
         manaBar.SetCurrentMana(stats.mana);
 
-        // Handle slow and root
-        controller.isRooted = false;
-        stats.speed = baseSpeed;
-
-        //StopManaCharge();
+        Activate();
     }
 
     public void Activate()
     {
+        Debug.Log("Player Activate");
+        isAlive = true;
+
+        //controller.gameObject.SetActive(true);
         gameObject.SetActive(true); 
         healthBar.gameObject.SetActive(true);
         manaBar.gameObject.SetActive(true);
+
+        // Set spawn point
+    }
+
+    void OnRoundStart()
+    {
+        Debug.Log("Player OnRoundStart");
+        //HandlePlayerDeath();
+        Reset();
+    }
+
+    public bool IsAlive()
+    {
+        return isAlive;
     }
 
     public void Heal(int heal)

@@ -67,5 +67,9 @@ MonoBehaviour:
   - StartMatch
   - StartRound
   - EndRound
+  - KillPlayerRPC
+  - FinishRoundNoTimerRPC
+  - RoundEndRPC
+  - CheckRoundEndRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1

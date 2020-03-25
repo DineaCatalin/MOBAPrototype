@@ -12,14 +12,18 @@ public class SlowEffect : AbilityEffect
 
         if (applyDamage)
         {
-            GameManager.Instance.SlowAndDamagePlayer(stats.duration, stats.dotValue, stats.hpValue, player.GetID());
-            //player.Slow(stats.dotValue, stats.duration);
-            //player.Damage(stats.hpValue);
+            //GameManager.Instance.SlowAndDamagePlayer(stats.duration, stats.dotValue, stats.hpValue, player.GetID());
+            if (player.isNetworkActive)
+            {
+                player.Slow(stats.dotValue, stats.duration);
+                player.Damage(stats.hpValue);
+            }
         }
         else
         {
-            GameManager.Instance.SlowPlayer(stats.duration, stats.dotValue, player.GetID());
-            //player.Slow(stats.dotValue, stats.duration);
+            //GameManager.Instance.SlowPlayer(stats.duration, stats.dotValue, player.GetID());
+            if(player.isNetworkActive)
+                player.Slow(stats.dotValue, stats.duration);
         }
     }
 }
