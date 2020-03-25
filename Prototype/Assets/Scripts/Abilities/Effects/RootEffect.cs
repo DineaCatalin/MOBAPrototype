@@ -11,7 +11,6 @@ public class RootEffect : AbilityEffect
         if(player.interactionManager == null)
             Debug.Log("RootEffect interactionManager is null wtf?");
 
-        if (player.isNetworkActive)
-            player.interactionManager.RootPlayer(stats.duration);
+        player.interactionManager.RootPlayer(stats.duration);
     }
 }

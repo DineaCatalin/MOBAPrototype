@@ -7,8 +7,7 @@ public class DOTEffect : AbilityEffect
 {
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
-        if(player.isNetworkActive)
-            player.DamageAndDOT(stats.hpValue, stats.duration, stats.dotValue);
+        player.DamageAndDOT(stats.hpValue, stats.duration, stats.dotValue);
         //GameManager.Instance.DamagePlayerWithDOT(stats.hpValue, stats.dotValue, stats.duration, player.GetID());
     }
 }
