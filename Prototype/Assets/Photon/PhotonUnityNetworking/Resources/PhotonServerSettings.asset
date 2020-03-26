@@ -71,5 +71,6 @@ MonoBehaviour:
   - FinishRoundNoTimerRPC
   - RoundEndRPC
   - CheckRoundEndRPC
+  - ActivateNonLocalPlayerRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1

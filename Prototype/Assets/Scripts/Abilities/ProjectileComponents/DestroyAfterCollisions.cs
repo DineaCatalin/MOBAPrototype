@@ -6,6 +6,11 @@ public class DestroyAfterCollisions : MonoBehaviour
 {
     [SerializeField] int numCollisions;
 
+    private void Start()
+    {
+        EventManager.StartListening("StartRound", new System.Action(Destroy));
+    }
+
     public void ApplyDamage()
     {
         numCollisions--;

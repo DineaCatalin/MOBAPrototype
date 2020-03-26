@@ -63,6 +63,29 @@ public class GameManager : MonoBehaviour
         photonView.RPC("RoundEndRPC", RpcTarget.All);
     }
 
+    public void ActivateNonLocalPlayer(int playerID)
+    {
+        photonView.RPC("ActivateNonLocalPlayerRPC", RpcTarget.Others, playerID);
+    }
+
+    [PunRPC]
+    void ActivateNonLocalPlayerRPC(int playerID)
+    {
+        StartCoroutine(ActivateNonLocalPlayerCoroutine(playerID, 1f));
+    }
+
+    IEnumerator ActivateNonLocalPlayerCoroutine(int playerID, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Player player = playerMap[playerID];
+
+        if (player != null && !player.isNetworkActive)
+        {
+            player.Activate();
+        }
+    }
+
     [PunRPC]
     public void RoundEndRPC()
     {
@@ -103,20 +126,6 @@ public class GameManager : MonoBehaviour
         EventManager.TriggerEvent("StartRound");
     }
 
-    public void KillAndRespawnPlayer(float respawnTimer, int playerID, int teamID)
-    {
-        if(photonView.IsMine)
-        {
-            // Increase score here so that only 1 client will do it
-            match.IncreaseTeamScore(teamID);
-
-            // Call RPC so that others update their score
-            photonView.RPC("UpdateScoreRPC", RpcTarget.OthersBuffered, teamID);
-
-        }
-        photonView.RPC("KillAndRespawnPlayerRPC", RpcTarget.All, respawnTimer, playerID);
-    }
-
     public void KillNetworkedPlayer(int playerID)
     {
         // Kill local player
@@ -125,18 +134,6 @@ public class GameManager : MonoBehaviour
         // Make sure the rest of the clients did the same
         photonView.RPC("KillPlayerRPC", RpcTarget.Others, playerID);
         photonView.RPC("CheckRoundEndRPC", RpcTarget.MasterClient);
-
-        //if (PhotonNetwork.IsMasterClient)
-        //{
-            
-        //    CheckRoundEnd();
-        //}
-    }
-
-    [PunRPC]
-    void UpdateScoreRPC(int teamIDKilledPlayer)
-    {
-        match.IncreaseTeamScore(teamIDKilledPlayer);
     }
 
     [PunRPC]

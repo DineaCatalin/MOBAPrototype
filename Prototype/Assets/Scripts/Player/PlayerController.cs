@@ -87,7 +87,6 @@ public class PlayerController : MonoBehaviour
             movementIncrement += Vector3.right;
         }
 
-        Debug.Log("PlayerController HandleMovement Moving player with speed " + stats.speed);
         playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
     }
 
