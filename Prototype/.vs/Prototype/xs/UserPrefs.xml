@@ -1,20 +1,22 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/AbilityDraftLogic.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
     <Files>
       <File FileName="Assets/Scripts/Match/Match.cs" Line="28" Column="40" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="610" Column="53" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="103" Column="22" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="90" Column="1" />
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="67" Column="11" />
       <File FileName="Assets/Scripts/Player/Shield.cs" Line="51" Column="38" />
-      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="77" Column="1" />
-      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="77" Column="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="630" Column="8" NotebookId="1" />
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="133" Column="13" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="60" Column="26" />
+      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="81" Column="57" />
+      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" Line="16" Column="25" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="245" Column="29" NotebookId="1" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="67" Column="20" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="36" Column="51" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" Line="36" Column="46" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/StateManager.cs" Line="32" Column="6" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="30" Column="46" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="42" Column="11" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -46,10 +48,10 @@
                 <Node name="GameManager" expanded="True" />
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
-                <Node name="Player" expanded="True" />
-                <Node name="UI" expanded="True">
-                  <Node name="AbilityDraftLogic.cs" selected="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="Player.cs" selected="True" />
                 </Node>
+                <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
