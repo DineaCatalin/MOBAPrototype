@@ -12,7 +12,9 @@ public enum Buff
 
 public class Player : MonoBehaviour
 {
-    // ID of the player used to identify abilities
+    public static int localPlayerID;
+    public static int localTeamID;
+
     [SerializeField] int id;
     public int teamID;
 
@@ -100,6 +102,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        SetLocalID();
+
         // Set health and mana bar values
         healthBar.SetMaxHealth(stats.maxHealth);
         manaBar.SetMaxMana(stats.maxMana);
@@ -115,6 +119,12 @@ public class Player : MonoBehaviour
         // Start player at the beginning of the round
         EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
         EventManager.StartListening("ShieldDestroyed", new System.Action(DeactivateShield));
+    }
+
+    void SetLocalID()
+    {
+        if (isNetworkActive)
+            localPlayerID = id;
     }
 
     void RegenerateStats()
@@ -456,7 +466,8 @@ public class Player : MonoBehaviour
     {
         controller.isRooted = true;
 
-        StartCoroutine(RemoveRoot(duration));
+        if(gameObject.activeSelf)
+            StartCoroutine(RemoveRoot(duration));
     }
 
     IEnumerator RemoveRoot(int duration)
@@ -639,6 +650,11 @@ public class Player : MonoBehaviour
         if (teamID == 2)
         {
             graphics.color = Color.red;
+        }
+
+        if(isNetworkActive)
+        {
+            localTeamID = teamID;
         }
     }
 }

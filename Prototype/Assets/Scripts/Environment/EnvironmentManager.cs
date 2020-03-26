@@ -46,18 +46,19 @@ public class EnvironmentManager : MonoBehaviour
         environmentSize = new Vector2(x, y);
     }
 
-    public void TriggerDustDusk(int duration)
+    public void TriggerDustDusk(int duration, int teamID)
     {
-        photonView.RPC("ActivateDustDusk", RpcTarget.Others);
+        photonView.RPC("ActivateDustDusk", RpcTarget.Others, teamID);
 
         StartCoroutine(HideDuskDust(duration));
     }
 
     [PunRPC]
-    void ActivateDustDusk()
+    void ActivateDustDusk(int casterTeamID)
     {
         // We can add a fade here later
-        dustDusk.SetActive(true);
+        if (Player.localTeamID != casterTeamID)
+            dustDusk.SetActive(true);
     }
 
     IEnumerator HideDuskDust(float time)
