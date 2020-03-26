@@ -64,7 +64,7 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         if (photonView.IsMine)
             localPlayerID = player.GetID();
 
-        player.nickName.text = PhotonNetwork.LocalPlayer.NickName;
+        //player.SetNickName(PhotonNetwork.LocalPlayer.NickName);
 
         Debug.Log("PUN2_RoomController Instantiating player " + player.GetID());
 
