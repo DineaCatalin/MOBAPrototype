@@ -271,9 +271,12 @@ public class Player : MonoBehaviour
         Debug.Log("Player " + id + " health after " + stats.health);
         healthBar.SetCurrentHealth(stats.health);
 
+        Debug.Log("Player " + id + " isAlive " + isAlive);
+
         // Check if we are dead
-        if(stats.health <= 0)
+        if (stats.health <= 0 && isAlive)
         {
+            Debug.Log("Player " + id + " Die()");
             Die();
         }
     }
@@ -290,7 +293,6 @@ public class Player : MonoBehaviour
         healthBar.gameObject.SetActive(false);
         manaBar.gameObject.SetActive(false);
         gameObject.SetActive(false);
-        //controller.gameObject.SetActive(false);
     }
 
     // Will be used for synching the teleport mechanic over the network
@@ -302,18 +304,13 @@ public class Player : MonoBehaviour
         Deactivate();
 
         // Handle slow and root
-        controller.isRooted = false;
         stats.speed = baseSpeed;
-
 
         StopManaCharge();
     }
 
     private void Reset()
     {
-        if(isNetworkActive)
-            transform.position = Utils.GetRandomScreenPoint();
-
         // Reset stats here so that player doesn't appear with 0 hp and mana
         // Stats
         stats.health = stats.maxHealth;
@@ -323,20 +320,26 @@ public class Player : MonoBehaviour
         healthBar.SetCurrentHealth(stats.health);
         manaBar.SetCurrentMana(stats.mana);
 
-        Activate();
+        // Activate my player and set its start position
+        // and then tell the other clients to activate my version of their player
+        if (isNetworkActive)
+        {
+            transform.position = Utils.GetRandomScreenPoint();
+            Activate();
+            GameManager.Instance.ActivateNonLocalPlayer(id);
+        }   
     }
 
     public void Activate()
     {
         Debug.Log("Player Activate");
+
         isAlive = true;
 
-        //controller.gameObject.SetActive(true);
         gameObject.SetActive(true); 
         healthBar.gameObject.SetActive(true);
         manaBar.gameObject.SetActive(true);
-
-        // Set spawn point
+        controller.isRooted = false;
     }
 
     void OnRoundStart()
@@ -451,11 +454,11 @@ public class Player : MonoBehaviour
     }
 
     // Slow the player for duration seconds by slowValue
-    public void Slow(int slowValue, float duration, bool continuous = false)
+    public void Slow(int slowValue, float duration, bool stackEffect = false)
     {
         Debug.Log("Player Slow slowing by " + slowValue);
 
-        if (!isPlayerSlowed || continuous)
+        if ((!isPlayerSlowed || stackEffect) && gameObject.activeSelf)
         {
             float speedDiff = Mathf.Abs(stats.speed - slowValue);
 
