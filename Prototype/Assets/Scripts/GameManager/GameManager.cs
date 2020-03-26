@@ -336,18 +336,35 @@ public class GameManager : MonoBehaviour
     public void ActivatePlayerShield(int armor, int playerID)
     {
         Debug.Log("GameManager ActivatePlayerShield with " + armor + " armor for player " + playerID);
-        photonView.RPC("ActivatePlayerShieldRPC", RpcTarget.All, armor, playerID);
+        photonView.RPC("ActivatePlayerShieldRPC", RpcTarget.Others, armor, playerID);
     }
 
     [PunRPC]
     void ActivatePlayerShieldRPC(int armor, int playerID)
     {
         Debug.Log("GameManager ActivatePlayerShieldRPC with " + armor + " armor for player " + playerID);
-        if (playerMap[playerID] == null)
-            return;
-
-        playerMap[playerID].ActivateShield(armor);
+        if (playerMap[playerID] != null)
+        {
+            playerMap[playerID].ActivateShield(armor);
+        }
     }
+
+    public void DeactivatePlayerShield(int playerID)
+    {
+        photonView.RPC("DeactivatePlayerShieldRPC", RpcTarget.Others, playerID);
+    }
+
+    [PunRPC]
+    void DeactivatePlayerShieldRPC(int playerID)
+    {
+        Debug.Log("GameManager DeactivatePlayerShieldRPC for player " + playerID);
+        if (playerMap[playerID] != null)
+        {
+            playerMap[playerID].DeactivateShield();
+        }
+    }
+
+
 
     public void KnockOutPlayer(int force, int damage, int playerID)
     {

@@ -27,7 +27,7 @@ public class ShieldAbility : Ability
 
         if(isInstant)
         {
-            GameManager.Instance.ActivatePlayerShield(abilityData.stats.hpValue, player.GetID());
+            player.ActivateShield(abilityData.stats.hpValue);
             return base.Cast();
         }
         else if (hit)
@@ -40,7 +40,7 @@ public class ShieldAbility : Ability
             {
                 player = hit.collider.gameObject.GetComponent<Player>();
                 Debug.Log("ShieldAbility activating shield with " + abilityData.stats.hpValue + " through controller for player " + playerID);
-                GameManager.Instance.ActivatePlayerShield(abilityData.stats.hpValue, player.GetID());
+                player.ActivateShield(abilityData.stats.hpValue);
 
                 return base.Cast();
             }
