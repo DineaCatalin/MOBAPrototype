@@ -109,6 +109,7 @@ public class Player : MonoBehaviour
 
         // Start player at the beginning of the round
         EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
+        EventManager.StartListening("ShieldDestroyed", new System.Action(DeactivateShield));
     }
 
     void RegenerateStats()
@@ -308,7 +309,7 @@ public class Player : MonoBehaviour
         // Handle slow, shield and rush area
         stats.speed = baseSpeed;
         rushAreaManager.Deactivate();
-        shield.Deactivate();
+        shield.DeactivateNetworkedShield();
 
         StopManaCharge();
     }
@@ -524,6 +525,19 @@ public class Player : MonoBehaviour
     public void ActivateShield(int armor)
     {
         shield.SetArmor(armor);
+
+        if (isNetworkActive)
+        {
+            GameManager.Instance.ActivatePlayerShield(armor, id);
+        }
+    }
+
+    public void DeactivateShield()
+    {
+        if (isNetworkActive)
+            GameManager.Instance.DeactivatePlayerShield(id);
+        
+        shield.DeactivateLocalShield();
     }
 
     public PlayerData GetStats()

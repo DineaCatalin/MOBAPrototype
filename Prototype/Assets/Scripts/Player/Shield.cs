@@ -29,8 +29,7 @@ public class Shield : MonoBehaviour
 
         if (armor <= 0)
         {
-            spriteRenderer.enabled = false;
-            armor = 0;
+            DeactivateNetworkedShield();
         }
     }
 
@@ -43,9 +42,18 @@ public class Shield : MonoBehaviour
         return true;
     }
 
-    public void Deactivate()
+    public void DeactivateNetworkedShield()
+    {
+        DeactivateLocalShield();
+        EventManager.TriggerEvent("ShieldDestroyed");
+    }
+
+    public void DeactivateLocalShield()
     {
         armor = 0;
         spriteRenderer.enabled = false;
     }
+
+    
+
 }
