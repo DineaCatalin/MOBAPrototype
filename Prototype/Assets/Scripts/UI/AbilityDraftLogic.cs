@@ -54,7 +54,9 @@ public class AbilityDraftLogic : MonoBehaviour
         // Check if ability is selected
         if (AbilityIsSelected(abilityName))
         {
-            helperText.text = ABILITY_ALREADY_SELETED;
+            //helperText.text = ABILITY_ALREADY_SELETED;
+            Debug.Log("AbilityDraftLogic SelectAbility Ability " + abilityName + " is selected triggering deselection");
+            DeselectAbility(abilityName);
             return false;
         }
 
@@ -101,7 +103,7 @@ public class AbilityDraftLogic : MonoBehaviour
             }
         }
 
-        Debug.Log("AbilityDraftLogic AbilityIsSelected ability " + abilityName + "  is NOT selected");
+        //Debug.Log("AbilityDraftLogic AbilityIsSelected ability " + abilityName + "  is NOT selected");
         return false;
     }
 
@@ -135,6 +137,22 @@ public class AbilityDraftLogic : MonoBehaviour
             cachedText.text = unselectedAbilityName;
             helperText.text = "";
             EventManager.TriggerEvent("SpecialAbilityDeselected");
+        }
+    }
+
+    void DeselectAbility(string abilityName)
+    {
+        Debug.Log("AbilityDraftLogic DeselectAbility trying to deselect " + abilityName);
+
+        for (int i = 0; i < selectedAbilityTexts.Length; i++)
+        {
+            if(selectedAbilityTexts[i].text.Equals(abilityName))
+            {
+                Debug.Log("AbilityDraftLogic DeselectAbility " + selectedAbilityTexts[i].text);
+                selectedAbilityTexts[i].text = unselectedAbilityName;
+                helperText.text = "";
+                EventManager.TriggerEvent("SpecialAbilityDeselected");
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/AbilityDraftLogic.cs">
     <Files>
       <File FileName="Assets/Scripts/Match/Match.cs" Line="10" Column="1" />
       <File FileName="Assets/Scripts/Player/Player.cs" Line="213" Column="58" />
@@ -9,8 +9,9 @@
       <File FileName="Assets/Scripts/Abilities/HealAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
       <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="90" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" Line="9" Column="30" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="140" Column="23" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" Line="19" Column="28" />
+      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="55" Column="30" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="148" Column="10" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/DamageEffect.cs" NotebookId="1" />
@@ -24,6 +25,7 @@
       <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/AbilityConfig.txt" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" Line="72" Column="71" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -36,9 +38,7 @@
                   <Node name="Data" expanded="True" />
                   <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True">
-                    <Node name="DestroyAfterCollisions.cs" selected="True" />
-                  </Node>
+                  <Node name="ProjectileComponents" expanded="True" />
                   <Node name="Utils" expanded="True" />
                 </Node>
                 <Node name="Audio" expanded="True" />
@@ -47,7 +47,9 @@
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
-                <Node name="UI" expanded="True" />
+                <Node name="UI" expanded="True">
+                  <Node name="AbilityDraftLogic.cs" selected="True" />
+                </Node>
                 <Node name="Utils" expanded="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
