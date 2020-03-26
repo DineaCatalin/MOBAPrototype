@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using TMPro;
 using UnityEngine;
 
 public enum Buff
@@ -14,6 +15,8 @@ public class Player : MonoBehaviour
     // ID of the player used to identify abilities
     [SerializeField] int id;
     public int teamID;
+
+    public TextMeshProUGUI nickName;
 
     // Tells us in which team our player is
     // For now we default it to 1

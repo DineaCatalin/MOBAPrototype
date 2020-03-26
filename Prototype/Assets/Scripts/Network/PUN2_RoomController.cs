@@ -64,6 +64,8 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         if (photonView.IsMine)
             localPlayerID = player.GetID();
 
+        player.nickName.text = PhotonNetwork.LocalPlayer.NickName;
+
         Debug.Log("PUN2_RoomController Instantiating player " + player.GetID());
 
         // Now we add the player to the GameMangers Player Container
