@@ -78,6 +78,9 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         //Leave this Room
         if (GUI.Button(new Rect(5, 5, 125, 25), "Leave Room"))
         {
+            if(PhotonNetwork.IsMasterClient)
+                PhotonNetwork.CurrentRoom.IsVisible = false;
+
             PhotonNetwork.LeaveRoom();
         }
 

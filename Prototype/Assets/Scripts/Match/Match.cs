@@ -32,7 +32,6 @@ public class Match
             roomProperties.Add("Team1Rounds", team1Rounds);
             PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
 
-            //GameUI.Instance.SetTeamRounds(team1Rounds, TEAM_1_ID);
             Debug.Log("Match FinishRoundNoTimer Team 1 rounds won " + team1Rounds);
         }
         else if (winningTeamID == TEAM_2_ID)
@@ -42,7 +41,6 @@ public class Match
             roomProperties.Add("Team2Rounds", team2Rounds);
             PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
 
-            //GameUI.Instance.SetTeamRounds(team2Rounds, TEAM_2_ID);
             Debug.Log("Match FinishRoundNoTimer Team 2 rounds won " + team2Rounds);
         }
         else

@@ -43,4 +43,9 @@ public class Shield : MonoBehaviour
         return true;
     }
 
+    public void Deactivate()
+    {
+        armor = 0;
+        spriteRenderer.enabled = false;
+    }
 }

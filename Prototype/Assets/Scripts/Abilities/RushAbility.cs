@@ -10,6 +10,9 @@ public class RushAbility : Ability
         // Find and cache the GO of the RushArea
         rushAreaManager = GameObject.Find("RushAreaContainer" + playerID).GetComponent<StateManager>();
 
+        // Set player rushAreaBoostSpeed
+        GameObject.Find("Player" + playerID).GetComponent<Player>().rushAreaSpeedBoost = abilityData.stats.dotValue;
+
         // Get the layer the ability shoould be for this specific player
         // If player is in team 1 then the layer should be Team1Player and vice versa
         string layerName = LayerMask.LayerToName(GameObject.Find("Player" + playerID).layer);

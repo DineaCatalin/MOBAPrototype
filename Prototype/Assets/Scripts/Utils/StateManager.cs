@@ -6,16 +6,24 @@ public class StateManager : MonoBehaviour
 {
     [SerializeField] GameObject managedObject;
 
+    Coroutine deactivate;
+
     public void Activate(float duration)
     {
+        Debug.Log("StateManager Activate " + managedObject.name);
         managedObject.SetActive(true);
 
-        StartCoroutine(Deactivate(duration));
+        if (deactivate != null)
+            StopCoroutine(deactivate);
+
+        deactivate = StartCoroutine(Deactivate(duration));
     }
 
     IEnumerator Deactivate(float duration)
     {
         yield return new WaitForSeconds(duration);
+
+        Debug.Log("StateManager Activate " + managedObject.name);
 
         managedObject.SetActive(false);
     }

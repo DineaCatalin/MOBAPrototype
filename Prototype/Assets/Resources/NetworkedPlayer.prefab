@@ -402,6 +402,7 @@ MonoBehaviour:
   rushAreaManager: {fileID: 5235616455069676771}
   healthBar: {fileID: 5606363298015762527}
   manaBar: {fileID: 3295094498066622084}
+  rushAreaSpeedBoost: 0
   isNetworkActive: 0
 --- !u!212 &3295094496928400515
 SpriteRenderer:

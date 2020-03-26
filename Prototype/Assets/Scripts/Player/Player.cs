@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
     // Without it we couldn't stop the coroutine as we woudn't have a reference to it
     Coroutine dotCoroutine;
 
+    public float rushAreaSpeedBoost;
+
     // Will be activated when player starts charging mana and will be stoped when the players
     // releases the mana charge key
     Coroutine manaChargeCoroutine;
@@ -303,8 +305,10 @@ public class Player : MonoBehaviour
 
         Deactivate();
 
-        // Handle slow and root
+        // Handle slow, shield and rush area
         stats.speed = baseSpeed;
+        rushAreaManager.Deactivate();
+        shield.Deactivate();
 
         StopManaCharge();
     }
@@ -493,15 +497,33 @@ public class Player : MonoBehaviour
         isPlayerSlowed = false;
     }
 
-    // Set the shield only if the player is the 1 clicked
-    public void ActivateShield(int armor)
+    void RushAreaSpeedBost(float time)
     {
-        shield.SetArmor(armor);
+        stats.speed += rushAreaSpeedBoost;
+        Invoke("RemoveSpeedBoost", time);
+    }
+
+    void RemoveSpeedBoost()
+    {
+        stats.speed -= rushAreaSpeedBoost;
     }
 
     public void ActivateRushArea(float duration)
     {
+        Debug.Log("Player ActivateRushArea activating rush area for player " + id);
         rushAreaManager.Activate(duration);
+
+        if (isNetworkActive)
+        {
+            RushAreaSpeedBost(duration);
+            Debug.Log("Player ActivateRushArea adding speed bost to local player " + id);
+        }
+    }
+
+    // Set the shield only if the player is the 1 clicked
+    public void ActivateShield(int armor)
+    {
+        shield.SetArmor(armor);
     }
 
     public PlayerData GetStats()
