@@ -23,7 +23,6 @@ public class AbilitySelectButton : MonoBehaviour
     private void Start()
     {
         button = GetComponentInChildren<Button>();
-        //button.onClick.AddListener(OnClick);
 
         EventManager.StartListening("AttackAbilitySelected", new Action(OnAttackAbilityPressed));
         EventManager.StartListening("DefenseAbilitySelected", new Action(OnDefenseAbilityPressed));

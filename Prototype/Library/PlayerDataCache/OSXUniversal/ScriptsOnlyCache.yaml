@@ -1060,7 +1060,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 93a6dedfaddddef1288f38b750119ca0
+      Hash: 7b352b008fb74a31e91ea876697b6064
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
