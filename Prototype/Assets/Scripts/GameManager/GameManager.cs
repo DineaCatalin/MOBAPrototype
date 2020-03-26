@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
     {
         // Close the room so that other players can't connect
         PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
 
         // Fire match start event
         EventManager.TriggerEvent("StartMatch");
