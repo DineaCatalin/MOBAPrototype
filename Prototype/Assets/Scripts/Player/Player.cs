@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     // Defines the stats of our player like health, mana, power, speed
     [SerializeField] PlayerData stats;
 
+    [SerializeField] SpriteRenderer graphics;
+
     public PlayerController controller;
     public InteractionManager interactionManager;
     public StateManager rushAreaManager;
@@ -296,6 +298,7 @@ public class Player : MonoBehaviour
 
     public void Deactivate()
     {
+        nickName.gameObject.SetActive(false);
         healthBar.gameObject.SetActive(false);
         manaBar.gameObject.SetActive(false);
         gameObject.SetActive(false);
@@ -347,6 +350,7 @@ public class Player : MonoBehaviour
         gameObject.SetActive(true); 
         healthBar.gameObject.SetActive(true);
         manaBar.gameObject.SetActive(true);
+        nickName.gameObject.SetActive(true);
         controller.isRooted = false;
     }
 
@@ -604,7 +608,6 @@ public class Player : MonoBehaviour
     //
     // Manage ID and the passing of the ID to other components
     //
-
     void SetComponentIDs()
     {
         var children = GetComponentsInChildren<Transform>();
@@ -635,7 +638,7 @@ public class Player : MonoBehaviour
         // We will also set the color of the sprite here temporarily
         if (teamID == 2)
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+            graphics.color = Color.red;
         }
     }
 }

@@ -68,6 +68,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -423,6 +425,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13038}
     - Class: 114
       Script: {instanceID: 13096}
+    - Class: 114
+      Script: {instanceID: 13106}
     - Class: 114
       Script: {instanceID: 13110}
     - Class: 114
@@ -1058,7 +1062,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 7b352b008fb74a31e91ea876697b6064
+      Hash: 4c2d72808e445962ae55b69ec3dae1d8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player

@@ -70,6 +70,8 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
         {
             player.isNetworkActive = true;
         }
+
+        player.nickName.text = photonView.Owner.NickName;
     }
 
     void Update()
