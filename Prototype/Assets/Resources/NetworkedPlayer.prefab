@@ -263,7 +263,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3295094496928400513}
-  isRooted: 0
 --- !u!114 &3295094496822912772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,7 +398,6 @@ MonoBehaviour:
     speed: 0
     manaChargePerSecond: 0
   graphics: {fileID: 382052857312385}
-  controller: {fileID: 0}
   interactionManager: {fileID: 0}
   rushAreaManager: {fileID: 5235616455069676771}
   healthBar: {fileID: 5606363298015762527}

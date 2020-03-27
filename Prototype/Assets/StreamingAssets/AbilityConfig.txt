@@ -1,89 +1,89 @@
-﻿{ 
-   "dataList":[ 
-      { 
-         "description":{ 
+{
+   "dataList":[
+      {
+         "description":{
             "name":"Fireball",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
-            "cooldown":0.75,
+         "stats":{
+            "cooldown":0.50,
             "manaCost":0,
-            "dotValue":1,
+            "dotValue":0.8,
             "duration":5,
-            "hpValue":15
+            "hpValue":8
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Iceball",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":0.75,
             "manaCost":0,
-            "dotValue":1,
+            "dotValue":1.5,
             "duration":5,
             "hpValue":10
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Lightningball",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
-            "cooldown":0.75,
+         "stats":{
+            "cooldown":0.9,
             "manaCost":0,
             "dotValue":10,
             "duration":0,
-            "hpValue":10
+            "hpValue":15
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Heal",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
-            "cooldown":5.0,
+         "stats":{
+            "cooldown":6.0,
             "manaCost":0,
             "dotValue":0,
             "duration":0,
-            "hpValue":10
+            "hpValue":15
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Fire Storm",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":10.0,
             "manaCost":10,
-            "dotValue":2,
+            "dotValue":1.5,
             "duration":5,
-            "hpValue":30
+            "hpValue":20
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Blast",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
-            "cooldown":5.0,       
+         "stats":{
+            "cooldown":5.0,
             "manaCost":15,
             "dotValue":2,
             "duration":5,
             "hpValue":25
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Trace",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":3.0,
             "manaCost":20,
             "dotValue":4,
@@ -91,25 +91,25 @@
             "hpValue":8
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Bubble",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":5.0,
             "manaCost":0,
             "dotValue":0,
             "duration":0,
-            "hpValue":1
+            "hpValue":2
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Water Rain",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":10.0,
             "manaCost":10,
             "dotValue":2,
@@ -117,12 +117,12 @@
             "hpValue":20
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Mana Sphere",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":10.0,
             "manaCost":2,
             "dotValue":0,
@@ -130,64 +130,64 @@
             "hpValue":0
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Ice Wall",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":5.0,
             "manaCost":20,
             "dotValue":0,
             "duration":0,
-            "hpValue":0
+            "hpValue":50
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Spikes",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":15.0,
             "manaCost":5,
             "dotValue":5,
             "duration":3,
-            "hpValue":35
+            "hpValue":20
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Roots",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":10.0,
             "manaCost":20,
             "dotValue":0,
-            "duration":3,
+            "duration":2,
             "hpValue":0
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Earthquake",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":10.0,
             "manaCost":10,
-            "dotValue":10,
-            "duration":5,
-            "hpValue":30
+            "dotValue":8,
+            "duration":4,
+            "hpValue":5
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Dust Dusk",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":15.0,
             "manaCost":10,
             "dotValue":0,
@@ -195,12 +195,12 @@
             "hpValue":0
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Push",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":3.0,
             "manaCost":10,
             "dotValue":13,
@@ -208,12 +208,12 @@
             "hpValue":20
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Rush",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":20.0,
             "manaCost":20,
             "dotValue":1,
@@ -221,12 +221,12 @@
             "hpValue":1
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Blink",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":5.0,
             "manaCost":0,
             "dotValue":0,
@@ -234,18 +234,18 @@
             "hpValue":0
          }
       },
-      { 
-         "description":{ 
+      {
+         "description":{
             "name":"Tornado",
             "casterTeamName":"Team1"
          },
-         "stats":{ 
+         "stats":{
             "cooldown":5.0,
             "manaCost":20,
             "dotValue":8,
             "duration":1,
             "hpValue":25
          }
-      }                     
+      }
    ]
 }

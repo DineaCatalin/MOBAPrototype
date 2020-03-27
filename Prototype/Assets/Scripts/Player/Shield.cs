@@ -51,7 +51,9 @@ public class Shield : MonoBehaviour
     public void DeactivateLocalShield()
     {
         armor = 0;
-        spriteRenderer.enabled = false;
+
+        if(spriteRenderer != null)
+            spriteRenderer.enabled = false;
     }
 
     
