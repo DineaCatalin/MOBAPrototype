@@ -110,7 +110,7 @@ public class ItemPool : MonoBehaviour
         foreach (var itemData in loadedItemData.itemList)
         {
             // Take only heal and power (double damage) for now
-            if (itemData.name == "HP Shpere" || itemData.name == "Power Sphere")
+            if (itemData.name == "HP Sphere" || itemData.name == "Power Sphere")
             {
                 itemDatas[index] = itemData;
                 index++;
@@ -129,7 +129,7 @@ public class ItemPool : MonoBehaviour
     {
         switch(itemName)
         {
-            case "HP Shpere":
+            case "HP Sphere":
             {
                     return Color.red;
             }

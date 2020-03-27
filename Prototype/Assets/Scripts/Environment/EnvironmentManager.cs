@@ -12,6 +12,9 @@ public class EnvironmentManager : MonoBehaviour
 
     PhotonView photonView;
 
+    [SerializeField] float team1SpawnPosX = -11;
+    [SerializeField] float team2SpawnPosX = 11;
+
     // This will help us position the walls and area limiters in the same pla
     public Vector2 environmentSize;
 
@@ -93,5 +96,22 @@ public class EnvironmentManager : MonoBehaviour
         float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
 
         dustDuskTransform.localScale = new Vector3(worldScreenWidth / width, worldScreenHeight / height, 1);
+    }
+
+    public Vector3 GetPlayerSpawnPoint(int teamID)
+    {
+        float spawnY = Random.Range
+                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
+
+        spawnY /= 2;
+
+        if(teamID == 1)
+        {
+            return new Vector3(team1SpawnPosX, spawnY, 0);
+        }
+        else
+        {
+            return new Vector3(team2SpawnPosX, spawnY, 0);
+        }
     }
 }

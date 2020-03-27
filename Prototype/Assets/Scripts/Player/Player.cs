@@ -160,10 +160,13 @@ public class Player : MonoBehaviour
 
     public void PickUpItem(ItemData itemData)
     {
+        Debug.Log("Player PickUp");
+
         switch (itemData.name)
         {
             case "HP Sphere":
                 {
+                    Debug.Log("Player PickUp picking health item");
                     Heal(itemData.health);
                     break;
                 }
@@ -371,7 +374,7 @@ public class Player : MonoBehaviour
         // and then tell the other clients to activate my version of their player
         if (isNetworkActive)
         {
-            transform.position = Utils.GetRandomScreenPoint();
+            transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
             Activate();
             GameManager.Instance.ActivateNonLocalPlayer(id);
         }   
@@ -674,6 +677,9 @@ public class Player : MonoBehaviour
 
         this.teamID = teamID;
         teamName = "Team" + teamID;
+
+        // Set position for the ist spawn
+        transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
 
         // We will also set the color of the sprite here temporarily
         if (teamID == 2)
