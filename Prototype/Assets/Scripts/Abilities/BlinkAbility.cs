@@ -25,7 +25,12 @@ public class BlinkAbility : Ability
 
     public override bool Cast()
     {
-        Debug.Log("BlinkAbility Deactivating player " + playerID);
+        if (PlayerController.isRooted)
+        {
+            // update some helper text here
+
+            return false;
+        }
 
         blinkPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         blinkPosition.z = 0;
@@ -36,6 +41,7 @@ public class BlinkAbility : Ability
         if (Vector2.Distance(playerTransform.position, blinkPosition) > castRange)
             return false;
 
+        Debug.Log("BlinkAbility Deactivating player " + playerID);
         GameManager.Instance.DeactivatePlayer(playerID);
 
         // Set player position to the mouse position

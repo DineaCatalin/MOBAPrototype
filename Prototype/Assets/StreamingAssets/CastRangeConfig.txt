@@ -1,11 +1,11 @@
-﻿{ 
-   "TraceCastRange":7.0,
-   "IceWallCastRange":7.0,
-   "RootsCastRange":8.0,
-   "SpikesCastRange":9.0,
+{
+   "TraceCastRange":8.0,
+   "IceWallCastRange":10.0,
+   "RootsCastRange":10.0,
+   "SpikesCastRange":10.0,
    "ManaSphereCastRange":10.0,
-   "WaterRainCastRange":6.0,
+   "WaterRainCastRange":10.0,
    "BlinkCastRange":15.0,
-   "EarthquakeCastRange":7.0,
+   "EarthquakeCastRange":10.0,
    "BubbleCastRange":10.0
 }

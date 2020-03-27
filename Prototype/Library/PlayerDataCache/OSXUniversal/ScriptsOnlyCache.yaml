@@ -1062,7 +1062,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 4c2d72808e445962ae55b69ec3dae1d8
+      Hash: 7131d8780cc8ef4542d882120c72af09
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1266,7 +1266,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: b50c3605d66971f91f26c64e1cbe5f7b
+      Hash: aef9386513e10c2b58b4c2172faf4e3c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -2198,4 +2198,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.97_OSX.app
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.98_OSX.app

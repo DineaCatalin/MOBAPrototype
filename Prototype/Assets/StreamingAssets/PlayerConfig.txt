@@ -1,9 +1,9 @@
-﻿{ 
-   "health":100,
-   "maxHealth":100,
+{
+   "health":120,
+   "maxHealth":120,
    "mana":100,
    "maxMana":100,
    "power":1.0,
-   "speed":5.2,
+   "speed":6.2,
    "manaChargePerSecond":20
 }

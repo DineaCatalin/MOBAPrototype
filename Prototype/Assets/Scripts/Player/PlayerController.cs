@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     Transform playerTransform;
 
     // We will disable the movement function when this is true
-    public bool isRooted;
+    public static bool isRooted;
     
     PlayerData stats;
 

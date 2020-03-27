@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] SpriteRenderer graphics;
 
-    public PlayerController controller;
     public InteractionManager interactionManager;
     public StateManager rushAreaManager;
 
@@ -84,7 +83,6 @@ public class Player : MonoBehaviour
 
         // Load stats from config file
         stats = PlayerDataLoader.Load();
-        controller = GetComponentInParent<PlayerController>();
         interactionManager = GetComponentInParent<InteractionManager>();
         shield = GetComponentInChildren<Shield>();
         rushAreaManager = GetComponentInChildren<StateManager>();
@@ -361,7 +359,8 @@ public class Player : MonoBehaviour
         healthBar.gameObject.SetActive(true);
         manaBar.gameObject.SetActive(true);
         nickName.gameObject.SetActive(true);
-        controller.isRooted = false;
+
+        PlayerController.isRooted = false;
     }
 
     void OnRoundStart()
@@ -464,16 +463,18 @@ public class Player : MonoBehaviour
     // Root means that the player can't move
     public void Root(int duration)
     {
-        controller.isRooted = true;
+        //controller.isRooted = true;
+        PlayerController.isRooted = true;
 
-        if(gameObject.activeSelf)
+        if (gameObject.activeSelf)
             StartCoroutine(RemoveRoot(duration));
     }
 
     IEnumerator RemoveRoot(int duration)
     {
         yield return new WaitForSeconds((float)duration);
-        controller.isRooted = false;
+        //controller.isRooted = false;
+        PlayerController.isRooted = false;
     }
 
     // Slow the player for duration seconds by slowValue
