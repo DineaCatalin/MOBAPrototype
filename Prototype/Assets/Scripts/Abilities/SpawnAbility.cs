@@ -66,7 +66,8 @@ public class SpawnAbility : Ability
         // We have exceeded the cast range
         if (Vector2.Distance(playerTransform.position, spawnPosition) > castRange)
         {
-            Debug.Log("Spawnability returning");
+            Debug.Log("Spawnability Cast out of range");
+            MouseHandler.Instance.ShowOutOfRangeIndicator();
             return false;
         } 
 
