@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class MatchClock : MonoBehaviour
 {
-    public int Minutes = 3;
-    public int Seconds = 1;
+    public int Minutes = 0;
+    public int Seconds = 15;
 
     int InitialMinutes;
     int InitialSeconds;
-    int DrawSeconds;
 
     public TextMeshProUGUI text;
     private float timeLeft;
@@ -28,17 +27,14 @@ public class MatchClock : MonoBehaviour
 
         photonView = GetComponent<PhotonView>();
 
-        EventManager.StartListening("StartMatch", new Action(OnMatchStart));
-        EventManager.StartListening("StartRound", new Action(OnMatchStart));
-        EventManager.StartListening("RoundDraw", new Action(OnRoundDraw));
-
-        // TODO: Load match time from configuration
-        DrawSeconds = 16;
+        EventManager.StartListening("StartRound", new Action(ResetClock));
+        EventManager.StartListening("StartMatch", new System.Action(ResetClock));
+        EventManager.StartListening("ItemPickedUp", new Action(ResetClock));
     }
 
     private void FixedUpdate()
     {
-        //Debug.Log("MatchClock FixedUpdate timeLeft " + timeLeft + " isClockRunning " + isClockRunning);
+        Debug.Log("MatchClock FixedUpdate timeLeft " + timeLeft + " isClockRunning " + isClockRunning);
         if (timeLeft > 0f && isClockRunning)
         {
             // Update countdown clock
@@ -46,38 +42,34 @@ public class MatchClock : MonoBehaviour
             Minutes = GetLeftMinutes();
             Seconds = GetLeftSeconds();
 
+            Debug.Log("MatchClock FixedUpdate time is " + Seconds);
+
             // Show current clock
             if (timeLeft > 0f)
             {
-                text.text = Minutes + ":" + Seconds.ToString("00");
+                //text.text = Minutes + ":" + Seconds.ToString("00");
+                if(Seconds >= 10)
+                    text.text = (Seconds+1).ToString("00");
+                else
+                    text.text = (Seconds+1).ToString("0");
+
             }
             else
             {
                 // The countdown clock has finished
-                text.text = "0:00";
+                text.text = "";
 
                 // Send round ended event and stop the clock
                 Debug.Log("MatchClock time is over triggering round end");
                 StopClock();
-                EventManager.TriggerEvent("RoundEnd");
+                EventManager.TriggerEvent("SpawnItem");
             }
         }
     }
 
-    void OnMatchStart()
-    {
-        ResetClock();
-    }
-
-    void OnRoundDraw()
-    {
-        Debug.Log("MatchClock OnRoundDraw");
-        isClockRunning = true;
-        timeLeft = DrawSeconds;
-    }
-
     void ResetClock()
     {
+        Debug.Log("MatchClock ResetClock");
         isClockRunning = true;
         timeLeft = GetInitialTime();
     }

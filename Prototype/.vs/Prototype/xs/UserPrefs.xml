@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/Lava.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Camera/CameraSize.cs">
     <Files>
       <File FileName="Assets/Scripts/Match/Match.cs" Line="28" Column="40" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="189" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="165" Column="28" />
       <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="45" Column="1" />
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="67" Column="11" />
@@ -14,13 +14,14 @@
       <File FileName="Assets/Config/Resources/AbilityConfig.txt" Line="187" Column="21" />
       <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="45" Column="46" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="75" Column="48" />
-      <File FileName="Assets/Scripts/Item/ItemPool.cs" Line="69" Column="45" />
       <File FileName="Assets/Scripts/Player/PlayerData.cs" Line="11" Column="5" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="80" Column="45" />
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="26" Column="80" />
-      <File FileName="Assets/Scripts/Match/MatchClock.cs" Line="47" Column="40" />
-      <File FileName="Assets/Scripts/Environment/Lava.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="197" Column="10" NotebookId="1" />
+      <File FileName="Assets/Scripts/Match/MatchClock.cs" Line="50" Column="35" />
+      <File FileName="Assets/Scripts/Environment/Lava.cs" Line="18" Column="10" />
+      <File FileName="Assets/FullScreenSprite.cs" Line="7" Column="15" />
+      <File FileName="Assets/Scripts/Camera/CameraSize.cs" Line="17" Column="25" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="113" Column="17" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="67" Column="20" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="36" Column="51" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" Line="36" Column="46" NotebookId="1" />
@@ -30,7 +31,10 @@
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="28" Column="29" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/ItemData.cs" Line="6" Column="23" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/ItemConfig.txt" Line="26" Column="9" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/Item.cs" Line="38" Column="53" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="32" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/ItemPool.cs" Line="77" Column="21" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" Line="88" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/InteractionManager.cs" Line="27" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -48,13 +52,15 @@
                 </Node>
               </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="Environment" expanded="True">
-                  <Node name="Lava.cs" selected="True" />
+                <Node name="Camera" expanded="True">
+                  <Node name="CameraSize.cs" selected="True" />
                 </Node>
+                <Node name="Environment" expanded="True" />
                 <Node name="GameManager" expanded="True" />
                 <Node name="Item" expanded="True" />
                 <Node name="Match" expanded="True" />
                 <Node name="Player" expanded="True" />
+                <Node name="Utils" expanded="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
             </Node>

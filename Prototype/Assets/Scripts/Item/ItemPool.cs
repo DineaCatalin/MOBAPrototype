@@ -13,8 +13,6 @@ public class ItemPool : MonoBehaviour
     // We will use this item to create all the other items by calling Instantiate(...)
     [SerializeField] Item templateItem;
 
-    float newItemTimer = 15f;
-
     public Vector2 spawnPosition;
 
     // Minimum size is 4 as we have 4 item types
@@ -23,19 +21,11 @@ public class ItemPool : MonoBehaviour
     // Data container for the item pool
     [SerializeField] static Item[] items;
 
-    // We will use this to keep track of our current position in the pull
-    private int currentIndex;
-
     ItemDataList loadedItemData;
 
     ItemData[] itemDatas;
 
     PhotonView photonView;
-
-    // Cache the template for the mana item so we can grab the data from outside
-    //static ItemData manaItemTemplate;
-
-    Coroutine spawnCoroutine;
 
     // Use this for initialization
     void Start()
@@ -79,24 +69,8 @@ public class ItemPool : MonoBehaviour
         // Clear item data array
         Array.Clear(itemDatas, 0, itemDatas.Length);
 
-        EventManager.StartListening("ItemPickedUp", new System.Action(OnRoundStart));
-
-        // Test - spawn random items once every 5 seconds
-        //InvokeRepeating("SpawnItem", 1f, newItemTimer);
-        Invoke("SpawnItem", 1f);
-    }
-
-    void OnRoundStart()
-    {
-
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            SpawnItem();
-        }
+        
+        EventManager.StartListening("SpawnItem", new System.Action(SpawnItem));
     }
 
     // Spawns item in a random location
@@ -104,8 +78,8 @@ public class ItemPool : MonoBehaviour
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            photonView.RPC("SpawnItemRPC", RpcTarget.AllBuffered, spawnPosition.x, spawnPosition.y, 1);
-            currentIndex++;
+            int itemIndex = Random.Range(0, 2);
+            photonView.RPC("SpawnItemRPC", RpcTarget.AllBuffered, spawnPosition.x, spawnPosition.y, itemIndex);
         }
     }
 
