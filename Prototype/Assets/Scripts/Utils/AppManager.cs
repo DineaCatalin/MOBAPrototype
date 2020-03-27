@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class AppManager : MonoBehaviour
 {
+    string GAME_SCENE_NAME = "GameLevel";
+    string LOBBY_SCENE_NAME = "GameLobby";
+
+    string sceneName;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -19,6 +25,13 @@ public class AppManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
+
+            //sceneName = SceneManager.GetActiveScene().name;
+
+            //if (sceneName == LOBBY_SCENE_NAME)
+            //    Application.Quit();
+            //else if (sceneName == GAME_SCENE_NAME)
+            //    SceneManager.LoadScene(LOBBY_SCENE_NAME);
         }
     }
 
