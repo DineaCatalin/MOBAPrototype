@@ -139,6 +139,7 @@
     <Compile Include="Assets\Scripts\Utils\FixRotation.cs" />
     <Compile Include="Assets\Scripts\Utils\FollowAtDistance.cs" />
     <Compile Include="Assets\Scripts\Utils\FollowCursor.cs" />
+    <Compile Include="Assets\Scripts\Utils\FullScreenSprite.cs" />
     <Compile Include="Assets\Scripts\Utils\LookAtMouse.cs" />
     <Compile Include="Assets\Scripts\Utils\MimicRotation.cs" />
     <Compile Include="Assets\Scripts\Utils\ObjectPool.cs" />
