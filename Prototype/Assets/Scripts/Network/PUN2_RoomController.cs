@@ -41,11 +41,6 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
 
             PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
         }
-
-        if (spawnPoint == Vector3.zero)
-        {
-            spawnPoint = Utils.GetRandomScreenPoint();
-        }
     }
 
     void OnDraftFinished()
@@ -53,7 +48,7 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         Debug.Log("PUN2_RoomController spawning player");
 
         //We're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-        var playerGO = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint, Quaternion.identity, 0);
+        var playerGO = PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity, 0);
 
         // Get the player script on the child object of the player prefab
         // The NetworkedPlayer contains the PlayController and has the player GO as a child. This playerGO has
