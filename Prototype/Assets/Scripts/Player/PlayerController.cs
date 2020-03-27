@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     AbilityManager abilityManager;
     Transform playerTransform;
 
+    public static bool isLocked;
+
     // We will disable the movement function when this is true
     public static bool isRooted;
     
@@ -53,14 +55,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HandleManaCharge())
-            return;
+        if(!isLocked)
+        {
+            if (HandleManaCharge())
+                return;
 
-        HandleMovement();       
-        HandleRotation();
+            HandleMovement();
+            HandleRotation();
 
-        HandleAbilityCasting();
-        HandleAbilitySelection();
+            HandleAbilityCasting();
+            HandleAbilitySelection();
+        }
     }
 
     void HandleMovement()

@@ -357,6 +357,8 @@ public class Player : MonoBehaviour
 
         StopManaCharge();
         RemoveDoubleDamage();
+
+        PlayerController.isLocked = true;
     }
 
     private void Reset()
@@ -377,6 +379,7 @@ public class Player : MonoBehaviour
             transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
             Activate();
             GameManager.Instance.ActivateNonLocalPlayer(id);
+            PlayerController.isLocked = false;
         }   
     }
 
