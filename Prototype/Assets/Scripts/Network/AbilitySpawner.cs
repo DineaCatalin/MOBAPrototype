@@ -23,13 +23,13 @@ public class AbilitySpawner : MonoBehaviour
         photonView = GetComponent<PhotonView>();
     }
 
-    public void SpawnAbility(string name, Vector3 position, Quaternion rotation, int layer)
+    public void SpawnAbility(string name, Vector3 position, Quaternion rotation, int layer, int casterPlayerID)
     {
-        photonView.RPC("SpawnStaticAbility", RpcTarget.All, name, position, rotation, layer);
+        photonView.RPC("SpawnStaticAbility", RpcTarget.All, name, position, rotation, layer, casterPlayerID);
     }
 
     [PunRPC]
-    void SpawnStaticAbility(string projectileName, Vector3 position, Quaternion rotation, int layer)
+    void SpawnStaticAbility(string projectileName, Vector3 position, Quaternion rotation, int layer, int casterPlayerID)
     {
         Debug.Log("AbilitySpawner Spawning " + projectileName);
         //GameObject spawned = Instantiate(projectileMap[projectileName], position, rotation);
@@ -40,22 +40,28 @@ public class AbilitySpawner : MonoBehaviour
         spawned.SetActive(true);
 
         spawned.layer = layer;
+
+        Player player = GameManager.Instance.GetPlayer(casterPlayerID);
+        if (player.hasDoubleDamage)
+        {
+            AbilityCollider abilityCollider = spawned.GetComponent<AbilityCollider>();
+            abilityCollider.ActivateDoubleDamageEffect(player.hasDoubleDamage);
+        }
     }
 
-    public void SpawnProjectile(string name, Vector3 position, Quaternion rotation, Vector3 direction, int layer)
+    public void SpawnProjectile(string name, Vector3 position, Quaternion rotation, Vector3 direction, int layer, int casterPlayerID)
     {
-        photonView.RPC("SpawnProjectileAbility", RpcTarget.All, name, position, rotation, direction, layer);
+        photonView.RPC("SpawnProjectileAbility", RpcTarget.All, name, position, rotation, direction, layer, casterPlayerID);
     }
 
     [PunRPC]
-    void SpawnProjectileAbility(string projectileName, Vector3 position, Quaternion rotation, Vector3 direction, int layer)
+    void SpawnProjectileAbility(string projectileName, Vector3 position, Quaternion rotation, Vector3 direction, int layer, int casterPlayerID)
     {
-        //GameObject projectile = Instantiate(projectileMap[projectileName], position, rotation);
-
         GameObject projectile = AbilityProjectilePool.Instance.GetProjectile(projectileName);
         projectile.transform.position = position;
         projectile.transform.rotation = rotation;
         Debug.Log("AbilitySpawner SpawnProjectileAbility position " + position);
+
         projectile.layer = layer;
 
         projectile.SetActive(true);
@@ -64,19 +70,21 @@ public class AbilitySpawner : MonoBehaviour
 
         if(movement != null)
             movement.SetDirection(direction);
+
+        Player player = GameManager.Instance.GetPlayer(casterPlayerID);
+        if (player.hasDoubleDamage)
+        {
+            AbilityCollider abilityCollider = projectile.GetComponent<AbilityCollider>();
+            abilityCollider.ActivateDoubleDamageEffect(player.hasDoubleDamage);
+        }
+
+        
     }
     
     // We load all the projectiles from the list into the map(Dictionary) and empty the list
     void LoadMap()
     {
         projectileMap = new Dictionary<string, GameObject>();
-
-        // Load the Dictionary
-        //foreach (var projectile in projectiles)
-        //{
-        //    Debug.Log("AbilitySpawner adding projectile with name " + projectile.name);
-        //    projectileMap.Add(projectile.name, projectile);
-        //}
 
         AbilityProjectilePool.Instance.InitWithObjectList(projectiles);
 

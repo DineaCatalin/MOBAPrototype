@@ -63,6 +63,8 @@ public class Player : MonoBehaviour
 
     public float rushAreaSpeedBoost;
 
+    [HideInInspector] public bool hasDoubleDamage;
+
     // Will be activated when player starts charging mana and will be stoped when the players
     // releases the mana charge key
     Coroutine manaChargeCoroutine;
@@ -156,16 +158,33 @@ public class Player : MonoBehaviour
         }
     }
 
-
-    // Not the best way to do it but the items are simple in this prototype
-    public void PickUpHPItem(int value)
+    public void PickUpItem(ItemData itemData)
     {
-        Heal(value);
-    }
-
-    public void PickUpManaItem(int value)
-    {
-        IncreaseMana(value);
+        switch (itemData.name)
+        {
+            case "HP Sphere":
+                {
+                    Heal(itemData.health);
+                    break;
+                }
+            case "Mana Sphere":
+                {
+                    IncreaseMana(itemData.mana);
+                    break;
+                }
+            case "Power Sphere":
+                {
+                    HandleDoubleDamage(itemData.duration);
+                    break;
+                }
+            case "Speed Sphere":
+                {
+                    PickUpSpeedItem(itemData.duration, itemData.speedMultiplier);
+                    break;
+                }
+            default:
+                return;
+        }
     }
 
     public void PickUpSpeedItem(float duration, float value)
@@ -173,9 +192,17 @@ public class Player : MonoBehaviour
         AddBuff(Buff.speed, duration, value);
     }
 
-    public void PickUpPowerItem(float duration, float value)
+    void HandleDoubleDamage(float duration)
     {
-        AddBuff(Buff.power, duration, value);
+        hasDoubleDamage = true;
+        Debug.Log("Player " + id + " AddDoubleDamage");
+        Invoke("RemoveDoubleDamage", duration);
+    }
+
+    void RemoveDoubleDamage()
+    {
+        Debug.Log("Player " + id + " RemoveDoubleDamage");
+        hasDoubleDamage = false;
     }
 
     //
@@ -326,6 +353,7 @@ public class Player : MonoBehaviour
         shield.DeactivateNetworkedShield();
 
         StopManaCharge();
+        RemoveDoubleDamage();
     }
 
     private void Reset()

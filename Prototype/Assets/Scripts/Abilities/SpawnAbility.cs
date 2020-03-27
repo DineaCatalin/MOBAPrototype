@@ -77,7 +77,7 @@ public class SpawnAbility : Ability
         else
             rotation = Quaternion.identity;
 
-        AbilitySpawner.Instance.SpawnAbility(projectileName, spawnPosition, rotation, projectileLayer);
+        AbilitySpawner.Instance.SpawnAbility(projectileName, spawnPosition, rotation, projectileLayer, playerID);
         
         return base.Cast();
     }
