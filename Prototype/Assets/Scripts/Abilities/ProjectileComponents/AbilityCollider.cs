@@ -15,6 +15,8 @@ public class AbilityCollider : MonoBehaviour
     // It will also not move so we need a mechanism to destroy it after it's duration is gone
     bool isStatic;
 
+    [HideInInspector] public bool doubleDamageEffect;
+
     private void Awake()
     {
         abilityData = AbilityDataCache.GetDataForAbility(name);
@@ -31,6 +33,14 @@ public class AbilityCollider : MonoBehaviour
         }
     }
 
+    public void ActivateDoubleDamageEffect(bool doubleDamage)
+    {
+        doubleDamageEffect = doubleDamage;
+
+        abilityData.stats.hpValue *= 2;
+        abilityData.stats.dotValue *= 2;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collision.tag " + collision.tag + " casterTeamName" + abilityData.description.casterTeamName);
@@ -44,11 +54,10 @@ public class AbilityCollider : MonoBehaviour
                 effect.ApplyEffect(player, abilityData.stats);
             }
 
-            if (!isStatic && abilityData.description.name != "Tornado")
+            if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm")
             {
                 Debug.Log("Destroting projectile " + this.gameObject.name + " that hit player " + player.GetID());
                 gameObject.SetActive(false);
-                //Destroy(this.gameObject);
             }
 
             return;
@@ -66,7 +75,6 @@ public class AbilityCollider : MonoBehaviour
 
             // Destroy the ability after the collision
             gameObject.SetActive(false);
-            //Destroy(gameObject);
 
             return;
         }
@@ -107,5 +115,16 @@ public class AbilityCollider : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    private void OnDisable()
+    {
+        if(doubleDamageEffect)
+        {
+            abilityData.stats.hpValue /= 2;
+            abilityData.stats.dotValue /= 2;
+        }
+
+        doubleDamageEffect = false;
     }
 }

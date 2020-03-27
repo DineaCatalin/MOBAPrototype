@@ -72,7 +72,7 @@ public class ProjectileAbility : Ability
 
         castPosition = new Vector3(castOrigin.position.x, castOrigin.position.y, zOrder);
 
-        AbilitySpawner.Instance.SpawnProjectile(projectileName, castPosition, spawnRotation, Camera.main.ScreenToWorldPoint(Input.mousePosition), projectileLayer);
+        AbilitySpawner.Instance.SpawnProjectile(projectileName, castPosition, spawnRotation, Camera.main.ScreenToWorldPoint(Input.mousePosition), projectileLayer, playerID);
 
         return base.Cast();
     }

@@ -3,7 +3,7 @@
       { 
          "name":"HP Shpere",
          "duration":0.0,
-         "health":20,
+         "health":100,
          "mana":0,
          "powerMultiplier":0.0,
          "speedMultiplier":0.0

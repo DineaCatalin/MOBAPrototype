@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182a9346c82d74c79bddbaa95f2f24d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numCollisions: 3
+  numCollisions: 5

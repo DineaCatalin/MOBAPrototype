@@ -25,8 +25,8 @@ public class Item : MonoBehaviour
             Debug.Log("Player has collided with item : power " + itemData.powerMultiplier + " speed " + itemData.speedMultiplier);
 
             Player player = collision.GetComponent<Player>();
-            //player.PickupItem(itemData);
-            GameManager.Instance.PlayerItemPickup(itemData, player.GetID());
+            player.PickUpItem(itemData);
+            //GameManager.Instance.PlayerItemPickup(itemData, player.GetID());
 
             // Send the item back to the pool if it belongs to the pool
             // Items with index smaller then 0 will be items spawned by abilities

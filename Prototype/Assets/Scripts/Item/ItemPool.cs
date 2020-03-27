@@ -13,8 +13,12 @@ public class ItemPool : MonoBehaviour
     // We will use this item to create all the other items by calling Instantiate(...)
     [SerializeField] Item templateItem;
 
+    float newItemTimer = 15f;
+
+    public Vector2 spawnPosition;
+
     // Minimum size is 4 as we have 4 item types
-    const int minSize = 4;
+    const int minSize = 2;
 
     // Data container for the item pool
     [SerializeField] static Item[] items;
@@ -30,6 +34,8 @@ public class ItemPool : MonoBehaviour
 
     // Cache the template for the mana item so we can grab the data from outside
     //static ItemData manaItemTemplate;
+
+    Coroutine spawnCoroutine;
 
     // Use this for initialization
     void Start()
@@ -52,13 +58,15 @@ public class ItemPool : MonoBehaviour
             poolSize = minSize;
         }
 
+        spawnPosition = Vector2.zero;
+
         // TODO: Load items
         // For the moment we are gonna do random items
         for (int i = 0; i < poolSize; i++)
         {
             Item item = Instantiate(templateItem, transform);
             item.index = i;     // Set the index of out item so that we can easily grab it later
-            item.SetAttributes(itemDatas[i % itemDatas.Length]);   //Set item data
+            item.SetAttributes(itemDatas[i % poolSize]);   //Set item data
             Debug.Log("ItemPool Start Getting color for name " + item.itemData.name);
 
             // Set color
@@ -71,8 +79,24 @@ public class ItemPool : MonoBehaviour
         // Clear item data array
         Array.Clear(itemDatas, 0, itemDatas.Length);
 
+        EventManager.StartListening("ItemPickedUp", new System.Action(OnRoundStart));
+
         // Test - spawn random items once every 5 seconds
-        InvokeRepeating("SpawnItem", 5f, 5f);
+        //InvokeRepeating("SpawnItem", 1f, newItemTimer);
+        Invoke("SpawnItem", 1f);
+    }
+
+    void OnRoundStart()
+    {
+
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            SpawnItem();
+        }
     }
 
     // Spawns item in a random location
@@ -80,8 +104,7 @@ public class ItemPool : MonoBehaviour
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            Vector2 randomPoint = Utils.GetRandomScreenPoint();
-            photonView.RPC("SpawnItemRPC", RpcTarget.AllBuffered, randomPoint.x, randomPoint.y, currentIndex);
+            photonView.RPC("SpawnItemRPC", RpcTarget.AllBuffered, spawnPosition.x, spawnPosition.y, 1);
             currentIndex++;
         }
     }
@@ -89,7 +112,7 @@ public class ItemPool : MonoBehaviour
     [PunRPC]
     void SpawnItemRPC(float posX, float posY, int index)
     {
-        SpawnItem(new Vector3(posX, posY, 0), index);
+        SpawnItem(spawnPosition, index);
     }
 
     // Spawn an item in the specified position
@@ -112,8 +135,12 @@ public class ItemPool : MonoBehaviour
         int index = 0;
         foreach (var itemData in loadedItemData.itemList)
         {
-            itemDatas[index] = itemData;
-            index++;
+            // Take only heal and power (double damage) for now
+            if (itemData.name == "HP Shpere" || itemData.name == "Power Sphere")
+            {
+                itemDatas[index] = itemData;
+                index++;
+            }
         }
 
         loadedItemData.itemList.Clear();
