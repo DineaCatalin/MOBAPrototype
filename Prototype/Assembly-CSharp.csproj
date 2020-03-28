@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Audio\Sound.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraSize.cs" />
     <Compile Include="Assets\Scripts\Collider\ReliableOnTriggerExit.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
