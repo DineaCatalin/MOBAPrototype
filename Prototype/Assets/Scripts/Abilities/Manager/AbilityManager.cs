@@ -19,18 +19,23 @@ public class AbilityManager : MonoBehaviour
 
     Player player;
 
-    // Use this for initialization
     void Start()
     {
-        abilities = AbilityFactory.SharedInstance.GetCurrentAbilities();
-
         player = GetComponent<Player>();
 
+        ConfigureAbilities();
+    }
+
+    void ConfigureAbilities()
+    {
         int playerID = player.GetID();
 
-        spellIndicators = new GameObject[abilities.Length];
-
+        abilities = AbilityFactory.SharedInstance.GetCurrentAbilities();
         AbilityUI[] uis = AbilityUIContainer.Instance.abilitieUIs;
+
+        // UNCOMMENT ALL COMENTED CODE TO ENABLE SPELL INDICATORS
+        // ESSENTIAL IF YOU WANT TO USE AIBILITIES THAT ARE NOT INSTANT
+        //spellIndicators = new GameObject[abilities.Length];
 
         // Load all abilities and set the to be inactive
         // Also set the correct spell indicators for the player
@@ -42,15 +47,15 @@ public class AbilityManager : MonoBehaviour
             currentAbility.SetPlayerID(playerID);
             currentAbility.gameObject.layer = player.gameObject.layer;
 
-            spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
-            spellIndicators[i].transform.parent = this.transform;
-            spellIndicators[i].transform.localPosition = new Vector3(0,0,1);
+            //spellIndicators[i] = Instantiate(currentAbility.PrepareSpellIndicator());
+            //spellIndicators[i].transform.parent = this.transform;
+            //spellIndicators[i].transform.localPosition = new Vector3(0,0,1);
 
-            // Give the instantiated spell indicator also to the ability so it can use it later
-            currentAbility.SetSpellIndicator(spellIndicators[i]);
-            spellIndicators[i].SetActive(false);
+            //// Give the instantiated spell indicator also to the ability so it can use it later
+            //currentAbility.SetSpellIndicator(spellIndicators[i]);
+            //spellIndicators[i].SetActive(false);
         }
-        
+
         currentAbility = null;
         currentAbilityIndex = -1;
     }
@@ -70,13 +75,13 @@ public class AbilityManager : MonoBehaviour
             return;
 
         // We are choosin the same ability so toggle it off
-        if (currentAbilityIndex  == index)
-        {
-            currentAbility = null;
-            currentAbilityIndex = -1;
-            spellIndicators[index].SetActive(false);
-            return;
-        }
+        //if (currentAbilityIndex  == index)
+        //{
+        //    currentAbility = null;
+        //    currentAbilityIndex = -1;
+        //    spellIndicators[index].SetActive(false);
+        //    return;
+        //}
 
         // Cast if the ability is instant
         if (abilities[index].isInstant)
@@ -88,15 +93,15 @@ public class AbilityManager : MonoBehaviour
         }
             
         // Disable old spell indicator if it is stil active
-        if(currentAbilityIndex != -1)
-        {
-            spellIndicators[currentAbilityIndex].SetActive(false);
-        }
+        //if(currentAbilityIndex != -1)
+        //{
+        //    spellIndicators[currentAbilityIndex].SetActive(false);
+        //}
             
 
-        currentAbilityIndex = index;
-        currentAbility = abilities[index];
-        spellIndicators[index].SetActive(true);
+        //currentAbilityIndex = index;
+        //currentAbility = abilities[index];
+        //spellIndicators[index].SetActive(true);
     }
     
     public void CastAbility()
@@ -167,7 +172,7 @@ public class AbilityManager : MonoBehaviour
 
     void DisableAbility()
     {
-        spellIndicators[currentAbilityIndex].SetActive(false);
+        //spellIndicators[currentAbilityIndex].SetActive(false);
         currentAbility.ResetCharging();
         currentAbility = null;
         currentAbilityIndex = -1;
@@ -175,7 +180,7 @@ public class AbilityManager : MonoBehaviour
 
     void DeselectAbility()
     {
-        spellIndicators[currentAbilityIndex].SetActive(false);
+        //spellIndicators[currentAbilityIndex].SetActive(false);
         currentAbility = null;
         currentAbilityIndex = -1;
     }

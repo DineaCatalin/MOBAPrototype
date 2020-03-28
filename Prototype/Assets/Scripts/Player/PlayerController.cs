@@ -12,10 +12,10 @@ public enum AbilityInputKey
     Ability2 = KeyCode.Alpha2,
     Ability3 = KeyCode.Alpha3,
     Ability4 = KeyCode.Alpha4,
-    AbilityAlias1 = KeyCode.Z,
-    AbilityAlias2 = KeyCode.X,
-    AbilityAlias3 = KeyCode.C,
-    AbilityAlias4 = KeyCode.V,
+    AbilityAlias1 = KeyCode.X,
+    AbilityAlias2 = KeyCode.C,
+    AbilityAlias3 = KeyCode.V,
+    AbilityAlias4 = KeyCode.B,
     AbilityManaCharge = KeyCode.LeftShift    
 }
 

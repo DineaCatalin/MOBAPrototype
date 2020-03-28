@@ -2214,8 +2214,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: d7737a35547e661e540469ced76b87f3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraShake
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.98_OSX.app
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.99_OSX.app
