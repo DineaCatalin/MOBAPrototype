@@ -25,7 +25,7 @@ public class SpellIndicator : MonoBehaviour
     {
         Debug.Log("SpellIndicator for player " + playerID);
 
-        playerTransform = GameObject.Find("Player" + playerID).transform;
+        playerTransform = LocalPlayerReferences.playerTransform;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         Debug.Log("SpellIndicator before name is " + name);

@@ -27,9 +27,12 @@ public class AbilityDraftLogic : MonoBehaviour
     // We use this so that we don't create a new TextMeshProUGUI we call DeselectAbility()
     TextMeshProUGUI cachedText;
 
+    bool isRedraft;
+
     private void Awake()
     {
         Instance = this;
+        isRedraft = false;
     }
 
     private void Start()
@@ -179,8 +182,16 @@ public class AbilityDraftLogic : MonoBehaviour
 
         SetAbilityData();
 
-        EventManager.TriggerEvent("DraftFinished");
-        
+        if(!isRedraft)
+        {
+            isRedraft = true;
+            EventManager.TriggerEvent("DraftFinished");
+        }
+        else
+        {
+            EventManager.TriggerEvent("EndRedraft");
+        }
+
         gameObject.SetActive(false);
         //Destroy(this.gameObject);
     }

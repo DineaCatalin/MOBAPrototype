@@ -7,7 +7,7 @@ public class DustDuskAbility : Ability
 
     private void Start()
     {
-        teamID = GameObject.Find("Player" + playerID).GetComponent<Player>().teamID;
+        teamID = LocalPlayerReferences.player.teamID;
     }
 
     public override bool Cast()

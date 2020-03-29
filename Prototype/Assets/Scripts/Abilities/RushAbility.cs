@@ -8,14 +8,14 @@ public class RushAbility : Ability
     private void Start()
     {
         // Find and cache the GO of the RushArea
-        rushAreaManager = GameObject.Find("RushAreaContainer" + playerID).GetComponent<StateManager>();
+        rushAreaManager = LocalPlayerReferences.rushAreaContainer.GetComponent<StateManager>();
 
         // Set player rushAreaBoostSpeed
-        GameObject.Find("Player" + playerID).GetComponent<Player>().rushAreaSpeedBoost = abilityData.stats.dotValue;
+        LocalPlayerReferences.player.rushAreaSpeedBoost = abilityData.stats.dotValue;
 
         // Get the layer the ability shoould be for this specific player
         // If player is in team 1 then the layer should be Team1Player and vice versa
-        string layerName = LayerMask.LayerToName(GameObject.Find("Player" + playerID).layer);
+        string layerName = LayerMask.LayerToName(LocalPlayerReferences.playerGameObject.layer);
         layerName = layerName.Replace("Player", "Ability");
 
         // Switch the layer to the layer of the abilities from the other team so that

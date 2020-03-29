@@ -9,10 +9,9 @@ public class GameManager : MonoBehaviour
     // TODO: Load this from a config later
     // PLS don't leave it like this
     public static float RESPAWN_COOLDOWN = 3f;
-    public static float MAX_PLAYERS = 4f;
-    public static int ROUNDS_TO_WIN = 10;       // Many rounds a team will need to win to win the mactch
+    public static float MAX_PLAYERS = 4f; 
 
-    public static float TIME_BETWEEN_ROUNDS = 5f;
+    public static float TIME_BETWEEN_ROUNDS = 3f;
 
     const float ADD_PLAYER_DELAY = 1f;
 
@@ -25,13 +24,21 @@ public class GameManager : MonoBehaviour
     // Holds team and score
     Match match;
 
+    // Total players in this game
+    int totalPlayers;
+    int playersReady;
+
     private void Awake()
     {
         Instance = this;
         photonView = GetComponent<PhotonView>();
         playerMap = new Dictionary<int, Player>();
 
+        playersReady = 0;
+
         EventManager.StartListening("RoundEnd", new System.Action(OnRoundEnd));
+        EventManager.StartListening("StartRedraft", new System.Action(OnStartRedraft)); 
+        EventManager.StartListening("EndRedraft", new System.Action(OnRedraftEnd));
 
         match = new Match();
         Hashtable roomProperties = new Hashtable();
@@ -67,7 +74,8 @@ public class GameManager : MonoBehaviour
     [PunRPC]
     void ActivateNonLocalPlayerRPC(int playerID)
     {
-        StartCoroutine(ActivateNonLocalPlayerCoroutine(playerID, 1f));
+        // TODO: recheck
+        StartCoroutine(ActivateNonLocalPlayerCoroutine(playerID, 0.8f));
     }
 
     IEnumerator ActivateNonLocalPlayerCoroutine(int playerID, float delay)
@@ -82,14 +90,64 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void OnStartRedraft()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("StartRedraftRPC", RpcTarget.Others);
+        }
+
+        match.SyncScore();
+    }
+
+    [PunRPC]
+    void StartRedraftRPC()
+    {
+        EventManager.TriggerEvent("StartRedraft");
+    }
+
+    void OnRedraftEnd()
+    {
+        if(PhotonNetwork.IsMasterClient)
+        {
+            CheckRedraftFinished();
+        }
+        else
+        {
+            photonView.RPC("CheckRedraftFinishedRPC", RpcTarget.MasterClient);
+        }
+    }
+
+    [PunRPC]
+    void CheckRedraftFinishedRPC()
+    {
+        CheckRedraftFinished();
+    }
+
+    void CheckRedraftFinished()
+    {
+        playersReady++;
+
+        if(playersReady >= totalPlayers)
+        {
+            OnRoundEnd();
+        }
+    }
+
     void OnRoundEnd()
     {
         Debug.Log("GameManager OnRoundEnd");
-        photonView.RPC("RoundEndRPC", RpcTarget.All);
+        EndRound();
+        photonView.RPC("RoundEndRPC", RpcTarget.Others);
     }
 
     [PunRPC]
     public void RoundEndRPC()
+    {
+        EndRound();
+    }
+
+    void EndRound()
     {
         // Sync match scores
         match.SyncScore();
@@ -119,6 +177,8 @@ public class GameManager : MonoBehaviour
 
         // Fire match start event
         EventManager.TriggerEvent("StartMatch");
+
+        totalPlayers = playerMap.Count;
 
         // DEBUG
         foreach (KeyValuePair<int, Player> player in playerMap)
@@ -209,13 +269,13 @@ public class GameManager : MonoBehaviour
         else if(playerTeam1Alive)
         {
             Debug.Log("GameManager CheckRoundEnd Team 1 won");
-            match.FinishRoundNoTimer(1);
+            match.FinishRound(1);
         }
         // Team 2 WON
         else if (playerTeam2Alive)
         {
             Debug.Log("GameManager CheckRoundEnd Team 2 won");
-            match.FinishRoundNoTimer(2);
+            match.FinishRound(2);
         }
     }
 

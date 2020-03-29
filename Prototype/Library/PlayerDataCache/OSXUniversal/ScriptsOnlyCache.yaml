@@ -1074,7 +1074,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: f4a2bd6b43c9c08c78ac8fc522dfe86e
+      Hash: 84e19e5df2c2fc7b73357a8bd981b71d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -2106,7 +2106,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomExpectedUsersProperty
   - hash:
       serializedVersion: 2
-      Hash: 3383b06bc7913e5231b554e9a2f3d0c4
+      Hash: 0debc00eb603824f588e0385e67b9d76
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ProjectileAbility
@@ -2218,6 +2218,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LocalPlayerReferences
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity

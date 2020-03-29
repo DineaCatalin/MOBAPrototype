@@ -14,7 +14,7 @@ public class ShieldAbility : Ability
         Load();
 
         if(isInstant)
-            player = GameObject.Find("Player" + playerID).GetComponent<Player>();
+            player = LocalPlayerReferences.player;
     }
 
     public override bool Cast()
