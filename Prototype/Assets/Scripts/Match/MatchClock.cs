@@ -30,6 +30,9 @@ public class MatchClock : MonoBehaviour
         EventManager.StartListening("StartRound", new Action(ResetClock));
         EventManager.StartListening("StartMatch", new System.Action(ResetClock));
         EventManager.StartListening("ItemPickedUp", new Action(ResetClock));
+
+        EventManager.StartListening("StartRedraft", new Action(StopClock));
+        EventManager.StartListening("RoundEnd", new Action(StopClock));
     }
 
     private void FixedUpdate()

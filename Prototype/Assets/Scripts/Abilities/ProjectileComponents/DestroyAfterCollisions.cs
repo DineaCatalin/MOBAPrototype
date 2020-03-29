@@ -9,6 +9,7 @@ public class DestroyAfterCollisions : MonoBehaviour
     private void Start()
     {
         EventManager.StartListening("StartRound", new System.Action(Destroy));
+        EventManager.StartListening("StartRedraft", new System.Action(Destroy));
     }
 
     public void ApplyDamage()

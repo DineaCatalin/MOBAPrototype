@@ -71,6 +71,8 @@ public class ItemPool : MonoBehaviour
 
         
         EventManager.StartListening("SpawnItem", new System.Action(SpawnItem));
+        EventManager.StartListening("StartRedraft", new System.Action(DisableItems));
+        EventManager.StartListening("RoundEnd", new System.Action(DisableItems));
     }
 
     // Spawns item in a random location
@@ -123,6 +125,14 @@ public class ItemPool : MonoBehaviour
     public static void DeactivateItem(int index)
     {
         items[index].gameObject.SetActive(false);
+    }
+
+    void DisableItems()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i].gameObject.SetActive(false);
+        }
     }
 
     Color GetItemColor(string itemName)
