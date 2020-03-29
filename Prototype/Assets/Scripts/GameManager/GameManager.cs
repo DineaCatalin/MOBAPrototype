@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
     // TODO: Load this from a config later
     // PLS don't leave it like this
     public static float RESPAWN_COOLDOWN = 3f;
-    public static float MAX_PLAYERS = 4;
+    public static float MAX_PLAYERS = 4f;
     public static int ROUNDS_TO_WIN = 10;       // Many rounds a team will need to win to win the mactch
+
+    public static float TIME_BETWEEN_ROUNDS = 5f;
 
     const float ADD_PLAYER_DELAY = 1f;
 
@@ -57,12 +59,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnRoundEnd()
-    {
-        Debug.Log("GameManager OnRoundEnd");
-        photonView.RPC("RoundEndRPC", RpcTarget.All);
-    }
-
     public void ActivateNonLocalPlayer(int playerID)
     {
         photonView.RPC("ActivateNonLocalPlayerRPC", RpcTarget.Others, playerID);
@@ -86,6 +82,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void OnRoundEnd()
+    {
+        Debug.Log("GameManager OnRoundEnd");
+        photonView.RPC("RoundEndRPC", RpcTarget.All);
+    }
+
     [PunRPC]
     public void RoundEndRPC()
     {
@@ -97,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartRoundWithDelay()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(TIME_BETWEEN_ROUNDS);
 
         Debug.Log("GameManager StartRoundWithDelay Starting round");
         EventManager.TriggerEvent("StartRound");

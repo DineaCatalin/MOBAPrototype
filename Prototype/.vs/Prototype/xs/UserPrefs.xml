@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Utils/AbilityFactory.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Manager/AbilityManager.cs">
     <Files>
       <File FileName="Assets/Scripts/Match/Match.cs" Line="28" Column="40" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="100" Column="33" />
+      <File FileName="Assets/Scripts/Player/Player.cs" />
       <File FileName="Assets/Scripts/Player/PlayerController.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
-      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="20" Column="38" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
       <File FileName="Assets/Scripts/Player/Shield.cs" />
-      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="226" Column="30" />
+      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
       <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" />
       <File FileName="Assets/StreamingAssets/AbilityConfig.txt" />
       <File FileName="Assets/Config/Resources/AbilityConfig.txt" />
@@ -25,10 +25,11 @@
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
       <File FileName="Assets/Scripts/Environment/Walls.cs" />
       <File FileName="Assets/Scripts/Utils/AppManager.cs" />
-      <File FileName="Assets/Scripts/Camera/CameraShake.cs" Line="25" Column="43" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="24" Column="52" />
-      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" Line="44" Column="22" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="10" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Camera/CameraShake.cs" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="52" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" />
+      <File FileName="Assets/Scripts/Events/EventManager.cs" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="92" Column="30" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" NotebookId="1" />
@@ -52,13 +53,14 @@
               <Node name="Config" expanded="True" />
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
-                  <Node name="Manager" expanded="True" />
-                  <Node name="Utils" expanded="True">
-                    <Node name="AbilityFactory.cs" selected="True" />
+                  <Node name="Manager" expanded="True">
+                    <Node name="AbilityManager.cs" selected="True" />
                   </Node>
+                  <Node name="Utils" expanded="True" />
                 </Node>
                 <Node name="Camera" expanded="True" />
                 <Node name="Environment" expanded="True" />
+                <Node name="Events" expanded="True" />
                 <Node name="GameManager" expanded="True" />
                 <Node name="Item" expanded="True" />
                 <Node name="Match" expanded="True" />
@@ -76,7 +78,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="efa5f435-dd45-4477-83c7-775137161e5d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="32f85e42-b14e-4f29-8549-dd6a06aee9eb" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/catalin.dinea/git/MOBAPrototype/Prototype/Assets/StreamingAssets/CastRangeConfig.txt" relfile="Assets/StreamingAssets/CastRangeConfig.txt" line="48" column="1" />

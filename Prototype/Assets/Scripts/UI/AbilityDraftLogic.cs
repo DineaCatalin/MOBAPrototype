@@ -43,6 +43,8 @@ public class AbilityDraftLogic : MonoBehaviour
         {
             selectedAbilityTexts[i].text = unselectedAbilityName;
         }
+
+        EventManager.StartListening("StartRedraft", new System.Action(OnRedraft));
     }
 
     // User presses 1 of the ability buttons on the sides of the screen
@@ -180,7 +182,7 @@ public class AbilityDraftLogic : MonoBehaviour
         EventManager.TriggerEvent("DraftFinished");
         
         gameObject.SetActive(false);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
     void SetAbilityData()
@@ -224,6 +226,11 @@ public class AbilityDraftLogic : MonoBehaviour
         // Set the selected abilities so that the
         Debug.Log("AbilityDraftLogic SetAbilityData Setting AbilityMapper");
         AbilityMapper.SetData(selectedAbilityData);
+    }
+
+    void OnRedraft()
+    {
+        gameObject.SetActive(true);
     }
 
 }
