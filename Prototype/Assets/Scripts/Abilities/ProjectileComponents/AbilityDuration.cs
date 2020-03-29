@@ -11,7 +11,8 @@ public class AbilityDuration : MonoBehaviour
 
     private void Start()
     {
-        EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
+        EventManager.StartListening("StartRound", new System.Action(Deactivate));
+        EventManager.StartListening("StartRedraft", new System.Action(Deactivate));
     }
 
     // We use OnEnable because the GO that uses this component is used in an ObjectPool
@@ -33,7 +34,7 @@ public class AbilityDuration : MonoBehaviour
         //Destroy(gameObject);
     }
 
-    void OnRoundStart()
+    void Deactivate()
     {
         gameObject.SetActive(false);
     }
