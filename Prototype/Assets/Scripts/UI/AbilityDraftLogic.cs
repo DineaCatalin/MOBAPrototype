@@ -8,11 +8,17 @@ public class AbilityDraftLogic : MonoBehaviour
 {
     public static AbilityDraftLogic Instance;
 
+    public GameObject basicAbilitiesScreen;
+    public GameObject specialAbilitiesScreen;
+    public GameObject UI;
+
     // Reference so that we can change the UI in the selected abilities column in the middle of the screen
     public TextMeshProUGUI[] selectedAbilityTexts;
     string attackAbilityText;
     string defenseAbilityText;
-    public TextMeshProUGUI helperText;
+
+    public TextMeshProUGUI helperTextBasicAbilities;
+    public TextMeshProUGUI helperTextSpecialAbilities;
 
     public const string unselectedAbilityName = "No ability selected";
 
@@ -47,6 +53,9 @@ public class AbilityDraftLogic : MonoBehaviour
             selectedAbilityTexts[i].text = unselectedAbilityName;
         }
 
+        UI.SetActive(false);
+        specialAbilitiesScreen.SetActive(false);
+
         EventManager.StartListening("StartRedraft", new System.Action(OnRedraft));
     }
 
@@ -74,12 +83,12 @@ public class AbilityDraftLogic : MonoBehaviour
         if (attackAbilityText.Equals(abilityName))
         {
             // Ability is already selected
-            helperText.text = ABILITY_ALREADY_SELETED;
+            helperTextBasicAbilities.text = ABILITY_ALREADY_SELETED;
             return false;
         }
 
         attackAbilityText = abilityName;
-        helperText.text = "";
+        helperTextBasicAbilities.text = "";
         return true;
     }
 
@@ -88,12 +97,12 @@ public class AbilityDraftLogic : MonoBehaviour
         if (attackAbilityText.Equals(abilityName))
         {
             // Ability is already selected
-            helperText.text = ABILITY_ALREADY_SELETED;
+            helperTextBasicAbilities.text = ABILITY_ALREADY_SELETED;
             return false;
         }
 
         defenseAbilityText = abilityName;
-        helperText.text = "";
+        helperTextBasicAbilities.text = "";
         return true;
     }
 
@@ -119,13 +128,13 @@ public class AbilityDraftLogic : MonoBehaviour
             if (selectedAbilityTexts[i].text.Equals(unselectedAbilityName))
             {
                 selectedAbilityTexts[i].text = abilityName;
-                helperText.text = "";
+                helperTextSpecialAbilities.text = "";
                 Debug.Log("AbilityDraftLogic InsertAbility inserting ability at index " + i);
                 return true;
             }
         }
 
-        helperText.text = ABILITIES_FULL;
+        helperTextSpecialAbilities.text = ABILITIES_FULL;
         Debug.Log("AbilityDraftLogic InsertAbility no free space to add ability");
         return false;
     }
@@ -140,7 +149,7 @@ public class AbilityDraftLogic : MonoBehaviour
         if(cachedText.text != unselectedAbilityName)
         {
             cachedText.text = unselectedAbilityName;
-            helperText.text = "";
+            helperTextSpecialAbilities.text = "";
             EventManager.TriggerEvent("SpecialAbilityDeselected");
         }
     }
@@ -155,27 +164,34 @@ public class AbilityDraftLogic : MonoBehaviour
             {
                 Debug.Log("AbilityDraftLogic DeselectAbility " + selectedAbilityTexts[i].text);
                 selectedAbilityTexts[i].text = unselectedAbilityName;
-                helperText.text = "";
+                helperTextSpecialAbilities.text = "";
                 EventManager.TriggerEvent("SpecialAbilityDeselected");
             }
         }
     }
 
-    public void FinishAbilitySelection()
+    public void FinishBasicAbilitySelection()
     {
-        if(attackAbilityText == string.Empty || defenseAbilityText == string.Empty)
+        if (attackAbilityText == string.Empty || defenseAbilityText == string.Empty)
         {
             Debug.Log("AbilityDraftLogic FinishAbilitySelection All abilities have not been selected");
-            helperText.text = ABILITIES_NOT_SET;
+            helperTextBasicAbilities.text = ABILITIES_NOT_SET;
             return;
         }
 
+        // Set 1st screen off and activate the 2nd one
+        basicAbilitiesScreen.SetActive(false);
+        specialAbilitiesScreen.SetActive(true);
+    }
+
+    public void FinishSpecialAbilitySelection()
+    {
         for (int i = 0; i < selectedAbilityTexts.Length; i++)
         {
             if (selectedAbilityTexts[i].text.Equals(unselectedAbilityName))
             {
                 Debug.Log("AbilityDraftLogic FinishAbilitySelection All abilities have not been selected");
-                helperText.text = ABILITIES_NOT_SET;
+                helperTextBasicAbilities.text = ABILITIES_NOT_SET;
                 return;
             }
         }
@@ -192,7 +208,8 @@ public class AbilityDraftLogic : MonoBehaviour
             EventManager.TriggerEvent("EndRedraft");
         }
 
-        gameObject.SetActive(false);
+        specialAbilitiesScreen.SetActive(false);
+        UI.SetActive(true);
         //Destroy(this.gameObject);
     }
 
@@ -241,7 +258,9 @@ public class AbilityDraftLogic : MonoBehaviour
 
     void OnRedraft()
     {
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
+        UI.SetActive(false);
+        specialAbilitiesScreen.SetActive(true);
     }
 
 }
