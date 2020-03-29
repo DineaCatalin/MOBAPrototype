@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     public InteractionManager interactionManager;
     public StateManager rushAreaManager;
 
+    public Transform castOrigin;
+
     Rigidbody2D rigidBody;
     Collider2D playerCollider;
 
@@ -82,7 +84,7 @@ public class Player : MonoBehaviour
         id = GetComponentInParent<PhotonView>().ViewID;
 
         SetComponentIDs();
-
+       
         // Load stats from config file
         stats = PlayerDataLoader.Load();
         interactionManager = GetComponentInParent<InteractionManager>();
@@ -98,11 +100,14 @@ public class Player : MonoBehaviour
         manaChargePerTick = (int)(stats.manaChargePerSecond / manaCoroutineCallsPerSecond);
 
         baseSpeed = stats.speed;
-    }
+   }
 
     private void Start()
     {
         SetLocalID();
+
+        if (isNetworkActive)
+            LocalPlayerReferences.Load(gameObject, this, transform, castOrigin, rushAreaManager.gameObject);
 
         // Set health and mana bar values
         healthBar.SetMaxHealth(stats.maxHealth);

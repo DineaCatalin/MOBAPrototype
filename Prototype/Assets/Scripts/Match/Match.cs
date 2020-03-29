@@ -8,21 +8,26 @@ public class Match
     const int TEAM_1_ID = 1;
     const int TEAM_2_ID = 2;
 
+    const int ROUNDS_TO_WIN = 15;
+    const int REDRAFT_ROUND_FACTOR = 2; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
+
     public int team1Rounds;
     public int team2Rounds;
 
-    int maxRoundsForTeam;   // How many rounds a team needs to win the mactch
+    int totalRoundsPlayed;
 
     // we will use the constructor to 
     public Match()
     {
         team1Rounds = 0;
         team2Rounds = 0;
-        maxRoundsForTeam = GameManager.ROUNDS_TO_WIN;
+        totalRoundsPlayed = 0;
     }
 
-    public void FinishRoundNoTimer(int winningTeamID)
+    public void FinishRound(int winningTeamID)
     {
+        totalRoundsPlayed++;
+
         Hashtable roomProperties = new Hashtable();
 
         if (winningTeamID == TEAM_1_ID)
@@ -50,8 +55,34 @@ public class Match
 
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
 
-        Debug.Log("Match FinishRoundNoTimer ");
-        EventManager.TriggerEvent("RoundEnd");
+        AdvanceMatchState();
+    }
+
+    void AdvanceMatchState()
+    {
+        if (team1Rounds >= ROUNDS_TO_WIN)
+        {
+            // TEAM 1 WON
+            Debug.Log("Match FinishRound Team 1 WON");
+        }
+        if(team2Rounds >= ROUNDS_TO_WIN)
+        {
+            // TEAM 2 WON
+            Debug.Log("Match FinishRound Team 2 WON");
+        }
+
+        if(totalRoundsPlayed % REDRAFT_ROUND_FACTOR == 0)
+        {
+            Debug.Log("Match FinishRound Start Redraft");
+            EventManager.TriggerEvent("StartRedraft");
+        }
+        else
+        {
+            Debug.Log("Match FinishRound Start Redraft");
+            EventManager.TriggerEvent("RoundEnd");
+        }
+
+        Debug.Log("Match FinishRound ");
     }
 
     public void SyncScore()

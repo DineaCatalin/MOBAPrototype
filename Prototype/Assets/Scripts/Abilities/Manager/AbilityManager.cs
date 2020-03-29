@@ -24,6 +24,8 @@ public class AbilityManager : MonoBehaviour
         player = GetComponent<Player>();
 
         ConfigureAbilities();
+
+        EventManager.StartListening("EndRedraft", new Action(ReconfigureAbilities));
     }
 
     void ConfigureAbilities()
@@ -56,6 +58,21 @@ public class AbilityManager : MonoBehaviour
 
         currentAbility = null;
         currentAbilityIndex = -1;
+    }
+
+    void ReconfigureAbilities()
+    {
+        DestoryOldAbilities();
+        ConfigureAbilities();
+    }
+
+    void DestoryOldAbilities()
+    {
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            Destroy(abilities[i].gameObject);
+            Destroy(spellIndicators[i].gameObject);
+        }
     }
 
     // Update is called once per frame

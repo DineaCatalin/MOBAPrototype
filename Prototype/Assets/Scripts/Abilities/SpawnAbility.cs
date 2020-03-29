@@ -25,16 +25,19 @@ public class SpawnAbility : Ability
     // Projectiles will be rendered above the spawned static abilities
     int zOrder = 2;
 
+    Vector3 direction;
+    float angle;
+    int angleCorrection = 90;
+
     // Use this for initialization
     void Start()
     {
         base.Load();
 
         // Cache transform to later check for cast range 
-        GameObject playerGO = GameObject.Find("Player" + playerID);
-        playerTransform = playerGO.transform;
+        playerTransform = LocalPlayerReferences.playerTransform;
 
-        string layerName = LayerMask.LayerToName(playerGO.layer);
+        string layerName = LayerMask.LayerToName(LocalPlayerReferences.playerGameObject.layer);
         layerName = layerName.Replace("Player", "Ability");
 
         projectileName = spawnedObject.name.Replace("(Clone)", "");
@@ -74,7 +77,11 @@ public class SpawnAbility : Ability
         Debug.Log("SpawnAbility spellIndicator has ");
 
         if (mimicPlayerRotation)
-            rotation = spellIndicator.transform.rotation;
+        {
+            direction = Input.mousePosition - Camera.main.WorldToScreenPoint(playerTransform.position);
+            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - angleCorrection;  // Angle correction as the sprites rotates 90 degrees extra
+            rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
         else
             rotation = Quaternion.identity;
 

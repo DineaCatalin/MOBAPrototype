@@ -16,7 +16,7 @@ public class ProjectileAbility : Ability
     Vector3 castPosition;
 
     [SerializeField] bool mimicPlayerRotation = false;
-    [SerializeField] bool invertRotation = false;
+    //[SerializeField] bool invertRotation = false;
 
     [Tooltip("If true will use the cast origin that is a child of the player, otherwise it will use the players position")]
     [SerializeField] bool useCastOrigin = true;
@@ -28,6 +28,10 @@ public class ProjectileAbility : Ability
     //Vector3 spawnDirection;
     //float spawnAngle;
     Quaternion spawnRotation;
+
+    Vector3 direction;
+    float angle;
+    int angleCorrection = 90;
 
     // This will help with the render order of the spawned abilities vs projectiles
     // Projectiles will be rendered above the spawned static abilities
@@ -42,16 +46,16 @@ public class ProjectileAbility : Ability
     {
         if (useCastOrigin)
         {
-            castOrigin = GameObject.Find("CastOrigin" + playerID).transform;
+            castOrigin = LocalPlayerReferences.castOrigin;
         }
         else
         {
-            castOrigin = GameObject.Find("Player" + playerID).transform;
+            castOrigin = LocalPlayerReferences.playerTransform;
         }
 
         // Get layer name for the projectile
         // If its the player is in team1 the layer name will be Team1Ability if player is in team2 the layer name will be Team2Ability
-        string layerName = LayerMask.LayerToName(GameObject.Find("Player" + playerID).layer);
+        string layerName = LayerMask.LayerToName(LocalPlayerReferences.playerGameObject.layer);
         layerName = layerName.Replace("Player", "Ability");
 
         projectileLayer = LayerMask.NameToLayer(layerName);
@@ -63,12 +67,16 @@ public class ProjectileAbility : Ability
         Debug.Log("ProjectileAbility Cast casting " + projectileName);
 
         if (mimicPlayerRotation)
-            spawnRotation = spellIndicator.transform.rotation;
+        {
+            direction = Input.mousePosition - Camera.main.WorldToScreenPoint(castOrigin.position);
+            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - angleCorrection;  // Angle correction as the sprites rotates 90 degrees extra
+            spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
         else
             spawnRotation = Quaternion.identity;
 
-        if (invertRotation)
-            spawnRotation *= Quaternion.Euler(0, 0, 180f);
+        //if (invertRotation)
+        //    spawnRotation *= Quaternion.Euler(0, 0, 180f);
 
         castPosition = new Vector3(castOrigin.position.x, castOrigin.position.y, zOrder);
 

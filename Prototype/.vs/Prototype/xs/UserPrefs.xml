@@ -1,41 +1,43 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/ProjectileAbility.cs">
     <Files>
-      <File FileName="Assets/Scripts/Match/Match.cs" Line="28" Column="40" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="36" Column="31" />
+      <File FileName="Assets/Scripts/Match/Match.cs" Line="29" Column="29" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="25" Column="38" />
       <File FileName="Assets/Scripts/Player/PlayerController.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
-      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="67" Column="67" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
       <File FileName="Assets/Scripts/Player/Shield.cs" />
       <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
-      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" Line="9" Column="6" />
       <File FileName="Assets/StreamingAssets/AbilityConfig.txt" />
       <File FileName="Assets/Config/Resources/AbilityConfig.txt" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="29" Column="10" />
       <File FileName="Assets/Scripts/Player/PlayerData.cs" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="81" Column="13" />
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" />
       <File FileName="Assets/Scripts/Match/MatchClock.cs" />
       <File FileName="Assets/Scripts/Environment/Lava.cs" />
       <File FileName="Assets/Scripts/Camera/CameraSize.cs" />
       <File FileName="Assets/MouseHandler.cs" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" />
-      <File FileName="Assets/Scripts/Abilities/SpellIndicators/SpellIndicator.cs" />
+      <File FileName="Assets/Scripts/Abilities/SpellIndicators/SpellIndicator.cs" Line="54" Column="44" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
       <File FileName="Assets/Scripts/Environment/Walls.cs" />
       <File FileName="Assets/Scripts/Utils/AppManager.cs" />
       <File FileName="Assets/Scripts/Camera/CameraShake.cs" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="62" Column="18" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" />
       <File FileName="Assets/Scripts/Events/EventManager.cs" />
-      <File FileName="Assets/Plugins/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs" Line="598" Column="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="125" Column="10" NotebookId="1" />
+      <File FileName="Assets/Plugins/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs" />
+      <File FileName="Assets/Scripts/Abilities/HealAbility.cs" Line="12" Column="46" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="43" Column="37" />
+      <File FileName="Assets/Scripts/Utils/LookAtMouse.cs" Line="13" Column="9" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="243" Column="6" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" Line="33" Column="32" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/StateManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" Line="17" Column="50" NotebookId="1" />
       <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/ItemData.cs" NotebookId="1" />
@@ -45,6 +47,7 @@
       <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/InteractionManager.cs" NotebookId="1" />
       <File FileName="Assets/Config/Resources/ItemConfig.txt" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="73" Column="18" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -62,7 +65,9 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Manager" expanded="True" />
+                  <Node name="SpellIndicators" expanded="True" />
                   <Node name="Utils" expanded="True" />
+                  <Node name="ProjectileAbility.cs" selected="True" />
                 </Node>
                 <Node name="Camera" expanded="True" />
                 <Node name="Environment" expanded="True" />
@@ -71,9 +76,7 @@
                 <Node name="Item" expanded="True" />
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
-                <Node name="Player" expanded="True">
-                  <Node name="Player.cs" selected="True" />
-                </Node>
+                <Node name="Player" expanded="True" />
                 <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>

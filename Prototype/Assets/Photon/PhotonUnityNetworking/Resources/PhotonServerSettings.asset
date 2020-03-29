@@ -74,5 +74,7 @@ MonoBehaviour:
   - ActivateNonLocalPlayerRPC
   - DeactivatePlayerShieldRPC
   - SetPlayerNickNameRPC
+  - CheckRedraftFinishedRPC
+  - StartRedraftRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
