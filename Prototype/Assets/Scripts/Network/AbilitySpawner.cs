@@ -45,7 +45,9 @@ public class AbilitySpawner : MonoBehaviour
         if (player.hasDoubleDamage)
         {
             AbilityCollider abilityCollider = spawned.GetComponent<AbilityCollider>();
-            abilityCollider.ActivateDoubleDamageEffect(player.hasDoubleDamage);
+
+            if(abilityCollider)
+                abilityCollider.ActivateDoubleDamageEffect(player.hasDoubleDamage);
         }
     }
 
