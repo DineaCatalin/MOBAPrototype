@@ -64,7 +64,7 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         Debug.Log("PUN2_RoomController Instantiating player " + player.GetID());
 
         // Now we add the player to the GameMangers Player Container
-        GameManager.Instance.AddPlayer(player.GetID());
+        GameManager.Instance.AddPlayerOverNetwork(player.GetID());
     }
 
     void OnGUI()
@@ -98,7 +98,7 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         Debug.Log("PUN2_RoomController OnLeftRoom removing from playerMap player " + localPlayerID);
 
         // Remove the player from the GameManager playerMap
-        GameManager.Instance.RemovePlayer(localPlayerID);
+        GameManager.Instance.RemoveNetworkedPlayer(localPlayerID);
 
         //We have left the Room, return back to the GameLobby
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameLobby");

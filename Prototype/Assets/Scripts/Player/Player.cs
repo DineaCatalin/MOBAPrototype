@@ -681,9 +681,6 @@ public class Player : MonoBehaviour
         this.teamID = teamID;
         teamName = "Team" + teamID;
 
-        // Set position for the ist spawn
-        transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
-
         // We will also set the color of the sprite here temporarily
         if (teamID == 2)
         {
@@ -693,6 +690,10 @@ public class Player : MonoBehaviour
         if(isNetworkActive)
         {
             localTeamID = teamID;
+
+            // Set position for the ist spawn
+            transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
+
         }
     }
 }
