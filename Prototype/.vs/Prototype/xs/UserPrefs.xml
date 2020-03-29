@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Manager/AbilityManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
     <Files>
       <File FileName="Assets/Scripts/Match/Match.cs" Line="28" Column="40" />
-      <File FileName="Assets/Scripts/Player/Player.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="36" Column="31" />
       <File FileName="Assets/Scripts/Player/PlayerController.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_GameLobby.cs" />
-      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="67" Column="67" />
       <File FileName="Assets/Scripts/Player/Shield.cs" />
       <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
       <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" />
@@ -26,10 +26,11 @@
       <File FileName="Assets/Scripts/Environment/Walls.cs" />
       <File FileName="Assets/Scripts/Utils/AppManager.cs" />
       <File FileName="Assets/Scripts/Camera/CameraShake.cs" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="52" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="62" Column="18" />
       <File FileName="Assets/Scripts/Abilities/Utils/AbilityFactory.cs" />
       <File FileName="Assets/Scripts/Events/EventManager.cs" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="92" Column="30" NotebookId="1" />
+      <File FileName="Assets/Plugins/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs" Line="598" Column="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="125" Column="10" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" NotebookId="1" />
@@ -51,11 +52,16 @@
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Config" expanded="True" />
+              <Node name="Plugins" expanded="True">
+                <Node name="Photon" expanded="True">
+                  <Node name="PhotonUnityNetworking" expanded="True">
+                    <Node name="Code" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
-                  <Node name="Manager" expanded="True">
-                    <Node name="AbilityManager.cs" selected="True" />
-                  </Node>
+                  <Node name="Manager" expanded="True" />
                   <Node name="Utils" expanded="True" />
                 </Node>
                 <Node name="Camera" expanded="True" />
@@ -65,7 +71,9 @@
                 <Node name="Item" expanded="True" />
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
-                <Node name="Player" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="Player.cs" selected="True" />
+                </Node>
                 <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
