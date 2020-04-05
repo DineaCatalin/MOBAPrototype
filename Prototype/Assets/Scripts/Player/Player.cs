@@ -343,10 +343,18 @@ public class Player : MonoBehaviour
 
     public void Deactivate()
     {
-        nickName.gameObject.SetActive(false);
-        healthBar.gameObject.SetActive(false);
-        manaBar.gameObject.SetActive(false);
-        gameObject.SetActive(false);
+        SetUIState(false);
+        //gameObject.SetActive(false);
+        playerCollider.enabled = false;
+        graphics.enabled = false;
+    }
+
+    void SetUIState(bool activeState)
+    {
+        Debug.Log("Player SetUIState " + activeState);
+        nickName.gameObject.SetActive(activeState);
+        healthBar.gameObject.SetActive(activeState);
+        manaBar.gameObject.SetActive(activeState);
     }
 
     // Will be used for synching the teleport mechanic over the network
@@ -357,15 +365,20 @@ public class Player : MonoBehaviour
 
         Deactivate();
 
-        // Handle slow, shield and rush area
+        HandleBuffDeactivation();
+
+        if (isNetworkActive)
+            PlayerController.isLocked = true;
+    }
+
+    void HandleBuffDeactivation()
+    {
         stats.speed = baseSpeed;
         rushAreaManager.Deactivate();
         shield.DeactivateNetworkedShield();
 
         StopManaCharge();
         RemoveDoubleDamage();
-
-        PlayerController.isLocked = true;
     }
 
     private void Reset()
@@ -396,12 +409,15 @@ public class Player : MonoBehaviour
 
         isAlive = true;
 
-        gameObject.SetActive(true); 
-        healthBar.gameObject.SetActive(true);
-        manaBar.gameObject.SetActive(true);
-        nickName.gameObject.SetActive(true);
+        //gameObject.SetActive(true);
 
-        PlayerController.isRooted = false;
+        playerCollider.enabled = true;
+        graphics.enabled = true;
+
+        SetUIState(true);
+
+        if(isNetworkActive)
+            PlayerController.isRooted = false;
     }
 
     void OnRoundStart()

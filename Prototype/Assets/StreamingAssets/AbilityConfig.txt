@@ -10,7 +10,7 @@
             "manaCost":0,
             "dotValue":0.8,
             "duration":5,
-            "hpValue":8
+            "hpValue":10
          }
       },
       {
@@ -21,7 +21,7 @@
          "stats":{
             "cooldown":0.75,
             "manaCost":0,
-            "dotValue":1.5,
+            "dotValue":1,
             "duration":5,
             "hpValue":10
          }
@@ -34,7 +34,7 @@
          "stats":{
             "cooldown":0.9,
             "manaCost":0,
-            "dotValue":10,
+            "dotValue":8,
             "duration":0,
             "hpValue":15
          }
@@ -62,7 +62,7 @@
             "manaCost":10,
             "dotValue":1.5,
             "duration":5,
-            "hpValue":20
+            "hpValue":25
          }
       },
       {
@@ -101,7 +101,7 @@
             "manaCost":0,
             "dotValue":0,
             "duration":0,
-            "hpValue":2
+            "hpValue":10
          }
       },
       {

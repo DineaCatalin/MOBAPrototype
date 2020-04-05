@@ -10,6 +10,8 @@ public class BlinkAbility : Ability
 
     float castRange;
 
+    RaycastHit2D hit;
+
     private void Start()
     {
         if (playerTransform == null)
@@ -33,13 +35,13 @@ public class BlinkAbility : Ability
         }
 
         blinkPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        blinkPosition.z = 0;
 
         Debug.Log("BlinkAbility distance is " + Vector2.Distance(playerTransform.position, blinkPosition));
 
-        // We have exceeded the cast range
-        if (Vector2.Distance(playerTransform.position, blinkPosition) > castRange)
+        if (OutOfRange() || HitWall())
             return false;
+
+        blinkPosition.z = 0;
 
         Debug.Log("BlinkAbility Deactivating player " + playerID);
         GameManager.Instance.DeactivatePlayer(playerID);
@@ -53,4 +55,27 @@ public class BlinkAbility : Ability
         return base.Cast();
     }
 
+    bool OutOfRange()
+    {
+        if (Vector2.Distance(playerTransform.position, blinkPosition) > castRange)
+            return true;
+
+        return false;            
+    }
+
+    bool HitWall()
+    {
+        // Check if we pressed on a wall so that we don't blink into it
+        hit = Physics2D.Raycast(blinkPosition, Vector2.zero);
+
+        if (hit)
+        {
+            if (hit.collider.gameObject.tag == "Wall")
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

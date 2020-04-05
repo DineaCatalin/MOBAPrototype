@@ -23,27 +23,31 @@ public class ShieldAbility : Ability
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        hit = Physics2D.Raycast(mousePosition, Vector2.zero, 0);
-
         if(isInstant)
         {
             player.ActivateShield(abilityData.stats.hpValue);
             return base.Cast();
         }
-        else if (hit)
+        else
         {
-            Debug.Log("We clicked on object with tag " + hit.collider.gameObject.tag);
+            hit = Physics2D.Raycast(mousePosition, Vector2.zero, 0);
 
-            // We clicked on us or our team mate
-            // This means that the object we clicked in in the same layer as our player or team mate
-            if (hit.collider.gameObject.layer == gameObject.layer)
+            if(hit)
             {
-                player = hit.collider.gameObject.GetComponent<Player>();
-                Debug.Log("ShieldAbility activating shield with " + abilityData.stats.hpValue + " through controller for player " + playerID);
-                player.ActivateShield(abilityData.stats.hpValue);
+                Debug.Log("We clicked on object with tag " + hit.collider.gameObject.tag);
 
-                return base.Cast();
+                // We clicked on us or our team mate
+                // This means that the object we clicked in in the same layer as our player or team mate
+                if (hit.collider.gameObject.layer == gameObject.layer)
+                {
+                    player = hit.collider.gameObject.GetComponent<Player>();
+                    Debug.Log("ShieldAbility activating shield with " + abilityData.stats.hpValue + " through controller for player " + playerID);
+                    player.ActivateShield(abilityData.stats.hpValue);
+
+                    return base.Cast();
+                }
             }
+            
         }
 
         isCharging = false;
