@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
         EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
         EventManager.StartListening("ShieldDestroyed", new System.Action(DeactivateShield));
 
-        EventManager.StartListening("StartRedraft", new System.Action(Deactivate));
+        EventManager.StartListening("StartRedraft", new System.Action(HandlePlayerDeath));
     }
 
     void SetLocalID()
