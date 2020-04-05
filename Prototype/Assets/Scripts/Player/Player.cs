@@ -51,9 +51,9 @@ public class Player : MonoBehaviour
     // We will not regen the player while this is happening
     bool isRecevingDOT;
 
-    // Will help us determine if the player is already slowed so that the slow effect doesn't
-    // stack and slow the player way to much
-    bool isPlayerSlowed;
+    // TODO: Load from config
+    int maxSlowCharges = 4;
+    int slowCharges;
 
     // Used to track if the player is being healed by Water Rain
     bool healEffectActive;
@@ -62,16 +62,20 @@ public class Player : MonoBehaviour
     // and starts taking damage. This variable is used to stop the coroutine that damages the player
     // Without it we couldn't stop the coroutine as we woudn't have a reference to it
     Coroutine dotCoroutine;
-
-    public float rushAreaSpeedBoost;
-
-    [HideInInspector] public bool hasDoubleDamage;
+    Coroutine removeRootCoroutine;
+    //Coroutine removeSlowCoroutine;
 
     // Will be activated when player starts charging mana and will be stoped when the players
     // releases the mana charge key
     Coroutine manaChargeCoroutine;
     int manaCoroutineCallsPerSecond;
     int manaChargePerTick;
+
+    List<Coroutine> coroutines;
+
+    public float rushAreaSpeedBoost;
+
+    [HideInInspector] public bool hasDoubleDamage;
 
     float baseSpeed;
 
@@ -121,6 +125,8 @@ public class Player : MonoBehaviour
 
         InvokeRepeating("RegenerateStats", 1, 3);
 
+        SetCoroutines();
+
         // Start player at the beginning of the round
         EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
         EventManager.StartListening("ShieldDestroyed", new System.Action(DeactivateShield));
@@ -132,6 +138,25 @@ public class Player : MonoBehaviour
     {
         if (isNetworkActive)
             localPlayerID = id;
+    }
+
+    void SetCoroutines()
+    {
+        coroutines = new List<Coroutine>();
+
+        coroutines.Add(manaChargeCoroutine);
+        coroutines.Add(dotCoroutine);
+        coroutines.Add(removeRootCoroutine);
+        //coroutines.Add(removeSlowCoroutine);
+    }
+
+    void StopCoroutines()
+    {
+        foreach (Coroutine coroutine in coroutines)
+        {
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+        }
     }
 
     void RegenerateStats()
@@ -269,13 +294,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    
+
     // Will apply damage over time
     public void ApplyDOT(int numTicks, int damage)
     {
         if(gameObject.activeSelf)
         {
             isRecevingDOT = true;
-            StartCoroutine(ApplyTickDamage(numTicks, damage));
+            dotCoroutine = StartCoroutine(ApplyTickDamage(numTicks, damage));
         }
     }
 
@@ -365,19 +392,21 @@ public class Player : MonoBehaviour
 
         Deactivate();
 
-        HandleBuffDeactivation();
-
+        StopCoroutines();
+        HandleEffectDeactivation();
+        
         if (isNetworkActive)
             PlayerController.isLocked = true;
     }
 
-    void HandleBuffDeactivation()
+    void HandleEffectDeactivation()
     {
         stats.speed = baseSpeed;
+        slowCharges = 0;
+
         rushAreaManager.Deactivate();
         shield.DeactivateNetworkedShield();
 
-        StopManaCharge();
         RemoveDoubleDamage();
     }
 
@@ -516,30 +545,27 @@ public class Player : MonoBehaviour
     }
 
 
+
     // Methods for appying root to the player
     // Root means that the player can't move
     public void Root(int duration)
     {
-        //controller.isRooted = true;
         PlayerController.isRooted = true;
-
-        if (gameObject.activeSelf)
-            StartCoroutine(RemoveRoot(duration));
+        removeRootCoroutine = StartCoroutine(RemoveRoot(duration));
     }
 
     IEnumerator RemoveRoot(int duration)
     {
         yield return new WaitForSeconds((float)duration);
-        //controller.isRooted = false;
         PlayerController.isRooted = false;
     }
 
     // Slow the player for duration seconds by slowValue
-    public void Slow(int slowValue, float duration, bool stackEffect = false)
+    public void Slow(int slowValue, float duration)
     {
         Debug.Log("Player Slow slowing by " + slowValue);
 
-        if ((!isPlayerSlowed || stackEffect) && gameObject.activeSelf)
+        if (slowCharges < maxSlowCharges)
         {
             float speedDiff = Mathf.Abs(stats.speed - slowValue);
 
@@ -556,9 +582,9 @@ public class Player : MonoBehaviour
                 stats.speed = 0;
             }
 
-            isPlayerSlowed = true;
+            slowCharges++;
 
-            StartCoroutine(RemoveSlow(slowValue, duration));            
+            coroutines.Add(StartCoroutine(RemoveSlow(slowValue, duration)));            
         }
     }
 
@@ -571,7 +597,7 @@ public class Player : MonoBehaviour
         // Reset speed to the original value
         stats.speed += slowValue;
 
-        isPlayerSlowed = false;
+        slowCharges--;
     }
 
     void RushAreaSpeedBost(float time)
