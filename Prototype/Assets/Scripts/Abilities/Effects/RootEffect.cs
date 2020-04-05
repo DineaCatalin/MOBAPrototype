@@ -3,6 +3,11 @@ using System.Collections;
 
 public class RootEffect : AbilityEffect
 {
+    private void Start()
+    {
+        visualEffect = PlayerBuff.Root;
+    }
+
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
         Debug.Log("Applying root effect");

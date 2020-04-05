@@ -5,9 +5,13 @@ using System.Collections;
 // do DOT for a couple of seconds
 public class DOTEffect : AbilityEffect
 {
+    private void Start()
+    {
+        visualEffect = PlayerBuff.DOT;
+    }
+
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
         player.DamageAndDOT(stats.hpValue, stats.duration, stats.dotValue);
-        //GameManager.Instance.DamagePlayerWithDOT(stats.hpValue, stats.dotValue, stats.duration, player.GetID());
     }
 }

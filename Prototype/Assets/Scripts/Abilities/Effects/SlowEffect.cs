@@ -6,6 +6,11 @@ public class SlowEffect : AbilityEffect
 {
     [SerializeField] bool applyDamage;
 
+    private void Start()
+    {
+        visualEffect = PlayerBuff.Slow;
+    }
+
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
         Debug.Log("SlowEffect");

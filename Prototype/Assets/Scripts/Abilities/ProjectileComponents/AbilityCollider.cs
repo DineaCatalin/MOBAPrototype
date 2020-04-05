@@ -77,9 +77,14 @@ public class AbilityCollider : MonoBehaviour
             effect.ApplyEffect(player, abilityData.stats);
         }
 
+        if(effect.visualEffect != PlayerBuff.None)
+        {
+            player.ActivateBuffUI(effect.visualEffect, abilityData.stats.duration);
+        }
+
         if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm")
         {
-            Debug.Log("Destroting projectile " + this.gameObject.name + " that hit player " + player.GetID());
+            Debug.Log("Destroyng projectile " + this.gameObject.name + " that hit player " + player.GetID());
             gameObject.SetActive(false);
         }
     }
