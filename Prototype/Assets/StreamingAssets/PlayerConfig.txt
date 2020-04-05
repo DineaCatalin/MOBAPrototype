@@ -6,5 +6,7 @@
    "power":1.0,
    "speed":5.2,
    "manaChargePerSecond":10,
-   "manaChargeSpeedPenalty":3.0
+   "manaChargeSpeedPenalty":4.0,
+   "healthRegen":1,
+   "manaRegen":0
 }

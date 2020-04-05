@@ -10,4 +10,6 @@ public class PlayerData
     public float speed;
     public float manaChargePerSecond;
     public float manaChargeSpeedPenalty;
+    public int healthRegen;
+    public int manaRegen;
 }
