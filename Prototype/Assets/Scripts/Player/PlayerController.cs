@@ -57,42 +57,42 @@ public class PlayerController : MonoBehaviour
     {
         if(!isLocked)
         {
-            if (HandleManaCharge())
-                return;
-
             HandleMovement();
             HandleRotation();
 
-            HandleAbilityCasting();
-            HandleAbilitySelection();
+            if(!HandleManaCharge())
+            {
+                HandleAbilityCasting();
+                HandleAbilitySelection();
+            }
         }
     }
 
     void HandleMovement()
     {
-        if (isRooted)
-            return;
+        if (!isRooted)
+        {
+            movementIncrement = Vector3.zero;
 
-        movementIncrement = Vector3.zero;
+            if (Input.GetKey(KeyCode.W))       // UP
+            {
+                movementIncrement += Vector3.up;
+            }
+            if (Input.GetKey(KeyCode.S))       // DOWN
+            {
+                movementIncrement += Vector3.down;
+            }
+            if (Input.GetKey(KeyCode.A))       // LEFT
+            {
+                movementIncrement += Vector3.left;
+            }
+            if (Input.GetKey(KeyCode.D))       // RIGHT
+            {
+                movementIncrement += Vector3.right;
+            }
 
-        if (Input.GetKey(KeyCode.W))       // UP
-        {
-            movementIncrement += Vector3.up;
+            playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
         }
-        if (Input.GetKey(KeyCode.S))       // DOWN
-        {
-            movementIncrement += Vector3.down;
-        }
-        if (Input.GetKey(KeyCode.A))       // LEFT
-        {
-            movementIncrement += Vector3.left;
-        }
-        if (Input.GetKey(KeyCode.D))       // RIGHT
-        {
-            movementIncrement += Vector3.right;
-        }
-
-        playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
     }
 
     void HandleRotation()
@@ -123,14 +123,19 @@ public class PlayerController : MonoBehaviour
 
     bool HandleManaCharge()
     {
-        if(Input.GetKey((KeyCode)AbilityInputKey.AbilityManaCharge))
+        if(Input.GetKeyDown((KeyCode)AbilityInputKey.AbilityManaCharge))
         {
             if(!charging)
             {
                 player.StartManaCharge();
                 charging = true;
             }
-                
+
+            return true;
+        }
+        else if(Input.GetKey((KeyCode)AbilityInputKey.AbilityManaCharge))
+        {
+            // Plauyer 
             return true;
         }
         else if(Input.GetKeyUp((KeyCode)AbilityInputKey.AbilityManaCharge))
