@@ -38,6 +38,7 @@ public class InteractionManager : MonoBehaviour
     {
         if (photonView.IsMine)
         {
+            Debug.Log("InteractionManager OnMatchStart Activating player " + player.GetID());
             playerController.enabled = true;
         }
     }

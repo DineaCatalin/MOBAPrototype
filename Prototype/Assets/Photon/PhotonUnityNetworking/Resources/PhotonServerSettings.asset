@@ -76,5 +76,6 @@ MonoBehaviour:
   - SetPlayerNickNameRPC
   - CheckRedraftFinishedRPC
   - StartRedraftRPC
+  - StartMatchRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1

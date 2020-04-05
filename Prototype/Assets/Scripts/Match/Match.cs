@@ -9,7 +9,7 @@ public class Match
     const int TEAM_2_ID = 2;
 
     const int ROUNDS_TO_WIN = 15;
-    const int REDRAFT_ROUND_FACTOR = 2; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
+    const int REDRAFT_ROUND_FACTOR = 5; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
 
     public int team1Rounds;
     public int team2Rounds;

@@ -60,8 +60,13 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && !matchStarted)
             {
-                photonView.RPC("StartMatch", RpcTarget.All);
+                StartMatch();
+
+                photonView.RPC("StartMatchRPC", RpcTarget.Others);
                 matchStarted = true;
+
+                // Close the room so that other players can't connect
+                PhotonNetwork.CurrentRoom.IsOpen = false;
             }
         }
     }
@@ -170,11 +175,13 @@ public class GameManager : MonoBehaviour
     }
 
     [PunRPC]
-    public void StartMatch()
+    public void StartMatchRPC()
     {
-        // Close the room so that other players can't connect
-        PhotonNetwork.CurrentRoom.IsOpen = false;
+        StartMatch();
+    }
 
+    void StartMatch()
+    {
         // Fire match start event
         EventManager.TriggerEvent("StartMatch");
 
