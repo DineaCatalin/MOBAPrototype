@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public static float TIME_BETWEEN_ROUNDS = 3f;
 
-    const float ADD_PLAYER_DELAY = 1f;
+    const float ACTIVATE_PLAYER_DELAY = 0.75f;
 
     public static GameManager Instance;
 
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     void ActivateNonLocalPlayerRPC(int playerID)
     {
         // TODO: recheck
-        StartCoroutine(ActivateNonLocalPlayerCoroutine(playerID, 0.8f));
+        StartCoroutine(ActivateNonLocalPlayerCoroutine(playerID, ACTIVATE_PLAYER_DELAY));
     }
 
     IEnumerator ActivateNonLocalPlayerCoroutine(int playerID, float delay)
