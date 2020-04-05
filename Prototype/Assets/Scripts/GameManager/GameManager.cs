@@ -152,7 +152,6 @@ public class GameManager : MonoBehaviour
     public void RoundEndRPC()
     {
         EventManager.TriggerEvent("RoundEnd");
-        //EndRound();
     }
 
     void EndRound()

@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Blast
+  doubleDamageEffect: 0
 --- !u!114 &4210543092152560699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +140,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830b4da8a2a4740d2bf573466c96dfce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualEffect: 5

@@ -4,10 +4,16 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-public enum Buff
+public enum PlayerBuff
 {
-    speed,
-    power
+    None = 0,
+    Speed,
+    DoubleDamage,
+    Slow,
+    Root,
+    DOT,
+    ManaCharge,
+    Heal
 }
 
 public class Player : MonoBehaviour
@@ -28,6 +34,8 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerData stats;
 
     [SerializeField] SpriteRenderer graphics;
+
+    [SerializeField] PlayerBuffs buffsUI;
 
     public InteractionManager interactionManager;
     public StateManager rushAreaManager;
@@ -84,7 +92,7 @@ public class Player : MonoBehaviour
         id = GetComponentInParent<PhotonView>().ViewID;
 
         SetComponentIDs();
-       
+
         // Load stats from config file
         stats = PlayerDataLoader.Load();
         interactionManager = GetComponentInParent<InteractionManager>();
@@ -92,6 +100,7 @@ public class Player : MonoBehaviour
         rushAreaManager = GetComponentInChildren<StateManager>();
         rigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
+        //buffsUI = GetComponentInChildren<PlayerBuffs>();
 
         healEffectActive = false;
         isRecevingDOT = false;
@@ -100,7 +109,7 @@ public class Player : MonoBehaviour
         manaChargePerTick = (int)(stats.manaChargePerSecond / manaCoroutineCallsPerSecond);
 
         baseSpeed = stats.speed;
-   }
+    }
 
     private void Start()
     {
@@ -157,7 +166,7 @@ public class Player : MonoBehaviour
         Debug.Log("Player RegenerateStats");
         Heal(stats.healthRegen);
 
-        if(stats.manaRegen > 0)
+        if (stats.manaRegen > 0)
             IncreaseMana(stats.manaRegen);
     }
 
@@ -186,7 +195,7 @@ public class Player : MonoBehaviour
 
     IEnumerator ChargeMana()
     {
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(1f / manaCoroutineCallsPerSecond);
             IncreaseMana(manaChargePerTick);
@@ -227,7 +236,7 @@ public class Player : MonoBehaviour
 
     public void PickUpSpeedItem(float duration, float value)
     {
-        AddBuff(Buff.speed, duration, value);
+
     }
 
     void HandleDoubleDamage(float duration)
@@ -241,45 +250,6 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player " + id + " RemoveDoubleDamage");
         hasDoubleDamage = false;
-    }
-
-    //
-    //  BUFF MANAGMENT
-    //
-
-    // 
-    void AddBuff(Buff buff, float duration, float buffValue)
-    {
-        if(buff == Buff.power)
-        {
-            stats.power *= buffValue;
-            // TODO: add buff to the buff list
-            StartCoroutine(RemoveBuff(buff, buffValue, duration));
-        }
-        else if(buff == Buff.speed)
-        {
-            stats.speed *= buffValue;
-            // TODO: add buff to the buff list
-            StartCoroutine(RemoveBuff(buff, buffValue, duration));
-        }
-
-    }
-
-    // This is called once 
-    IEnumerator RemoveBuff(Buff buff, float buffValue, float duration)
-    {
-        yield return new WaitForSeconds(duration);
-
-        if(buff == Buff.power)
-        {
-            stats.power /= buffValue;
-            // TODO: add remove to the buff list
-        }
-        else if (buff == Buff.speed)
-        {
-            stats.speed /= buffValue;
-            // TODO: add remove to the buff list
-        }
     }
 
     public void DamageAndDOT(int initialDamage, int dotTicks, int dotDamage)
@@ -297,15 +267,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    
-
     // Will apply damage over time
     public void ApplyDOT(int numTicks, int damage)
     {
-        if(gameObject.activeSelf)
+        if (gameObject.activeSelf)
         {
             isRecevingDOT = true;
-            dotCoroutine = StartCoroutine(ApplyTickDamage(numTicks, damage));
+            coroutines.Add(StartCoroutine(ApplyTickDamage(numTicks, damage)));
         }
     }
 
@@ -325,7 +293,7 @@ public class Player : MonoBehaviour
 
     IEnumerator ApplyDOTInfinite(int damage, float damageInterval)
     {
-        while(true)
+        while (true)
         {
             Damage(damage);
             yield return new WaitForSeconds(damageInterval);
@@ -394,10 +362,11 @@ public class Player : MonoBehaviour
         isAlive = false;
 
         Deactivate();
+        buffsUI.DeactivateAll();
 
         StopCoroutines();
         HandleEffectDeactivation();
-        
+
         if (isNetworkActive)
             PlayerController.isLocked = true;
     }
@@ -432,7 +401,7 @@ public class Player : MonoBehaviour
             Activate();
             GameManager.Instance.ActivateNonLocalPlayer(id);
             PlayerController.isLocked = false;
-        }   
+        }
     }
 
     public void Activate()
@@ -448,7 +417,7 @@ public class Player : MonoBehaviour
 
         SetUIState(true);
 
-        if(isNetworkActive)
+        if (isNetworkActive)
             PlayerController.isRooted = false;
     }
 
@@ -466,7 +435,7 @@ public class Player : MonoBehaviour
     public void Heal(int heal)
     {
         // Don't heal more then the maxHP
-        if(stats.health + heal >= stats.maxHealth)
+        if (stats.health + heal >= stats.maxHealth)
         {
             stats.health = stats.maxHealth;
             healthBar.SetCurrentHealth(stats.health);
@@ -475,14 +444,14 @@ public class Player : MonoBehaviour
         {
             stats.health += heal;
             healthBar.SetCurrentHealth(stats.health);
-        } 
+        }
     }
 
     // Is the same as heal and healover time but it will not trigger if
     // the player is already healing from water rain heal
     public void WaterRainHeal(int initialHeal, int healTicks, int healTickValue)
     {
-        if(!healEffectActive)
+        if (!healEffectActive)
         {
             Debug.Log("Player WaterRainHeal applying heal");
             healEffectActive = true;
@@ -505,7 +474,7 @@ public class Player : MonoBehaviour
         {
             stats.mana += mana;
             manaBar.SetCurrentMana(stats.mana);
-        } 
+        }
     }
 
     public void UseMana(int mana)
@@ -585,7 +554,7 @@ public class Player : MonoBehaviour
 
             slowCharges++;
 
-            coroutines.Add(StartCoroutine(RemoveSlow(slowValue, duration)));            
+            coroutines.Add(StartCoroutine(RemoveSlow(slowValue, duration)));
         }
     }
 
@@ -660,8 +629,13 @@ public class Player : MonoBehaviour
     {
         if (isNetworkActive)
             GameManager.Instance.DeactivatePlayerShield(id);
-        
+
         shield.DeactivateLocalShield();
+    }
+
+    public void ActivateBuffUI(PlayerBuff buff, float duration)
+    {
+        buffsUI.AddBuff(buff, duration);
     }
 
     public PlayerData GetStats()

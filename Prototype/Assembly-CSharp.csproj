@@ -134,6 +134,7 @@
     <Compile Include="Assets\Scripts\UI\GameUI.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\ManaBar.cs" />
+    <Compile Include="Assets\Scripts\UI\PlayerBuffs.cs" />
     <Compile Include="Assets\Scripts\UI\StatsBar.cs" />
     <Compile Include="Assets\Scripts\Utils\ActivationDelay.cs" />
     <Compile Include="Assets\Scripts\Utils\AppManager.cs" />
