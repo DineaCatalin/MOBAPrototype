@@ -395,6 +395,7 @@ MonoBehaviour:
     power: 0
     speed: 0
     manaChargePerSecond: 0
+    manaChargeSpeedPenalty: 0
   graphics: {fileID: 382052857312385}
   interactionManager: {fileID: 0}
   rushAreaManager: {fileID: 5235616455069676771}

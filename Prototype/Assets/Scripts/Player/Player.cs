@@ -63,7 +63,6 @@ public class Player : MonoBehaviour
     // Without it we couldn't stop the coroutine as we woudn't have a reference to it
     Coroutine dotCoroutine;
     Coroutine removeRootCoroutine;
-    //Coroutine removeSlowCoroutine;
 
     // Will be activated when player starts charging mana and will be stoped when the players
     // releases the mana charge key
@@ -147,7 +146,6 @@ public class Player : MonoBehaviour
         coroutines.Add(manaChargeCoroutine);
         coroutines.Add(dotCoroutine);
         coroutines.Add(removeRootCoroutine);
-        //coroutines.Add(removeSlowCoroutine);
     }
 
     void StopCoroutines()
@@ -168,17 +166,27 @@ public class Player : MonoBehaviour
         //IncreaseMana(manaRegen);
     }
 
+    float manaChargeSpeedPenalty;
+
     public void StartManaCharge()
     {
         Debug.Log("Player StartManaCharge");
+
+        manaChargeSpeedPenalty = stats.manaChargeSpeedPenalty;
+        Slow(ref manaChargeSpeedPenalty);
         manaChargeCoroutine = StartCoroutine(ChargeMana());
     }
 
     public void StopManaCharge()
     {
-        Debug.Log("Player StopManaCharge");
-        if(manaChargeCoroutine != null)
-            StopCoroutine(manaChargeCoroutine);
+        Debug.Log("Player StopManaCharge speed is " + stats.speed + " adding " + manaChargeSpeedPenalty);
+
+        stats.speed += manaChargeSpeedPenalty;
+
+        if (stats.speed > baseSpeed)
+            stats.speed = baseSpeed;
+
+        StopCoroutine(manaChargeCoroutine);
     }
 
     IEnumerator ChargeMana()
@@ -544,8 +552,6 @@ public class Player : MonoBehaviour
         healEffectActive = false;
     }
 
-
-
     // Methods for appying root to the player
     // Root means that the player can't move
     public void Root(int duration)
@@ -561,7 +567,7 @@ public class Player : MonoBehaviour
     }
 
     // Slow the player for duration seconds by slowValue
-    public void Slow(int slowValue, float duration)
+    public void SlowForDuration(float slowValue, float duration)
     {
         Debug.Log("Player Slow slowing by " + slowValue);
 
@@ -578,7 +584,7 @@ public class Player : MonoBehaviour
             {
                 // The slow value will be our speed value now because we will use
                 // this to restore our speed after the slow effect is over
-                slowValue = slowValue - (int)speedDiff;
+                slowValue = slowValue - speedDiff;
                 stats.speed = 0;
             }
 
@@ -588,7 +594,23 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator RemoveSlow(int slowValue, float duration)
+    void Slow(ref float slowValue)
+    {
+        float speedDiff = Mathf.Abs(stats.speed - slowValue);
+
+        // Descrease the players speed
+        stats.speed -= slowValue;
+
+        // If the slow is more then the speed set the speed to 0
+        // so that we don't have negative movement speed
+        if (stats.speed < 0)
+        {
+            slowValue = slowValue - speedDiff;
+            stats.speed = 0;
+        }
+    }
+
+    IEnumerator RemoveSlow(float slowValue, float duration)
     {
         yield return new WaitForSeconds(duration);
 
@@ -597,17 +619,22 @@ public class Player : MonoBehaviour
         // Reset speed to the original value
         stats.speed += slowValue;
 
+        if (stats.speed > baseSpeed)
+            stats.speed = baseSpeed;
+
         slowCharges--;
     }
 
     void RushAreaSpeedBost(float time)
     {
+        baseSpeed += rushAreaSpeedBoost;
         stats.speed += rushAreaSpeedBoost;
         Invoke("RemoveSpeedBoost", time);
     }
 
     void RemoveSpeedBoost()
     {
+        baseSpeed -= rushAreaSpeedBoost;
         stats.speed -= rushAreaSpeedBoost;
     }
 

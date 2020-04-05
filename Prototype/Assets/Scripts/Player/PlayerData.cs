@@ -9,4 +9,5 @@ public class PlayerData
     public float power;
     public float speed;
     public float manaChargePerSecond;
+    public float manaChargeSpeedPenalty;
 }

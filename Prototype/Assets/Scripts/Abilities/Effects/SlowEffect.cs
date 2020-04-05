@@ -12,12 +12,12 @@ public class SlowEffect : AbilityEffect
 
         if (applyDamage)
         {
-            player.Slow(stats.dotValue, stats.duration);
+            player.SlowForDuration(stats.dotValue, stats.duration);
             player.Damage(stats.hpValue);
         }
         else
         {
-            player.Slow(stats.dotValue, stats.duration);
+            player.SlowForDuration(stats.dotValue, stats.duration);
         }
     }
 }
