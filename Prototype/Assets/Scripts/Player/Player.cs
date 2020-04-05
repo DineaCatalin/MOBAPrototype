@@ -44,9 +44,6 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public ManaBar manaBar;
 
-    int healthRegen;
-    int manaRegen;
-
     // This will tell us when a player is receiving damage over time
     // We will not regen the player while this is happening
     bool isRecevingDOT;
@@ -116,10 +113,6 @@ public class Player : MonoBehaviour
         healthBar.SetMaxHealth(stats.maxHealth);
         manaBar.SetMaxMana(stats.maxMana);
 
-        // Load health regen and mana regen from config
-        healthRegen = 1;
-        manaRegen = 1;
-
         isAlive = true;
 
         InvokeRepeating("RegenerateStats", 1, 3);
@@ -162,8 +155,10 @@ public class Player : MonoBehaviour
         if (isRecevingDOT)
             return;
         Debug.Log("Player RegenerateStats");
-        Heal(healthRegen);
-        //IncreaseMana(manaRegen);
+        Heal(stats.healthRegen);
+
+        if(stats.manaRegen > 0)
+            IncreaseMana(stats.manaRegen);
     }
 
     float manaChargeSpeedPenalty;
