@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Iceball
+  doubleDamageEffect: 0
 --- !u!212 &3467776185603897573
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -141,3 +142,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applyDamage: 1
+  stackEffect: 1

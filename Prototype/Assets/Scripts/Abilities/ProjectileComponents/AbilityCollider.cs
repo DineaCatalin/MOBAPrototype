@@ -47,36 +47,13 @@ public class AbilityCollider : MonoBehaviour
         // Check if we've hit the player
         if (collision.tag.Contains("Team"))
         {
-            Player player = collision.GetComponent<Player>();
-
-            if(player.isNetworkActive)
-            {
-                effect.ApplyEffect(player, abilityData.stats);
-            }
-
-            if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm")
-            {
-                Debug.Log("Destroting projectile " + this.gameObject.name + " that hit player " + player.GetID());
-                gameObject.SetActive(false);
-            }
-
-            return;
+            HandlePlayerCollision(collision);
         }
         // We hit an ice wall so apply some damage
         else if(collision.tag == "Ice Wall")
         {
             Debug.Log("We hit the ice wall");
-            DestroyAfterCollisions iceWall = collision.GetComponent<DestroyAfterCollisions>();
-
-            if (abilityData.description.name == "Fireball")
-                iceWall.Destroy();
-            else
-                iceWall.ApplyDamage();
-
-            // Destroy the ability after the collision
-            gameObject.SetActive(false);
-
-            return;
+            HandleIceWallCollision(collision);
         }
         // We hit a wall, just deactivate the projectile
         // We also want the traps to not interact with the wall
@@ -84,24 +61,59 @@ public class AbilityCollider : MonoBehaviour
         {
             Debug.Log("Collided with wall");
             gameObject.SetActive(false);
-            //Destroy(this.gameObject);
+        }
+        else
+        {
+            HandleElementalCollisions(collision);
+        }
+    }
+
+    void HandlePlayerCollision(Collider2D collision)
+    {
+        Player player = collision.GetComponent<Player>();
+
+        if (player.isNetworkActive)
+        {
+            effect.ApplyEffect(player, abilityData.stats);
+        }
+
+        if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm")
+        {
+            Debug.Log("Destroting projectile " + this.gameObject.name + " that hit player " + player.GetID());
+            gameObject.SetActive(false);
+        }
+    }
+
+    void HandleIceWallCollision(Collider2D collision)
+    {
+        // Ice wall will not interact with the following abilities
+        if(abilityData.description.name == "Trace"
+           || abilityData.description.name == "Water Rain"
+           || abilityData.description.name == "Spikes"
+           || abilityData.description.name == "Roots"
+           || abilityData.description.name == "Earthquake")
+        {
+            Debug.Log("AbilityCollider HandleIceWallCollision Ignore " + abilityData.description.name);
             return;
         }
 
-        HandleElementalCollisions(collision);
+        DestroyAfterCollisions iceWall = collision.GetComponent<DestroyAfterCollisions>();
+        iceWall.ApplyDamage();
+
+        // Destroy the ability after the collision
+        gameObject.SetActive(false);
     }
 
     // This will handle the collision between abilities
     // Bad implementation but we are rushing a prototype here...
     void HandleElementalCollisions(Collider2D collision)
     {
-        switch(abilityData.description.name)
+        switch (abilityData.description.name)
         {
             case "Blast":
-                if(collision.tag == "Spikes" || collision.tag == "Roots")
+                if (collision.tag == "Spikes" || collision.tag == "Roots")
                 {
                     collision.gameObject.SetActive(false);
-                    //estroy(this.gameObject);
                     gameObject.SetActive(false);
                 }
                 break;
@@ -110,7 +122,6 @@ public class AbilityCollider : MonoBehaviour
                 if (collision.tag == "Fire Strom" || collision.tag == "Water Rain")
                 {
                     collision.gameObject.SetActive(false);
-                    //Destroy(this.gameObject);
                     gameObject.SetActive(false);
                 }
                 break;
