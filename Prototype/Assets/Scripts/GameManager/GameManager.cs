@@ -143,13 +143,16 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GameManager OnRoundEnd");
         EndRound();
-        photonView.RPC("RoundEndRPC", RpcTarget.Others);
+
+        if(PhotonNetwork.IsMasterClient)
+            photonView.RPC("RoundEndRPC", RpcTarget.Others);
     }
 
     [PunRPC]
     public void RoundEndRPC()
     {
-        EndRound();
+        EventManager.TriggerEvent("RoundEnd");
+        //EndRound();
     }
 
     void EndRound()
