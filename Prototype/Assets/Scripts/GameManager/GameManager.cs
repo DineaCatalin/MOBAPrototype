@@ -477,18 +477,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ActivateRushArea(float duration, int playerID)
+    public void ActivateRushAreaOverNetwork(float duration, int playerID)
     {
-        photonView.RPC("ActivateRushAreaRPC", RpcTarget.All, duration, playerID);
+        ActivateRushArea(duration, playerID);
+        photonView.RPC("ActivateRushAreaRPC", RpcTarget.Others, duration, playerID);
     }
 
     [PunRPC]
     void ActivateRushAreaRPC(float duration, int playerID)
     {
-        if(playerMap.ContainsKey(playerID))
-        {
-            playerMap[playerID].ActivateRushArea(duration);
-        }
+        ActivateRushArea(duration, playerID);
+    }
+
+    void ActivateRushArea(float duration, int playerID)
+    {
+        playerMap[playerID].ActivateRushArea(duration);
     }
 
 }

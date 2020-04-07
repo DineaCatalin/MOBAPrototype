@@ -49,6 +49,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -97,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f59c0183efaf41fd8cdd0fe6e808575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBuffForTeam: 0
   name: Spikes
+  doubleDamageEffect: 0
 --- !u!114 &7013300322304763955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e8e0a97ff81452bb7887c7e19b2bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualEffect: 3
   applyDamage: 1
 --- !u!114 &3917479590894846839
 MonoBehaviour:

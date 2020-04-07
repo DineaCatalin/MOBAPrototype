@@ -49,6 +49,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -97,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f59c0183efaf41fd8cdd0fe6e808575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBuffForTeam: 0
   name: Roots
+  doubleDamageEffect: 0
 --- !u!114 &337654325152388623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +142,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e90cbf2f6802484e8308f3a7233d1a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualEffect: 4

@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Lightningball
+  doubleDamageEffect: 0
 --- !u!212 &3981130501845018736
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -140,3 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675a3836dcddf4493a89b2e310634f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualEffect: 6
