@@ -17,6 +17,8 @@ public class PlayerBuffs : MonoBehaviour
     Dictionary<PlayerBuff, float> buffDurationMap;
     Dictionary<PlayerBuff, Coroutine> coroutineMap;
 
+    bool locked;
+
     private void Start()
     {
         imageMap = new Dictionary<PlayerBuff, Image>();
@@ -46,18 +48,23 @@ public class PlayerBuffs : MonoBehaviour
         coroutineMap.Add(PlayerBuff.Root, null);
         coroutineMap.Add(PlayerBuff.ManaBurn, null);
         coroutineMap.Add(PlayerBuff.Heal, null);
+
+        EventManager.StartListening("StartRound", new System.Action(Unlock));
     }
 
     public void AddBuff(PlayerBuff buff, float duration)
     {
-        Debug.Log("PlayerBuffs AddBuff " + buff + " duration " + duration);
-        buffDurationMap[buff] += duration;
-        imageMap[buff].enabled = true;
-
-        if (coroutineMap[buff] == null)
+        if(!locked)
         {
-            Debug.Log("PlayerBuffs AddBuff starting coroutine" + buff);
-            coroutineMap[buff] = StartCoroutine(BuffTick(buff));
+            Debug.Log("PlayerBuffs AddBuff " + buff + " duration " + duration);
+            buffDurationMap[buff] += duration;
+            imageMap[buff].enabled = true;
+
+            if (coroutineMap[buff] == null)
+            {
+                Debug.Log("PlayerBuffs AddBuff starting coroutine" + buff);
+                coroutineMap[buff] = StartCoroutine(BuffTick(buff));
+            }
         }
     }
 
@@ -89,19 +96,34 @@ public class PlayerBuffs : MonoBehaviour
 
     public void ActivateBuff(PlayerBuff buff)
     {
-        imageMap[buff].enabled = false;
+        imageMap[buff].enabled = true;
     }
 
     public void DeactivateAll()
     {
-        PlayerBuff buff;
-
-        for (int i = 0; i < imageMap.Count; i++)
+        foreach (var item in imageMap)
         {
-            buff = (PlayerBuff)i;
-            buffDurationMap[buff] = 0;
-            coroutineMap[buff] = null;
-            imageMap[buff].enabled = false;
+            Debug.Log("PlayerBuffs DeactivateAll deactivating " + item.Key);
+            buffDurationMap[item.Key] = 0;
+
+            if(coroutineMap[item.Key] != null)
+            {
+                StopCoroutine(coroutineMap[item.Key]);
+            }
+
+            item.Value.enabled = false;
         }
+
+        Lock();
+    }
+
+    void Unlock()
+    {
+        locked = false;
+    }
+
+    void Lock()
+    {
+        locked = true;
     }
 }

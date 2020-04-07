@@ -7,7 +7,7 @@ public class AbilityDuration : MonoBehaviour
 {
     [SerializeField] new string name;
 
-    [SerializeField] float duration;
+    float duration;
 
     private void Start()
     {
@@ -31,7 +31,6 @@ public class AbilityDuration : MonoBehaviour
         yield return new WaitForSeconds(duration);
         Debug.Log("AbilityDuration Disable");
         gameObject.SetActive(false);
-        //Destroy(gameObject);
     }
 
     void Deactivate()
