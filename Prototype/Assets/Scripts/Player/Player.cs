@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
     // Without it we couldn't stop the coroutine as we woudn't have a reference to it
     Coroutine dotCoroutine;
     Coroutine removeRootCoroutine;
+    Coroutine healCoroutine;
 
     // Will be activated when player starts charging mana and will be stoped when the players
     // releases the mana charge key
@@ -148,6 +149,7 @@ public class Player : MonoBehaviour
         coroutines.Add(manaChargeCoroutine);
         coroutines.Add(dotCoroutine);
         coroutines.Add(removeRootCoroutine);
+        coroutines.Add(healCoroutine);
     }
 
     void StopCoroutines()
@@ -304,7 +306,12 @@ public class Player : MonoBehaviour
     // Will heal over time
     public void HealOverTime(int numTicks, int heal)
     {
-        StartCoroutine(ApplyTickHeal(numTicks, heal));
+        healCoroutine = StartCoroutine(ApplyTickHeal(numTicks, heal));
+    }
+
+    public void StopHealOverTime()
+    {
+        StopCoroutine(healCoroutine);
     }
 
     public void Damage(int damage)
@@ -450,17 +457,18 @@ public class Player : MonoBehaviour
 
     // Is the same as heal and healover time but it will not trigger if
     // the player is already healing from water rain heal
-    public void WaterRainHeal(int initialHeal, int healTicks, int healTickValue)
-    {
-        if (!healEffectActive)
-        {
-            Debug.Log("Player WaterRainHeal applying heal");
-            healEffectActive = true;
+    //public void WaterRainHeal(int healTicks, int healTickValue)
+    //{
+    //    if (!healEffectActive)
+    //    {
+    //        Debug.Log("Player WaterRainHeal applying heal");
+    //        healEffectActive = true;
 
-            Heal(initialHeal);
-            HealOverTime(healTicks, healTickValue);
-        }
-    }
+    //        HealOverTime(healTicks, healTickValue);
+    //    }
+    //}
+
+
 
     // Adds mana
     public void IncreaseMana(int mana)

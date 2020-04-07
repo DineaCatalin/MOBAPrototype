@@ -112,9 +112,9 @@
          "stats":{
             "cooldown":10.0,
             "manaCost":10,
-            "dotValue":2,
-            "duration":5,
-            "hpValue":20
+            "dotValue":0,
+            "duration":4,
+            "hpValue":8
          }
       },
       {

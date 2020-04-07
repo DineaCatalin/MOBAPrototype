@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Abilities\Effects\RushArea.cs" />
     <Compile Include="Assets\Scripts\Abilities\Effects\SlowEffect.cs" />
     <Compile Include="Assets\Scripts\Abilities\HealAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\InteruptHeal.cs" />
     <Compile Include="Assets\Scripts\Abilities\Manager\AbilityManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\Pool\AbilityProjectilePool.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileAbility.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityDuration.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\DestroyAfterCollisions.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\Flicker.cs" />
+    <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\HealZone.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbilityToPoint.cs" />
     <Compile Include="Assets\Scripts\Abilities\RushAbility.cs" />

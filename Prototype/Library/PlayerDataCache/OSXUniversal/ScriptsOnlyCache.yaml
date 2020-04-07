@@ -33,6 +33,7 @@ ScriptsOnlyBuild:
     - HealEffect
     - HealthBar
     - InteractionManager
+    - InteruptHeal
     - Item
     - ItemPool
     - KnockoutEffect
@@ -71,8 +72,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -271,6 +270,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13736}
     - Class: 114
       Script: {instanceID: 13740}
+    - Class: 114
+      Script: {instanceID: 46516}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -464,6 +465,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13720}
     - Class: 114
       Script: {instanceID: 13740}
+    - Class: 114
+      Script: {instanceID: 46516}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1795,7 +1798,7 @@ ScriptsOnlyBuild:
     className: ScoreHelper
   - hash:
       serializedVersion: 2
-      Hash: 1f8d246784ecb087337b27f08354a32d
+      Hash: 1df5043f0424ac97346ea8f965958921
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilityDuration
@@ -2237,6 +2240,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InteruptHeal
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HealZone
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
