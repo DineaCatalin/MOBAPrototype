@@ -28,7 +28,7 @@ public class PlayerBuffs : MonoBehaviour
         imageMap.Add(PlayerBuff.DoubleDamage, doubleDamageImage);
         imageMap.Add(PlayerBuff.Slow, slowImage);
         imageMap.Add(PlayerBuff.Root, rootImage);
-        imageMap.Add(PlayerBuff.ManaCharge, manaChargeImage);
+        imageMap.Add(PlayerBuff.ManaBurn, manaChargeImage);
         imageMap.Add(PlayerBuff.Heal, healImage);
 
         buffDurationMap.Add(PlayerBuff.DOT, 0);
@@ -36,7 +36,7 @@ public class PlayerBuffs : MonoBehaviour
         buffDurationMap.Add(PlayerBuff.DoubleDamage, 0);
         buffDurationMap.Add(PlayerBuff.Slow, 0);
         buffDurationMap.Add(PlayerBuff.Root, 0);
-        buffDurationMap.Add(PlayerBuff.ManaCharge, 0);
+        buffDurationMap.Add(PlayerBuff.ManaBurn, 0);
         buffDurationMap.Add(PlayerBuff.Heal, 0);
 
         coroutineMap.Add(PlayerBuff.DOT, null);
@@ -44,7 +44,7 @@ public class PlayerBuffs : MonoBehaviour
         coroutineMap.Add(PlayerBuff.DoubleDamage, null);
         coroutineMap.Add(PlayerBuff.Slow, null);
         coroutineMap.Add(PlayerBuff.Root, null);
-        coroutineMap.Add(PlayerBuff.ManaCharge, null);
+        coroutineMap.Add(PlayerBuff.ManaBurn, null);
         coroutineMap.Add(PlayerBuff.Heal, null);
     }
 
@@ -87,6 +87,11 @@ public class PlayerBuffs : MonoBehaviour
         imageMap[buff].enabled = false;
     }
 
+    public void ActivateBuff(PlayerBuff buff)
+    {
+        imageMap[buff].enabled = false;
+    }
+
     public void DeactivateAll()
     {
         PlayerBuff buff;
@@ -96,6 +101,7 @@ public class PlayerBuffs : MonoBehaviour
             buff = (PlayerBuff)i;
             buffDurationMap[buff] = 0;
             coroutineMap[buff] = null;
+            imageMap[buff].enabled = false;
         }
     }
 }

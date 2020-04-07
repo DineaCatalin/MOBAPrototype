@@ -33,7 +33,7 @@ public class RushAbility : Ability
     public override bool Cast()
     {
         //rushAreaManager.Activate(abilityData.stats.duration);
-        GameManager.Instance.ActivateRushArea(abilityData.stats.duration, playerID);
+        GameManager.Instance.ActivateRushAreaOverNetwork(abilityData.stats.duration, playerID);
         return base.Cast();
     }
 

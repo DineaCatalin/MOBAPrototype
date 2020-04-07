@@ -12,7 +12,7 @@ public enum PlayerBuff
     Slow,
     Root,
     DOT,
-    ManaCharge,
+    ManaBurn,
     Heal
 }
 
@@ -222,6 +222,7 @@ public class Player : MonoBehaviour
             case "Power Sphere":
                 {
                     HandleDoubleDamage(itemData.duration);
+                    buffsUI.AddBuff(PlayerBuff.DoubleDamage, itemData.duration);
                     break;
                 }
             case "Speed Sphere":
@@ -606,6 +607,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player ActivateRushArea activating rush area for player " + id);
         rushAreaManager.Activate(duration);
+        buffsUI.AddBuff(PlayerBuff.Speed, duration);
 
         if (isNetworkActive)
         {
@@ -636,6 +638,16 @@ public class Player : MonoBehaviour
     public void ActivateBuffUI(PlayerBuff buff, float duration)
     {
         buffsUI.AddBuff(buff, duration);
+    }
+
+    public void ActivateBuffUI(PlayerBuff buff)
+    {
+        buffsUI.ActivateBuff(buff);
+    }
+
+    public void DeactivateBuffUI(PlayerBuff buff)
+    {
+        buffsUI.Deactivate(buff);
     }
 
     public PlayerData GetStats()

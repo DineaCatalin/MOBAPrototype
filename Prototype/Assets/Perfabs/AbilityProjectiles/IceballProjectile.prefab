@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e8e0a97ff81452bb7887c7e19b2bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualEffect: 3
   applyDamage: 1
-  stackEffect: 1
