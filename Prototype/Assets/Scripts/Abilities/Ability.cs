@@ -52,15 +52,20 @@ public abstract class Ability : MonoBehaviour
             // Reset cooldown
             if (currentCooldown <= 0)
             {
-                currentCooldown = cooldown;
-                isCharging = false;
-                abilityUI.StopCooldown();
+                Reset();
             }
             else
             {
                 abilityUI.UpdateCooldown(currentCooldown);
             }
         }
+    }
+
+    public void Reset()
+    {
+        currentCooldown = cooldown;
+        isCharging = false;
+        abilityUI.StopCooldown();
     }
 
     // Cast the ability, as this is the base class we will only set the isCharging flag

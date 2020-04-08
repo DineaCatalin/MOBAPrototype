@@ -60,11 +60,15 @@ public class PlayerController : MonoBehaviour
             HandleMovement();
             HandleRotation();
 
-            if(!HandleManaCharge())
-            {
-                HandleAbilityCasting();
-                HandleAbilitySelection();
-            }
+            HandleManaCharge();
+            //HandleAbilityCasting();   // As all abilities are instant now this will just create a bug 
+            HandleAbilitySelection();   // and this will trigger all the abilities when they are selected
+
+            //if (!HandleManaCharge())
+            //{
+            //    HandleAbilityCasting();
+            //    HandleAbilitySelection();
+            //}
         }
     }
 

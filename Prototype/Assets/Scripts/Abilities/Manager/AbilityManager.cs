@@ -26,6 +26,7 @@ public class AbilityManager : MonoBehaviour
         ConfigureAbilities();
 
         EventManager.StartListening("EndRedraft", new Action(ReconfigureAbilities));
+        EventManager.StartListening("StartRound", new Action(ResetAbilities));
     }
 
     void ConfigureAbilities()
@@ -72,6 +73,14 @@ public class AbilityManager : MonoBehaviour
         {
             Destroy(abilities[i].gameObject);
             Destroy(spellIndicators[i].gameObject);
+        }
+    }
+
+    void ResetAbilities()
+    {
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            abilities[i].Reset();
         }
     }
 
