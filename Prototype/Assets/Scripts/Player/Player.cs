@@ -407,6 +407,7 @@ public class Player : MonoBehaviour
         {
             transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
             Activate();
+            Invoke("Activate", GameManager.ACTIVATE_PLAYER_DELAY);
             GameManager.Instance.ActivateNonLocalPlayer(id);
             PlayerController.isLocked = false;
         }
@@ -417,8 +418,6 @@ public class Player : MonoBehaviour
         Debug.Log("Player Activate");
 
         isAlive = true;
-
-        //gameObject.SetActive(true);
 
         playerCollider.enabled = true;
         graphics.enabled = true;

@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public static float TIME_BETWEEN_ROUNDS = 3f;
 
-    const float ACTIVATE_PLAYER_DELAY = 0.75f;
+    public const float ACTIVATE_PLAYER_DELAY = 0.75f;
 
     public static GameManager Instance;
 
@@ -80,7 +80,14 @@ public class GameManager : MonoBehaviour
     void ActivateNonLocalPlayerRPC(int playerID)
     {
         // TODO: recheck
-        StartCoroutine(ActivateNonLocalPlayerCoroutine(playerID, ACTIVATE_PLAYER_DELAY));
+        //StartCoroutine(ActivateNonLocalPlayerCoroutine(playerID, ACTIVATE_PLAYER_DELAY));
+
+        Player player = playerMap[playerID];
+
+        if (player != null && !player.isNetworkActive)
+        {
+            player.Activate();
+        }
     }
 
     IEnumerator ActivateNonLocalPlayerCoroutine(int playerID, float delay)
@@ -286,29 +293,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameManager CheckRoundEnd Team 2 won");
             match.FinishRound(2);
         }
-    }
-
-    [PunRPC]
-    public void KillAndRespawnPlayerRPC(float respawnTimer, int playerID)
-    {
-        if(playerMap[playerID] != null)
-        {
-            playerMap[playerID].HandlePlayerDeath();
-            StartCoroutine(SpawnPlayerWithDelay(respawnTimer, playerID));
-
-            // Add the score to the team that has killed the player with @playerID
-            Debug.Log("GameManager KillAndRespawnPlayerRPC score. Player has been killed " + playerID);
-        }
-    }
-
-    IEnumerator SpawnPlayerWithDelay(float respawnTimer, int playerID)
-    {
-        // Wait respawntimer out
-        yield return new WaitForSeconds(respawnTimer);
-
-        // "Respawn" player by activating the player's GO and reset health and mana
-        // The player will take care of doing this
-        playerMap[playerID].Activate();
     }
 
     public void AddPlayerOverNetwork(int playerID)
