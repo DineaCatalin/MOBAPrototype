@@ -1,16 +1,18 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Manager/AbilityManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/AbilityDraftLogic.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Tweens/AbilitySpawnTween.cs" Line="12" Column="39" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="18" Column="6" />
+      <File FileName="Assets/Scripts/UI/Tweens/AbilitySpawnTween.cs" Line="45" Column="60" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="21" Column="40" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="78" Column="1" />
       <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="194" Column="26" />
       <File FileName="Assets/Scripts/UI/Tweens/DustDuskFadeTween.cs" Line="33" Column="51" />
       <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="34" Column="23" />
+      <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" Line="51" Column="25" />
+      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="255" Column="20" />
       <File FileName="Assets/Scripts/Player/Player.cs" Line="39" Column="42" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/Tweens/ScaleTween.cs" Line="10" Column="5" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Tweens/ScaleTween.cs" Line="20" Column="9" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Tweens/BulkScaleTween.cs" Line="12" Column="40" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Tweens/FadeTween.cs" Line="23" Column="28" NotebookId="1" />
       <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="42" Column="1" NotebookId="1" />
@@ -18,30 +20,25 @@
       <File FileName="Assets/Scripts/UI/Tweens/FadeInOutTween.cs" Line="20" Column="24" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="35" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/AppManager.cs" Line="22" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="146" Column="30" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="48" Column="50" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Plugins" expanded="True">
-                <Node name="LeanTween" expanded="True">
-                  <Node name="Framework" expanded="True" />
-                </Node>
-              </Node>
+              <Node name="Plugins" expanded="True" />
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
-                  <Node name="Manager" expanded="True">
-                    <Node name="AbilityManager.cs" selected="True" />
-                  </Node>
+                  <Node name="Manager" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
                 </Node>
                 <Node name="Environment" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="UI" expanded="True">
                   <Node name="Tweens" expanded="True" />
+                  <Node name="AbilityDraftLogic.cs" selected="True" />
                 </Node>
                 <Node name="Utils" expanded="True" />
               </Node>

@@ -470,6 +470,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13472}
     - Class: 114
+      Script: {instanceID: 13562}
+    - Class: 114
       Script: {instanceID: 13656}
     - Class: 114
       Script: {instanceID: 13664}
@@ -1970,7 +1972,7 @@ ScriptsOnlyBuild:
     className: ScoreHelper
   - hash:
       serializedVersion: 2
-      Hash: 1f8d246784ecb087337b27f08354a32d
+      Hash: 1df5043f0424ac97346ea8f965958921
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilityDuration
