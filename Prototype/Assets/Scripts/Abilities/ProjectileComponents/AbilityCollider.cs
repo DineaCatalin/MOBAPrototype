@@ -72,10 +72,7 @@ public class AbilityCollider : MonoBehaviour
     {
         Player player = collision.GetComponent<Player>();
 
-        if (player.isNetworkActive)
-        {
-            effect.ApplyEffect(player, abilityData.stats);
-        }
+        effect.ApplyEffect(player, abilityData.stats);
 
         if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm")
         {
