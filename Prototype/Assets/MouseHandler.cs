@@ -25,7 +25,7 @@ public class MouseHandler : MonoBehaviour
         
         outOfRangeIndicator = new GameObject("OutOfRangeIndicator");
         outOfRangeIndicator.transform.parent = transform;
-        outOfRangeIndicator.transform.localScale = new Vector3(0.45f, 0.45f, 1);
+        outOfRangeIndicator.transform.localScale = new Vector3(0.75f, 0.75f, 1);
 
         SpriteRenderer spRenderer = outOfRangeIndicator.AddComponent<SpriteRenderer>();
         spRenderer.sprite = outOfRangeSprite;

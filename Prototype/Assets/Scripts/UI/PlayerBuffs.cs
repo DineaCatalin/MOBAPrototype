@@ -13,48 +13,48 @@ public class PlayerBuffs : MonoBehaviour
     public Image healImage;
     public Image doubleDamageImage;
 
-    Dictionary<PlayerBuff, Image> imageMap;
-    Dictionary<PlayerBuff, float> buffDurationMap;
-    Dictionary<PlayerBuff, Coroutine> coroutineMap;
+    Dictionary<PlayerEffect, Image> imageMap;
+    Dictionary<PlayerEffect, float> buffDurationMap;
+    Dictionary<PlayerEffect, Coroutine> coroutineMap;
 
     bool locked;
 
     private void Start()
     {
-        imageMap = new Dictionary<PlayerBuff, Image>();
-        buffDurationMap = new Dictionary<PlayerBuff, float>();
-        coroutineMap = new Dictionary<PlayerBuff, Coroutine>();
+        imageMap = new Dictionary<PlayerEffect, Image>();
+        buffDurationMap = new Dictionary<PlayerEffect, float>();
+        coroutineMap = new Dictionary<PlayerEffect, Coroutine>();
 
-        imageMap.Add(PlayerBuff.DOT, dotImage);
-        imageMap.Add(PlayerBuff.Speed, speedImage);
-        imageMap.Add(PlayerBuff.DoubleDamage, doubleDamageImage);
-        imageMap.Add(PlayerBuff.Slow, slowImage);
-        imageMap.Add(PlayerBuff.Root, rootImage);
-        imageMap.Add(PlayerBuff.ManaBurn, manaChargeImage);
-        imageMap.Add(PlayerBuff.Heal, healImage);
+        imageMap.Add(PlayerEffect.DOT, dotImage);
+        imageMap.Add(PlayerEffect.Speed, speedImage);
+        imageMap.Add(PlayerEffect.DoubleDamage, doubleDamageImage);
+        imageMap.Add(PlayerEffect.Slow, slowImage);
+        imageMap.Add(PlayerEffect.Root, rootImage);
+        imageMap.Add(PlayerEffect.ManaBurn, manaChargeImage);
+        imageMap.Add(PlayerEffect.Heal, healImage);
 
-        buffDurationMap.Add(PlayerBuff.DOT, 0);
-        buffDurationMap.Add(PlayerBuff.Speed, 0);
-        buffDurationMap.Add(PlayerBuff.DoubleDamage, 0);
-        buffDurationMap.Add(PlayerBuff.Slow, 0);
-        buffDurationMap.Add(PlayerBuff.Root, 0);
-        buffDurationMap.Add(PlayerBuff.ManaBurn, 0);
-        buffDurationMap.Add(PlayerBuff.Heal, 0);
+        buffDurationMap.Add(PlayerEffect.DOT, 0);
+        buffDurationMap.Add(PlayerEffect.Speed, 0);
+        buffDurationMap.Add(PlayerEffect.DoubleDamage, 0);
+        buffDurationMap.Add(PlayerEffect.Slow, 0);
+        buffDurationMap.Add(PlayerEffect.Root, 0);
+        buffDurationMap.Add(PlayerEffect.ManaBurn, 0);
+        buffDurationMap.Add(PlayerEffect.Heal, 0);
 
-        coroutineMap.Add(PlayerBuff.DOT, null);
-        coroutineMap.Add(PlayerBuff.Speed, null);
-        coroutineMap.Add(PlayerBuff.DoubleDamage, null);
-        coroutineMap.Add(PlayerBuff.Slow, null);
-        coroutineMap.Add(PlayerBuff.Root, null);
-        coroutineMap.Add(PlayerBuff.ManaBurn, null);
-        coroutineMap.Add(PlayerBuff.Heal, null);
+        coroutineMap.Add(PlayerEffect.DOT, null);
+        coroutineMap.Add(PlayerEffect.Speed, null);
+        coroutineMap.Add(PlayerEffect.DoubleDamage, null);
+        coroutineMap.Add(PlayerEffect.Slow, null);
+        coroutineMap.Add(PlayerEffect.Root, null);
+        coroutineMap.Add(PlayerEffect.ManaBurn, null);
+        coroutineMap.Add(PlayerEffect.Heal, null);
 
         EventManager.StartListening("StartRound", new System.Action(Unlock));
     }
 
-    public void AddBuff(PlayerBuff buff, float duration)
+    public void AddBuff(PlayerEffect buff, float duration)
     {
-        if(!locked)
+        if(!locked && imageMap.ContainsKey(buff))
         {
             Debug.Log("PlayerBuffs AddBuff " + buff + " duration " + duration);
             buffDurationMap[buff] += duration;
@@ -68,7 +68,7 @@ public class PlayerBuffs : MonoBehaviour
         }
     }
 
-    IEnumerator BuffTick(PlayerBuff buff)
+    IEnumerator BuffTick(PlayerEffect buff)
     {
         Debug.Log("PlayerBuffs BuffTick");
         float duration;
@@ -89,12 +89,12 @@ public class PlayerBuffs : MonoBehaviour
         Deactivate(buff);
     }
 
-    public void Deactivate(PlayerBuff buff)
+    public void Deactivate(PlayerEffect buff)
     {
         imageMap[buff].enabled = false;
     }
 
-    public void ActivateBuff(PlayerBuff buff)
+    public void ActivateBuff(PlayerEffect buff)
     {
         imageMap[buff].enabled = true;
     }

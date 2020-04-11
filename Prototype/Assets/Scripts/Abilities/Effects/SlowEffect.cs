@@ -8,21 +8,27 @@ public class SlowEffect : AbilityEffect
 
     private void Start()
     {
-        visualEffect = PlayerBuff.Slow;
+        visualEffect = PlayerEffect.Slow;
     }
 
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
         Debug.Log("SlowEffect");
+        base.ApplyVisualEffect(player, visualEffect, stats);
 
-        if (applyDamage)
+        if (player.isNetworkActive)
         {
-            player.SlowForDuration(stats.dotValue, stats.duration);
-            player.Damage(stats.hpValue);
-        }
-        else
-        {
-            player.SlowForDuration(stats.dotValue, stats.duration);
+            if (applyDamage)
+            {
+                player.SlowForDuration(stats.dotValue, stats.duration);
+                player.Damage(stats.hpValue);
+            }
+            else
+            {
+                player.SlowForDuration(stats.dotValue, stats.duration);
+            }
+
+            base.ApplyLocalVisualEffects(player, visualEffect);
         }
     }
 }

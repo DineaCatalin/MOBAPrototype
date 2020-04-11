@@ -5,7 +5,13 @@ public class KnockoutEffect : AbilityEffect
 {
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
-		//GameManager.Instance.KnockOutPlayer(stats.dotValue, stats.hpValue, player.GetID());
-        player.Knockout(stats.dotValue, stats.hpValue);
+        base.ApplyVisualEffect(player, visualEffect, stats);
+
+        if(player.isNetworkActive)
+        {
+            player.Knockout(stats.dotValue, stats.hpValue);
+            base.ApplyLocalVisualEffects(player, visualEffect);
+        }
+            
     }
 }

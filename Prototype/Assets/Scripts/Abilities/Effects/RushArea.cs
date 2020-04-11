@@ -25,7 +25,7 @@ public class RushArea : MonoBehaviour
         {
             Player player = collision.GetComponent<Player>();
             player.GetStats().speed += speedBoost;
-            player.ActivateBuffUI(PlayerBuff.Speed);
+            player.ActivateBuffUI(PlayerEffect.Speed);
         }
     }
 
@@ -35,7 +35,7 @@ public class RushArea : MonoBehaviour
         {
             Player player = collision.GetComponent<Player>();
             player.GetStats().speed -= speedBoost;
-            player.DeactivateBuffUI(PlayerBuff.Speed);
+            player.DeactivateBuffUI(PlayerEffect.Speed);
         }
     }
 }
