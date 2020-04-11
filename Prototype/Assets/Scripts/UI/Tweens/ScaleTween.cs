@@ -9,20 +9,10 @@ public class ScaleTween : MonoBehaviour
     public float scaleTime;
     public LeanTweenType easeType;
 
-    private void Awake()
-    {
-        SetInitialScale();
-    }
-
-    // Start is called before the first frame update
     void OnEnable()
-    {    
-        LeanTween.scale(gameObject, finalScale, scaleTime).setEase(easeType);
-    }
-
-    private void OnDisable()
     {
         SetInitialScale();
+        LeanTween.scale(gameObject, finalScale, scaleTime).setEase(easeType);
     }
 
     void SetInitialScale()
