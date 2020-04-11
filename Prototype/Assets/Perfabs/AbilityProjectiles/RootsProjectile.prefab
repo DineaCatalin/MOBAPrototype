@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 337654325152388623}
   - component: {fileID: 7391656825071615658}
   - component: {fileID: 2419495471529143537}
+  - component: {fileID: 4661818882043659829}
   m_Layer: 0
   m_Name: RootsProjectile
   m_TagString: Untagged
@@ -113,7 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Roots
-  duration: 0
 --- !u!58 &7391656825071615658
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +143,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualEffect: 4
+--- !u!114 &4661818882043659829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3113322748043198587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc6cf816950e4d459640b7ec4884369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialScale: {x: 0.5, y: 0.5}
+  finalScale: {x: 1, y: 1}
+  duration: 1
+  scaleEaseType: 17
+  fadeEaseType: 17
+  abilityCollider: {fileID: 7391656825071615658}

@@ -5,18 +5,25 @@ public class RootEffect : AbilityEffect
 {
     private void Start()
     {
-        visualEffect = PlayerBuff.Root;
+        visualEffect = PlayerEffect.Root;
     }
 
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
-        Debug.Log("Applying root effect");
-        if (stats == null)
-            Debug.Log("RootEffect stats are null wtf?");
-        if(player.interactionManager == null)
-            Debug.Log("RootEffect interactionManager is null wtf?");
+        base.ApplyVisualEffect(player, visualEffect, stats);
 
         if(player.isNetworkActive)
-            player.interactionManager.RootPlayer(stats.duration);
+        {
+            Debug.Log("Applying root effect");
+            if (stats == null)
+                Debug.Log("RootEffect stats are null wtf?");
+            if (player.interactionManager == null)
+                Debug.Log("RootEffect interactionManager is null wtf?");
+
+            if (player.isNetworkActive)
+                player.interactionManager.RootPlayer(stats.duration);
+
+            base.ApplyLocalVisualEffects(player, visualEffect);
+        }
     }
 }

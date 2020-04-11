@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7129593993564656343}
   - component: {fileID: 5757637370622027764}
+  - component: {fileID: 5712873226394272184}
   m_Layer: 5
   m_Name: AbilitySelectionButton
   m_TagString: Untagged
@@ -36,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -439.96277, y: -50.79232}
+  m_SizeDelta: {x: 187.67, y: 124.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5757637370622027764
 MonoBehaviour:
@@ -54,6 +55,22 @@ MonoBehaviour:
   buttonType: 0
   border: {fileID: 7412514777111424940}
   buttonText: {fileID: 1796373140928772036}
+--- !u!114 &5712873226394272184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035404131200844021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialScale: {x: 0.5, y: 0.5}
+  finalScale: {x: 1, y: 1}
+  scaleTime: 1
+  easeType: 27
 --- !u!1 &3243455741215664462
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,10 +104,10 @@ RectTransform:
   m_Father: {fileID: 7129593993564656343}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -92.00001, y: -41.550003}
-  m_SizeDelta: {x: 89.2, y: -38.1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.40000153, y: -29.9}
+  m_SizeDelta: {x: 189.2, y: 61.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7017329676808098642
 CanvasRenderer:
@@ -164,7 +181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -92, y: 20.350014}
+  m_AnchoredPosition: {x: 0.3999939, y: 32.000023}
   m_SizeDelta: {x: 189.2, y: 61.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &465441299947821760
@@ -601,7 +618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -92, y: -10.299999}
+  m_AnchoredPosition: {x: 0, y: 0.0000038147}
   m_SizeDelta: {x: 275.05, y: 176.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3348493843926828292

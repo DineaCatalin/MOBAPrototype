@@ -9,6 +9,18 @@ public class AbilityDuration : MonoBehaviour
 
     float duration;
 
+    private void Awake()
+    {
+        duration = AbilityDataCache.GetDataForAbility(name).stats.duration;
+
+        if (duration <= 0f)
+            Debug.Log("AbilityDuration Warning duration not set for ability " + name);
+
+        AbilitySpawnTween tween = GetComponent<AbilitySpawnTween>();
+        if (tween)
+            duration += tween.duration;
+    }
+
     private void Start()
     {
         EventManager.StartListening("StartRound", new System.Action(Deactivate));
@@ -18,11 +30,6 @@ public class AbilityDuration : MonoBehaviour
     // We use OnEnable because the GO that uses this component is used in an ObjectPool
     void OnEnable()
     {
-        duration = AbilityDataCache.GetDataForAbility(name).stats.duration;
-
-        if (duration <= 0f)
-            Debug.Log("AbilityDuration Warning duration not set for ability " + name);
-
         StartCoroutine("Disable");
     }
 

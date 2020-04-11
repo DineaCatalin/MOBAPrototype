@@ -49,6 +49,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -113,8 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f59c0183efaf41fd8cdd0fe6e808575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBuffForTeam: 0
   name: Tornado
+  doubleDamageEffect: 0
 --- !u!114 &875460011421519306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df69a369bec9445eb13916cd4593e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualEffect: 8
 --- !u!114 &6086169251366671898
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,13 @@
 {
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
-        player.Damage(stats.hpValue);
+        base.ApplyVisualEffect(player, visualEffect, stats);
+
+        if (player.isNetworkActive)
+        {
+            player.Damage(stats.hpValue);
+            base.ApplyVisualEffect(player, visualEffect, stats);
+        }
+            
     }
 }

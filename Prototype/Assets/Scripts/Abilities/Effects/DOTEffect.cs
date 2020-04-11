@@ -7,11 +7,18 @@ public class DOTEffect : AbilityEffect
 {
     private void Start()
     {
-        visualEffect = PlayerBuff.DOT;
+        visualEffect = PlayerEffect.DOT;
     }
 
     public override void ApplyEffect(Player player, AbilityStats stats)
     {
-        player.DamageAndDOT(stats.hpValue, stats.duration, stats.dotValue);
+        base.ApplyVisualEffect(player, visualEffect, stats);
+
+        if (player.isNetworkActive)
+        {
+            player.DamageAndDOT(stats.hpValue, stats.duration, stats.dotValue);
+            base.ApplyLocalVisualEffects(player, visualEffect);
+        }
+            
     }
 }

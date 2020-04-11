@@ -7,8 +7,15 @@ public class CameraShake : MonoBehaviour {
 
     public Camera mainCamera;
 
+    public float KnockOutShakeAmount;
+    public float KnockOutShakeLength;
+
     private Vector3 cameraOrigin;
+    private Vector3 backgroundOrigin;
     private float shakeAmount = 0;
+
+    Transform background;
+    float backgroundZ;
 
     private void Awake()
     {
@@ -17,6 +24,30 @@ public class CameraShake : MonoBehaviour {
 
         // Cahce the original position of the camera so that we know where to
         cameraOrigin = mainCamera.transform.position;
+    }
+
+    // TEST
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            KnockOutShake();
+        }
+    }
+
+    private void Start()
+    {
+        background = GameObject.Find("Background").transform;
+        backgroundOrigin = background.position;
+        backgroundZ = backgroundOrigin.z;
+
+        EventManager.StartListening("KnockOut", new System.Action(KnockOutShake));
+        EventManager.StartListening("RoundEnd", new System.Action(KnockOutShake));
+    }
+
+    void KnockOutShake()
+    {
+        Shake(KnockOutShakeAmount, KnockOutShakeLength);
     }
 
     public void Shake(float amount, float length)
@@ -39,6 +70,9 @@ public class CameraShake : MonoBehaviour {
             camPos.y += OFFSET_Y;
 
             mainCamera.transform.position = camPos;
+
+            camPos.z = backgroundZ;
+            background.position = camPos;
         }
     }
 
@@ -46,5 +80,6 @@ public class CameraShake : MonoBehaviour {
     {
         CancelInvoke("Shake");
         mainCamera.transform.position = cameraOrigin;
+        background.position = backgroundOrigin;
     }
 }

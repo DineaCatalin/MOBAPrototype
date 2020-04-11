@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3350198306017553007}
   - component: {fileID: 3350198306017553006}
   - component: {fileID: 3350198306017553002}
+  - component: {fileID: 3108199159026779847}
   m_Layer: 0
   m_Name: EarthquakeProjectile
   m_TagString: Ice Wall
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8441949558110838355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.07, y: -2.1, z: 0}
-  m_LocalScale: {x: 2.7440844, y: 1.2032423, z: 1}
+  m_LocalScale: {x: 2.75, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -49,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -122,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f59c0183efaf41fd8cdd0fe6e808575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBuffForTeam: 0
   name: Earthquake
+  doubleDamageEffect: 0
 --- !u!114 &3350198306017553006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df69a369bec9445eb13916cd4593e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualEffect: 8
 --- !u!114 &3350198306017553002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,4 +152,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Earthquake
-  duration: 0
+--- !u!114 &3108199159026779847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441949558110838355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc6cf816950e4d459640b7ec4884369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialScale: {x: 1, y: 0.5}
+  finalScale: {x: 2.75, y: 1.2}
+  duration: 1
+  scaleEaseType: 17
+  fadeEaseType: 17
+  abilityCollider: {fileID: 8441949558110838359}

@@ -4,7 +4,7 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-public enum PlayerBuff
+public enum PlayerEffect
 {
     None = 0,
     Speed,
@@ -13,7 +13,8 @@ public enum PlayerBuff
     Root,
     DOT,
     ManaBurn,
-    Heal
+    Heal,
+    Knockout
 }
 
 public class Player : MonoBehaviour
@@ -224,7 +225,7 @@ public class Player : MonoBehaviour
             case "Power Sphere":
                 {
                     HandleDoubleDamage(itemData.duration);
-                    buffsUI.AddBuff(PlayerBuff.DoubleDamage, itemData.duration);
+                    buffsUI.AddBuff(PlayerEffect.DoubleDamage, itemData.duration);
                     break;
                 }
             case "Speed Sphere":
@@ -614,7 +615,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player ActivateRushArea activating rush area for player " + id);
         rushAreaManager.Activate(duration);
-        buffsUI.AddBuff(PlayerBuff.Speed, duration);
+        buffsUI.AddBuff(PlayerEffect.Speed, duration);
 
         if (isNetworkActive)
         {
@@ -642,17 +643,17 @@ public class Player : MonoBehaviour
         shield.DeactivateLocalShield();
     }
 
-    public void ActivateBuffUI(PlayerBuff buff, float duration)
+    public void ActivateBuffUI(PlayerEffect buff, float duration)
     {
         buffsUI.AddBuff(buff, duration);
     }
 
-    public void ActivateBuffUI(PlayerBuff buff)
+    public void ActivateBuffUI(PlayerEffect buff)
     {
         buffsUI.ActivateBuff(buff);
     }
 
-    public void DeactivateBuffUI(PlayerBuff buff)
+    public void DeactivateBuffUI(PlayerEffect buff)
     {
         buffsUI.Deactivate(buff);
     }
