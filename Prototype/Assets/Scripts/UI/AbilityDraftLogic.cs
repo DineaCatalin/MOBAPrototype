@@ -210,7 +210,6 @@ public class AbilityDraftLogic : MonoBehaviour
 
         specialAbilitiesScreen.SetActive(false);
         UI.SetActive(true);
-        //Destroy(this.gameObject);
     }
 
     void SetAbilityData()

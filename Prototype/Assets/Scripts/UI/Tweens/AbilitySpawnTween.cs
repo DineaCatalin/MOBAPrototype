@@ -42,7 +42,7 @@ public class AbilitySpawnTween : MonoBehaviour
         SetInitialData();
         Debug.Log("AbilitySpawnTween OnEnable ");
         LeanTween.scale(gameObject, finalScale, duration).setEase(scaleEaseType).setOnComplete(ActivateCollider);
-        LeanTween.value(gameObject, setSpriteAlpha, 0f, 1f, duration);
+        LeanTween.value(gameObject, setSpriteAlpha, 0f, 1f, duration).setEase(fadeEaseType);
     }
 
     void SetInitialData()
