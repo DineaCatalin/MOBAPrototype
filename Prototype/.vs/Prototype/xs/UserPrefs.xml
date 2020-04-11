@@ -1,13 +1,24 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Manager/AbilityManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Tweens/AbilitySpawnTween.cs" Line="60" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
+      <File FileName="Assets/Scripts/UI/Tweens/AbilitySpawnTween.cs" Line="12" Column="39" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="18" Column="6" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="7" Column="25" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/Tweens/ScaleTween.cs" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="194" Column="26" />
+      <File FileName="Assets/Scripts/UI/Tweens/DustDuskFadeTween.cs" Line="33" Column="51" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="34" Column="23" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="39" Column="42" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Tweens/ScaleTween.cs" Line="10" Column="5" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Tweens/BulkScaleTween.cs" Line="12" Column="40" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Tweens/FadeTween.cs" Line="23" Column="28" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="42" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" Line="15" Column="52" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Tweens/FadeInOutTween.cs" Line="20" Column="24" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="35" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Utils/AppManager.cs" Line="22" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="146" Column="30" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,16 +32,20 @@
               </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
+                  <Node name="Data" expanded="True" />
+                  <Node name="Manager" expanded="True">
+                    <Node name="AbilityManager.cs" selected="True" />
+                  </Node>
                   <Node name="ProjectileComponents" expanded="True" />
                 </Node>
-                <Node name="Network" expanded="True" />
-                <Node name="Player" expanded="True">
-                  <Node name="Player.cs" selected="True" />
-                </Node>
+                <Node name="Environment" expanded="True" />
+                <Node name="Player" expanded="True" />
                 <Node name="UI" expanded="True">
                   <Node name="Tweens" expanded="True" />
                 </Node>
+                <Node name="Utils" expanded="True" />
               </Node>
+              <Node name="StreamingAssets" expanded="True" />
             </Node>
           </Node>
         </State>
