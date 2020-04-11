@@ -288,7 +288,6 @@ GameObject:
   - component: {fileID: 13329786}
   - component: {fileID: 13329785}
   - component: {fileID: 13329784}
-  - component: {fileID: 13329787}
   m_Layer: 5
   m_Name: Selected Ability 4
   m_TagString: Untagged
@@ -407,22 +406,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13329782}
   m_CullTransparentMesh: 0
---- !u!114 &13329787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13329782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialScale: {x: 0.5, y: 0.5}
-  finalScale: {x: 1, y: 1}
-  scaleTime: 1
-  easeType: 27
 --- !u!1 &13637708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1086,11 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: buttonType
@@ -1360,6 +1348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontStyle
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
@@ -2585,6 +2578,11 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5739945804662270404, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3091,7 +3089,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.5044036
+  orthographic size: 5.9647717
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3166,7 +3164,6 @@ GameObject:
   - component: {fileID: 535816608}
   - component: {fileID: 535816607}
   - component: {fileID: 535816606}
-  - component: {fileID: 535816609}
   m_Layer: 5
   m_Name: Selected Ability 2
   m_TagString: Untagged
@@ -3285,22 +3282,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535816604}
   m_CullTransparentMesh: 0
---- !u!114 &535816609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535816604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialScale: {x: 0.5, y: 0.5}
-  finalScale: {x: 1, y: 1}
-  scaleTime: 1
-  easeType: 27
 --- !u!1 &549546074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,6 +3408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontStyle
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
@@ -3788,6 +3774,11 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: buttonType
@@ -4074,6 +4065,11 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: buttonType
@@ -4278,6 +4274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontStyle
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
@@ -5207,13 +5208,14 @@ GameObject:
   m_Component:
   - component: {fileID: 964118916}
   - component: {fileID: 964118915}
+  - component: {fileID: 964118918}
   m_Layer: 0
-  m_Name: DustDusk
+  m_Name: Dust Dusk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &964118915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5278,6 +5280,23 @@ Transform:
   m_Father: {fileID: 1514248300}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &964118918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964118914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6df29a312d54526b43f1abfcc7917c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectVisibleTime: 0
+  initialAlpha: 0
+  finalAlpha: 1
+  duration: 1
+  easeType: 6
 --- !u!1 &996421943
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,6 +5739,11 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: buttonType
@@ -5945,6 +5969,11 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7129593993564656343, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6071,7 +6100,7 @@ GameObject:
   - component: {fileID: 1069997091}
   - component: {fileID: 1069997090}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Player UI Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6454,7 +6483,7 @@ GameObject:
   - component: {fileID: 1210470175}
   - component: {fileID: 1210470179}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Ability Draft Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6618,7 +6647,6 @@ GameObject:
   - component: {fileID: 1259572576}
   - component: {fileID: 1259572575}
   - component: {fileID: 1259572574}
-  - component: {fileID: 1259572577}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -6736,22 +6764,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259572572}
   m_CullTransparentMesh: 0
---- !u!114 &1259572577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259572572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialScale: {x: 0.5, y: 0.5}
-  finalScale: {x: 1, y: 1}
-  scaleTime: 1
-  easeType: 27
 --- !u!1 &1308311119
 GameObject:
   m_ObjectHideFlags: 0
@@ -6994,6 +7006,11 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: buttonType
@@ -7222,6 +7239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontStyle
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
@@ -8192,6 +8214,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Applies a shield that blocks damage
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: buttonType
@@ -8413,6 +8440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontStyle
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7129593993564656343, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
@@ -9152,6 +9184,11 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: buttonType
@@ -9568,7 +9605,6 @@ GameObject:
   - component: {fileID: 1659391042}
   - component: {fileID: 1659391041}
   - component: {fileID: 1659391040}
-  - component: {fileID: 1659391043}
   m_Layer: 5
   m_Name: Selected Ability 3
   m_TagString: Untagged
@@ -9687,22 +9723,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659391038}
   m_CullTransparentMesh: 0
---- !u!114 &1659391043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659391038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialScale: {x: 0.5, y: 0.5}
-  finalScale: {x: 1, y: 1}
-  scaleTime: 1
-  easeType: 27
 --- !u!1 &1686758595
 GameObject:
   m_ObjectHideFlags: 0
@@ -9715,7 +9735,6 @@ GameObject:
   - component: {fileID: 1686758599}
   - component: {fileID: 1686758598}
   - component: {fileID: 1686758597}
-  - component: {fileID: 1686758600}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -9833,22 +9852,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686758595}
   m_CullTransparentMesh: 0
---- !u!114 &1686758600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686758595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialScale: {x: 0.5, y: 0.5}
-  finalScale: {x: 1, y: 1}
-  scaleTime: 1
-  easeType: 27
 --- !u!1 &1691743599
 GameObject:
   m_ObjectHideFlags: 0
@@ -10172,6 +10175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontStyle
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7129593993564656343, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
@@ -10897,6 +10905,11 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}
       propertyPath: buttonType
@@ -11032,7 +11045,6 @@ GameObject:
   - component: {fileID: 1956482921}
   - component: {fileID: 1956482920}
   - component: {fileID: 1956482919}
-  - component: {fileID: 1956482922}
   m_Layer: 5
   m_Name: Selected Ability 1
   m_TagString: Untagged
@@ -11151,22 +11163,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956482917}
   m_CullTransparentMesh: 0
---- !u!114 &1956482922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956482917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialScale: {x: 0.5, y: 0.5}
-  finalScale: {x: 1, y: 1}
-  scaleTime: 1
-  easeType: 27
 --- !u!4 &1960885819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4475174644171601964, guid: a55a7e7fa64b448bab8b2bdc018d5c0e,
@@ -11369,6 +11365,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontStyle
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712873226394272184, guid: f59a3cd2268c7486790c22fb8eca91ff,
+        type: 3}
+      propertyPath: scaleTime
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5757637370622027764, guid: f59a3cd2268c7486790c22fb8eca91ff,
         type: 3}

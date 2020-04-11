@@ -9,6 +9,8 @@ public class EnvironmentManager : MonoBehaviour
 
     SpriteRenderer dustDuskRenderer;
     Transform dustDuskTransform;
+    DustDuskFadeTween dustDuskFadeTween;
+
 
     PhotonView photonView;
 
@@ -38,9 +40,9 @@ public class EnvironmentManager : MonoBehaviour
     {
         dustDuskRenderer = dustDusk.GetComponent<SpriteRenderer>();
         dustDuskTransform = dustDusk.GetComponent<Transform>();
+        dustDuskFadeTween = dustDusk.GetComponent<DustDuskFadeTween>();
 
         ResizeToScreenSize();
-        dustDusk.SetActive(false);
     }
 
     [PunRPC]
@@ -53,7 +55,7 @@ public class EnvironmentManager : MonoBehaviour
     {
         photonView.RPC("ActivateDustDusk", RpcTarget.Others, teamID);
 
-        StartCoroutine(HideDuskDust(duration));
+        //StartCoroutine(HideDuskDust(duration));
     }
 
     [PunRPC]
@@ -61,27 +63,27 @@ public class EnvironmentManager : MonoBehaviour
     {
         // We can add a fade here later
         if (Player.localTeamID != casterTeamID)
-            dustDusk.SetActive(true);
+            dustDuskFadeTween.Fade();
     }
 
-    IEnumerator HideDuskDust(float time)
-    {
-        yield return new WaitForSeconds(time);
+    //IEnumerator HideDuskDust(float time)
+    //{
+    //    yield return new WaitForSeconds(time);
 
-        RemoveDusk();
-    }
+    //    RemoveDusk();
+    //}
 
     // Can make fade later out of it
-    void RemoveDusk()
-    {
-        photonView.RPC("RemoveDustDusk", RpcTarget.All);
-    }
+    //void RemoveDusk()
+    //{
+    //    photonView.RPC("RemoveDustDusk", RpcTarget.All);
+    //}
 
-    [PunRPC]
-    void RemoveDustDusk()
-    {
-        dustDusk.SetActive(false);
-    }
+    //[PunRPC]
+    //void RemoveDustDusk()
+    //{
+    //    dustDusk.SetActive(false);
+    //}
 
     void ResizeToScreenSize()
     {

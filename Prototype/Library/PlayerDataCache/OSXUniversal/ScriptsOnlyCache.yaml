@@ -23,6 +23,7 @@ ScriptsOnlyBuild:
     - DOTEffect
     - DestroyAfterCollisions
     - DustDuskAbility
+    - DustDuskFadeTween
     - EnvironmentManager
     - EventManager
     - Flicker
@@ -140,149 +141,151 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11192}
+      Script: {instanceID: 11196}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11238}
+      Script: {instanceID: 11242}
     - Class: 114
-      Script: {instanceID: 11294}
+      Script: {instanceID: 11300}
     - Class: 114
-      Script: {instanceID: 11324}
+      Script: {instanceID: 11332}
     - Class: 114
-      Script: {instanceID: 11396}
+      Script: {instanceID: 11406}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11414}
     - Class: 114
-      Script: {instanceID: 11510}
+      Script: {instanceID: 11478}
     - Class: 114
-      Script: {instanceID: 11528}
+      Script: {instanceID: 11524}
     - Class: 114
-      Script: {instanceID: 11534}
+      Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11536}
+      Script: {instanceID: 11548}
     - Class: 114
-      Script: {instanceID: 11666}
+      Script: {instanceID: 11550}
     - Class: 114
-      Script: {instanceID: 11896}
+      Script: {instanceID: 11684}
     - Class: 114
-      Script: {instanceID: 11904}
+      Script: {instanceID: 11924}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11976}
+      Script: {instanceID: 11988}
     - Class: 114
-      Script: {instanceID: 11978}
+      Script: {instanceID: 12006}
     - Class: 114
-      Script: {instanceID: 11992}
+      Script: {instanceID: 12008}
     - Class: 114
-      Script: {instanceID: 12064}
+      Script: {instanceID: 12022}
     - Class: 114
-      Script: {instanceID: 12140}
+      Script: {instanceID: 12098}
     - Class: 114
-      Script: {instanceID: 12176}
+      Script: {instanceID: 12178}
     - Class: 114
-      Script: {instanceID: 12186}
-    - Class: 114
-      Script: {instanceID: 12190}
-    - Class: 114
-      Script: {instanceID: 12196}
-    - Class: 114
-      Script: {instanceID: 12200}
-    - Class: 114
-      Script: {instanceID: 12202}
+      Script: {instanceID: 12214}
     - Class: 114
       Script: {instanceID: 12224}
     - Class: 114
-      Script: {instanceID: 12296}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12332}
+      Script: {instanceID: 12236}
     - Class: 114
-      Script: {instanceID: 12366}
+      Script: {instanceID: 12240}
     - Class: 114
-      Script: {instanceID: 12392}
+      Script: {instanceID: 12242}
     - Class: 114
-      Script: {instanceID: 12432}
+      Script: {instanceID: 12264}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 12336}
     - Class: 114
-      Script: {instanceID: 12490}
+      Script: {instanceID: 12376}
     - Class: 114
-      Script: {instanceID: 12518}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 12534}
+      Script: {instanceID: 12438}
+    - Class: 114
+      Script: {instanceID: 12478}
+    - Class: 114
+      Script: {instanceID: 12482}
     - Class: 114
       Script: {instanceID: 12536}
     - Class: 114
-      Script: {instanceID: 12546}
+      Script: {instanceID: 12564}
     - Class: 114
-      Script: {instanceID: 12598}
+      Script: {instanceID: 12580}
     - Class: 114
-      Script: {instanceID: 12700}
+      Script: {instanceID: 12582}
     - Class: 114
-      Script: {instanceID: 12738}
+      Script: {instanceID: 12592}
     - Class: 114
-      Script: {instanceID: 12774}
+      Script: {instanceID: 12644}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12750}
     - Class: 114
-      Script: {instanceID: 12864}
+      Script: {instanceID: 12790}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12826}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12888}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12918}
     - Class: 114
-      Script: {instanceID: 12980}
+      Script: {instanceID: 12948}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 12964}
     - Class: 114
-      Script: {instanceID: 13036}
+      Script: {instanceID: 12984}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 13042}
     - Class: 114
-      Script: {instanceID: 13114}
+      Script: {instanceID: 13068}
     - Class: 114
-      Script: {instanceID: 13118}
+      Script: {instanceID: 13100}
     - Class: 114
-      Script: {instanceID: 13140}
+      Script: {instanceID: 13168}
     - Class: 114
-      Script: {instanceID: 13194}
+      Script: {instanceID: 13178}
     - Class: 114
-      Script: {instanceID: 13196}
+      Script: {instanceID: 13182}
     - Class: 114
-      Script: {instanceID: 13222}
+      Script: {instanceID: 13204}
     - Class: 114
-      Script: {instanceID: 13264}
+      Script: {instanceID: 13258}
     - Class: 114
-      Script: {instanceID: 13272}
+      Script: {instanceID: 13260}
     - Class: 114
-      Script: {instanceID: 13296}
+      Script: {instanceID: 13286}
     - Class: 114
-      Script: {instanceID: 13446}
+      Script: {instanceID: 13328}
     - Class: 114
-      Script: {instanceID: 13580}
+      Script: {instanceID: 13336}
     - Class: 114
-      Script: {instanceID: 13584}
+      Script: {instanceID: 13360}
     - Class: 114
-      Script: {instanceID: 13592}
+      Script: {instanceID: 13510}
     - Class: 114
-      Script: {instanceID: 13600}
+      Script: {instanceID: 13562}
     - Class: 114
-      Script: {instanceID: 13668}
+      Script: {instanceID: 13652}
     - Class: 114
-      Script: {instanceID: 13684}
+      Script: {instanceID: 13656}
     - Class: 114
-      Script: {instanceID: 13724}
+      Script: {instanceID: 13664}
     - Class: 114
-      Script: {instanceID: 13740}
+      Script: {instanceID: 13674}
     - Class: 114
-      Script: {instanceID: 13744}
+      Script: {instanceID: 13742}
     - Class: 114
-      Script: {instanceID: 44984}
+      Script: {instanceID: 13758}
     - Class: 114
-      Script: {instanceID: 131836}
+      Script: {instanceID: 13802}
+    - Class: 114
+      Script: {instanceID: 13820}
+    - Class: 114
+      Script: {instanceID: 13824}
+    - Class: 114
+      Script: {instanceID: 24798}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -349,137 +352,137 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11192}
+      Script: {instanceID: 11196}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11238}
+      Script: {instanceID: 11242}
     - Class: 114
-      Script: {instanceID: 11356}
+      Script: {instanceID: 11366}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11388}
     - Class: 114
-      Script: {instanceID: 11420}
+      Script: {instanceID: 11414}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11432}
     - Class: 114
-      Script: {instanceID: 11510}
+      Script: {instanceID: 11478}
     - Class: 114
-      Script: {instanceID: 11528}
+      Script: {instanceID: 11524}
     - Class: 114
-      Script: {instanceID: 11536}
+      Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11666}
+      Script: {instanceID: 11550}
     - Class: 114
-      Script: {instanceID: 11892}
+      Script: {instanceID: 11684}
     - Class: 114
-      Script: {instanceID: 11978}
+      Script: {instanceID: 11918}
     - Class: 114
-      Script: {instanceID: 12026}
+      Script: {instanceID: 12008}
     - Class: 114
-      Script: {instanceID: 12064}
+      Script: {instanceID: 12060}
     - Class: 114
-      Script: {instanceID: 12070}
+      Script: {instanceID: 12098}
     - Class: 114
-      Script: {instanceID: 12140}
+      Script: {instanceID: 12104}
     - Class: 114
-      Script: {instanceID: 12186}
+      Script: {instanceID: 12178}
     - Class: 114
-      Script: {instanceID: 12190}
+      Script: {instanceID: 12224}
     - Class: 114
-      Script: {instanceID: 12196}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12200}
+      Script: {instanceID: 12236}
     - Class: 114
-      Script: {instanceID: 12202}
+      Script: {instanceID: 12240}
     - Class: 114
-      Script: {instanceID: 12296}
+      Script: {instanceID: 12242}
     - Class: 114
-      Script: {instanceID: 12308}
+      Script: {instanceID: 12336}
     - Class: 114
-      Script: {instanceID: 12366}
+      Script: {instanceID: 12350}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 12392}
+      Script: {instanceID: 12434}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 12438}
     - Class: 114
-      Script: {instanceID: 12546}
+      Script: {instanceID: 12482}
     - Class: 114
-      Script: {instanceID: 12598}
+      Script: {instanceID: 12592}
     - Class: 114
-      Script: {instanceID: 12602}
+      Script: {instanceID: 12644}
     - Class: 114
-      Script: {instanceID: 12624}
+      Script: {instanceID: 12650}
     - Class: 114
-      Script: {instanceID: 12684}
+      Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 12700}
+      Script: {instanceID: 12734}
     - Class: 114
-      Script: {instanceID: 12738}
+      Script: {instanceID: 12750}
     - Class: 114
-      Script: {instanceID: 12774}
+      Script: {instanceID: 12790}
     - Class: 114
-      Script: {instanceID: 12776}
+      Script: {instanceID: 12826}
     - Class: 114
-      Script: {instanceID: 12784}
+      Script: {instanceID: 12828}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12888}
     - Class: 114
-      Script: {instanceID: 12864}
+      Script: {instanceID: 12904}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12918}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12964}
     - Class: 114
-      Script: {instanceID: 12932}
+      Script: {instanceID: 12984}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 12990}
     - Class: 114
-      Script: {instanceID: 13018}
+      Script: {instanceID: 13068}
     - Class: 114
-      Script: {instanceID: 13036}
+      Script: {instanceID: 13080}
     - Class: 114
-      Script: {instanceID: 13038}
+      Script: {instanceID: 13100}
     - Class: 114
-      Script: {instanceID: 13046}
+      Script: {instanceID: 13102}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 13110}
     - Class: 114
-      Script: {instanceID: 13114}
+      Script: {instanceID: 13168}
     - Class: 114
-      Script: {instanceID: 13118}
+      Script: {instanceID: 13178}
     - Class: 114
-      Script: {instanceID: 13140}
+      Script: {instanceID: 13182}
     - Class: 114
-      Script: {instanceID: 13194}
+      Script: {instanceID: 13204}
     - Class: 114
-      Script: {instanceID: 13222}
+      Script: {instanceID: 13258}
     - Class: 114
-      Script: {instanceID: 13264}
+      Script: {instanceID: 13286}
     - Class: 114
-      Script: {instanceID: 13272}
+      Script: {instanceID: 13328}
     - Class: 114
-      Script: {instanceID: 13408}
+      Script: {instanceID: 13336}
     - Class: 114
-      Script: {instanceID: 13584}
+      Script: {instanceID: 13472}
     - Class: 114
-      Script: {instanceID: 13592}
+      Script: {instanceID: 13656}
     - Class: 114
-      Script: {instanceID: 13600}
+      Script: {instanceID: 13664}
     - Class: 114
-      Script: {instanceID: 13668}
+      Script: {instanceID: 13674}
     - Class: 114
-      Script: {instanceID: 13716}
+      Script: {instanceID: 13742}
     - Class: 114
-      Script: {instanceID: 13724}
+      Script: {instanceID: 13794}
     - Class: 114
-      Script: {instanceID: 13744}
+      Script: {instanceID: 13802}
     - Class: 114
-      Script: {instanceID: 131836}
+      Script: {instanceID: 13824}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -525,6 +528,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: PunTeams
+  - hash:
+      serializedVersion: 2
+      Hash: e41918c9e32b7840fccfa7ee81e3f81e
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: LogoCinematic
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -581,6 +590,12 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 40aeefc42dfa427357f3518925654d60
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralBasics2d
+  - hash:
+      serializedVersion: 2
       Hash: 2163458cae41cb1735c8b06fc34a9582
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -623,6 +638,12 @@ ScriptsOnlyBuild:
     className: ChatGui
   - hash:
       serializedVersion: 2
+      Hash: 928ca8678155de4eb92215a4cdef11a1
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: DentedPixel.LTExamples
+    className: TestingUnitTests
+  - hash:
+      serializedVersion: 2
       Hash: 85a2dea8518eeeb88f76f3ebfff75ea2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -639,6 +660,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: f13c460e52d02ffe01df7fab616110e3
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathBezier2d
   - hash:
       serializedVersion: 2
       Hash: bd4c580f02d31d4be48d7a47440392c4
@@ -695,6 +722,12 @@ ScriptsOnlyBuild:
     className: ButtonInsideScrollList
   - hash:
       serializedVersion: 2
+      Hash: 5bd6bb8b0c5aac79a04b65bb08f4c543
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AbilitySpawnTween
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
@@ -711,6 +744,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Scrollbar
+  - hash:
+      serializedVersion: 2
+      Hash: f13c460e52d02ffe01df7fab616110e3
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathSpline2d
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -815,6 +854,12 @@ ScriptsOnlyBuild:
     className: ConnectAndJoinRandomLb
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralCameraShake
+  - hash:
+      serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -867,6 +912,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.SlotRacer.Utils
     className: BezierCurve
+  - hash:
+      serializedVersion: 2
+      Hash: b6894215a42cb0ce46cd3c2a651ac089
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralSimpleUI
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -929,6 +980,12 @@ ScriptsOnlyBuild:
     className: RectMask2D
   - hash:
       serializedVersion: 2
+      Hash: e9932200d83498a2e6c029112d69de59
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralEasingTypes
+  - hash:
+      serializedVersion: 2
       Hash: 4e9333594897a1fb8b136ad2eae996c7
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -939,6 +996,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Asteroids
     className: AsteroidsGameManager
+  - hash:
+      serializedVersion: 2
+      Hash: 1f3a471cd6e711022858ae1a632a0af5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: Following
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -965,10 +1028,22 @@ ScriptsOnlyBuild:
     className: PhotonRigidbody2DView
   - hash:
       serializedVersion: 2
+      Hash: 318eceb934b462316071551ba0414124
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathSplineEndless
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: 5df8f04f27f1365841ef759a37abb452
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralBasic
   - hash:
       serializedVersion: 2
       Hash: 41f297d0fe0912bb0758f74de81f47c8
@@ -1031,6 +1106,12 @@ ScriptsOnlyBuild:
     className: EnvironmentManager
   - hash:
       serializedVersion: 2
+      Hash: 64539b9106486719878df4581e1ae0ad
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralAdvancedTechniques
+  - hash:
+      serializedVersion: 2
       Hash: 0744c041f64b0cb691439148a53ec979
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1059,6 +1140,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 99f0f78788218459985f9b0975e79146
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralSequencer
   - hash:
       serializedVersion: 2
       Hash: 117e94af12d2e42e9e17b73f2602978e
@@ -1113,6 +1200,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: BestRegionInPrefsProperty
+  - hash:
+      serializedVersion: 2
+      Hash: ae5c2f074db42129b5ef9e8bac8b1590
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathSplinePerformance
   - hash:
       serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
@@ -1247,6 +1340,12 @@ ScriptsOnlyBuild:
     className: ChannelSelector
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: LeanTween
+  - hash:
+      serializedVersion: 2
       Hash: 14f6e7d5314d3aff9265172f9d1e95a9
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
@@ -1269,6 +1368,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: ChatAppIdCheckerUI
+  - hash:
+      serializedVersion: 2
+      Hash: ef5bbd1133544028b676c462676b0965
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: TestingPunch
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1475,6 +1580,12 @@ ScriptsOnlyBuild:
     className: StatsBar
   - hash:
       serializedVersion: 2
+      Hash: b3ff64ca2e6c99b7b1bcfb31e95b2ce5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathSplineTrack
+  - hash:
+      serializedVersion: 2
       Hash: 5af5a38642aaa0bd29718de32dc06f1f
     assemblyName: PhotonUnityNetworking.dll
     namespaceName: Photon.Pun
@@ -1485,6 +1596,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: GameVersionProperty
+  - hash:
+      serializedVersion: 2
+      Hash: cb20a06a1ae3b651c46aa7bfe4ea264c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FadeInOutTween
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1553,6 +1670,12 @@ ScriptsOnlyBuild:
     className: StateManager
   - hash:
       serializedVersion: 2
+      Hash: eb2a9f75918f2ec46c2bd527aca290ca
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: TestingZLegacy
+  - hash:
+      serializedVersion: 2
       Hash: c571ade4cb1bf46caece1c843b380e2f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1611,6 +1734,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ObjectPool
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: TestingRigidbodyCS
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -1679,6 +1808,12 @@ ScriptsOnlyBuild:
     className: FriendItem
   - hash:
       serializedVersion: 2
+      Hash: a0d1bcc68004704308edb26e4d0f97b5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: DentedPixel.LTExamples
+    className: PathBezier
+  - hash:
+      serializedVersion: 2
       Hash: afc5b93a7b192de2dcb3832fe35a5c7e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1709,10 +1844,22 @@ ScriptsOnlyBuild:
     className: RoomListEntry
   - hash:
       serializedVersion: 2
+      Hash: 04352bf837e8c1149ea0eee9acc164c4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FadeTween
+  - hash:
+      serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: ServerProperty
+  - hash:
+      serializedVersion: 2
+      Hash: 1445d8ccdc0d380f36bb4ea1ea4609bc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BulkScaleTween
   - hash:
       serializedVersion: 2
       Hash: d2a2698b314a20912af1eb2b1758dc90
@@ -1755,6 +1902,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.PunBasics
     className: CameraWork
+  - hash:
+      serializedVersion: 2
+      Hash: eb2a9f75918f2ec46c2bd527aca290ca
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: TestingZLegacyExt
   - hash:
       serializedVersion: 2
       Hash: aa1e34bc11ed46dde0c24381fd329afe
@@ -1817,7 +1970,7 @@ ScriptsOnlyBuild:
     className: ScoreHelper
   - hash:
       serializedVersion: 2
-      Hash: 1df5043f0424ac97346ea8f965958921
+      Hash: 1f8d246784ecb087337b27f08354a32d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilityDuration
@@ -1997,6 +2150,12 @@ ScriptsOnlyBuild:
     className: CurrentRoomMasterClientIdProperty
   - hash:
       serializedVersion: 2
+      Hash: 14d39821f1a0b6d8c46023dbbacb4db4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScaleTween
+  - hash:
+      serializedVersion: 2
       Hash: e90137b14c2644736d5abeafc2b26c9a
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -2051,6 +2210,12 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
+      Hash: a0d1bcc68004704308edb26e4d0f97b5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathSplines
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -2085,6 +2250,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.dll
     namespaceName: Photon.Pun
     className: PhotonView
+  - hash:
+      serializedVersion: 2
+      Hash: 505d135987a40b183e97f89c9c82d9e6
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralUISpace
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -2177,6 +2348,12 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralEventsListeners
+  - hash:
+      serializedVersion: 2
       Hash: aa88ae22474df55295327e4ee99e5a24
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -2217,6 +2394,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: BoolInputField
+  - hash:
+      serializedVersion: 2
+      Hash: 6a6b62ad42f0c97f3b8565ebc273ad24
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: OldGUIExamplesCS
   - hash:
       serializedVersion: 2
       Hash: 105e11b5b1f2624ed9bd8517839498f2
@@ -2267,166 +2450,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: e41918c9e32b7840fccfa7ee81e3f81e
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: LogoCinematic
-  - hash:
-      serializedVersion: 2
-      Hash: 40aeefc42dfa427357f3518925654d60
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralBasics2d
-  - hash:
-      serializedVersion: 2
-      Hash: 928ca8678155de4eb92215a4cdef11a1
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: DentedPixel.LTExamples
-    className: TestingUnitTests
-  - hash:
-      serializedVersion: 2
-      Hash: f13c460e52d02ffe01df7fab616110e3
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathBezier2d
-  - hash:
-      serializedVersion: 2
-      Hash: f13c460e52d02ffe01df7fab616110e3
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSpline2d
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralCameraShake
-  - hash:
-      serializedVersion: 2
-      Hash: b6894215a42cb0ce46cd3c2a651ac089
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralSimpleUI
-  - hash:
-      serializedVersion: 2
-      Hash: e9932200d83498a2e6c029112d69de59
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralEasingTypes
-  - hash:
-      serializedVersion: 2
-      Hash: 1f3a471cd6e711022858ae1a632a0af5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: Following
-  - hash:
-      serializedVersion: 2
-      Hash: 318eceb934b462316071551ba0414124
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSplineEndless
-  - hash:
-      serializedVersion: 2
-      Hash: 5df8f04f27f1365841ef759a37abb452
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralBasic
-  - hash:
-      serializedVersion: 2
-      Hash: 64539b9106486719878df4581e1ae0ad
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralAdvancedTechniques
-  - hash:
-      serializedVersion: 2
-      Hash: 99f0f78788218459985f9b0975e79146
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralSequencer
-  - hash:
-      serializedVersion: 2
-      Hash: ae5c2f074db42129b5ef9e8bac8b1590
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSplinePerformance
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: LeanTween
-  - hash:
-      serializedVersion: 2
-      Hash: ef5bbd1133544028b676c462676b0965
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: TestingPunch
-  - hash:
-      serializedVersion: 2
-      Hash: b3ff64ca2e6c99b7b1bcfb31e95b2ce5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSplineTrack
-  - hash:
-      serializedVersion: 2
-      Hash: eb2a9f75918f2ec46c2bd527aca290ca
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: TestingZLegacy
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: TestingRigidbodyCS
-  - hash:
-      serializedVersion: 2
-      Hash: a0d1bcc68004704308edb26e4d0f97b5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: DentedPixel.LTExamples
-    className: PathBezier
-  - hash:
-      serializedVersion: 2
-      Hash: eb2a9f75918f2ec46c2bd527aca290ca
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: TestingZLegacyExt
-  - hash:
-      serializedVersion: 2
-      Hash: a0d1bcc68004704308edb26e4d0f97b5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSplines
-  - hash:
-      serializedVersion: 2
-      Hash: 505d135987a40b183e97f89c9c82d9e6
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralUISpace
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralEventsListeners
-  - hash:
-      serializedVersion: 2
-      Hash: 6a6b62ad42f0c97f3b8565ebc273ad24
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: OldGUIExamplesCS
-  - hash:
-      serializedVersion: 2
-      Hash: 14d39821f1a0b6d8c46023dbbacb4db4
+      Hash: 0905fe66c0f13a88357e2921f8dbbdb0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ScaleTween
-  - hash:
-      serializedVersion: 2
-      Hash: 5bd6bb8b0c5aac79a04b65bb08f4c543
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AbilitySpawnTween
+    className: DustDuskFadeTween
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity

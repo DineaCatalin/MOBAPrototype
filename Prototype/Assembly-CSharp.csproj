@@ -139,6 +139,10 @@
     <Compile Include="Assets\Scripts\UI\PlayerBuffs.cs" />
     <Compile Include="Assets\Scripts\UI\StatsBar.cs" />
     <Compile Include="Assets\Scripts\UI\Tweens\AbilitySpawnTween.cs" />
+    <Compile Include="Assets\Scripts\UI\Tweens\BulkScaleTween.cs" />
+    <Compile Include="Assets\Scripts\UI\Tweens\DustDuskFadeTween.cs" />
+    <Compile Include="Assets\Scripts\UI\Tweens\FadeInOutTween.cs" />
+    <Compile Include="Assets\Scripts\UI\Tweens\FadeTween.cs" />
     <Compile Include="Assets\Scripts\UI\Tweens\ScaleTween.cs" />
     <Compile Include="Assets\Scripts\Utils\ActivationDelay.cs" />
     <Compile Include="Assets\Scripts\Utils\AppManager.cs" />
