@@ -7,5 +7,6 @@ public class HealEffect : AbilityEffect
     {
         base.ApplyLocalVisualEffects(player, visualEffect);
         player.HealOverTime(stats.duration, stats.hpValue);
+        GameManager.Instance.ActivatePlayerUIBuff(visualEffect, stats.duration, player.GetID(), Photon.Pun.RpcTarget.All);
     }
 }

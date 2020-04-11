@@ -478,4 +478,25 @@ public class GameManager : MonoBehaviour
         playerMap[playerID].ActivateRushArea(duration);
     }
 
+    public void ActivatePlayerUIBuff(PlayerEffect buff, float duration, int playerID, RpcTarget targets)
+    {
+        photonView.RPC("ActivatePlayerUIBuffRPC", targets, buff, duration, playerID);
+    }
+
+    [PunRPC]
+    void ActivatePlayerUIBuffRPC(PlayerEffect buff, float duration, int playerID)
+    {
+        playerMap[playerID].ActivateBuffUI(buff, duration);
+    }
+
+    public void DeactivatePlayerUIBuff(PlayerEffect buff, int playerID, RpcTarget targets)
+    {
+        photonView.RPC("DeactivatePlayerUIBuffRPC", targets, buff, playerID);
+    }
+
+    [PunRPC]
+    void DeactivatePlayerUIBuffRPC(PlayerEffect buff, int playerID)
+    {
+        playerMap[playerID].DeactivateBuffUI(buff);
+    }
 }

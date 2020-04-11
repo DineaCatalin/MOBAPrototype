@@ -13,7 +13,7 @@ public class InteruptHeal : MonoBehaviour
             if(player.isNetworkActive)
                 player.StopHealOverTime();
 
-            player.DeactivateBuffUI(PlayerEffect.Heal);
+            GameManager.Instance.DeactivatePlayerUIBuff(PlayerEffect.Heal, player.GetID(), Photon.Pun.RpcTarget.All);
         }
     }
 }

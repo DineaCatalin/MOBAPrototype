@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Effects/HealEffect.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/InteruptHeal.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/Tweens/AbilitySpawnTween.cs" Line="45" Column="60" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="21" Column="40" />
@@ -12,8 +12,10 @@
       <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" Line="51" Column="25" />
       <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="41" Column="27" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="9" Column="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="39" Column="42" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="8" Column="58" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="491" Column="39" />
+      <File FileName="Assets/Scripts/Abilities/HealAbility.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="638" Column="35" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Tweens/ScaleTween.cs" Line="12" Column="20" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Tweens/BulkScaleTween.cs" Line="12" Column="40" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Tweens/FadeTween.cs" Line="23" Column="28" NotebookId="1" />
@@ -23,6 +25,8 @@
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="35" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/AppManager.cs" Line="22" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="48" Column="50" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/InteruptHeal.cs" Line="23" Column="69" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/PlayerBuffs.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -33,13 +37,13 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
-                  <Node name="Effects" expanded="True">
-                    <Node name="HealEffect.cs" selected="True" />
-                  </Node>
+                  <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
+                  <Node name="InteruptHeal.cs" selected="True" />
                 </Node>
                 <Node name="Environment" expanded="True" />
+                <Node name="GameManager" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="UI" expanded="True">
                   <Node name="Tweens" expanded="True" />
