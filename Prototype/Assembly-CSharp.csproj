@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MouseHandler.cs" />
     <Compile Include="Assets\Scripts\Abilities\Ability.cs" />
     <Compile Include="Assets\Scripts\Abilities\BlinkAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\Data\AbilityData.cs" />
@@ -116,6 +115,8 @@
     <Compile Include="Assets\Scripts\Item\ItemPool.cs" />
     <Compile Include="Assets\Scripts\Match\Match.cs" />
     <Compile Include="Assets\Scripts\Match\MatchClock.cs" />
+    <Compile Include="Assets\Scripts\Match\MatchPlayer.cs" />
+    <Compile Include="Assets\Scripts\MouseHandler.cs" />
     <Compile Include="Assets\Scripts\Network\AbilitySpawner.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_GameLobby.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_PlayerSync.cs" />
@@ -159,7 +160,6 @@
     <Compile Include="Assets\Scripts\Utils\StateManager.cs" />
     <Compile Include="Assets\Scripts\Utils\StopCanvasRotation.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
-    <Compile Include="Assets\TestProjectile.cs" />
     <None Include="Assets\Config\Resources\SelectedAbilitiesConfig.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

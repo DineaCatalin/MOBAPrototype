@@ -6,7 +6,7 @@ public abstract class AbilityEffect : MonoBehaviour
 {
     public PlayerEffect visualEffect;
 
-    public abstract void ApplyEffect(Player player, AbilityStats stats);
+    public abstract void ApplyEffect(Player player, AbilityStats stats, int casterID);
 
     protected void ApplyVisualEffect(Player player, PlayerEffect visualEffect, AbilityStats stats)
     {

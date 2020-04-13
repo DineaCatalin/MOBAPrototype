@@ -11,7 +11,7 @@ public class SlowEffect : AbilityEffect
         visualEffect = PlayerEffect.Slow;
     }
 
-    public override void ApplyEffect(Player player, AbilityStats stats)
+    public override void ApplyEffect(Player player, AbilityStats stats, int casterID)
     {
         Debug.Log("SlowEffect");
         base.ApplyVisualEffect(player, visualEffect, stats);
@@ -21,7 +21,7 @@ public class SlowEffect : AbilityEffect
             if (applyDamage)
             {
                 player.SlowForDuration(stats.dotValue, stats.duration);
-                player.Damage(stats.hpValue);
+                player.Damage(stats.hpValue, casterID);
             }
             else
             {

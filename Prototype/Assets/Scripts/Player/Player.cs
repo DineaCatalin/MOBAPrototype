@@ -256,28 +256,28 @@ public class Player : MonoBehaviour
         hasDoubleDamage = false;
     }
 
-    public void DamageAndDOT(int initialDamage, int dotTicks, int dotDamage)
+    public void DamageAndDOT(int initialDamage, int dotTicks, int dotDamage, int casterPlayerID)
     {
         if (shield.IsActive())
         {
             Debug.Log("Player DamageAndDOT shield is active");
-            Damage(initialDamage);
+            Damage(initialDamage, casterPlayerID);
         }
         else
         {
             Debug.Log("Player DamageAndDOT shield is not active also applying DOT");
-            Damage(initialDamage);
-            ApplyDOT(dotTicks, dotDamage);
+            Damage(initialDamage, casterPlayerID);
+            ApplyDOT(dotTicks, dotDamage, casterPlayerID);
         }
     }
 
     // Will apply damage over time
-    public void ApplyDOT(int numTicks, int damage)
+    public void ApplyDOT(int numTicks, int damage, int casterPlayerID)
     {
         if (gameObject.activeSelf)
         {
             isRecevingDOT = true;
-            coroutines.Add(StartCoroutine(ApplyTickDamage(numTicks, damage)));
+            coroutines.Add(StartCoroutine(ApplyTickDamage(numTicks, damage, casterPlayerID)));
         }
     }
 
@@ -299,7 +299,7 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            Damage(damage);
+            Damage(damage, 0);
             yield return new WaitForSeconds(damageInterval);
         }
     }
@@ -315,7 +315,7 @@ public class Player : MonoBehaviour
         StopCoroutine(healCoroutine);
     }
 
-    public void Damage(int damage)
+    public void Damage(int damage, int casterPlayerID)
     {
         // Manage shield : if the shield is active and the damage delt is not enogh to destroy
         // the shield don't appy damage to the player
@@ -337,15 +337,15 @@ public class Player : MonoBehaviour
         if (stats.health <= 0 && isAlive)
         {
             Debug.Log("Player " + id + " Die()");
-            Die();
+            Die(casterPlayerID);
         }
     }
 
-    void Die()
+    void Die(int killerID)
     {
         // We will just set the GO as inactive
         Debug.Log("Player " + id + " Die()");
-        GameManager.Instance.KillNetworkedPlayer(this.id);
+        GameManager.Instance.KillNetworkedPlayer(this.id, killerID);
     }
 
     public void Deactivate()
@@ -407,7 +407,7 @@ public class Player : MonoBehaviour
         if (isNetworkActive)
         {
             transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
-            Activate();
+            //Activate();
             Invoke("Activate", GameManager.ACTIVATE_PLAYER_DELAY);
             GameManager.Instance.ActivateNonLocalPlayer(id);
             PlayerController.isLocked = false;
@@ -500,13 +500,13 @@ public class Player : MonoBehaviour
         return true;
     }
 
-    IEnumerator ApplyTickDamage(int numTicks, int damage)
+    IEnumerator ApplyTickDamage(int numTicks, int damage, int casterPlayerID)
     {
         for (int i = 0; i < numTicks; i++)
         {
             // Wait for 1 second before applying the 1st tick
             yield return new WaitForSeconds(1f);
-            Damage(damage);
+            Damage(damage, casterPlayerID);
         }
 
         // DOT has finished 
@@ -690,10 +690,10 @@ public class Player : MonoBehaviour
     //
 
     // This effect will throw the player in a random direction
-    public void Knockout(int force, int damage)
+    public void Knockout(int force, int damage, int casterPlayerID)
     {
         Debug.Log("Knocking out player " + id);
-        Damage(damage);
+        Damage(damage, casterPlayerID);
 
         float x = force * Mathf.Pow(-1, Random.Range(0,2));
         float y = force * Mathf.Pow(-1, Random.Range(0, 2));
@@ -705,9 +705,9 @@ public class Player : MonoBehaviour
         rigidBody.AddForce(pushForce, ForceMode2D.Impulse);
     }
 
-    public void PullToLocation(Vector3 targetPosition, int force, int damage)
+    public void PullToLocation(Vector3 targetPosition, int force, int damage, int casterPlayerID)
     {
-        Damage(damage);
+        Damage(damage, casterPlayerID);
 
         Vector3 direction = targetPosition - transform.position;
         direction.Normalize();

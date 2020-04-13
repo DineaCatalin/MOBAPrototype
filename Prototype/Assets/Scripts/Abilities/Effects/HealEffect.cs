@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HealEffect : AbilityEffect
 {
-    public override void ApplyEffect(Player player, AbilityStats stats)
+    public override void ApplyEffect(Player player, AbilityStats stats, int casterID)
     {
         base.ApplyLocalVisualEffects(player, visualEffect);
         player.HealOverTime(stats.duration, stats.hpValue);

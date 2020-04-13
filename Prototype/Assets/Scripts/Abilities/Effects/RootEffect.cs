@@ -8,7 +8,7 @@ public class RootEffect : AbilityEffect
         visualEffect = PlayerEffect.Root;
     }
 
-    public override void ApplyEffect(Player player, AbilityStats stats)
+    public override void ApplyEffect(Player player, AbilityStats stats, int casterID)
     {
         base.ApplyVisualEffect(player, visualEffect, stats);
 
