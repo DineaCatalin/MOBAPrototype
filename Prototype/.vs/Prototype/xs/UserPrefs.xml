@@ -1,49 +1,51 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/InteruptHeal.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Match/Match.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Tweens/AbilitySpawnTween.cs" Line="45" Column="60" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="21" Column="40" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="61" Column="10" />
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="78" Column="1" />
-      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="194" Column="26" />
-      <File FileName="Assets/Scripts/UI/Tweens/DustDuskFadeTween.cs" Line="33" Column="51" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="34" Column="23" />
-      <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" Line="51" Column="25" />
-      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="41" Column="27" />
-      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="8" Column="58" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="491" Column="39" />
-      <File FileName="Assets/Scripts/Abilities/HealAbility.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="638" Column="35" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/Tweens/ScaleTween.cs" Line="12" Column="20" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/Tweens/BulkScaleTween.cs" Line="12" Column="40" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/Tweens/FadeTween.cs" Line="23" Column="28" NotebookId="1" />
-      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="42" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" Line="15" Column="52" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/Tweens/FadeInOutTween.cs" Line="20" Column="24" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" Line="35" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Utils/AppManager.cs" Line="22" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" Line="48" Column="50" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/InteruptHeal.cs" Line="23" Column="69" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/PlayerBuffs.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Match/MatchPlayer.cs" Line="19" Column="23" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="83" Column="48" />
+      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="63" Column="50" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="348" Column="49" NotebookId="1" />
+      <File FileName="Assets/Scripts/Match/Match.cs" Line="97" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="238" Column="35" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" Line="9" Column="37" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="82" Column="71" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DamageEffect.cs" Line="11" Column="40" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="19" Column="80" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="9" Column="60" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" Line="12" Column="68" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/ManaBurnEffect.cs" Line="10" Column="50" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/PullEffect.cs" Line="12" Column="94" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" Line="15" Column="35" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/SlowEffect.cs" Line="24" Column="54" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/AreaLimiter.cs" Line="27" Column="40" NotebookId="1" />
+      <File FileName="Assets/Scripts/Environment/Lava.cs" Line="17" Column="47" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Plugins" expanded="True" />
+              <Node name="Plugins" expanded="True">
+                <Node name="Photon" expanded="True">
+                  <Node name="PhotonUnityNetworking" expanded="True">
+                    <Node name="Code" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
                   <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
-                  <Node name="InteruptHeal.cs" selected="True" />
                 </Node>
                 <Node name="Environment" expanded="True" />
                 <Node name="GameManager" expanded="True" />
+                <Node name="Match" expanded="True">
+                  <Node name="Match.cs" selected="True" />
+                </Node>
+                <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="UI" expanded="True">
                   <Node name="Tweens" expanded="True" />
@@ -59,7 +61,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5d21e3e7-a387-48cb-9d40-80eb31aca1ad" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bf64405d-8f91-4d23-9513-971c3f2a3547" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/catalin.dinea/git/MOBAPrototype/Prototype/Assets/StreamingAssets/CastRangeConfig.txt" relfile="Assets/StreamingAssets/CastRangeConfig.txt" line="48" column="1" />

@@ -32,7 +32,6 @@ public class AbilitySpawner : MonoBehaviour
     void SpawnStaticAbility(string projectileName, Vector3 position, Quaternion rotation, int layer, int casterPlayerID)
     {
         Debug.Log("AbilitySpawner Spawning " + projectileName);
-        //GameObject spawned = Instantiate(projectileMap[projectileName], position, rotation);
 
         GameObject spawned = AbilityProjectilePool.Instance.GetProjectile(projectileName);
         spawned.transform.position = position;
@@ -42,12 +41,13 @@ public class AbilitySpawner : MonoBehaviour
         spawned.layer = layer;
 
         Player player = GameManager.Instance.GetPlayer(casterPlayerID);
+        AbilityCollider abilityCollider = spawned.GetComponent<AbilityCollider>();
+
+        abilityCollider.SetCasterID(casterPlayerID);
+
         if (player.hasDoubleDamage)
         {
-            AbilityCollider abilityCollider = spawned.GetComponent<AbilityCollider>();
-
-            if(abilityCollider)
-                abilityCollider.ActivateDoubleDamageEffect(player.hasDoubleDamage);
+            abilityCollider.ActivateDoubleDamageEffect(player.hasDoubleDamage);
         }
     }
 
@@ -74,13 +74,14 @@ public class AbilitySpawner : MonoBehaviour
             movement.SetDirection(direction);
 
         Player player = GameManager.Instance.GetPlayer(casterPlayerID);
+        AbilityCollider abilityCollider = projectile.GetComponent<AbilityCollider>();
+
+        abilityCollider.SetCasterID(casterPlayerID);
+
         if (player.hasDoubleDamage)
         {
-            AbilityCollider abilityCollider = projectile.GetComponent<AbilityCollider>();
             abilityCollider.ActivateDoubleDamageEffect(player.hasDoubleDamage);
         }
-
-        
     }
     
     // We load all the projectiles from the list into the map(Dictionary) and empty the list

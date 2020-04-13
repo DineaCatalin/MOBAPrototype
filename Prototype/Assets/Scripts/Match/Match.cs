@@ -2,19 +2,22 @@
 using System;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Pun;
+using System.Collections.Generic;
 
 public class Match
 {
     const int TEAM_1_ID = 1;
     const int TEAM_2_ID = 2;
 
-    const int ROUNDS_TO_WIN = 15;
-    const int REDRAFT_ROUND_FACTOR = 5; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
+    const int ROUNDS_TO_WIN = 9;
+    const int REDRAFT_ROUND_FACTOR = 3; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
 
     public int team1Rounds;
     public int team2Rounds;
 
     int totalRoundsPlayed;
+
+    Dictionary<int, MatchPlayer> matchPlayers;
 
     // we will use the constructor to 
     public Match()
@@ -22,6 +25,8 @@ public class Match
         team1Rounds = 0;
         team2Rounds = 0;
         totalRoundsPlayed = 0;
+
+        matchPlayers = new Dictionary<int, MatchPlayer>();
     }
 
     public void FinishRound(int winningTeamID)
@@ -96,4 +101,14 @@ public class Match
         GameUI.Instance.SetTeamRounds(team2Rounds, TEAM_2_ID);
     }
 
+    public void AddMatchPlayer(int playerID, int playerTeamID)
+    {
+        matchPlayers.Add(playerID, new MatchPlayer(playerID, playerTeamID));
+    }
+
+    public void AddKillScore(int killerPlayerID, int killedPlayerID)
+    {
+        matchPlayers[killerPlayerID].AddKill();
+        matchPlayers[killedPlayerID].AddDeath();
+    }
 }

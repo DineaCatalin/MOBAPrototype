@@ -79,9 +79,6 @@ public class GameManager : MonoBehaviour
     [PunRPC]
     void ActivateNonLocalPlayerRPC(int playerID)
     {
-        // TODO: recheck
-        //StartCoroutine(ActivateNonLocalPlayerCoroutine(playerID, ACTIVATE_PLAYER_DELAY));
-
         Player player = playerMap[playerID];
 
         if (player != null && !player.isNetworkActive)
@@ -211,13 +208,13 @@ public class GameManager : MonoBehaviour
         EventManager.TriggerEvent("StartRound");
     }
 
-    public void KillNetworkedPlayer(int playerID)
+    public void KillNetworkedPlayer(int playerID, int killerID)
     {
         // Kill local player
-        KillPlayer(playerID);
+        KillPlayer(playerID, killerID);
 
         // Make sure the rest of the clients did the same
-        photonView.RPC("KillPlayerRPC", RpcTarget.Others, playerID);
+        photonView.RPC("KillPlayerRPC", RpcTarget.Others, playerID, killerID);
 
         if (PhotonNetwork.IsMasterClient)
             CheckRoundEnd();
@@ -226,14 +223,21 @@ public class GameManager : MonoBehaviour
     }
 
     [PunRPC]
-    void KillPlayerRPC(int playerID)
+    void KillPlayerRPC(int playerID, int killerID)
+    {
+        KillPlayer(playerID, killerID);
+    }
+
+    void KillPlayer(int playerID, int killerID)
     {
         if (playerMap[playerID] != null)
         {
             playerMap[playerID].HandlePlayerDeath();
 
-            // Add the score to the team that has killed the player with @playerID
-            Debug.Log("GameManager KillPlayerRPC score. Player has been killed " + playerID);
+            if(killerID != 0)
+                match.AddKillScore(killerID, playerID);
+
+            Debug.LogError("GameManager KillPlayer Player died " + playerID + " Killer " + killerID);
         }
     }
 
@@ -242,17 +246,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GameManager KillPlayerRPC We are in master client");
         CheckRoundEnd();
-    }
-
-    void KillPlayer(int playerID)
-    {
-        if (playerMap[playerID] != null)
-        {
-            playerMap[playerID].HandlePlayerDeath();
-
-            // Add the score to the team that has killed the player with @playerID
-            Debug.Log("GameManager KillPlayerRPC score. Player has been killed " + playerID);
-        }
     }
 
     void CheckRoundEnd()
@@ -317,6 +310,9 @@ public class GameManager : MonoBehaviour
 
         player.SetTeamSpecificData(teamID);
         playerMap.Add(playerID, player);
+
+        match.AddMatchPlayer(playerID, teamID);
+        Debug.LogError("GameManager AddPlayer adding Match player " + playerID + " to team " + teamID);
     }
 
     public Player GetPlayer(int playerID)

@@ -26,8 +26,6 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
     Vector2 velocity;
     float angularVelocity;
 
-    bool valuesReceived;
-
     //Lag compensation
     float currentTime = 0;
     double currentPacketTime = 0;
@@ -76,7 +74,7 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
 
     void Update()
     {
-        if (!photonView.IsMine && valuesReceived)
+        if (!photonView.IsMine)
         {
             //Lag compensation
             double timeToReachGoal = currentPacketTime - lastPacketTime;
@@ -140,8 +138,6 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             // Health and mana
             health = (int)stream.ReceiveNext();
             mana = (int)stream.ReceiveNext();
-
-            valuesReceived = true;
         }
     }
 }

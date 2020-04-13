@@ -8,6 +8,8 @@ public class AbilityCollider : MonoBehaviour
     AbilityData abilityData;
     AbilityEffect effect;
 
+    int casterPlayerID;
+
     // Will be used to load the AbilityData, has to be the same as the ability Monobehav. that is creating it
     [SerializeField] new string name; 
 
@@ -31,6 +33,11 @@ public class AbilityCollider : MonoBehaviour
         {
             isStatic = false;
         }
+    }
+
+    public void SetCasterID(int casterID)
+    {
+        casterPlayerID = casterID;
     }
 
     public void ActivateDoubleDamageEffect(bool doubleDamage)
@@ -72,7 +79,7 @@ public class AbilityCollider : MonoBehaviour
     {
         Player player = collision.GetComponent<Player>();
 
-        effect.ApplyEffect(player, abilityData.stats);
+        effect.ApplyEffect(player, abilityData.stats, casterPlayerID);
 
         if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm")
         {

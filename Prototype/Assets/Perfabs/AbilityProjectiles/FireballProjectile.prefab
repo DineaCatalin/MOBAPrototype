@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4113351745697711885}
   - component: {fileID: 2325961981864503724}
   - component: {fileID: 5720965770134790400}
-  - component: {fileID: -4664703431079542277}
+  - component: {fileID: 5702269635493594184}
   m_Layer: 10
   m_Name: FireballProjectile
   m_TagString: Untagged
@@ -129,7 +129,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.775
---- !u!114 &-4664703431079542277
+--- !u!114 &5702269635493594184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6114874316309127837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 830b4da8a2a4740d2bf573466c96dfce, type: 3}
+  m_Script: {fileID: 11500000, guid: 11048f0d9b673410fb29674b8f03ad1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualEffect: 5
+  visualEffect: 0
