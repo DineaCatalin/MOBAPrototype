@@ -131,10 +131,10 @@ public class Player : MonoBehaviour
         SetCoroutines();
 
         // Start player at the beginning of the round
-        EventManager.StartListening("StartRound", new System.Action(OnRoundStart));
-        EventManager.StartListening("ShieldDestroyed", new System.Action(DeactivateShield));
+        EventManager.StartListening(GameEvent.StartRound, new System.Action(OnRoundStart));
+        EventManager.StartListening(GameEvent.ShieldDestroyed, new System.Action(DeactivateShield));
 
-        EventManager.StartListening("StartRedraft", new System.Action(HandlePlayerDeath));
+        EventManager.StartListening(GameEvent.StartRedraft, new System.Action(HandlePlayerDeath));
     }
 
     void SetLocalID()

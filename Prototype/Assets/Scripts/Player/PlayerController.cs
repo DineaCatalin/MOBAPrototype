@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleRotation()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Utils.GetMousePosition();
         Vector3 perpendicular = playerTransform.position - mousePos;
         playerTransform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }

@@ -61,7 +61,7 @@ public class SpawnAbility : Ability
     {
         Debug.Log("SpawnAbility is casting " + abilityData.description.name + " at position " + Utils.GetMousePosition());
 
-        spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        spawnPosition = Utils.GetMousePosition();
         spawnPosition.z = zOrder;
 
         Debug.Log("Spawnability distance is " + Vector3.Distance(playerTransform.position, spawnPosition) + " cast range is " + castRange);
@@ -78,7 +78,7 @@ public class SpawnAbility : Ability
 
         if (mimicPlayerRotation)
         {
-            direction = Input.mousePosition - Camera.main.WorldToScreenPoint(playerTransform.position);
+            direction = Input.mousePosition - Utils.CameraScreenToWorldPoint(playerTransform.position);
             angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - angleCorrection;  // Angle correction as the sprites rotates 90 degrees extra
             rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }

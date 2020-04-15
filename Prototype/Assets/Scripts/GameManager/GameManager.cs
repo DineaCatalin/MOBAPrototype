@@ -36,11 +36,11 @@ public class GameManager : MonoBehaviour
 
         playersReady = 0;
 
-        EventManager.StartListening("RoundEnd", new System.Action(OnRoundEnd));
-        EventManager.StartListening("StartRedraft", new System.Action(OnStartRedraft)); 
-        EventManager.StartListening("EndRedraft", new System.Action(OnRedraftEnd));
+        EventManager.StartListening(GameEvent.RoundEnd, new System.Action(OnRoundEnd));
+        EventManager.StartListening(GameEvent.StartRedraft, new System.Action(OnStartRedraft)); 
+        EventManager.StartListening(GameEvent.EndRedraft, new System.Action(OnRedraftEnd));
 
-        match = new Match();
+        match = GetComponent<Match>();
         Hashtable roomProperties = new Hashtable();
 
         if (PhotonNetwork.IsMasterClient)
@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
     [PunRPC]
     void StartRedraftRPC()
     {
-        EventManager.TriggerEvent("StartRedraft");
+        EventManager.TriggerEvent(GameEvent.StartRedraft);
     }
 
     void OnRedraftEnd()
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     [PunRPC]
     public void RoundEndRPC()
     {
-        EventManager.TriggerEvent("RoundEnd");
+        EventManager.TriggerEvent(GameEvent.RoundEnd);
     }
 
     void EndRound()
@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(TIME_BETWEEN_ROUNDS);
 
         Debug.Log("GameManager StartRoundWithDelay Starting round");
-        EventManager.TriggerEvent("StartRound");
+        EventManager.TriggerEvent(GameEvent.StartRound);
     }
 
     //// Handle match end logic
@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
     void StartMatch()
     {
         // Fire match start event
-        EventManager.TriggerEvent("StartMatch");
+        EventManager.TriggerEvent(GameEvent.StartMatch);
 
         totalPlayers = playerMap.Count;
 
@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         // Fire new round event
-        EventManager.TriggerEvent("StartRound");
+        EventManager.TriggerEvent(GameEvent.StartRound);
     }
 
     public void KillNetworkedPlayer(int playerID, int killerID)
@@ -259,9 +259,9 @@ public class GameManager : MonoBehaviour
 
             if (player.IsAlive())
             {
-                if (player.teamID == 1)
+                if (player.teamID == Match.TEAM_1_ID)
                     playerTeam1Alive = true;
-                else if(player.teamID == 2)
+                else if(player.teamID == Match.TEAM_2_ID)
                     playerTeam2Alive = true;
 
                 Debug.Log("GameManager CheckRoundEnd Player is alive " + player.GetID() + " from team " + player.teamID);
@@ -278,13 +278,13 @@ public class GameManager : MonoBehaviour
         else if(playerTeam1Alive)
         {
             Debug.Log("GameManager CheckRoundEnd Team 1 won");
-            match.FinishRound(1);
+            match.FinishRound(Match.TEAM_1_ID);
         }
         // Team 2 WON
         else if (playerTeam2Alive)
         {
             Debug.Log("GameManager CheckRoundEnd Team 2 won");
-            match.FinishRound(2);
+            match.FinishRound(Match.TEAM_2_ID);
         }
     }
 

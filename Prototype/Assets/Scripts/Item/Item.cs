@@ -34,7 +34,7 @@ public class Item : MonoBehaviour
             else
                 Destroy(gameObject);
 
-            EventManager.TriggerEvent("ItemPickedUp");
+            EventManager.TriggerEvent(GameEvent.ItemPickedUp);
         }
     }
 }

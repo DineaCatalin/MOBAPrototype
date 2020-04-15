@@ -4,12 +4,14 @@ using System.Text.RegularExpressions;
 
 public static class Utils
 {
+    static Camera mainCamera = Camera.main;
+
     public static Vector2 GetRandomScreenPoint()
     {
         float spawnY = Random.Range
-                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
+                (mainCamera.ScreenToWorldPoint(new Vector2(0, 0)).y, mainCamera.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
         float spawnX = Random.Range
-            (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
+            (mainCamera.ScreenToWorldPoint(new Vector2(0, 0)).x, mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
 
         // Do it only on half of the total screen area so that so clients don't get spawned outside
         // the wall that is set by the master client
@@ -21,7 +23,12 @@ public static class Utils
 
     public static Vector3 GetMousePosition()
     {
-        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        return mainCamera.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    public static Vector3 CameraScreenToWorldPoint(Vector3 point)
+    {
+        return mainCamera.ScreenToWorldPoint(point);
     }
 
     public static string RemoveCloneFromName(string name)

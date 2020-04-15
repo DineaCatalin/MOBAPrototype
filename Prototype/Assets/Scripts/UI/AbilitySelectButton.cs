@@ -24,10 +24,10 @@ public class AbilitySelectButton : MonoBehaviour
     {
         button = GetComponentInChildren<Button>();
 
-        EventManager.StartListening("AttackAbilitySelected", new Action(OnAttackAbilityPressed));
-        EventManager.StartListening("DefenseAbilitySelected", new Action(OnDefenseAbilityPressed));
-        EventManager.StartListening("SpecialAbilitySelected", new Action(OnSpecialAbilityPressed));
-        EventManager.StartListening("SpecialAbilityDeselected", new Action(OnSpecialAbilityPressed));
+        EventManager.StartListening(GameEvent.AttackAbilitySelected, new Action(OnAttackAbilityPressed));
+        EventManager.StartListening(GameEvent.DefenseAbilitySelected, new Action(OnDefenseAbilityPressed));
+        EventManager.StartListening(GameEvent.SpecialAbilitySelected, new Action(OnSpecialAbilityPressed));
+        EventManager.StartListening(GameEvent.SpecialAbilityDeselected, new Action(OnSpecialAbilityPressed));
     }
 
     public void ActivateBorder()
@@ -50,7 +50,7 @@ public class AbilitySelectButton : MonoBehaviour
                 {
                     if (AbilityDraftLogic.Instance.SelectAttackAbility(name))
                     {
-                        EventManager.TriggerEvent("AttackAbilitySelected");
+                        EventManager.TriggerEvent(GameEvent.AttackAbilitySelected);
                         ActivateBorder();
                     }
 
@@ -60,7 +60,7 @@ public class AbilitySelectButton : MonoBehaviour
                 {
                     if (AbilityDraftLogic.Instance.SelectDefenseAbility(name))
                     {
-                        EventManager.TriggerEvent("DefenseAbilitySelected");
+                        EventManager.TriggerEvent(GameEvent.DefenseAbilitySelected);
                         ActivateBorder();
                     }
 
@@ -70,7 +70,7 @@ public class AbilitySelectButton : MonoBehaviour
                 {
                     if (AbilityDraftLogic.Instance.SelectSpecialbility(name))
                     {
-                        EventManager.TriggerEvent("SpecialAbilitySelected");
+                        EventManager.TriggerEvent(GameEvent.SpecialAbilitySelected);
                         ActivateBorder();
                     }
 

@@ -22,7 +22,7 @@ public abstract class AbilityEffect : MonoBehaviour
         {
             case PlayerEffect.Knockout:
                 {
-                    EventManager.TriggerEvent("KnockOut");
+                    EventManager.TriggerEvent(GameEvent.KnockOut);
                     break;
                 }
             default:

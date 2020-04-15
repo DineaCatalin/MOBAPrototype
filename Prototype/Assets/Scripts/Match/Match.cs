@@ -4,10 +4,10 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Pun;
 using System.Collections.Generic;
 
-public class Match
+public class Match : MonoBehaviour
 {
-    const int TEAM_1_ID = 1;
-    const int TEAM_2_ID = 2;
+    public static int TEAM_1_ID = 1;
+    public static  int TEAM_2_ID = 2;
 
     const int ROUNDS_TO_WIN = 9;
     const int REDRAFT_ROUND_FACTOR = 3; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
@@ -27,6 +27,11 @@ public class Match
         totalRoundsPlayed = 0;
 
         matchPlayers = new Dictionary<int, MatchPlayer>();
+    }
+
+    public Dictionary<int, MatchPlayer> GetMatchPlayers()
+    {
+        return matchPlayers;
     }
 
     public void FinishRound(int winningTeamID)
@@ -79,12 +84,12 @@ public class Match
         if(totalRoundsPlayed % REDRAFT_ROUND_FACTOR == 0)
         {
             Debug.Log("Match FinishRound Start Redraft");
-            EventManager.TriggerEvent("StartRedraft");
+            EventManager.TriggerEvent(GameEvent.StartRedraft);
         }
         else
         {
             Debug.Log("Match FinishRound Start Redraft");
-            EventManager.TriggerEvent("RoundEnd");
+            EventManager.TriggerEvent(GameEvent.RoundEnd);
         }
 
         Debug.Log("Match FinishRound ");
