@@ -10,10 +10,13 @@ public class MatchPlayer
     public int kills;
     public int deaths;
 
-    public MatchPlayer(int playerID, int playerTeamID)
+    public string nickName;
+
+    public MatchPlayer(string name, int playerID, int playerTeamID)
     {
         ID = playerID;
         teamID = playerTeamID;
+        nickName = name;
     }
 
     public void AddDeath()
