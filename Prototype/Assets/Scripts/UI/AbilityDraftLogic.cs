@@ -56,7 +56,7 @@ public class AbilityDraftLogic : MonoBehaviour
         UI.SetActive(false);
         specialAbilitiesScreen.SetActive(false);
 
-        EventManager.StartListening("StartRedraft", new System.Action(OnRedraft));
+        EventManager.StartListening(GameEvent.StartRedraft, new System.Action(OnRedraft));
     }
 
     // User presses 1 of the ability buttons on the sides of the screen
@@ -150,7 +150,7 @@ public class AbilityDraftLogic : MonoBehaviour
         {
             cachedText.text = unselectedAbilityName;
             helperTextSpecialAbilities.text = "";
-            EventManager.TriggerEvent("SpecialAbilityDeselected");
+            EventManager.TriggerEvent(GameEvent.SpecialAbilityDeselected);
         }
     }
 
@@ -165,7 +165,7 @@ public class AbilityDraftLogic : MonoBehaviour
                 Debug.Log("AbilityDraftLogic DeselectAbility " + selectedAbilityTexts[i].text);
                 selectedAbilityTexts[i].text = unselectedAbilityName;
                 helperTextSpecialAbilities.text = "";
-                EventManager.TriggerEvent("SpecialAbilityDeselected");
+                EventManager.TriggerEvent(GameEvent.SpecialAbilityDeselected);
             }
         }
     }
@@ -201,11 +201,11 @@ public class AbilityDraftLogic : MonoBehaviour
         if(!isRedraft)
         {
             isRedraft = true;
-            EventManager.TriggerEvent("DraftFinished");
+            EventManager.TriggerEvent(GameEvent.DraftFinished);
         }
         else
         {
-            EventManager.TriggerEvent("EndRedraft");
+            EventManager.TriggerEvent(GameEvent.EndRedraft);
         }
 
         specialAbilitiesScreen.SetActive(false);

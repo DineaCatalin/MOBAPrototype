@@ -5,12 +5,12 @@ using UnityEngine;
 public class FollowCursor : MonoBehaviour
 {
     Vector3 position;
-    
+
     // Update is called once per frame
     void Update()
     {
         position = Input.mousePosition;
-        position = Camera.main.ScreenToWorldPoint(position);
+        position = Utils.CameraScreenToWorldPoint(position);
         position.z = 0;
         transform.position = position;
     }

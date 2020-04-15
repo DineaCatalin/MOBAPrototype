@@ -49,7 +49,7 @@ public class PlayerBuffs : MonoBehaviour
         coroutineMap.Add(PlayerEffect.ManaBurn, null);
         coroutineMap.Add(PlayerEffect.Heal, null);
 
-        EventManager.StartListening("StartRound", new System.Action(Unlock));
+        EventManager.StartListening(GameEvent.StartRound, new System.Action(Unlock));
     }
 
     public void AddBuff(PlayerEffect buff, float duration)

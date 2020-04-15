@@ -25,8 +25,8 @@ public class AbilityManager : MonoBehaviour
 
         ConfigureAbilities();
 
-        EventManager.StartListening("EndRedraft", new Action(ReconfigureAbilities));
-        EventManager.StartListening("StartRound", new Action(ResetAbilities));
+        EventManager.StartListening(GameEvent.EndRedraft, new Action(ReconfigureAbilities));
+        EventManager.StartListening(GameEvent.StartRound, new Action(ResetAbilities));
     }
 
     void ConfigureAbilities()

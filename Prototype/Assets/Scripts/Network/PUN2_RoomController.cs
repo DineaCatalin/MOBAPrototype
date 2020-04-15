@@ -17,7 +17,7 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
     // Use this for initialization
     void Start()
     {
-        EventManager.StartListening("DraftFinished", new Action(OnDraftFinished));
+        EventManager.StartListening(GameEvent.DraftFinished, new Action(OnDraftFinished));
 
         //In case we started this demo with the wrong scene being active, simply load the menu scene
         if (PhotonNetwork.CurrentRoom == null)

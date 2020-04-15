@@ -45,7 +45,7 @@ public class Shield : MonoBehaviour
     public void DeactivateNetworkedShield()
     {
         DeactivateLocalShield();
-        EventManager.TriggerEvent("ShieldDestroyed");
+        EventManager.TriggerEvent(GameEvent.ShieldDestroyed);
     }
 
     public void DeactivateLocalShield()

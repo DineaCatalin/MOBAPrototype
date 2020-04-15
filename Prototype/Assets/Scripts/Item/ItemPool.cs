@@ -70,9 +70,9 @@ public class ItemPool : MonoBehaviour
         Array.Clear(itemDatas, 0, itemDatas.Length);
 
         
-        EventManager.StartListening("SpawnItem", new System.Action(SpawnItem));
-        EventManager.StartListening("StartRedraft", new System.Action(DisableItems));
-        EventManager.StartListening("RoundEnd", new System.Action(DisableItems));
+        EventManager.StartListening(GameEvent.SpawnItem, new System.Action(SpawnItem));
+        EventManager.StartListening(GameEvent.StartRedraft, new System.Action(DisableItems));
+        EventManager.StartListening(GameEvent.RoundEnd, new System.Action(DisableItems));
     }
 
     // Spawns item in a random location

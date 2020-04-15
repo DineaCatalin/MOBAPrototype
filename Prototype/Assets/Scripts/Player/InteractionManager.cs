@@ -23,7 +23,7 @@ public class InteractionManager : MonoBehaviour
 
         playerController.enabled = false;
 
-        EventManager.StartListening("StartMatch", new System.Action(OnMatchStart));
+        EventManager.StartListening(GameEvent.StartMatch, new System.Action(OnMatchStart));
     }
 
     // This will be called by the root effect and then from the player because we need to disable the movement

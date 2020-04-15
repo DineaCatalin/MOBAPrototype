@@ -21,7 +21,7 @@ public class ShieldAbility : Ability
     {
         Debug.Log("Casting Shield ability");
 
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = Utils.GetMousePosition();
 
         if(isInstant)
         {

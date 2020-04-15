@@ -10,7 +10,7 @@ public class SpawnInMouseDirection : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        direction = Input.mousePosition - Utils.CameraScreenToWorldPoint(transform.position);
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - angleCorrection;  // Angle correction as the sprites rotates 90 degrees extra
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }   

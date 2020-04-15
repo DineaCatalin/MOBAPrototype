@@ -68,7 +68,7 @@ public class ProjectileAbility : Ability
 
         if (mimicPlayerRotation)
         {
-            direction = Input.mousePosition - Camera.main.WorldToScreenPoint(castOrigin.position);
+            direction = Input.mousePosition - Utils.CameraScreenToWorldPoint(castOrigin.position);
             angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - angleCorrection;  // Angle correction as the sprites rotates 90 degrees extra
             spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
@@ -80,7 +80,7 @@ public class ProjectileAbility : Ability
 
         castPosition = new Vector3(castOrigin.position.x, castOrigin.position.y, zOrder);
 
-        AbilitySpawner.Instance.SpawnProjectile(projectileName, castPosition, spawnRotation, Camera.main.ScreenToWorldPoint(Input.mousePosition), projectileLayer, playerID);
+        AbilitySpawner.Instance.SpawnProjectile(projectileName, castPosition, spawnRotation, Utils.GetMousePosition(), projectileLayer, playerID);
 
         return base.Cast();
     }
