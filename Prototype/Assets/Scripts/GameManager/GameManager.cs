@@ -237,7 +237,7 @@ public class GameManager : MonoBehaviour
             if(killerID != 0)
                 match.AddKillScore(killerID, playerID);
 
-            Debug.LogError("GameManager KillPlayer Player died " + playerID + " Killer " + killerID);
+            Debug.Log("GameManager KillPlayer Player died " + playerID + " Killer " + killerID);
         }
     }
 
@@ -311,8 +311,8 @@ public class GameManager : MonoBehaviour
         player.SetTeamSpecificData(teamID);
         playerMap.Add(playerID, player);
 
-        match.AddMatchPlayer(playerID, teamID);
-        Debug.LogError("GameManager AddPlayer adding Match player " + playerID + " to team " + teamID);
+        match.AddMatchPlayer(player.nickName.text, playerID, teamID);
+        Debug.Log("GameManager AddPlayer adding Match player " + playerID + " to team " + teamID);
     }
 
     public Player GetPlayer(int playerID)

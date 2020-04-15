@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class Match : MonoBehaviour
 {
+    public static Match activeMatch;
+
     public static int TEAM_1_ID = 1;
     public static  int TEAM_2_ID = 2;
 
@@ -19,14 +21,15 @@ public class Match : MonoBehaviour
 
     Dictionary<int, MatchPlayer> matchPlayers;
 
-    // we will use the constructor to 
-    public Match()
+    void Awake()
     {
         team1Rounds = 0;
         team2Rounds = 0;
         totalRoundsPlayed = 0;
 
         matchPlayers = new Dictionary<int, MatchPlayer>();
+
+        activeMatch = this;
     }
 
     public Dictionary<int, MatchPlayer> GetMatchPlayers()
@@ -106,14 +109,17 @@ public class Match : MonoBehaviour
         GameUI.Instance.SetTeamRounds(team2Rounds, TEAM_2_ID);
     }
 
-    public void AddMatchPlayer(int playerID, int playerTeamID)
+    public void AddMatchPlayer(string nickName,int playerID, int playerTeamID)
     {
-        matchPlayers.Add(playerID, new MatchPlayer(playerID, playerTeamID));
+        matchPlayers.Add(playerID, new MatchPlayer(nickName, playerID, playerTeamID));
     }
 
     public void AddKillScore(int killerPlayerID, int killedPlayerID)
     {
         matchPlayers[killerPlayerID].AddKill();
         matchPlayers[killedPlayerID].AddDeath();
+
+        ScoreBoard.Instance.SetKillScore(killerPlayerID, matchPlayers[killerPlayerID].kills);
+        ScoreBoard.Instance.SetDeathScore(killedPlayerID, matchPlayers[killedPlayerID].deaths);
     }
 }
