@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5557843480434893381}
   - component: {fileID: 5557843480434893378}
   - component: {fileID: 409463249868856055}
-  - component: {fileID: 4925704267775878936}
+  - component: {fileID: -6124926259432697200}
   m_Layer: 0
   m_Name: TraceProjectile
   m_TagString: Untagged
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualEffect: 5
---- !u!114 &4925704267775878936
+--- !u!114 &-6124926259432697200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5557843480434893758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
+  m_Script: {fileID: 11500000, guid: 882d272f604f24a33b6a715a2b7a8a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialScale: {x: 0.2, y: 0.35}

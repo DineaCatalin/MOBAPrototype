@@ -207,6 +207,8 @@ public class GameManager : MonoBehaviour
         // Fire new round event
         Debug.Log("GameManager StartRound");
         EventManager.TriggerEvent(GameEvent.StartRound);
+
+        playersReady = 0;
     }
 
     //// Handle match end logic

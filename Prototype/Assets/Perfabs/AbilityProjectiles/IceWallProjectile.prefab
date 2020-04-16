@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6582468246873901732}
   - component: {fileID: 6582468246873901735}
   - component: {fileID: 6582468246873901733}
-  - component: {fileID: 7434165036808785016}
+  - component: {fileID: 5804119802990566764}
   m_Layer: 0
   m_Name: IceWallProjectile
   m_TagString: Ice Wall
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numCollisions: 5
---- !u!114 &7434165036808785016
+--- !u!114 &5804119802990566764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6582468246873901728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
+  m_Script: {fileID: 11500000, guid: 882d272f604f24a33b6a715a2b7a8a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialScale: {x: 1, y: 0.1}
