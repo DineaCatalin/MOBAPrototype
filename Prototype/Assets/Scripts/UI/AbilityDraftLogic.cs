@@ -8,8 +8,8 @@ public class AbilityDraftLogic : MonoBehaviour
 {
     public static AbilityDraftLogic Instance;
 
-    public GameObject basicAbilitiesScreen;
-    public GameObject specialAbilitiesScreen;
+    public CanvasHandler basicAbilitiesScreen;
+    public CanvasHandler specialAbilitiesScreen;
     public GameObject UI;
 
     // Reference so that we can change the UI in the selected abilities column in the middle of the screen
@@ -54,7 +54,7 @@ public class AbilityDraftLogic : MonoBehaviour
         }
 
         UI.SetActive(false);
-        specialAbilitiesScreen.SetActive(false);
+        basicAbilitiesScreen.Open();
 
         EventManager.StartListening(GameEvent.StartRedraft, new System.Action(OnRedraft));
     }
@@ -180,8 +180,8 @@ public class AbilityDraftLogic : MonoBehaviour
         }
 
         // Set 1st screen off and activate the 2nd one
-        basicAbilitiesScreen.SetActive(false);
-        specialAbilitiesScreen.SetActive(true);
+        basicAbilitiesScreen.Close();
+        specialAbilitiesScreen.Open();
     }
 
     public void FinishSpecialAbilitySelection()
@@ -208,7 +208,7 @@ public class AbilityDraftLogic : MonoBehaviour
             EventManager.TriggerEvent(GameEvent.EndRedraft);
         }
 
-        specialAbilitiesScreen.SetActive(false);
+        specialAbilitiesScreen.Close();
         UI.SetActive(true);
     }
 
@@ -259,7 +259,7 @@ public class AbilityDraftLogic : MonoBehaviour
     {
         //gameObject.SetActive(true);
         UI.SetActive(false);
-        specialAbilitiesScreen.SetActive(true);
+        specialAbilitiesScreen.Open();
     }
 
 }
