@@ -406,8 +406,7 @@ public class Player : MonoBehaviour
         if (isNetworkActive)
         {
             transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
-            //Activate();
-            Invoke("Activate", GameManager.ACTIVATE_PLAYER_DELAY);
+            Activate();
             GameManager.Instance.ActivateNonLocalPlayer(id);
             PlayerController.isLocked = false;
         }
