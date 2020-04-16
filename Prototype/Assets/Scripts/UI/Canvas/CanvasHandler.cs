@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class CanvasHandler : MonoBehaviour
 {
-    public GameEvent[] eventForActivate;
-    public GameEvent[] eventsForDeactivate;
+    [SerializeField] bool alsoModifyGameObjectActiveState;
 
-    public Tween[] onActivateTweens;
-    public Tween[] onDeactivateTweens;
+    [SerializeField] GameEvent[] eventForActivate;
+    [SerializeField] GameEvent[] eventsForDeactivate;
+
+    [SerializeField] Tween[] onActivateTweens;
+    [SerializeField] Tween[] onDeactivateTweens;
 
     Canvas canvas;
+
+    Action<bool> setStateAction;
 
     private void Awake()
     {
@@ -27,12 +31,23 @@ public class CanvasHandler : MonoBehaviour
         {
             EventManager.StartListening(gameEvent, closeAction);
         }
+
+        if(alsoModifyGameObjectActiveState)
+        {
+            Debug.Log("CanvasHandler Awake useGameObjectForDeactivation " + name);
+            setStateAction = new Action<bool>(SetCanvasAndGOState);
+        }
+        else
+        {
+            Debug.Log("CanvasHandler Awake !useGameObjectForDeactivation " + name);
+            setStateAction = new Action<bool>(SetCanvasState);
+        }
     }
 
     public void Open()
     {
         Debug.Log("CanvasHandler Open " + name);
-        canvas.enabled = true;
+        setStateAction.Invoke(true);
 
         foreach (Tween tween in onActivateTweens)
         {
@@ -47,7 +62,18 @@ public class CanvasHandler : MonoBehaviour
             tween.Execute();
         }
 
-        canvas.enabled = false;
+        setStateAction.Invoke(false);
         Debug.Log("CanvasHandler Close " + name);
+    }
+
+    void SetCanvasState(bool active)
+    {
+        canvas.enabled = active;
+    }
+
+    void SetCanvasAndGOState(bool active)
+    {
+        gameObject.SetActive(active);
+        canvas.enabled = active;
     }
 }

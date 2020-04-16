@@ -10,7 +10,6 @@ public class AbilityDraftLogic : MonoBehaviour
 
     public CanvasHandler basicAbilitiesScreen;
     public CanvasHandler specialAbilitiesScreen;
-    public GameObject UI;
 
     // Reference so that we can change the UI in the selected abilities column in the middle of the screen
     public TextMeshProUGUI[] selectedAbilityTexts;
@@ -53,7 +52,6 @@ public class AbilityDraftLogic : MonoBehaviour
             selectedAbilityTexts[i].text = unselectedAbilityName;
         }
 
-        UI.SetActive(false);
         basicAbilitiesScreen.Open();
 
         EventManager.StartListening(GameEvent.StartRedraft, new System.Action(OnRedraft));
@@ -201,15 +199,16 @@ public class AbilityDraftLogic : MonoBehaviour
         if(!isRedraft)
         {
             isRedraft = true;
+            Debug.Log("AbilityDraftLogic FinishSpecialAbilitySelection 1st draft");
             EventManager.TriggerEvent(GameEvent.DraftFinished);
         }
         else
         {
+            Debug.Log("AbilityDraftLogic FinishSpecialAbilitySelection redraft");
             EventManager.TriggerEvent(GameEvent.EndRedraft);
         }
 
         specialAbilitiesScreen.Close();
-        UI.SetActive(true);
     }
 
     void SetAbilityData()
@@ -257,8 +256,6 @@ public class AbilityDraftLogic : MonoBehaviour
 
     void OnRedraft()
     {
-        //gameObject.SetActive(true);
-        UI.SetActive(false);
         specialAbilitiesScreen.Open();
     }
 

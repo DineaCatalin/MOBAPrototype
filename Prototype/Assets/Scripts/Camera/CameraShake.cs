@@ -42,7 +42,7 @@ public class CameraShake : MonoBehaviour {
         backgroundZ = backgroundOrigin.z;
 
         EventManager.StartListening(GameEvent.KnockOut, new System.Action(KnockOutShake));
-        EventManager.StartListening(GameEvent.RoundEnd, new System.Action(KnockOutShake));
+        EventManager.StartListening(GameEvent.EndRound, new System.Action(KnockOutShake));
     }
 
     void KnockOutShake()

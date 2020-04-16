@@ -2,11 +2,22 @@
 using System.Collections;
 using System.Text.RegularExpressions;
 
-public static class Utils
+public class Utils : MonoBehaviour
 {
-    static Camera mainCamera = Camera.main;
+    //[SerializeField]
+    Camera mainCamera;
 
-    public static Vector2 GetRandomScreenPoint()
+    public static Utils Instance;
+
+    void Awake()
+    {
+        if (mainCamera == null)
+            mainCamera = Camera.main;
+
+        Instance = this;
+    }
+
+    public Vector2 GetRandomScreenPoint()
     {
         float spawnY = Random.Range
                 (mainCamera.ScreenToWorldPoint(new Vector2(0, 0)).y, mainCamera.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
@@ -21,12 +32,12 @@ public static class Utils
         return new Vector2(spawnX, spawnY);
     }
 
-    public static Vector3 GetMousePosition()
+    public Vector3 GetMousePosition()
     {
         return mainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    public static Vector3 CameraScreenToWorldPoint(Vector3 point)
+    public Vector3 CameraScreenToWorldPoint(Vector3 point)
     {
         return mainCamera.ScreenToWorldPoint(point);
     }
@@ -37,7 +48,7 @@ public static class Utils
     }
 
     // Will switch from from Team1Ability to Team2Ability or vice versa
-    public static string SwitchPlayerLayerName(string layerName)
+    public string SwitchPlayerLayerName(string layerName)
     {
         if(layerName.Contains("1"))
         {

@@ -4,19 +4,18 @@ using UnityEngine;
 
 public enum GameEvent
 {
+    StartMatch,
+    StartRound,
+    EndRound,
+    StartRedraft,
+    AttackAbilitySelected,
+    DefenseAbilitySelected,
     SpecialAbilitySelected,
+    SpecialAbilityDeselected,
     DraftFinished,
     EndRedraft,
     KnockOut,
-    AttackAbilitySelected,
-    DefenseAbility,
-    StartRedraft,
-    RoundEnd,
-    StartRound,
     ItemPickedUp,
     SpawnItem,
     ShieldDestroyed,
-    SpecialAbilityDeselected,
-    DefenseAbilitySelected,
-    StartMatch
 }

@@ -44,9 +44,9 @@ public class AreaLimiterManager : MonoBehaviour
             areaLimiters[i].gameObject.SetActive(false);
         }
 
-        EventManager.StartListening(GameEvent.StartMatch, new System.Action(OnRoundStart));
+        //EventManager.StartListening(GameEvent.StartMatch, new System.Action(OnRoundStart));
         EventManager.StartListening(GameEvent.StartRound, new System.Action(OnRoundStart));
-        EventManager.StartListening(GameEvent.RoundEnd, new System.Action(OnRoundEnd));
+        EventManager.StartListening(GameEvent.EndRound, new System.Action(OnRoundEnd));
 
         Invoke("PositionAreaLimiters", 1f);
     }

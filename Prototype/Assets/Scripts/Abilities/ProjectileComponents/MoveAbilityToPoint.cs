@@ -18,11 +18,11 @@ public class MoveAbilityToPoint : MonoBehaviour
         speed = AbilityDataCache.GetProjectileSpeed(correctName);
         Debug.Log("MoveAbilityToPoint speed for " + name + " is " + speed);
 
-        moveDirection = Utils.GetMousePosition() - transform.position;
+        moveDirection = Utils.Instance.GetMousePosition() - transform.position;
         moveDirection.z = 0;
         moveDirection.Normalize();
 
-        endPosition = Utils.GetMousePosition();
+        endPosition = Utils.Instance.GetMousePosition();
     }
 
     // Update is called once per frame

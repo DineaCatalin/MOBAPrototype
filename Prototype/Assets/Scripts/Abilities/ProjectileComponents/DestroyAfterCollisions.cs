@@ -8,7 +8,7 @@ public class DestroyAfterCollisions : MonoBehaviour
 
     private void Start()
     {
-        EventManager.StartListening(GameEvent.RoundEnd, new System.Action(Destroy));
+        EventManager.StartListening(GameEvent.EndRound, new System.Action(Destroy));
         EventManager.StartListening(GameEvent.StartRedraft, new System.Action(Destroy));
     }
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6880323108494885750}
   - component: {fileID: 8569000897555419856}
   - component: {fileID: 3867808296243692416}
-  - component: {fileID: 1413176274522884687}
+  - component: {fileID: 8047521809588227825}
   m_Layer: 10
   m_Name: FireStormProjectile
   m_TagString: Projectile
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &1413176274522884687
+--- !u!114 &8047521809588227825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6770403879752432852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c86c2ee8df04a9da19e20a9fd5ba85, type: 3}
+  m_Script: {fileID: 11500000, guid: 882d272f604f24a33b6a715a2b7a8a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialScale: {x: 0.5, y: 0.5}

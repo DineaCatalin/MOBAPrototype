@@ -43,7 +43,8 @@ public class AbilitySpawner : MonoBehaviour
         Player player = GameManager.Instance.GetPlayer(casterPlayerID);
         AbilityCollider abilityCollider = spawned.GetComponent<AbilityCollider>();
 
-        abilityCollider.SetCasterID(casterPlayerID);
+        if(abilityCollider)
+            abilityCollider.SetCasterID(casterPlayerID);
 
         if (player.hasDoubleDamage)
         {

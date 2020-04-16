@@ -34,7 +34,7 @@ public class BlinkAbility : Ability
             return false;
         }
 
-        blinkPosition = Utils.GetMousePosition();
+        blinkPosition = Utils.Instance.GetMousePosition();
 
         Debug.Log("BlinkAbility distance is " + Vector2.Distance(playerTransform.position, blinkPosition));
 
