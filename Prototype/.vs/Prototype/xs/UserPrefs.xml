@@ -19,7 +19,7 @@
       <File FileName="Assets/Scripts/Utils/SpawnInMouseDirection.cs" />
       <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" />
       <File FileName="Assets/Scripts/Abilities/SpellIndicators/SpellIndicator.cs" />
-      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
+      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="59" Column="88" />
       <File FileName="Assets/Scripts/Events/EventManager.cs" />
       <File FileName="Assets/Scripts/Match/MatchClock.cs" />
       <File FileName="Assets/Scripts/Player/Shield.cs" />
@@ -32,7 +32,7 @@
       <File FileName="Assets/Scripts/Item/ItemPool.cs" />
       <File FileName="Assets/Scripts/Player/InteractionManager.cs" />
       <File FileName="Assets/Scripts/UI/Tweens/AbilitySpawnTween.cs" Line="18" Column="21" />
-      <File FileName="Assets/Scripts/UI/Tweens/ScaleTween.cs" Line="18" Column="27" />
+      <File FileName="Assets/Scripts/UI/Tweens/ScaleTween.cs" Line="12" Column="35" />
       <File FileName="Assets/Scripts/Player/Player.cs" Line="148" Column="44" NotebookId="1" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="29" Column="22" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" NotebookId="1" />
@@ -43,7 +43,7 @@
       <File FileName="Assets/Scripts/Match/Match.cs" Line="124" Column="6" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Score/MatchPlayerUI.cs" Line="28" Column="34" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Tweens/Tween.cs" Line="7" Column="33" NotebookId="1" />
-      <File FileName="Assets/Scripts/UI/Canvas/CanvasHandler.cs" Line="7" Column="5" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Canvas/CanvasHandler.cs" Line="7" Column="15" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
