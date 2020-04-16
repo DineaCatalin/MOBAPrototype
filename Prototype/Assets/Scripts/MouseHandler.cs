@@ -38,7 +38,7 @@ public class MouseHandler : MonoBehaviour
         if (deactivateCoroutine != null)
             StopCoroutine(deactivateCoroutine);
 
-        position = Utils.GetMousePosition();
+        position = Utils.Instance.GetMousePosition();
         position.z = -3;
 
         outOfRangeIndicator.transform.position = position;

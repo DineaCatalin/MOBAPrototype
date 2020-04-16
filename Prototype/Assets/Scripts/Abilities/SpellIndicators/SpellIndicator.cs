@@ -48,7 +48,7 @@ public class SpellIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector2.Distance(playerTransform.position, Utils.GetMousePosition());
+        float distance = Vector2.Distance(playerTransform.position, Utils.Instance.GetMousePosition());
         Debug.Log("SpellIndicator distance " + distance + " distance to castrange " + (distance - castRange));
 
         Color color = spriteRenderer.color;

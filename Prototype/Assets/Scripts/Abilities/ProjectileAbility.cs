@@ -10,6 +10,8 @@ public class ProjectileAbility : Ability
 
     // Transform of the location where we will spawn
     Transform castOrigin;
+    Transform playerTransform;
+
 
     // Position where we will spawn, we use this varibale because we want to change the z value
     // without affecting the players z value
@@ -29,9 +31,9 @@ public class ProjectileAbility : Ability
     //float spawnAngle;
     Quaternion spawnRotation;
 
-    Vector3 direction;
-    float angle;
-    int angleCorrection = 90;
+    //Vector3 direction;
+    //float angle;
+    //int angleCorrection = 90;
 
     // This will help with the render order of the spawned abilities vs projectiles
     // Projectiles will be rendered above the spawned static abilities
@@ -53,6 +55,8 @@ public class ProjectileAbility : Ability
             castOrigin = LocalPlayerReferences.playerTransform;
         }
 
+        playerTransform = LocalPlayerReferences.playerTransform;
+
         // Get layer name for the projectile
         // If its the player is in team1 the layer name will be Team1Ability if player is in team2 the layer name will be Team2Ability
         string layerName = LayerMask.LayerToName(LocalPlayerReferences.playerGameObject.layer);
@@ -68,9 +72,10 @@ public class ProjectileAbility : Ability
 
         if (mimicPlayerRotation)
         {
-            direction = Input.mousePosition - Utils.CameraScreenToWorldPoint(castOrigin.position);
-            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - angleCorrection;  // Angle correction as the sprites rotates 90 degrees extra
-            spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //direction = Input.mousePosition - Utils.Instance.CameraScreenToWorldPoint(castOrigin.position);
+            //angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - angleCorrection;  // Angle correction as the sprites rotates 90 degrees extra
+            //spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            spawnRotation = playerTransform.rotation;
         }
         else
             spawnRotation = Quaternion.identity;
@@ -80,7 +85,7 @@ public class ProjectileAbility : Ability
 
         castPosition = new Vector3(castOrigin.position.x, castOrigin.position.y, zOrder);
 
-        AbilitySpawner.Instance.SpawnProjectile(projectileName, castPosition, spawnRotation, Utils.GetMousePosition(), projectileLayer, playerID);
+        AbilitySpawner.Instance.SpawnProjectile(projectileName, castPosition, spawnRotation, Utils.Instance.GetMousePosition(), projectileLayer, playerID);
 
         return base.Cast();
     }

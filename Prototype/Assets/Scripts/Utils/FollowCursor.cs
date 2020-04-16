@@ -10,7 +10,7 @@ public class FollowCursor : MonoBehaviour
     void Update()
     {
         position = Input.mousePosition;
-        position = Utils.CameraScreenToWorldPoint(position);
+        position = Utils.Instance.CameraScreenToWorldPoint(position);
         position.z = 0;
         transform.position = position;
     }

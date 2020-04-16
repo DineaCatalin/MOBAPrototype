@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        isLocked = true;
+
         stats = player.GetStats();
         charging = false;
 
@@ -101,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleRotation()
     {
-        Vector3 mousePos = Utils.GetMousePosition();
+        Vector3 mousePos = Utils.Instance.GetMousePosition();
         Vector3 perpendicular = playerTransform.position - mousePos;
         playerTransform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }

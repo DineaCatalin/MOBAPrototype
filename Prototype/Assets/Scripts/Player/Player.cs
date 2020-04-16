@@ -351,7 +351,6 @@ public class Player : MonoBehaviour
     public void Deactivate()
     {
         SetUIState(false);
-        //gameObject.SetActive(false);
         playerCollider.enabled = false;
         graphics.enabled = false;
     }
@@ -757,8 +756,9 @@ public class Player : MonoBehaviour
             localTeamID = teamID;
 
             // Set position for the ist spawn
-            transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
-
+            //transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
         }
+
+        Deactivate();
     }
 }

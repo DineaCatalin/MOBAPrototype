@@ -20,7 +20,7 @@ public class RushAbility : Ability
 
         // Switch the layer to the layer of the abilities from the other team so that
         // the rush area will interact with our team mates and not with the enemy
-        layerName = Utils.SwitchPlayerLayerName(layerName);
+        layerName = Utils.Instance.SwitchPlayerLayerName(layerName);
 
         // Set the layer of the rush area through the manager
         rushAreaManager.SetLayer(LayerMask.NameToLayer(layerName));

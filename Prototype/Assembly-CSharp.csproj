@@ -143,6 +143,7 @@
     <Compile Include="Assets\Scripts\UI\Score\MatchPlayerUI.cs" />
     <Compile Include="Assets\Scripts\UI\Score\ScoreBoard.cs" />
     <Compile Include="Assets\Scripts\UI\StatsBar.cs" />
+    <Compile Include="Assets\Scripts\UI\Tweens\AbilityScaleTween.cs" />
     <Compile Include="Assets\Scripts\UI\Tweens\AbilitySpawnTween.cs" />
     <Compile Include="Assets\Scripts\UI\Tweens\BulkScaleTween.cs" />
     <Compile Include="Assets\Scripts\UI\Tweens\DustDuskFadeTween.cs" />

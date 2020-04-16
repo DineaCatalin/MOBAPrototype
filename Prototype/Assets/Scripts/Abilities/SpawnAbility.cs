@@ -25,9 +25,9 @@ public class SpawnAbility : Ability
     // Projectiles will be rendered above the spawned static abilities
     int zOrder = 2;
 
-    Vector3 direction;
-    float angle;
-    int angleCorrection = 90;
+    //Vector3 direction;
+    //float angle;
+    //int angleCorrection = 90;
 
     // Use this for initialization
     void Start()
@@ -52,16 +52,16 @@ public class SpawnAbility : Ability
             return;
 
         if (isBuffForTeam)
-            layerName = Utils.SwitchPlayerLayerName(layerName);
+            layerName = Utils.Instance.SwitchPlayerLayerName(layerName);
 
         projectileLayer = LayerMask.NameToLayer(layerName);
     }
 
     public override bool Cast()
     {
-        Debug.Log("SpawnAbility is casting " + abilityData.description.name + " at position " + Utils.GetMousePosition());
+        Debug.Log("SpawnAbility is casting " + abilityData.description.name + " at position " + Utils.Instance.GetMousePosition());
 
-        spawnPosition = Utils.GetMousePosition();
+        spawnPosition = Utils.Instance.GetMousePosition();
         spawnPosition.z = zOrder;
 
         Debug.Log("Spawnability distance is " + Vector3.Distance(playerTransform.position, spawnPosition) + " cast range is " + castRange);
@@ -78,9 +78,11 @@ public class SpawnAbility : Ability
 
         if (mimicPlayerRotation)
         {
-            direction = Input.mousePosition - Utils.CameraScreenToWorldPoint(playerTransform.position);
-            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - angleCorrection;  // Angle correction as the sprites rotates 90 degrees extra
-            rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //direction = Input.mousePosition - Utils.Instance.CameraScreenToWorldPoint(playerTransform.position);
+            //angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - angleCorrection;  // Angle correction as the sprites rotates 90 degrees extra
+            //rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            rotation = playerTransform.rotation;
+            Debug.Log("SpawnAbility Cast rotation " + rotation);
         }
         else
             rotation = Quaternion.identity;

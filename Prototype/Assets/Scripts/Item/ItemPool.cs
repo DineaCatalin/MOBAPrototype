@@ -72,7 +72,7 @@ public class ItemPool : MonoBehaviour
         
         EventManager.StartListening(GameEvent.SpawnItem, new System.Action(SpawnItem));
         EventManager.StartListening(GameEvent.StartRedraft, new System.Action(DisableItems));
-        EventManager.StartListening(GameEvent.RoundEnd, new System.Action(DisableItems));
+        EventManager.StartListening(GameEvent.EndRound, new System.Action(DisableItems));
     }
 
     // Spawns item in a random location

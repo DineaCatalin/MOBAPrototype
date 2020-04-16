@@ -31,7 +31,7 @@ public class EnvironmentManager : MonoBehaviour
         // and then update the rest of the clients with this value
         if (PhotonNetwork.IsMasterClient)
         {
-            environmentSize = Utils.CameraScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+            environmentSize = Utils.Instance.CameraScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
             photonView.RPC("SetEnvironmentSize", RpcTarget.OthersBuffered, environmentSize.x, environmentSize.y);
         }
     }
@@ -84,7 +84,7 @@ public class EnvironmentManager : MonoBehaviour
     public Vector3 GetPlayerSpawnPoint(int teamID)
     {
         float spawnY = Random.Range
-                (Utils.CameraScreenToWorldPoint(new Vector2(0, 0)).y, Utils.CameraScreenToWorldPoint(new Vector2(0, Screen.height)).y);
+                (Utils.Instance.CameraScreenToWorldPoint(new Vector2(0, 0)).y, Utils.Instance.CameraScreenToWorldPoint(new Vector2(0, Screen.height)).y);
 
         spawnY /= 2;
 

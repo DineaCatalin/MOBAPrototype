@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
         playersReady = 0;
 
-        EventManager.StartListening(GameEvent.RoundEnd, new System.Action(OnRoundEnd));
+        EventManager.StartListening(GameEvent.EndRound, new System.Action(OnRoundEnd));
         EventManager.StartListening(GameEvent.StartRedraft, new System.Action(OnStartRedraft)); 
         EventManager.StartListening(GameEvent.EndRedraft, new System.Action(OnRedraftEnd));
 
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && !matchStarted)
+            if (Input.GetKeyDown(KeyCode.Return) && !matchStarted)
             {
                 StartMatch();
 
@@ -69,6 +69,33 @@ public class GameManager : MonoBehaviour
                 PhotonNetwork.CurrentRoom.IsOpen = false;
             }
         }
+    }
+
+    [PunRPC]
+    void StartMatchRPC()
+    {
+        StartMatch();
+    }
+
+    void StartMatch()
+    {
+        // Fire match start event
+        EventManager.TriggerEvent(GameEvent.StartMatch);
+
+        //Debug.Log("GameManager StartMatch totalPlayers " + totalPlayers);
+        //totalPlayers = playerMap.Count;
+
+        // DEBUG
+        foreach (KeyValuePair<int, Player> player in playerMap)
+        {
+            // do something with entry.Value or entry.Key
+            totalPlayers++;
+            Debug.Log("PlayerMap StartMatch Checking local playerMap playerID : " + player.Key + " Player.GetID() " + player.Value.GetID() + " teamID " + player.Value.teamID);
+        }
+        Debug.Log("GameManager StartMatch totalPlayers " + totalPlayers);
+
+        Debug.Log("GameManager StartMatch StartRound");
+        EventManager.TriggerEvent(GameEvent.StartRound);
     }
 
     public void ActivateNonLocalPlayer(int playerID)
@@ -139,6 +166,7 @@ public class GameManager : MonoBehaviour
 
         if(playersReady >= totalPlayers)
         {
+            Debug.Log("GameManager CheckRedraftFinished OnRoundEnd playersReady " + playersReady + " totalPlayers " + totalPlayers);
             OnRoundEnd();
         }
     }
@@ -155,7 +183,7 @@ public class GameManager : MonoBehaviour
     [PunRPC]
     public void RoundEndRPC()
     {
-        EventManager.TriggerEvent(GameEvent.RoundEnd);
+        EventManager.TriggerEvent(GameEvent.EndRound);
     }
 
     void EndRound()
@@ -171,6 +199,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(TIME_BETWEEN_ROUNDS);
 
         Debug.Log("GameManager StartRoundWithDelay Starting round");
+        StartRound();
+    }
+
+    void StartRound()
+    {
+        // Fire new round event
+        Debug.Log("GameManager StartRound");
         EventManager.TriggerEvent(GameEvent.StartRound);
     }
 
@@ -178,34 +213,6 @@ public class GameManager : MonoBehaviour
     public void EndMatch(int winnerTeamID)
     {
 
-    }
-
-    [PunRPC]
-    public void StartMatchRPC()
-    {
-        StartMatch();
-    }
-
-    void StartMatch()
-    {
-        // Fire match start event
-        EventManager.TriggerEvent(GameEvent.StartMatch);
-
-        totalPlayers = playerMap.Count;
-
-        // DEBUG
-        foreach (KeyValuePair<int, Player> player in playerMap)
-        {
-            // do something with entry.Value or entry.Key
-            Debug.Log("PlayerMap StartMatch Checking local playerMap playerID : " + player.Key + " Player.GetID() " + player.Value.GetID() + " teamID " + player.Value.teamID);
-        }
-    }
-
-    [PunRPC]
-    public void StartRound()
-    {
-        // Fire new round event
-        EventManager.TriggerEvent(GameEvent.StartRound);
     }
 
     public void KillNetworkedPlayer(int playerID, int killerID)

@@ -21,9 +21,9 @@ public class InteractionManager : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         player = playerController.player;
 
-        playerController.enabled = false;
+        //playerController.enabled = false;
 
-        EventManager.StartListening(GameEvent.StartMatch, new System.Action(OnMatchStart));
+        //EventManager.StartListening(GameEvent.StartMatch, new System.Action(OnMatchStart));
     }
 
     // This will be called by the root effect and then from the player because we need to disable the movement

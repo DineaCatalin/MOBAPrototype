@@ -92,7 +92,7 @@ public class Match : MonoBehaviour
         else
         {
             Debug.Log("Match FinishRound Start Redraft");
-            EventManager.TriggerEvent(GameEvent.RoundEnd);
+            EventManager.TriggerEvent(GameEvent.EndRound);
         }
 
         Debug.Log("Match FinishRound ");
