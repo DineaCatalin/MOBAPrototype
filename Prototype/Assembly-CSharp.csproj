@@ -135,6 +135,7 @@
     <Compile Include="Assets\Scripts\UI\AbilitySelectButton.cs" />
     <Compile Include="Assets\Scripts\UI\AbilityUI.cs" />
     <Compile Include="Assets\Scripts\UI\AbilityUIContainer.cs" />
+    <Compile Include="Assets\Scripts\UI\Canvas\CanvasHandler.cs" />
     <Compile Include="Assets\Scripts\UI\GameUI.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\ManaBar.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Assets\Scripts\UI\Tweens\FadeInOutTween.cs" />
     <Compile Include="Assets\Scripts\UI\Tweens\FadeTween.cs" />
     <Compile Include="Assets\Scripts\UI\Tweens\ScaleTween.cs" />
+    <Compile Include="Assets\Scripts\UI\Tweens\Tween.cs" />
     <Compile Include="Assets\Scripts\Utils\ActivationDelay.cs" />
     <Compile Include="Assets\Scripts\Utils\AppManager.cs" />
     <Compile Include="Assets\Scripts\Utils\ExitHandler.cs" />

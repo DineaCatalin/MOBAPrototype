@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScaleTween : MonoBehaviour
+public class ScaleTween : Tween
 {
     public Vector2 initialScale;
     public Vector2 finalScale;
     public float scaleTime;
     public LeanTweenType easeType;
 
-    void OnEnable()
-    {
-        SetInitialScale();
-        LeanTween.scale(gameObject, finalScale, scaleTime).setEase(easeType);
-    }
-
-    void SetInitialScale()
+    public override void Execute()
     {
         gameObject.transform.localScale = initialScale;
+        LeanTween.scale(gameObject, finalScale, scaleTime).setEase(easeType);
     }
 }
