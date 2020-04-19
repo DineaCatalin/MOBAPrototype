@@ -3330,7 +3330,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.5652523
+  orthographic size: 5.8646917
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -13251,26 +13251,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2017703157}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2034457038 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 683628319989916906, guid: 121c322c230bf427ba93c2017361d06e,
-    type: 3}
-  m_PrefabInstance: {fileID: 683628318928831022}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2034457039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034457038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc54846502fd44ae0b1fc157aa07ab67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team1Rounds: 0
-  team2Rounds: 0
 --- !u!224 &2047474094 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7187210618866221891, guid: baba462d7906f45c390f54d110a6e3bf,
@@ -13733,7 +13713,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1290715056, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
       propertyPath: viewIdField
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1290715058, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
       propertyPath: dustDusk
@@ -13743,31 +13723,6 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 255652222}
-    - target: {fileID: 1367822867, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1367822867, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
-      propertyPath: Minutes
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1367822867, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
-      propertyPath: Seconds
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490346524, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490346527, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
-      propertyPath: abilityContainerArray.Array.size
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490346527, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
-      propertyPath: abilityContainerArray.Array.data[18]
-      value: 
-      objectReference: {fileID: 7480335972534730392, guid: 0f965c12aacc143809d567201b139c44,
-        type: 3}
     - target: {fileID: 683628319989916904, guid: 121c322c230bf427ba93c2017361d06e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13827,16 +13782,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 683628319989916907, guid: 121c322c230bf427ba93c2017361d06e,
-        type: 3}
-      propertyPath: poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 683628319989916907, guid: 121c322c230bf427ba93c2017361d06e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121c322c230bf427ba93c2017361d06e, type: 3}

@@ -9,7 +9,7 @@ public class Match : MonoBehaviour
     public static Match activeMatch;
 
     public static int TEAM_1_ID = 1;
-    public static  int TEAM_2_ID = 2;
+    public static int TEAM_2_ID = 2;
 
     const int ROUNDS_TO_WIN = 9;
     const int REDRAFT_ROUND_FACTOR = 3; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
@@ -21,6 +21,8 @@ public class Match : MonoBehaviour
 
     Dictionary<int, MatchPlayer> matchPlayers;
 
+    PhotonView photonView;
+
     void Awake()
     {
         team1Rounds = 0;
@@ -30,6 +32,10 @@ public class Match : MonoBehaviour
         matchPlayers = new Dictionary<int, MatchPlayer>();
 
         activeMatch = this;
+
+        photonView = GetComponent<PhotonView>();
+
+        EventManager.StartListening(GameEvent.EndRound, new Action(SyncScore));
     }
 
     public Dictionary<int, MatchPlayer> GetMatchPlayers()

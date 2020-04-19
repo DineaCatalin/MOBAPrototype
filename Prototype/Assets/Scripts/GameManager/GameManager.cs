@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
 
     PhotonView photonView;
 
-    Dictionary<int, Player> playerMap;
-
     // Holds team and score
     Match match;
 
@@ -32,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         photonView = GetComponent<PhotonView>();
-        playerMap = new Dictionary<int, Player>();
+        
 
         playersReady = 0;
 
@@ -83,92 +81,12 @@ public class GameManager : MonoBehaviour
         EventManager.TriggerEvent(GameEvent.StartMatch);
 
         //Debug.Log("GameManager StartMatch totalPlayers " + totalPlayers);
-        //totalPlayers = playerMap.Count;
+        totalPlayers = PlayerManager.Instance.GetPlayerCount();
 
-        // DEBUG
-        foreach (KeyValuePair<int, Player> player in playerMap)
-        {
-            // do something with entry.Value or entry.Key
-            totalPlayers++;
-            Debug.Log("PlayerMap StartMatch Checking local playerMap playerID : " + player.Key + " Player.GetID() " + player.Value.GetID() + " teamID " + player.Value.teamID);
-        }
         Debug.Log("GameManager StartMatch totalPlayers " + totalPlayers);
 
         Debug.Log("GameManager StartMatch StartRound");
         EventManager.TriggerEvent(GameEvent.StartRound);
-    }
-
-    public void ActivateNonLocalPlayer(int playerID)
-    {
-        photonView.RPC("ActivateNonLocalPlayerRPC", RpcTarget.Others, playerID);
-    }
-
-    [PunRPC]
-    void ActivateNonLocalPlayerRPC(int playerID)
-    {
-        Player player = playerMap[playerID];
-
-        if (player != null && !player.isNetworkActive)
-        {
-            player.Activate();
-        }
-    }
-
-    IEnumerator ActivateNonLocalPlayerCoroutine(int playerID, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        Player player = playerMap[playerID];
-
-        if (player != null && !player.isNetworkActive)
-        {
-            player.Activate();
-        }
-    }
-
-    void OnStartRedraft()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            photonView.RPC("StartRedraftRPC", RpcTarget.Others);
-        }
-
-        match.SyncScore();
-    }
-
-    [PunRPC]
-    void StartRedraftRPC()
-    {
-        EventManager.TriggerEvent(GameEvent.StartRedraft);
-    }
-
-    void OnRedraftEnd()
-    {
-        if(PhotonNetwork.IsMasterClient)
-        {
-            CheckRedraftFinished();
-        }
-        else
-        {
-            photonView.RPC("CheckRedraftFinishedRPC", RpcTarget.MasterClient);
-        }
-    }
-
-    [PunRPC]
-    void CheckRedraftFinishedRPC()
-    {
-        CheckRedraftFinished();
-    }
-
-    void CheckRedraftFinished()
-    {
-        playersReady++;
-
-        if(playersReady >= totalPlayers)
-        {
-            Debug.Log("GameManager CheckRedraftFinished OnRoundEnd playersReady " + playersReady + " totalPlayers " + totalPlayers);
-            OnRoundEnd();
-        }
     }
 
     void OnRoundEnd()
@@ -176,7 +94,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManager OnRoundEnd");
         EndRound();
 
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
             photonView.RPC("RoundEndRPC", RpcTarget.Others);
     }
 
@@ -188,9 +106,6 @@ public class GameManager : MonoBehaviour
 
     void EndRound()
     {
-        // Sync match scores
-        match.SyncScore();
-
         StartCoroutine("StartRoundWithDelay");
     }
 
@@ -217,52 +132,20 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void KillNetworkedPlayer(int playerID, int killerID)
+    public void CheckRoundEndMasterClient()
     {
-        // Kill local player
-        KillPlayer(playerID, killerID);
-
-        // Make sure the rest of the clients did the same
-        photonView.RPC("KillPlayerRPC", RpcTarget.Others, playerID, killerID);
-
         if (PhotonNetwork.IsMasterClient)
             CheckRoundEnd();
         else
             photonView.RPC("CheckRoundEndRPC", RpcTarget.MasterClient);
     }
 
-    [PunRPC]
-    void KillPlayerRPC(int playerID, int killerID)
-    {
-        KillPlayer(playerID, killerID);
-    }
-
-    void KillPlayer(int playerID, int killerID)
-    {
-        if (playerMap[playerID] != null)
-        {
-            playerMap[playerID].HandlePlayerDeath();
-
-            if(killerID != 0)
-                match.AddKillScore(killerID, playerID);
-
-            Debug.Log("GameManager KillPlayer Player died " + playerID + " Killer " + killerID);
-        }
-    }
-
-    [PunRPC]
-    void CheckRoundEndRPC()
-    {
-        Debug.Log("GameManager KillPlayerRPC We are in master client");
-        CheckRoundEnd();
-    }
-
     void CheckRoundEnd()
     {
         bool playerTeam1Alive = false;
         bool playerTeam2Alive = false;
-        
-        foreach (Player player in playerMap.Values)
+
+        foreach (Player player in PlayerManager.Instance.GetPlayerMap().Values)
         {
             Debug.Log("GameManager CheckRoundEnd Checking player " + player.GetID() + " team " + player.teamID);
 
@@ -270,7 +153,7 @@ public class GameManager : MonoBehaviour
             {
                 if (player.teamID == Match.TEAM_1_ID)
                     playerTeam1Alive = true;
-                else if(player.teamID == Match.TEAM_2_ID)
+                else if (player.teamID == Match.TEAM_2_ID)
                     playerTeam2Alive = true;
 
                 Debug.Log("GameManager CheckRoundEnd Player is alive " + player.GetID() + " from team " + player.teamID);
@@ -284,7 +167,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         // Team 1 WON
-        else if(playerTeam1Alive)
+        else if (playerTeam1Alive)
         {
             Debug.Log("GameManager CheckRoundEnd Team 1 won");
             match.FinishRound(Match.TEAM_1_ID);
@@ -297,211 +180,55 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddPlayerOverNetwork(int playerID)
+    [PunRPC]
+    void CheckRoundEndRPC()
     {
-        int teamID = GetTeamToAssign();
-
-        AddPlayer(playerID, teamID);
-        photonView.RPC("AddPlayerRPC", RpcTarget.OthersBuffered, playerID, teamID);
+        Debug.Log("GameManager KillPlayerRPC We are in master client");
+        CheckRoundEnd();
     }
 
     [PunRPC]
-    void AddPlayerRPC(int playerID, int teamID)
+    void CheckRedraftFinishedRPC()
     {
-        Debug.Log("GameManager AddPlayerRPC " + playerID);
-
-        AddPlayer(playerID, teamID);
+        CheckRedraftFinished();
     }
 
-    void AddPlayer(int playerID, int teamID)
+    void CheckRedraftFinished()
     {
-        Player player = GameObject.Find("Player" + playerID).GetComponent<Player>();
+        playersReady++;
 
-        player.SetTeamSpecificData(teamID);
-        playerMap.Add(playerID, player);
-
-        match.AddMatchPlayer(player.nickName.text, playerID, teamID);
-        Debug.Log("GameManager AddPlayer adding Match player " + playerID + " to team " + teamID);
+        if (playersReady >= totalPlayers)
+        {
+            Debug.Log("GameManager CheckRedraftFinished OnRoundEnd playersReady " + playersReady + " totalPlayers " + totalPlayers);
+            OnRoundEnd();
+        }
     }
 
-    public Player GetPlayer(int playerID)
+    void OnStartRedraft()
     {
-        return playerMap[playerID];
-    }
-
-    public void ActivatePlayer(int playerID)
-    {
-        photonView.RPC("ActivatePlayerRPC", RpcTarget.All, playerID);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("StartRedraftRPC", RpcTarget.Others);
+        }
     }
 
     [PunRPC]
-    public void ActivatePlayerRPC(int playerID)
+    void StartRedraftRPC()
     {
-        Debug.Log("ActivatePlayerRPC getting player " + playerID + " from map");
-        playerMap[playerID].Activate();
+        EventManager.TriggerEvent(GameEvent.StartRedraft);
     }
 
-    public void DeactivatePlayer(int playerID)
+    void OnRedraftEnd()
     {
-        photonView.RPC("DeactivatePlayerRPC", RpcTarget.All, playerID);
-    }
-
-    [PunRPC]
-    public void DeactivatePlayerRPC(int playerID)
-    {
-        playerMap[playerID].Deactivate();
-    }
-
-    int GetTeamToAssign()
-    {
-        int teamID = (int)PhotonNetwork.CurrentRoom.CustomProperties["spawnedPlayerTeamID"];
-
-        if(teamID == 0)
-            teamID = 1;
+        if(PhotonNetwork.IsMasterClient)
+        {
+            CheckRedraftFinished();
+        }
         else
-            teamID = (teamID % 2) + 1;
-
-        // Assign the new value to the room properties
-        Hashtable roomProperties = new Hashtable();
-        roomProperties.Add("spawnedPlayerTeamID", teamID);
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
-
-        Debug.Log("GameManager GetTeamToAssign teamID is " + teamID);
-        
-        return teamID;
-    }
-
-    // The controller will take care of passing the message to the player to activate it's shield
-    // from the ShieldAbility. It will do this because the photonView is attached to the GO the controller is attached,
-    // so we can't call RPC's from the components on the child object aka the Player component
-    public void ActivatePlayerShield(int armor, int playerID)
-    {
-        Debug.Log("GameManager ActivatePlayerShield with " + armor + " armor for player " + playerID);
-        photonView.RPC("ActivatePlayerShieldRPC", RpcTarget.Others, armor, playerID);
-    }
-
-    [PunRPC]
-    void ActivatePlayerShieldRPC(int armor, int playerID)
-    {
-        Debug.Log("GameManager ActivatePlayerShieldRPC with " + armor + " armor for player " + playerID);
-        if (playerMap[playerID] != null)
         {
-            playerMap[playerID].ActivateShield(armor);
+            photonView.RPC("CheckRedraftFinishedRPC", RpcTarget.MasterClient);
         }
     }
 
-    public void DeactivatePlayerShield(int playerID)
-    {
-        photonView.RPC("DeactivatePlayerShieldRPC", RpcTarget.Others, playerID);
-    }
-
-    [PunRPC]
-    void DeactivatePlayerShieldRPC(int playerID)
-    {
-        Debug.Log("GameManager DeactivatePlayerShieldRPC for player " + playerID);
-        if (playerMap[playerID] != null)
-        {
-            playerMap[playerID].DeactivateShield();
-        }
-    }
-
-    public void RemoveNetworkedPlayer(int playerID)
-    {
-        RemovePlayer(playerID);
-        photonView.RPC("RemovePlayerRPC", RpcTarget.Others, playerID);
-    }
-
-    [PunRPC]
-    void RemovePlayerRPC(int playerID)
-    {
-        RemovePlayer(playerID);
-    }
-
-    void RemovePlayer(int playerID)
-    {
-        if (playerMap.ContainsKey(playerID))
-        {
-            Debug.Log("Removing from playerMap player : " + playerID);
-            playerMap.Remove(playerID);
-        }
-    }
-
-    void SyncPlayerMap()
-    {
-        int[] playerIDs = new int[playerMap.Count];
-        int index = 0;
-
-        // Get all the players we have in our map locally
-        foreach (KeyValuePair<int, Player> mapValue in playerMap)
-        {
-            playerIDs[index] = mapValue.Key;
-            index++;
-        }
-
-        photonView.RPC("SyncPlayerMapRPC", RpcTarget.Others, playerIDs);
-    }
-
-    [PunRPC]
-    void SyncPlayerMapRPC(int[] playerIDs)
-    {
-        int playerID;
-
-        // Loop all the ids in the map to see if our local map has all of them
-        for (int i = 0; i < playerIDs.Length; i++)
-        {
-            playerID = playerIDs[i];
-
-            // We found an ID that is not in our local map
-            if (!playerMap.ContainsKey(playerID))
-            {
-                Debug.Log("GameManager SyncPlayerMapRPC Finding player with ID " + playerID);
-                GameObject playerGO = GameObject.Find("Player" + playerID);
-
-                if(playerGO != null)
-                {
-                    Player player = playerGO.GetComponent<Player>();
-                    playerMap.Add(playerID, player);
-                }
-            }
-        }
-    }
-
-    public void ActivateRushAreaOverNetwork(float duration, int playerID)
-    {
-        ActivateRushArea(duration, playerID);
-        photonView.RPC("ActivateRushAreaRPC", RpcTarget.Others, duration, playerID);
-    }
-
-    [PunRPC]
-    void ActivateRushAreaRPC(float duration, int playerID)
-    {
-        ActivateRushArea(duration, playerID);
-    }
-
-    void ActivateRushArea(float duration, int playerID)
-    {
-        playerMap[playerID].ActivateRushArea(duration);
-    }
-
-    public void ActivatePlayerUIBuff(PlayerEffect buff, float duration, int playerID, RpcTarget targets)
-    {
-        photonView.RPC("ActivatePlayerUIBuffRPC", targets, buff, duration, playerID);
-    }
-
-    [PunRPC]
-    void ActivatePlayerUIBuffRPC(PlayerEffect buff, float duration, int playerID)
-    {
-        playerMap[playerID].ActivateBuffUI(buff, duration);
-    }
-
-    public void DeactivatePlayerUIBuff(PlayerEffect buff, int playerID, RpcTarget targets)
-    {
-        photonView.RPC("DeactivatePlayerUIBuffRPC", targets, buff, playerID);
-    }
-
-    [PunRPC]
-    void DeactivatePlayerUIBuffRPC(PlayerEffect buff, int playerID)
-    {
-        playerMap[playerID].DeactivateBuffUI(buff);
-    }
+    
 }

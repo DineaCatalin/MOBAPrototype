@@ -47,7 +47,7 @@ public class BlinkAbility : Ability
         blinkPosition.z = 0;
 
         Debug.Log("BlinkAbility Deactivating player " + playerID);
-        GameManager.Instance.DeactivatePlayer(playerID);
+        PlayerManager.Instance.DeactivatePlayer(playerID);
 
         Invoke("Blink", delay);
 
@@ -60,7 +60,7 @@ public class BlinkAbility : Ability
         playerTransform.position = blinkPosition;
 
         Debug.Log("BlinkAbility Activating player " + playerID);
-        GameManager.Instance.ActivatePlayer(playerID);
+        PlayerManager.Instance.ActivatePlayer(playerID);
     }
 
     bool OutOfRange()
