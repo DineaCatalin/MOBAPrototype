@@ -58,6 +58,7 @@ ScriptsOnlyBuild:
     - Player
     - PlayerBuffs
     - PlayerController
+    - PlayerGraphics
     - ProjectileAbility
     - PullEffect
     - RootEffect
@@ -294,17 +295,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13682}
     - Class: 114
-      Script: {instanceID: 13752}
+      Script: {instanceID: 13750}
     - Class: 114
-      Script: {instanceID: 13770}
+      Script: {instanceID: 13754}
     - Class: 114
-      Script: {instanceID: 13814}
+      Script: {instanceID: 13772}
     - Class: 114
-      Script: {instanceID: 13832}
+      Script: {instanceID: 13816}
     - Class: 114
-      Script: {instanceID: 13836}
+      Script: {instanceID: 13834}
     - Class: 114
-      Script: {instanceID: 69630}
+      Script: {instanceID: 13838}
+    - Class: 114
+      Script: {instanceID: 167184}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -491,23 +494,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13480}
     - Class: 114
-      Script: {instanceID: 13570}
-    - Class: 114
       Script: {instanceID: 13664}
     - Class: 114
       Script: {instanceID: 13672}
     - Class: 114
       Script: {instanceID: 13682}
     - Class: 114
-      Script: {instanceID: 13752}
+      Script: {instanceID: 13750}
     - Class: 114
-      Script: {instanceID: 13806}
+      Script: {instanceID: 13754}
     - Class: 114
-      Script: {instanceID: 13814}
+      Script: {instanceID: 13808}
     - Class: 114
-      Script: {instanceID: 13836}
+      Script: {instanceID: 13816}
     - Class: 114
-      Script: {instanceID: 69630}
+      Script: {instanceID: 13838}
+    - Class: 114
+      Script: {instanceID: 167184}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1215,7 +1218,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: ccf6536c149535a211fcae60793ba3a9
+      Hash: f824b48a2c6f5c8c43f51eb48855926c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1467,7 +1470,7 @@ ScriptsOnlyBuild:
     className: PhotonTransformView
   - hash:
       serializedVersion: 2
-      Hash: 9b71bf71f25a72daaef9aa84056a138e
+      Hash: 0cfce8333b7c7b2222d30117432d5e5e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BlinkAbility
@@ -2373,6 +2376,12 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 14d39821f1a0b6d8c46023dbbacb4db4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AbilityScaleTween
+  - hash:
+      serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -2505,10 +2514,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 14d39821f1a0b6d8c46023dbbacb4db4
+      Hash: b3f458b1159866c238a342258861b37d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: AbilityScaleTween
+    className: PlayerGraphics
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity

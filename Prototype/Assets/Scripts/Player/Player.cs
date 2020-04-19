@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     // Defines the stats of our player like health, mana, power, speed
     [SerializeField] PlayerData stats;
 
-    [SerializeField] SpriteRenderer graphics;
+    [SerializeField] PlayerGraphics graphics;
 
     [SerializeField] PlayerBuffs buffsUI;
 
@@ -352,7 +352,7 @@ public class Player : MonoBehaviour
     {
         SetUIState(false);
         playerCollider.enabled = false;
-        graphics.enabled = false;
+        graphics.Disable();
     }
 
     void SetUIState(bool activeState)
@@ -419,7 +419,7 @@ public class Player : MonoBehaviour
         isAlive = true;
 
         playerCollider.enabled = true;
-        graphics.enabled = true;
+        graphics.Enable();
 
         SetUIState(true);
 
@@ -747,15 +747,12 @@ public class Player : MonoBehaviour
         // We will also set the color of the sprite here temporarily
         if (teamID == 2)
         {
-            graphics.color = Color.red;
+            graphics.SetColor(Color.red);
         }
 
         if(isNetworkActive)
         {
             localTeamID = teamID;
-
-            // Set position for the ist spawn
-            //transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
         }
 
         Deactivate();

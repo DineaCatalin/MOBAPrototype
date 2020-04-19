@@ -25,7 +25,7 @@ public class AbilityCollider : MonoBehaviour
 
         effect = GetComponent<AbilityEffect>();
 
-        if (GetComponent<AbilityDuration>() != null || GetComponent<Flicker>() != null)
+        if (GetComponent<AbilityDuration>() != null)
         {
             isStatic = true;
         }
