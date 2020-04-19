@@ -40,7 +40,7 @@ public class AbilitySpawner : MonoBehaviour
 
         spawned.layer = layer;
 
-        Player player = GameManager.Instance.GetPlayer(casterPlayerID);
+        Player player = PlayerManager.Instance.GetPlayer(casterPlayerID);
         AbilityCollider abilityCollider = spawned.GetComponent<AbilityCollider>();
 
         if(abilityCollider)
@@ -74,7 +74,7 @@ public class AbilitySpawner : MonoBehaviour
         if(movement != null)
             movement.SetDirection(direction);
 
-        Player player = GameManager.Instance.GetPlayer(casterPlayerID);
+        Player player = PlayerManager.Instance.GetPlayer(casterPlayerID);
         AbilityCollider abilityCollider = projectile.GetComponent<AbilityCollider>();
 
         abilityCollider.SetCasterID(casterPlayerID);

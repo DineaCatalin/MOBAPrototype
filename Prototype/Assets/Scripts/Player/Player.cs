@@ -345,7 +345,7 @@ public class Player : MonoBehaviour
     {
         // We will just set the GO as inactive
         Debug.Log("Player " + id + " Die()");
-        GameManager.Instance.KillNetworkedPlayer(this.id, killerID);
+        PlayerManager.Instance.KillNetworkedPlayer(this.id, killerID);
     }
 
     public void Deactivate()
@@ -407,7 +407,7 @@ public class Player : MonoBehaviour
         {
             transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
             Activate();
-            GameManager.Instance.ActivateNonLocalPlayer(id);
+            PlayerManager.Instance.ActivateNonLocalPlayer(id);
             PlayerController.isLocked = false;
         }
     }
@@ -629,14 +629,14 @@ public class Player : MonoBehaviour
 
         if (isNetworkActive)
         {
-            GameManager.Instance.ActivatePlayerShield(armor, id);
+            PlayerManager.Instance.ActivatePlayerShield(armor, id);
         }
     }
 
     public void DeactivateShield()
     {
         if (isNetworkActive)
-            GameManager.Instance.DeactivatePlayerShield(id);
+            PlayerManager.Instance.DeactivatePlayerShield(id);
 
         shield.DeactivateLocalShield();
     }
