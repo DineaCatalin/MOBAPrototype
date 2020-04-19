@@ -5,6 +5,9 @@ using UnityEngine;
 public class StatsBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
+    [SerializeField] float fullSlideDuration;
+    float duration;
+    [SerializeField] LeanTweenType easeType;
 
     private void Start()
     {
@@ -20,6 +23,12 @@ public class StatsBar : MonoBehaviour
 
     public void SetCurrentStat(int stat)
     {
-        slider.value = stat;
+        duration = fullSlideDuration * (stat / slider.maxValue);
+        LeanTween.value(gameObject, SetSliderValue, slider.value, stat, duration).setEase(easeType);
     }
- }
+
+    void SetSliderValue(float value)
+    {
+        slider.value = value;
+    }
+}

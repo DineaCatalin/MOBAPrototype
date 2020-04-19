@@ -229,6 +229,4 @@ public class GameManager : MonoBehaviour
             photonView.RPC("CheckRedraftFinishedRPC", RpcTarget.MasterClient);
         }
     }
-
-    
 }

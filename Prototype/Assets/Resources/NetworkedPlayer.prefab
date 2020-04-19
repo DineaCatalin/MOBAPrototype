@@ -583,7 +583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2725599832697514026}
   - component: {fileID: 6842074662040298927}
-  - component: {fileID: 5606363298015762527}
+  - component: {fileID: 3548636462421085676}
   m_Layer: 5
   m_Name: Health Bar
   m_TagString: Untagged
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5606363298015762527
+--- !u!114 &3548636462421085676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -671,10 +671,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 20170250492877978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38e21e5053f794bb9b90883b2113479d, type: 3}
+  m_Script: {fileID: 11500000, guid: d9d741f8fe3ed46f0a0bb1d40b4d1639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 6842074662040298927}
+  fullSlideDuration: 1
+  easeType: 21
 --- !u!1 &398769138230856424
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,8 +978,8 @@ MonoBehaviour:
   interactionManager: {fileID: 0}
   rushAreaManager: {fileID: 5235616455069676771}
   castOrigin: {fileID: 3295094497746060773}
-  healthBar: {fileID: 5606363298015762527}
-  manaBar: {fileID: 3295094498066622084}
+  healthBar: {fileID: 3548636462421085676}
+  manaBar: {fileID: 3973607269923303496}
   rushAreaSpeedBoost: 0
   hasDoubleDamage: 0
   isNetworkActive: 0
@@ -1430,7 +1432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3295094498066622106}
   - component: {fileID: 3295094498066622085}
-  - component: {fileID: 3295094498066622084}
+  - component: {fileID: 3973607269923303496}
   m_Layer: 5
   m_Name: Mana Bar
   m_TagString: Untagged
@@ -1509,7 +1511,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3295094498066622084
+--- !u!114 &3973607269923303496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1518,10 +1520,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3295094498066622087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f657cccd7b2412f93648acb0ba9098, type: 3}
+  m_Script: {fileID: 11500000, guid: d9d741f8fe3ed46f0a0bb1d40b4d1639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 3295094498066622085}
+  fullSlideDuration: 1
+  easeType: 21
 --- !u!1 &3333881532199731664
 GameObject:
   m_ObjectHideFlags: 0

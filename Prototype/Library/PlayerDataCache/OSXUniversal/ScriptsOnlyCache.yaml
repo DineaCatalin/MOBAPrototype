@@ -37,14 +37,12 @@ ScriptsOnlyBuild:
     - GameUI
     - HealAbility
     - HealEffect
-    - HealthBar
     - InteractionManager
     - InteruptHeal
     - Item
     - ItemPool
     - KnockoutEffect
     - LookAtMouse
-    - ManaBar
     - ManaBurnEffect
     - Match
     - MatchClock
@@ -73,6 +71,7 @@ ScriptsOnlyBuild:
     - SpawnAbility
     - SpellIndicator
     - StateManager
+    - StatsBar
     - Utils
     - Walls
     PhotonUnityNetworking.Demos.dll:
@@ -154,8 +153,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11242}
-    - Class: 114
       Script: {instanceID: 11300}
     - Class: 114
       Script: {instanceID: 11332}
@@ -236,6 +233,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12648}
     - Class: 114
+      Script: {instanceID: 12650}
+    - Class: 114
       Script: {instanceID: 12754}
     - Class: 114
       Script: {instanceID: 12794}
@@ -279,8 +278,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13270}
     - Class: 114
       Script: {instanceID: 13296}
-    - Class: 114
-      Script: {instanceID: 13338}
     - Class: 114
       Script: {instanceID: 13346}
     - Class: 114
@@ -383,8 +380,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11242}
-    - Class: 114
       Script: {instanceID: 11362}
     - Class: 114
       Script: {instanceID: 11368}
@@ -443,6 +438,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12648}
     - Class: 114
+      Script: {instanceID: 12650}
+    - Class: 114
       Script: {instanceID: 12654}
     - Class: 114
       Script: {instanceID: 12678}
@@ -492,8 +489,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13268}
     - Class: 114
       Script: {instanceID: 13296}
-    - Class: 114
-      Script: {instanceID: 13338}
     - Class: 114
       Script: {instanceID: 13346}
     - Class: 114
@@ -1229,7 +1224,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: f824b48a2c6f5c8c43f51eb48855926c
+      Hash: 57e8bcf4889a5eaddc0537c61b7a7b4d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1619,7 +1614,7 @@ ScriptsOnlyBuild:
     className: Item
   - hash:
       serializedVersion: 2
-      Hash: 1028c39545bcfa841aaab54121e69a47
+      Hash: 1a6ff66fe66af70decc2003723ab8b15
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StatsBar

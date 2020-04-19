@@ -50,8 +50,8 @@ public class Player : MonoBehaviour
     Shield shield;
 
     // UI of the player
-    public HealthBar healthBar;
-    public ManaBar manaBar;
+    public StatsBar healthBar;
+    public StatsBar manaBar;
 
     // This will tell us when a player is receiving damage over time
     // We will not regen the player while this is happening
@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
     Coroutine manaChargeCoroutine;
     int manaCoroutineCallsPerSecond;
     int manaChargePerTick;
+    float manaChargeSpeedPenalty;
 
     List<Coroutine> coroutines;
 
@@ -121,8 +122,8 @@ public class Player : MonoBehaviour
             LocalPlayerReferences.Load(gameObject, this, transform, castOrigin, rushAreaManager.gameObject);
 
         // Set health and mana bar values
-        healthBar.SetMaxHealth(stats.maxHealth);
-        manaBar.SetMaxMana(stats.maxMana);
+        healthBar.SetMaxStat(stats.maxHealth);
+        manaBar.SetMaxStat(stats.maxMana);
 
         isAlive = true;
 
@@ -131,78 +132,88 @@ public class Player : MonoBehaviour
         SetCoroutines();
 
         // Start player at the beginning of the round
-        EventManager.StartListening(GameEvent.StartRound, new System.Action(OnRoundStart));
+        EventManager.StartListening(GameEvent.StartRound, new System.Action(Reset));
         EventManager.StartListening(GameEvent.ShieldDestroyed, new System.Action(DeactivateShield));
 
         EventManager.StartListening(GameEvent.StartRedraft, new System.Action(HandlePlayerDeath));
     }
 
-    void SetLocalID()
+    public void Activate()
     {
+        Debug.Log("Player Activate");
+
+        isAlive = true;
+
+        playerCollider.enabled = true;
+        graphics.Enable();
+
+        SetUIState(true);
+
         if (isNetworkActive)
-            localPlayerID = id;
+            PlayerController.isRooted = false;
     }
 
-    void SetCoroutines()
+    private void Reset()
     {
-        coroutines = new List<Coroutine>();
+        // Reset stats here so that player doesn't appear with 0 hp and mana
+        // Stats
+        stats.health = stats.maxHealth;
+        stats.mana = stats.maxMana;
 
-        coroutines.Add(manaChargeCoroutine);
-        coroutines.Add(dotCoroutine);
-        coroutines.Add(removeRootCoroutine);
-        coroutines.Add(healCoroutine);
-    }
+        // UI
+        healthBar.SetCurrentStat(stats.health);
+        manaBar.SetCurrentStat(stats.mana);
 
-    void StopCoroutines()
-    {
-        foreach (Coroutine coroutine in coroutines)
+        // Activate my player and set its start position
+        // and then tell the other clients to activate my version of their player
+        if (isNetworkActive)
         {
-            if (coroutine != null)
-                StopCoroutine(coroutine);
+            transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
+            Activate();
+            PlayerManager.Instance.ActivateNonLocalPlayer(id);
+            PlayerController.isLocked = false;
         }
     }
 
-    void RegenerateStats()
+    void Die(int killerID)
     {
-        if (isRecevingDOT)
-            return;
-        Debug.Log("Player RegenerateStats");
-        Heal(stats.healthRegen);
-
-        if (stats.manaRegen > 0)
-            IncreaseMana(stats.manaRegen);
+        // We will just set the GO as inactive
+        Debug.Log("Player " + id + " Die()");
+        PlayerManager.Instance.KillNetworkedPlayer(this.id, killerID);
     }
 
-    float manaChargeSpeedPenalty;
-
-    public void StartManaCharge()
+    // Will be used for synching the teleport mechanic over the network
+    public void HandlePlayerDeath()
     {
-        Debug.Log("Player StartManaCharge");
+        Debug.Log("Player HandlePlayerDeath");
+        isAlive = false;
 
-        manaChargeSpeedPenalty = stats.manaChargeSpeedPenalty;
-        Slow(ref manaChargeSpeedPenalty);
-        manaChargeCoroutine = StartCoroutine(ChargeMana());
+        Deactivate();
+        buffsUI.DeactivateAll();
+
+        StopCoroutines();
+        HandleEffectDeactivation();
+
+        if (isNetworkActive)
+            PlayerController.isLocked = true;
     }
 
-    public void StopManaCharge()
+    public void Deactivate()
     {
-        Debug.Log("Player StopManaCharge speed is " + stats.speed + " adding " + manaChargeSpeedPenalty);
-
-        stats.speed += manaChargeSpeedPenalty;
-
-        if (stats.speed > baseSpeed)
-            stats.speed = baseSpeed;
-
-        StopCoroutine(manaChargeCoroutine);
+        SetUIState(false);
+        playerCollider.enabled = false;
+        graphics.Disable();
     }
 
-    IEnumerator ChargeMana()
+    void HandleEffectDeactivation()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(1f / manaCoroutineCallsPerSecond);
-            IncreaseMana(manaChargePerTick);
-        }
+        stats.speed = baseSpeed;
+        slowCharges = 0;
+
+        rushAreaManager.Deactivate();
+        shield.DeactivateNetworkedShield();
+
+        RemoveDoubleDamage();
     }
 
     public void PickUpItem(ItemData itemData)
@@ -256,6 +267,47 @@ public class Player : MonoBehaviour
         hasDoubleDamage = false;
     }
 
+    public void Heal(int heal)
+    {
+        // Don't heal more then the maxHP
+        if (stats.health + heal >= stats.maxHealth)
+        {
+            stats.health = stats.maxHealth;
+            healthBar.SetCurrentStat(stats.health);
+        }
+        else
+        {
+            stats.health += heal;
+            healthBar.SetCurrentStat(stats.health);
+        }
+    }
+
+    public void Damage(int damage, int casterPlayerID)
+    {
+        // Manage shield : if the shield is active and the damage delt is not enogh to destroy
+        // the shield don't appy damage to the player
+        if (shield.IsActive())
+        {
+            shield.Damage(ref damage);
+            Debug.Log("Player " + id + " shield is active so no damage taken");
+            return;
+        }
+
+        Debug.Log("Player " + id + " health before " + stats.health);
+        stats.health -= damage;
+        Debug.Log("Player " + id + " health after " + stats.health);
+        healthBar.SetCurrentStat(stats.health);
+
+        Debug.Log("Player " + id + " isAlive " + isAlive);
+
+        // Check if we are dead
+        if (stats.health <= 0 && isAlive)
+        {
+            Debug.Log("Player " + id + " Die()");
+            Die(casterPlayerID);
+        }
+    }
+
     public void DamageAndDOT(int initialDamage, int dotTicks, int dotDamage, int casterPlayerID)
     {
         if (shield.IsActive())
@@ -304,200 +356,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Will heal over time
-    public void HealOverTime(int numTicks, int heal)
-    {
-        healCoroutine = StartCoroutine(ApplyTickHeal(numTicks, heal));
-    }
-
-    public void StopHealOverTime()
-    {
-        StopCoroutine(healCoroutine);
-    }
-
-    public void Damage(int damage, int casterPlayerID)
-    {
-        // Manage shield : if the shield is active and the damage delt is not enogh to destroy
-        // the shield don't appy damage to the player
-        if (shield.IsActive())
-        {
-            shield.Damage(ref damage);
-            Debug.Log("Player " + id + " shield is active so no damage taken");
-            return;
-        }
-
-        Debug.Log("Player " + id + " health before " + stats.health);
-        stats.health -= damage;
-        Debug.Log("Player " + id + " health after " + stats.health);
-        healthBar.SetCurrentHealth(stats.health);
-
-        Debug.Log("Player " + id + " isAlive " + isAlive);
-
-        // Check if we are dead
-        if (stats.health <= 0 && isAlive)
-        {
-            Debug.Log("Player " + id + " Die()");
-            Die(casterPlayerID);
-        }
-    }
-
-    void Die(int killerID)
-    {
-        // We will just set the GO as inactive
-        Debug.Log("Player " + id + " Die()");
-        PlayerManager.Instance.KillNetworkedPlayer(this.id, killerID);
-    }
-
-    public void Deactivate()
-    {
-        SetUIState(false);
-        playerCollider.enabled = false;
-        graphics.Disable();
-    }
-
-    void SetUIState(bool activeState)
-    {
-        Debug.Log("Player SetUIState " + activeState);
-        nickName.gameObject.SetActive(activeState);
-        healthBar.gameObject.SetActive(activeState);
-        manaBar.gameObject.SetActive(activeState);
-    }
-
-    // Will be used for synching the teleport mechanic over the network
-    public void HandlePlayerDeath()
-    {
-        Debug.Log("Player HandlePlayerDeath");
-        isAlive = false;
-
-        Deactivate();
-        buffsUI.DeactivateAll();
-
-        StopCoroutines();
-        HandleEffectDeactivation();
-
-        if (isNetworkActive)
-            PlayerController.isLocked = true;
-    }
-
-    void HandleEffectDeactivation()
-    {
-        stats.speed = baseSpeed;
-        slowCharges = 0;
-
-        rushAreaManager.Deactivate();
-        shield.DeactivateNetworkedShield();
-
-        RemoveDoubleDamage();
-    }
-
-    private void Reset()
-    {
-        // Reset stats here so that player doesn't appear with 0 hp and mana
-        // Stats
-        stats.health = stats.maxHealth;
-        stats.mana = stats.maxMana;
-
-        // UI
-        healthBar.SetCurrentHealth(stats.health);
-        manaBar.SetCurrentMana(stats.mana);
-
-        // Activate my player and set its start position
-        // and then tell the other clients to activate my version of their player
-        if (isNetworkActive)
-        {
-            transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
-            Activate();
-            PlayerManager.Instance.ActivateNonLocalPlayer(id);
-            PlayerController.isLocked = false;
-        }
-    }
-
-    public void Activate()
-    {
-        Debug.Log("Player Activate");
-
-        isAlive = true;
-
-        playerCollider.enabled = true;
-        graphics.Enable();
-
-        SetUIState(true);
-
-        if (isNetworkActive)
-            PlayerController.isRooted = false;
-    }
-
-    void OnRoundStart()
-    {
-        Debug.Log("Player OnRoundStart");
-        Reset();
-    }
-
-    public bool IsAlive()
-    {
-        return isAlive;
-    }
-
-    public void Heal(int heal)
-    {
-        // Don't heal more then the maxHP
-        if (stats.health + heal >= stats.maxHealth)
-        {
-            stats.health = stats.maxHealth;
-            healthBar.SetCurrentHealth(stats.health);
-        }
-        else
-        {
-            stats.health += heal;
-            healthBar.SetCurrentHealth(stats.health);
-        }
-    }
-
-    // Is the same as heal and healover time but it will not trigger if
-    // the player is already healing from water rain heal
-    //public void WaterRainHeal(int healTicks, int healTickValue)
-    //{
-    //    if (!healEffectActive)
-    //    {
-    //        Debug.Log("Player WaterRainHeal applying heal");
-    //        healEffectActive = true;
-
-    //        HealOverTime(healTicks, healTickValue);
-    //    }
-    //}
-
-
-
-    // Adds mana
-    public void IncreaseMana(int mana)
-    {
-        // Don't give more mana then the maxHP
-        if (stats.mana + mana >= stats.maxMana)
-        {
-            stats.mana = stats.maxMana;
-            manaBar.SetCurrentMana(stats.mana);
-        }
-        else
-        {
-            stats.mana += mana;
-            manaBar.SetCurrentMana(stats.mana);
-        }
-    }
-
-    public void UseMana(int mana)
-    {
-        stats.mana -= mana;
-        manaBar.SetCurrentMana(stats.mana);
-    }
-
-    public bool EnoughManaForAbility(int manaCost)
-    {
-        if (stats.mana - manaCost < 0)
-            return false;
-
-        return true;
-    }
-
     IEnumerator ApplyTickDamage(int numTicks, int damage, int casterPlayerID)
     {
         for (int i = 0; i < numTicks; i++)
@@ -523,8 +381,213 @@ public class Player : MonoBehaviour
         healEffectActive = false;
     }
 
-    // Methods for appying root to the player
-    // Root means that the player can't move
+    // Will heal over time
+    public void HealOverTime(int numTicks, int heal)
+    {
+        healCoroutine = StartCoroutine(ApplyTickHeal(numTicks, heal));
+    }
+
+    public void StopHealOverTime()
+    {
+        StopCoroutine(healCoroutine);
+    }
+
+    void RegenerateStats()
+    {
+        if (isRecevingDOT)
+            return;
+        Debug.Log("Player RegenerateStats");
+        Heal(stats.healthRegen);
+
+        if (stats.manaRegen > 0)
+            IncreaseMana(stats.manaRegen);
+    }
+
+    public void StartManaCharge()
+    {
+        Debug.Log("Player StartManaCharge");
+
+        manaChargeSpeedPenalty = stats.manaChargeSpeedPenalty;
+        Slow(ref manaChargeSpeedPenalty);
+        manaChargeCoroutine = StartCoroutine(ChargeMana());
+    }
+
+    public void StopManaCharge()
+    {
+        Debug.Log("Player StopManaCharge speed is " + stats.speed + " adding " + manaChargeSpeedPenalty);
+
+        stats.speed += manaChargeSpeedPenalty;
+
+        if (stats.speed > baseSpeed)
+            stats.speed = baseSpeed;
+
+        StopCoroutine(manaChargeCoroutine);
+    }
+
+    IEnumerator ChargeMana()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f / manaCoroutineCallsPerSecond);
+            IncreaseMana(manaChargePerTick);
+        }
+    }
+
+    // Adds mana
+    public void IncreaseMana(int mana)
+    {
+        // Don't give more mana then the maxHP
+        if (stats.mana + mana >= stats.maxMana)
+        {
+            stats.mana = stats.maxMana;
+            manaBar.SetCurrentStat(stats.mana);
+        }
+        else
+        {
+            stats.mana += mana;
+            manaBar.SetCurrentStat(stats.mana);
+        }
+    }
+
+    public void UseMana(int mana)
+    {
+        stats.mana -= mana;
+        manaBar.SetCurrentStat(stats.mana);
+    }
+
+    public bool EnoughManaForAbility(int manaCost)
+    {
+        if (stats.mana - manaCost < 0)
+            return false;
+
+        return true;
+    }
+
+    public int GetHealth()
+    {
+        return stats.health;
+    }
+
+    public void SetHealth(int health)
+    {
+        stats.health = health;
+        healthBar.SetCurrentStat(health);
+    }
+
+    public int GetMana()
+    {
+        return stats.health;
+    }
+
+    public void SetMana(int mana)
+    {
+        stats.mana = mana;
+        manaBar.SetCurrentStat(mana);
+    }
+
+    public PlayerData GetStats()
+    {
+        return stats;
+    }
+
+    public bool IsAlive()
+    {
+        return isAlive;
+    }
+
+    void SetUIState(bool activeState)
+    {
+        Debug.Log("Player SetUIState " + activeState);
+        nickName.gameObject.SetActive(activeState);
+        healthBar.gameObject.SetActive(activeState);
+        manaBar.gameObject.SetActive(activeState);
+    }
+
+    public void ActivateBuffUI(PlayerEffect buff, float duration)
+    {
+        buffsUI.AddBuff(buff, duration);
+    }
+
+    public void ActivateBuffUI(PlayerEffect buff)
+    {
+        buffsUI.ActivateBuff(buff);
+    }
+
+    public void DeactivateBuffUI(PlayerEffect buff)
+    {
+        buffsUI.Deactivate(buff);
+    }
+
+    void SetLocalID()
+    {
+        if (isNetworkActive)
+            localPlayerID = id;
+    }
+
+    public int GetID()
+    {
+        return id;
+    }
+
+    void SetCoroutines()
+    {
+        coroutines = new List<Coroutine>();
+
+        coroutines.Add(manaChargeCoroutine);
+        coroutines.Add(dotCoroutine);
+        coroutines.Add(removeRootCoroutine);
+        coroutines.Add(healCoroutine);
+    }
+
+    void StopCoroutines()
+    {
+        foreach (Coroutine coroutine in coroutines)
+        {
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+        }
+    }
+
+    void SetComponentIDs()
+    {
+        var children = GetComponentsInChildren<Transform>();
+        foreach (var child in children)
+        {
+            //Debug.Log("Child is " + child.name);
+            child.name = child.name + id;
+        }
+    }
+
+    // This will be called when the player is assigned to a team
+    // The layer and tag of the player will be different depending on the team
+    public void SetTeamSpecificData(int teamID)
+    {
+        gameObject.tag = "Team" + teamID;
+        gameObject.layer = LayerMask.NameToLayer("Team" + teamID + "Player");
+
+        Debug.Log("Player SetTeamSpecificData tag " + gameObject.tag + " layer " + gameObject.layer);
+
+        this.teamID = teamID;
+        teamName = "Team" + teamID;
+
+        // We will also set the color of the sprite here temporarily
+        if (teamID == 2)
+        {
+            graphics.SetColor(Color.red);
+        }
+
+        if (isNetworkActive)
+        {
+            localTeamID = teamID;
+        }
+
+        Deactivate();
+    }
+
+    //
+    //  Player - Ability interactions
+    //
+
     public void Root(int duration)
     {
         PlayerController.isRooted = true;
@@ -641,52 +704,6 @@ public class Player : MonoBehaviour
         shield.DeactivateLocalShield();
     }
 
-    public void ActivateBuffUI(PlayerEffect buff, float duration)
-    {
-        buffsUI.AddBuff(buff, duration);
-    }
-
-    public void ActivateBuffUI(PlayerEffect buff)
-    {
-        buffsUI.ActivateBuff(buff);
-    }
-
-    public void DeactivateBuffUI(PlayerEffect buff)
-    {
-        buffsUI.Deactivate(buff);
-    }
-
-    public PlayerData GetStats()
-    {
-        return stats;
-    }
-
-    public int GetHealth()
-    {
-        return stats.health;
-    }
-
-    public void SetHealth(int health)
-    {
-        stats.health = health;
-        healthBar.SetCurrentHealth(health);
-    }
-
-    public int GetMana()
-    {
-        return stats.health;
-    }
-
-    public void SetMana(int mana)
-    {
-        stats.mana = mana;
-        manaBar.SetCurrentMana(mana);
-    }
-
-    //
-    // 
-    //
-
     // This effect will throw the player in a random direction
     public void Knockout(int force, int damage, int casterPlayerID)
     {
@@ -712,49 +729,5 @@ public class Player : MonoBehaviour
         direction *= force;
 
         rigidBody.AddForce(direction, ForceMode2D.Impulse);
-    }
-
-    //
-    // Manage ID and the passing of the ID to other components
-    //
-    void SetComponentIDs()
-    {
-        var children = GetComponentsInChildren<Transform>();
-        foreach (var child in children)
-        {
-            //Debug.Log("Child is " + child.name);
-            child.name = child.name + id;
-        }
-    }
-
-    public int GetID()
-    {
-        return id;
-    }
-
-    // This will be called when the player is assigned to a team
-    // The layer and tag of the player will be different depending on the team
-    public void SetTeamSpecificData(int teamID)
-    { 
-        gameObject.tag = "Team" + teamID;
-        gameObject.layer = LayerMask.NameToLayer("Team" + teamID + "Player");
-
-        Debug.Log("Player SetTeamSpecificData tag " + gameObject.tag + " layer " + gameObject.layer);
-
-        this.teamID = teamID;
-        teamName = "Team" + teamID;
-
-        // We will also set the color of the sprite here temporarily
-        if (teamID == 2)
-        {
-            graphics.SetColor(Color.red);
-        }
-
-        if(isNetworkActive)
-        {
-            localTeamID = teamID;
-        }
-
-        Deactivate();
     }
 }

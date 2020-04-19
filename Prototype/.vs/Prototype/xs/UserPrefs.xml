@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/InteruptHeal.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/StatsBar.cs">
     <Files>
-      <File FileName="Assets/Scripts/Match/MatchPlayer.cs" Line="5" Column="25" />
+      <File FileName="Assets/Scripts/Match/MatchPlayer.cs" Line="23" Column="6" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
       <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" />
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="63" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
       <File FileName="Assets/Scripts/Player/LocalPlayerReferences.cs" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
       <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" />
@@ -35,43 +35,39 @@
       <File FileName="Assets/Scripts/Events/GameEvent.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" />
       <File FileName="Assets/Scripts/MouseHandler.cs" />
-      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" Line="36" Column="22" />
-      <File FileName="Assets/Scripts/Match/Match.cs" Line="132" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/RushAbility.cs" />
+      <File FileName="Assets/Scripts/Match/Match.cs" />
       <File FileName="Assets/Scripts/Player/Player.cs" />
-      <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" Line="72" Column="40" />
-      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="10" Column="22" />
-      <File FileName="Assets/Scripts/Abilities/InteruptHeal.cs" Line="20" Column="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="208" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/InteruptHeal.cs" />
+      <File FileName="Assets/Scripts/UI/ManaBar.cs" Line="5" Column="21" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="231" Column="6" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/Item.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="67" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Score/MatchPlayerUI.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Tweens/Tween.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Canvas/CanvasHandler.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Tweens/AbilityScaleTween.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/StateManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" Line="28" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="32" Column="5" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" NotebookId="1" />
       <File FileName="Assets/Plugins/LeanTween/Framework/LTDescr.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/StatsBar.cs" Line="8" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Plugins" expanded="True">
-                <Node name="LeanTween" expanded="True">
-                  <Node name="Framework" expanded="True" />
-                </Node>
-              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Effects" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
                   <Node name="SpellIndicators" expanded="True" />
-                  <Node name="InteruptHeal.cs" selected="True" />
                 </Node>
                 <Node name="Camera" expanded="True" />
                 <Node name="Environment" expanded="True" />
@@ -87,6 +83,7 @@
                   <Node name="Canvas" expanded="True" />
                   <Node name="Score" expanded="True" />
                   <Node name="Tweens" expanded="True" />
+                  <Node name="StatsBar.cs" selected="True" />
                 </Node>
                 <Node name="Utils" expanded="True" />
               </Node>
