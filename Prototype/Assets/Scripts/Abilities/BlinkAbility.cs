@@ -6,6 +6,9 @@ public class BlinkAbility : Ability
     //Reference to the player transform so that we can move the player
     [SerializeField] Transform playerTransform;
 
+    // Make sure it's arround 0.05 seconds more then the scale time for the PlayerGraphics
+    [SerializeField] float delay = 0.30f; 
+
     Vector3 blinkPosition;
 
     float castRange;
@@ -46,13 +49,18 @@ public class BlinkAbility : Ability
         Debug.Log("BlinkAbility Deactivating player " + playerID);
         GameManager.Instance.DeactivatePlayer(playerID);
 
+        Invoke("Blink", delay);
+
+        return base.Cast();
+    }
+
+    void Blink()
+    {
         // Set player position to the mouse position
         playerTransform.position = blinkPosition;
 
         Debug.Log("BlinkAbility Activating player " + playerID);
         GameManager.Instance.ActivatePlayer(playerID);
-
-        return base.Cast();
     }
 
     bool OutOfRange()

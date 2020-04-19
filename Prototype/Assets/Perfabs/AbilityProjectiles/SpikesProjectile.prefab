@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialScale: {x: 0.35, y: 0.35}
   finalScale: {x: 1, y: 1}
-  duration: 1
+  duration: 0.5
   scaleEaseType: 17
   fadeEaseType: 17
   abilityCollider: {fileID: 6081628092580260818}

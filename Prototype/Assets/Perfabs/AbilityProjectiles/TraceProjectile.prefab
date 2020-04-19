@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882d272f604f24a33b6a715a2b7a8a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialScale: {x: 0.2, y: 0.35}
+  initialScale: {x: 0.2, y: 0.3}
   finalScale: {x: 0.4, y: 0.4}
-  scaleTime: 2.5
+  scaleTime: 2
   easeType: 6

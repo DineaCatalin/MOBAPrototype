@@ -58,3 +58,4 @@ MonoBehaviour:
       duration: 0
       hpValue: 0
   playerTransform: {fileID: 0}
+  delay: 0.3
