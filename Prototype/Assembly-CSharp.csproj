@@ -139,8 +139,6 @@
     <Compile Include="Assets\Scripts\UI\AbilityUIContainer.cs" />
     <Compile Include="Assets\Scripts\UI\Canvas\CanvasHandler.cs" />
     <Compile Include="Assets\Scripts\UI\GameUI.cs" />
-    <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
-    <Compile Include="Assets\Scripts\UI\ManaBar.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerBuffs.cs" />
     <Compile Include="Assets\Scripts\UI\Score\MatchPlayerUI.cs" />
     <Compile Include="Assets\Scripts\UI\Score\ScoreBoard.cs" />
