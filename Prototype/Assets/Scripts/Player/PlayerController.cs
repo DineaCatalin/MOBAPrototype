@@ -8,14 +8,14 @@ public enum AbilityInputKey
     AttackAbility = KeyCode.Mouse0,
     DefenseAbility = KeyCode.Mouse1,
     MobilityAbility = KeyCode.Space,
-    Ability1 = KeyCode.Alpha1,
-    Ability2 = KeyCode.Alpha2,
-    Ability3 = KeyCode.Alpha3,
-    Ability4 = KeyCode.Alpha4,
-    AbilityAlias1 = KeyCode.X,
-    AbilityAlias2 = KeyCode.C,
-    AbilityAlias3 = KeyCode.V,
-    AbilityAlias4 = KeyCode.B,
+    Ability1 = KeyCode.Q,
+    Ability2 = KeyCode.E,
+    Ability3 = KeyCode.X,
+    Ability4 = KeyCode.C,
+    AbilityAlias1 = KeyCode.Alpha1,
+    AbilityAlias2 = KeyCode.Alpha2,
+    AbilityAlias3 = KeyCode.Alpha3,
+    AbilityAlias4 = KeyCode.Alpha4,
     AbilityManaCharge = KeyCode.LeftShift    
 }
 

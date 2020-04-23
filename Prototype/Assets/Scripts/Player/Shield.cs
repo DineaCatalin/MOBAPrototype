@@ -9,6 +9,7 @@ public class Shield : MonoBehaviour
     // Cache the sprite renderer so we can deactivate the shield graphic when the shield is 'not active'
     // Like this the shield can take of displaying the graphics instead of the player script who owns it
     SpriteRenderer spriteRenderer;
+    //public GameObject shieldObject;
     AbilityScaleTween tween;
 
     private void Start()
@@ -16,6 +17,7 @@ public class Shield : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         tween = GetComponent<AbilityScaleTween>();
         tween.enabled = false;
+        //shieldObject.SetActive(false);
     }
 
     public void SetArmor(int shieldBuffValue)
@@ -23,6 +25,7 @@ public class Shield : MonoBehaviour
         armor = shieldBuffValue;
         spriteRenderer.enabled = true;
         tween.enabled = true;
+        //shieldObject.SetActive(true);
     }
 
     //
@@ -56,6 +59,7 @@ public class Shield : MonoBehaviour
     {
         armor = 0;
         spriteRenderer.enabled = false;
+        //shieldObject.SetActive(false);
         tween.enabled = false;
     }
 
