@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AbilitySpawnTween : MonoBehaviour
 {
-    public Vector2 initialScale;
-    public Vector2 finalScale;
+    public Vector3 initialScale;
+    public Vector3 finalScale;
     public float duration;
+    public float colliderActivationTime;
+
     public LeanTweenType scaleEaseType;
 
     public LeanTweenType fadeEaseType;
@@ -29,6 +31,9 @@ public class AbilitySpawnTween : MonoBehaviour
 
         if (abilityCollider == null)
             abilityCollider = GetComponent<Collider2D>();
+
+        if (colliderActivationTime <= 0)
+            colliderActivationTime = duration;
     }
 
     public void setSpriteAlpha(float val)
@@ -41,8 +46,9 @@ public class AbilitySpawnTween : MonoBehaviour
     {
         SetInitialData();
         Debug.Log("AbilitySpawnTween OnEnable ");
-        LeanTween.scale(gameObject, finalScale, duration).setEase(scaleEaseType).setOnComplete(ActivateCollider);
+        LeanTween.scale(gameObject, finalScale, duration).setEase(scaleEaseType);
         LeanTween.value(gameObject, setSpriteAlpha, 0f, 1f, duration).setEase(fadeEaseType);
+        Invoke("ActivateCollider", colliderActivationTime);
     }
 
     void SetInitialData()
