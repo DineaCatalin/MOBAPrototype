@@ -28,7 +28,7 @@ ScriptsOnlyBuild:
     - DustDuskAbility
     - DustDuskFadeTween
     - EnvironmentManager
-    - EpicToonFX.ETFXLightFade
+    - EpicToonFX.ETFXRotation
     - EventManager
     - FlashTextTween
     - Flicker
@@ -239,6 +239,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12600}
     - Class: 114
+      Script: {instanceID: 12602}
+    - Class: 114
       Script: {instanceID: 12604}
     - Class: 114
       Script: {instanceID: 12614}
@@ -298,8 +300,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13392}
     - Class: 114
       Script: {instanceID: 13412}
-    - Class: 114
-      Script: {instanceID: 13464}
     - Class: 114
       Script: {instanceID: 13544}
     - Class: 114
@@ -457,6 +457,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12458}
     - Class: 114
       Script: {instanceID: 12502}
+    - Class: 114
+      Script: {instanceID: 12602}
     - Class: 114
       Script: {instanceID: 12614}
     - Class: 114
@@ -792,7 +794,7 @@ ScriptsOnlyBuild:
     className: ETFXSceneManager
   - hash:
       serializedVersion: 2
-      Hash: 5bd6bb8b0c5aac79a04b65bb08f4c543
+      Hash: 6989c4b94a71bdcc50c6a21ffe0e5e2f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilitySpawnTween
@@ -2484,7 +2486,7 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 14d39821f1a0b6d8c46023dbbacb4db4
+      Hash: b115916c780c2b41ec98e3d5a9da93ff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilityScaleTween
@@ -2496,7 +2498,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomExpectedUsersProperty
   - hash:
       serializedVersion: 2
-      Hash: 0debc00eb603824f588e0385e67b9d76
+      Hash: 3383b06bc7913e5231b554e9a2f3d0c4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ProjectileAbility
@@ -2620,6 +2622,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 59293973bc76df48e84c0c2823d45285
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ColliderDelayedActivation
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity

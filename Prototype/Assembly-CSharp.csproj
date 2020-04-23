@@ -113,6 +113,7 @@
     <Compile Include="Assets\Scripts\Audio\Sound.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraSize.cs" />
+    <Compile Include="Assets\Scripts\Collider\ColliderDelayedActivation.cs" />
     <Compile Include="Assets\Scripts\Collider\ReliableOnTriggerExit.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\CommandManager.cs" />
