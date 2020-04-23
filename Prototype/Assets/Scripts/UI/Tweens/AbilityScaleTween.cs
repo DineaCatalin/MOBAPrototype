@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AbilityScaleTween : MonoBehaviour
 {
-    public Vector2 initialScale;
-    public Vector2 finalScale;
+    public Vector3 initialScale;
+    public Vector3 finalScale;
     public float scaleTime;
     public LeanTweenType easeType;
 
