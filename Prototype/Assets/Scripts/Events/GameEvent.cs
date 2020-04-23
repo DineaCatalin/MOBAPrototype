@@ -18,4 +18,5 @@ public enum GameEvent
     ItemPickedUp,
     SpawnItem,
     ShieldDestroyed,
+    NotEnoughMana
 }

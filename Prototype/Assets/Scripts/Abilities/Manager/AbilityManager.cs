@@ -139,6 +139,7 @@ public class AbilityManager : MonoBehaviour
             {
                 // Not enough mana
                 Debug.Log("NOT ENOUGH MANA");
+                EventManager.TriggerEvent(GameEvent.NotEnoughMana);
                 return;
             }
 
