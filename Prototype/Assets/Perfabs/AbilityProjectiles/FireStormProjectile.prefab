@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8569000897555419856}
   - component: {fileID: 3867808296243692416}
   - component: {fileID: 8047521809588227825}
+  - component: {fileID: -4276824324756690024}
   m_Layer: 10
   m_Name: FireStormProjectile
   m_TagString: Projectile
@@ -156,10 +157,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882d272f604f24a33b6a715a2b7a8a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialScale: {x: 1.5, y: 1.5}
-  finalScale: {x: 4, y: 4}
+  initialScale: {x: 1.5, y: 1.5, z: 0}
+  finalScale: {x: 4, y: 4, z: 0}
   scaleTime: 1
   easeType: 1
+--- !u!114 &-4276824324756690024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6770403879752432852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc6cf816950e4d459640b7ec4884369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialScale: {x: 1.5, y: 1.5, z: 0}
+  finalScale: {x: 4, y: 4, z: 0}
+  duration: 1
+  colliderActivationTime: 0.2
+  scaleEaseType: 1
+  fadeEaseType: 12
+  abilityCollider: {fileID: 6880323108494885750}
 --- !u!1001 &7583041444158728975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,6 +194,18 @@ PrefabInstance:
     - target: {fileID: 134572, guid: 7c1b627e705f998448adac9689c44505, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 413884, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 413884, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 413884, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 436748, guid: 7c1b627e705f998448adac9689c44505, type: 3}
       propertyPath: m_LocalPosition.x
@@ -226,6 +258,46 @@ PrefabInstance:
     - target: {fileID: 436748, guid: 7c1b627e705f998448adac9689c44505, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 19826714, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19826714, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19826714, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19826714, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19827334, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19827334, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19878392, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19878392, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19878392, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19878392, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c1b627e705f998448adac9689c44505, type: 3}
