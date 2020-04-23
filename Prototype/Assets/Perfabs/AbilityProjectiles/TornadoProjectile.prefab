@@ -176,7 +176,7 @@ MonoBehaviour:
   initialScale: {x: 1, y: 0.5, z: 0.9}
   finalScale: {x: 7, y: 7, z: 3}
   duration: 0
-  colliderActivationTime: 0.5
+  colliderActivationTime: 0.2
   scaleEaseType: 1
   fadeEaseType: 12
   abilityCollider: {fileID: 7865546692043477490}
