@@ -50,10 +50,11 @@ public class AbilityCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision.tag " + collision.tag + " casterTeamName" + abilityData.description.casterTeamName);
+        Debug.Log("AbilityCollider OnTriggerEnter2D collision.tag " + collision.tag + " casterTeamName" + abilityData.description.casterTeamName);
         // Check if we've hit the player
         if (collision.tag.Contains("Team"))
         {
+            Debug.Log("AbilityCollider OnTriggerEnter2D collided with player");
             HandlePlayerCollision(collision);
         }
         // We hit an ice wall so apply some damage
@@ -81,7 +82,7 @@ public class AbilityCollider : MonoBehaviour
 
         effect.ApplyEffect(player, abilityData.stats, casterPlayerID);
 
-        if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm")
+        if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm" && abilityData.description.name != "Blast")
         {
             Debug.Log("Destroyng projectile " + this.gameObject.name + " that hit player " + player.GetID());
             gameObject.SetActive(false);

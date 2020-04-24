@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Team2
   - Ice Wall
+  - Missile
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Team1Ability
   - Team2Ability
   - IgnoreAbility
-  - 
+  - Particles
   - 
   - 
   - 
