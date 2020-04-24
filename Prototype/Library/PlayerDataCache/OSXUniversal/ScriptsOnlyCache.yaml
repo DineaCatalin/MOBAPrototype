@@ -28,6 +28,7 @@ ScriptsOnlyBuild:
     - DustDuskAbility
     - DustDuskFadeTween
     - EnvironmentManager
+    - EpicToonFX.ETFXLightFade
     - EpicToonFX.ETFXRotation
     - EventManager
     - FlashTextTween
@@ -301,6 +302,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13414}
     - Class: 114
+      Script: {instanceID: 13466}
+    - Class: 114
       Script: {instanceID: 13546}
     - Class: 114
       Script: {instanceID: 13598}
@@ -519,6 +522,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13370}
     - Class: 114
       Script: {instanceID: 13414}
+    - Class: 114
+      Script: {instanceID: 13466}
     - Class: 114
       Script: {instanceID: 13508}
     - Class: 114

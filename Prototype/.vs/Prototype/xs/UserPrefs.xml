@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StreamingAssets/AbilityConfig.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs">
     <Files>
       <File FileName="Assets/Scripts/Match/MatchPlayer.cs" Line="23" Column="6" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
@@ -16,7 +16,7 @@
       <File FileName="Assets/Scripts/Player/PlayerController.cs" />
       <File FileName="Assets/Scripts/Abilities/ShieldAbility.cs" />
       <File FileName="Assets/Scripts/Utils/SpawnInMouseDirection.cs" />
-      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/SpawnAbility.cs" Line="31" Column="1" />
       <File FileName="Assets/Scripts/Abilities/SpellIndicators/SpellIndicator.cs" />
       <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
       <File FileName="Assets/Scripts/Events/EventManager.cs" />
@@ -45,10 +45,10 @@
       <File FileName="Assets/Scripts/UI/Tweens/FlashTextTween.cs" />
       <File FileName="Assets/Plugins/LeanTween/Framework/LeanTween.cs" />
       <File FileName="Assets/Scripts/Collider/ColliderDelayedActivation.cs" />
-      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="55" Column="9" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="110" Column="6" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="155" Column="26" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="54" Column="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="126" Column="26" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/Item.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" NotebookId="1" />
@@ -62,6 +62,7 @@
       <File FileName="Assets/Plugins/LeanTween/Framework/LTDescr.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/StatsBar.cs" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/ProjectileSpeedConfig.txt" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" Line="15" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -77,7 +78,9 @@
                 <Node name="Abilities" expanded="True">
                   <Node name="Effects" expanded="True" />
                   <Node name="Manager" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
+                  <Node name="ProjectileComponents" expanded="True">
+                    <Node name="AbilityCollider.cs" selected="True" />
+                  </Node>
                   <Node name="SpellIndicators" expanded="True" />
                 </Node>
                 <Node name="Camera" expanded="True" />
@@ -96,9 +99,7 @@
                 </Node>
                 <Node name="Utils" expanded="True" />
               </Node>
-              <Node name="StreamingAssets" expanded="True">
-                <Node name="AbilityConfig.txt" selected="True" />
-              </Node>
+              <Node name="StreamingAssets" expanded="True" />
             </Node>
           </Node>
         </State>
