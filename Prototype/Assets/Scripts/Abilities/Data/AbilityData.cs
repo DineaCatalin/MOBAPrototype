@@ -39,6 +39,7 @@ public class ProjectileSpeedConfig
     public float LightningballSpeed;
     public float FireStormSpeed;
     public float TornadoSpeed;
+    public float PushSpeed;
 }
 
 [Serializable]
