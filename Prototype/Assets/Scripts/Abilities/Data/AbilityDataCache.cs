@@ -86,6 +86,9 @@ public class AbilityDataCache : MonoBehaviour
             case "TornadoProjectile":
                 return projectileSpeedConfig.TornadoSpeed;
 
+            case "PushProjectile":
+                return projectileSpeedConfig.PushSpeed;
+
             default:
                 return 0f;
         }

@@ -3,5 +3,6 @@
    "IceballSpeed":18.0,
    "LightningballSpeed":20.0,
    "FireStormSpeed":10.0,
-   "TornadoSpeed":15.0
+   "TornadoSpeed":15.0,
+   "PushSpeed":16.5
 }

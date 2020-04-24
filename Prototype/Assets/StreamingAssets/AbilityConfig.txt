@@ -203,7 +203,7 @@
          "stats":{
             "cooldown":3.0,
             "manaCost":10,
-            "dotValue":13,
+            "dotValue":20,
             "duration":1,
             "hpValue":20
          }
