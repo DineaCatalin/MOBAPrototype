@@ -78,9 +78,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.038925767}
+  m_Offset: {x: 0, y: -0.003214632}
   serializedVersion: 2
-  m_Radius: 0.39666867
+  m_Radius: 0.2640808
 --- !u!212 &8569000897555419856
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -192,6 +192,10 @@ PrefabInstance:
       value: FlamethrowerCartoonyFire
       objectReference: {fileID: 0}
     - target: {fileID: 134572, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 191152, guid: 7c1b627e705f998448adac9689c44505, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
