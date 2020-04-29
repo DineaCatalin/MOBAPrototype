@@ -191,7 +191,7 @@
             "cooldown":15.0,
             "manaCost":10,
             "dotValue":0,
-            "duration":5,
+            "duration":12,
             "hpValue":0
          }
       },

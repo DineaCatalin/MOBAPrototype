@@ -6,16 +6,15 @@ public class EnvironmentManager : MonoBehaviour
 {
     // This will be triggered by 1 of the abilities
     [SerializeField] GameObject dustDusk;
-
-    SpriteRenderer dustDuskRenderer;
-    Transform dustDuskTransform;
-    DustDuskFadeTween dustDuskFadeTween;
-
+    ParticleSystem[] duskDuskParticles;
 
     PhotonView photonView;
 
     [SerializeField] float team1SpawnPosX = -11;
     [SerializeField] float team2SpawnPosX = 11;
+
+    float dustDuskDuration;
+    float dustDuskDeactivationDelay = 10f;
 
     // This will help us position the walls and area limiters in the same pla
     public Vector2 environmentSize;
@@ -38,11 +37,25 @@ public class EnvironmentManager : MonoBehaviour
 
     private void Start()
     {
-        dustDuskRenderer = dustDusk.GetComponent<SpriteRenderer>();
-        dustDuskTransform = dustDusk.GetComponent<Transform>();
-        dustDuskFadeTween = dustDusk.GetComponent<DustDuskFadeTween>();
+        // Get duration for the Dust Dusk
+        dustDuskDuration = AbilityDataCache.GetDataForAbility("Dust Dusk").stats.duration;
 
-        ResizeToScreenSize();
+        // Store all the particle systems from the Dusk Dusk so we can stop the and the disable the DD object
+        int duskDustParticlesSize = dustDusk.transform.childCount + 1;
+        duskDuskParticles = new ParticleSystem[duskDustParticlesSize];
+
+        Debug.Log("EnvironmentManager Start Dust Dusk duskDustParticlesSize" + duskDustParticlesSize);
+        Debug.Log("EnvironmentManager Start Dust Dusk ParticleSystems in children" + dustDusk.GetComponentsInChildren<ParticleSystem>().Length);
+
+        // Cache the particlesystems from the children
+        int index = 0;
+        foreach (ParticleSystem pS in dustDusk.GetComponentsInChildren<ParticleSystem>())
+        {
+            Debug.Log("EnvironmentManager Start Dust Dusk Index " + index);
+            duskDuskParticles[index] = pS;
+            index++;
+        }
+
     }
 
     [PunRPC]
@@ -54,8 +67,6 @@ public class EnvironmentManager : MonoBehaviour
     public void TriggerDustDusk(int duration, int teamID)
     {
         photonView.RPC("ActivateDustDusk", RpcTarget.Others, teamID);
-
-        //StartCoroutine(HideDuskDust(duration));
     }
 
     [PunRPC]
@@ -63,22 +74,34 @@ public class EnvironmentManager : MonoBehaviour
     {
         // We can add a fade here later
         if (Player.localTeamID != casterTeamID)
-            dustDuskFadeTween.Fade();
+        {
+            ActivateDustDusk();
+            Invoke("StopDustDusk", dustDuskDuration);
+        }
     }
 
-    void ResizeToScreenSize()
+    void ActivateDustDusk()
     {
+        dustDusk.SetActive(true);
+        foreach (ParticleSystem pS in duskDuskParticles)
+        {
+            pS.Play();
+        }
+    }
 
-        Debug.Log("Resizing");
-        transform.localScale = Vector3.one;
+    void StopDustDusk()
+    {
+        foreach (ParticleSystem pS in duskDuskParticles)
+        {
+            pS.Stop();
+        }
 
-        float width = dustDuskRenderer.sprite.bounds.size.x;
-        float height = dustDuskRenderer.sprite.bounds.size.y;
+        Invoke("DeactivateDustDusk", dustDuskDeactivationDelay);
+    }
 
-        float worldScreenHeight = Camera.main.orthographicSize * 2.0f;
-        float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
-
-        dustDuskTransform.localScale = new Vector3(worldScreenWidth / width, worldScreenHeight / height, 1);
+    void DeactivateDustDusk()
+    {
+        dustDusk.SetActive(false);
     }
 
     public Vector3 GetPlayerSpawnPoint(int teamID)

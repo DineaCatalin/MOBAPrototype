@@ -26,7 +26,6 @@ ScriptsOnlyBuild:
     - DamageEffect
     - DestroyAfterCollisions
     - DustDuskAbility
-    - DustDuskFadeTween
     - EnvironmentManager
     - EpicToonFX.ETFXLightFade
     - EpicToonFX.ETFXRotation
@@ -87,8 +86,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -261,8 +258,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12936}
     - Class: 114
       Script: {instanceID: 12942}
-    - Class: 114
-      Script: {instanceID: 12970}
     - Class: 114
       Script: {instanceID: 12974}
     - Class: 114
