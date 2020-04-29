@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/EnvironmentManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Item.cs">
     <Files>
       <File FileName="Assets/Scripts/Match/MatchPlayer.cs" Line="23" Column="6" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
@@ -20,14 +20,14 @@
       <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
       <File FileName="Assets/Scripts/Events/EventManager.cs" />
       <File FileName="Assets/Scripts/Match/MatchClock.cs" />
-      <File FileName="Assets/Scripts/Player/Shield.cs" />
+      <File FileName="Assets/Scripts/Player/Shield.cs" Line="28" Column="40" />
       <File FileName="Assets/Scripts/UI/PlayerBuffs.cs" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="21" Column="40" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" />
       <File FileName="Assets/Scripts/Camera/CameraShake.cs" />
       <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" />
-      <File FileName="Assets/Scripts/Item/ItemPool.cs" />
+      <File FileName="Assets/Scripts/Item/ItemPool.cs" Line="105" Column="63" />
       <File FileName="Assets/Scripts/Player/InteractionManager.cs" />
       <File FileName="Assets/Scripts/UI/Tweens/AbilitySpawnTween.cs" />
       <File FileName="Assets/Scripts/UI/Tweens/ScaleTween.cs" />
@@ -53,11 +53,12 @@
       <File FileName="Assets/Scripts/Abilities/Effects/PullEffect.cs" />
       <File FileName="Assets/Scripts/UI/Tweens/DustDuskFadeTween.cs" Line="16" Column="17" />
       <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" Line="15" Column="9" />
-      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="64" Column="22" />
+      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="96" Column="23" />
+      <File FileName="Assets/StreamingAssets/ItemConfig.txt" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="126" Column="26" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/Item.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="46" Column="8" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Score/MatchPlayerUI.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/Tweens/Tween.cs" NotebookId="1" />
@@ -85,12 +86,12 @@
                 </Node>
                 <Node name="Camera" expanded="True" />
                 <Node name="Collider" expanded="True" />
-                <Node name="Environment" expanded="True">
-                  <Node name="EnvironmentManager.cs" selected="True" />
-                </Node>
+                <Node name="Environment" expanded="True" />
                 <Node name="Events" expanded="True" />
                 <Node name="GameManager" expanded="True" />
-                <Node name="Item" expanded="True" />
+                <Node name="Item" expanded="True">
+                  <Node name="Item.cs" selected="True" />
+                </Node>
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
                 <Node name="Player" expanded="True">

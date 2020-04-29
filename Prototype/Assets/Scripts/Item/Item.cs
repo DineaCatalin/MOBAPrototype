@@ -12,6 +12,23 @@ public class Item : MonoBehaviour
     // we will use this index to activate/deactivate the item when needed
     public int index;
 
+    private void Start()
+    {
+        // TODO: Construct a cache to load all itemData and then use that to get the itemData for this item
+        string dataString = FileHandler.ReadString("ItemConfig");
+        Debug.Log(dataString);
+        ItemDataList itemDataList = JsonUtility.FromJson<ItemDataList>(dataString);
+
+        foreach (ItemData item in itemDataList.itemList)
+        {
+            if(item.name.Equals(name))
+            {
+                Debug.Log("Item Start setting itemData " + name);
+                itemData = item;
+            }
+        }
+    }
+
     public void SetAttributes(ItemData data)
     {
         itemData = data;

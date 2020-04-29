@@ -8,10 +8,12 @@ public class ItemPool : MonoBehaviour
 {
     // This is the size of the ItemPool,
     // Will be initialized through the editor or through a config file
-    [SerializeField] int poolSize;
+    //[SerializeField] int poolSize;
+
+    [SerializeField] Item[] items;
 
     // We will use this item to create all the other items by calling Instantiate(...)
-    [SerializeField] Item templateItem;
+    //[SerializeField] Item templateItem;
 
     public Vector2 spawnPosition;
 
@@ -19,7 +21,7 @@ public class ItemPool : MonoBehaviour
     const int minSize = 2;
 
     // Data container for the item pool
-    [SerializeField] static Item[] items;
+    [SerializeField] static Item[] staticItems; //TODO: get rid of this
 
     ItemDataList loadedItemData;
 
@@ -33,43 +35,58 @@ public class ItemPool : MonoBehaviour
         // Cache photonView
         photonView = GetComponent<PhotonView>();
 
+        spawnPosition = Vector2.zero;
+
+        staticItems = new Item[items.Length];
+
+        for (int i = 0; i < staticItems.Length; i++)
+        {
+            Item item = Instantiate(items[i], transform);
+            item.index = i;
+            item.name = items[i].name;
+            item.gameObject.SetActive(false);
+            staticItems[i] = item;
+        }
+
+        items = null;
+
         // Call this to get the item data from the config file
-        LoadItemData();
+        //LoadItemData();
 
         // If there is no implementation in the config file, add the size from the inspector
         // If it is less then  the minimum one, take the minimum one
-        if (poolSize > minSize)
-        {
-            items = new Item[poolSize];
-        }     
-        else
-        {
-            items = new Item[minSize];
-            poolSize = minSize;
-        }
+        //if (poolSize > minSize)
+        //{
+        //    items = new Item[poolSize];
+        //}     
+        //else
+        //{
+        //    items = new Item[minSize];
+        //    poolSize = minSize;
+        //}
 
-        spawnPosition = Vector2.zero;
+
 
         // TODO: Load items
         // For the moment we are gonna do random items
-        for (int i = 0; i < poolSize; i++)
-        {
-            Item item = Instantiate(templateItem, transform);
-            item.index = i;     // Set the index of out item so that we can easily grab it later
-            item.SetAttributes(itemDatas[i % poolSize]);   //Set item data
-            Debug.Log("ItemPool Start Getting color for name " + item.itemData.name);
+        //for (int i = 0; i < poolSize; i++)
+        //{
+        //    Item item = Instantiate(templateItem, transform);
+        //    item.index = i;     // Set the index of out item so that we can easily grab it later
+        //    item.SetAttributes(itemDatas[i % poolSize]);   //Set item data
+        //    Debug.Log("ItemPool Start Getting color for name " + item.itemData.name);
 
-            // Set color
-            item.GetComponent<SpriteRenderer>().color = GetItemColor(item.itemData.name);
+        //    // Set color
+        //    item.GetComponent<SpriteRenderer>().color = GetItemColor(item.itemData.name);
 
-            items[i] = item;
-            item.gameObject.SetActive(false);
-        }
+        //    items[i] = item;
+        //    item.gameObject.SetActive(false);
+        //}
 
         // Clear item data array
-        Array.Clear(itemDatas, 0, itemDatas.Length);
+        //Array.Clear(itemDatas, 0, itemDatas.Length);
 
-        
+
         EventManager.StartListening(GameEvent.SpawnItem, new System.Action(SpawnItem));
         EventManager.StartListening(GameEvent.StartRedraft, new System.Action(DisableItems));
         EventManager.StartListening(GameEvent.EndRound, new System.Action(DisableItems));
@@ -80,7 +97,7 @@ public class ItemPool : MonoBehaviour
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            int itemIndex = Random.Range(0, 2);
+            int itemIndex = Random.Range(0, staticItems.Length);
             photonView.RPC("SpawnItemRPC", RpcTarget.AllBuffered, spawnPosition.x, spawnPosition.y, itemIndex);
         }
     }
@@ -92,10 +109,11 @@ public class ItemPool : MonoBehaviour
     }
 
     // Spawn an item in the specified position
+    // TODO this should not be static
     void SpawnItem(Vector3 position, int index)
     {
-        Debug.Log("ItemPool SpawnItem currentIndex is " + index + " name is " + items[index].itemData.name);
-        Item item = items[index];
+        Debug.Log("ItemPool SpawnItem currentIndex is " + index + " name is " + staticItems[index].itemData.name);
+        Item item = staticItems[index];
         item.transform.position = position;
         item.gameObject.SetActive(true);
     }
@@ -122,16 +140,17 @@ public class ItemPool : MonoBehaviour
         loadedItemData.itemList.Clear();
     }
 
+    // TODO this should not be static
     public static void DeactivateItem(int index)
     {
-        items[index].gameObject.SetActive(false);
+        staticItems[index].gameObject.SetActive(false);
     }
 
     void DisableItems()
     {
-        for (int i = 0; i < items.Length; i++)
+        for (int i = 0; i < staticItems.Length; i++)
         {
-            items[i].gameObject.SetActive(false);
+            staticItems[i].gameObject.SetActive(false);
         }
     }
 
