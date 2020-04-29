@@ -3896,7 +3896,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.0648518
+  orthographic size: 5.3542833
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -14062,6 +14062,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 683628319989916907, guid: 121c322c230bf427ba93c2017361d06e,
+        type: 3}
+      propertyPath: items.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 683628319989916907, guid: 121c322c230bf427ba93c2017361d06e,
+        type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 8347578718847873723, guid: ccba023746fc94c7b800170156a7e36d,
+        type: 3}
+    - target: {fileID: 683628319989916907, guid: 121c322c230bf427ba93c2017361d06e,
+        type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 1438469405986855642, guid: eb7bf6dd2dabd4c179fa8e3c671aa83b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
 --- !u!1001 &1340562812977336675
