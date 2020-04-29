@@ -14,7 +14,7 @@ public class EnvironmentManager : MonoBehaviour
     [SerializeField] float team2SpawnPosX = 11;
 
     float dustDuskDuration;
-    float dustDuskDeactivationDelay = 10f;
+    float dustDuskDeactivationDelay = 6f;
 
     // This will help us position the walls and area limiters in the same pla
     public Vector2 environmentSize;
