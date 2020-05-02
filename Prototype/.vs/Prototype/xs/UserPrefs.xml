@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/FollowAtDistance.cs">
     <Files>
       <File FileName="Assets/Scripts/Match/MatchPlayer.cs" Line="23" Column="6" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
@@ -19,8 +19,8 @@
       <File FileName="Assets/Scripts/Abilities/SpellIndicators/SpellIndicator.cs" />
       <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" />
       <File FileName="Assets/Scripts/Events/EventManager.cs" />
-      <File FileName="Assets/Scripts/Match/MatchClock.cs" />
-      <File FileName="Assets/Scripts/Player/Shield.cs" Line="28" Column="40" />
+      <File FileName="Assets/Scripts/Match/MatchClock.cs" Line="48" Column="1" />
+      <File FileName="Assets/Scripts/Player/Shield.cs" Line="26" Column="1" />
       <File FileName="Assets/Scripts/UI/PlayerBuffs.cs" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
@@ -36,7 +36,7 @@
       <File FileName="Assets/Scripts/MouseHandler.cs" />
       <File FileName="Assets/Scripts/Abilities/RushAbility.cs" />
       <File FileName="Assets/Scripts/Match/Match.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="37" Column="36" />
       <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/InteruptHeal.cs" />
@@ -55,6 +55,7 @@
       <File FileName="Assets/Scripts/Abilities/DustDuskAbility.cs" />
       <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" />
       <File FileName="Assets/StreamingAssets/ItemConfig.txt" />
+      <File FileName="Assets/Scripts/Utils/FollowAtDistance.cs" Line="19" Column="42" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="140" Column="26" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" NotebookId="1" />
@@ -66,7 +67,7 @@
       <File FileName="Assets/Scripts/UI/Tweens/AbilityScaleTween.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/StateManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" Line="14" Column="25" NotebookId="1" />
       <File FileName="Assets/Plugins/LeanTween/Framework/LTDescr.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/StatsBar.cs" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/ProjectileSpeedConfig.txt" NotebookId="1" />
@@ -88,9 +89,7 @@
                 <Node name="Collider" expanded="True" />
                 <Node name="Environment" expanded="True" />
                 <Node name="Events" expanded="True" />
-                <Node name="GameManager" expanded="True">
-                  <Node name="GameManager.cs" selected="True" />
-                </Node>
+                <Node name="GameManager" expanded="True" />
                 <Node name="Item" expanded="True" />
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
@@ -100,7 +99,9 @@
                 <Node name="UI" expanded="True">
                   <Node name="Tweens" expanded="True" />
                 </Node>
-                <Node name="Utils" expanded="True" />
+                <Node name="Utils" expanded="True">
+                  <Node name="FollowAtDistance.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="StreamingAssets" expanded="True" />
             </Node>
