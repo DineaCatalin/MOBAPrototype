@@ -1144,7 +1144,7 @@ ScriptsOnlyBuild:
     className: AreaLimiterManager
   - hash:
       serializedVersion: 2
-      Hash: 84d3616337abb12b16bc0a810ddcbc68
+      Hash: b13ad73cee1061786adf9d541cd61a34
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemPool
@@ -2634,4 +2634,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/Windows/Elements_v_0.99D_OSX.app
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.99E_OSX.app
