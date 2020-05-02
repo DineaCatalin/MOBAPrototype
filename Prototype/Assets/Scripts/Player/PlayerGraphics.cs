@@ -4,53 +4,57 @@ using UnityEngine;
 
 public class PlayerGraphics : MonoBehaviour
 {
-    public float scaleTime;
-    public LeanTweenType easeType;
+    public GameObject grahpics;
 
-    SpriteRenderer spriteRenderer;
+    //public float scaleTime;
+    //public LeanTweenType easeType;
 
-    Vector2 zeroScale;
-    Vector2 graphicsScale;
+    //SpriteRenderer spriteRenderer;
 
-    bool enableHasBeenCalled;
+    //Vector2 zeroScale;
+    //Vector2 graphicsScale;
+
+    //bool enableHasBeenCalled;
     
     // Start is called before the first frame update
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        zeroScale = Vector2.zero;
-        graphicsScale = transform.localScale;
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        //zeroScale = Vector2.zero;
+        //graphicsScale = transform.localScale;
     }
 
     public void SetColor(Color color)
     {
-        spriteRenderer.color = color;
+        //spriteRenderer.color = color;
     }
 
     // Update is called once per frame
     public void Enable()
     {
         Debug.Log("PlayerGraphics Enable");
-        spriteRenderer.enabled = true;
-        enableHasBeenCalled = true;
-        LeanTween.scale(gameObject, graphicsScale, scaleTime).setEase(easeType);
+        //spriteRenderer.enabled = true;
+        //enableHasBeenCalled = true;
+        //LeanTween.scale(gameObject, graphicsScale, scaleTime).setEase(easeType);
+        grahpics.SetActive(true);
     }
 
     public void Disable()
     {
         Debug.Log("PlayerGraphics Disable");
-        enableHasBeenCalled = false;
-        LeanTween.scale(gameObject, zeroScale, scaleTime).setEase(easeType).setOnComplete(DisableGraphics);
+        //enableHasBeenCalled = false;
+        //LeanTween.scale(gameObject, zeroScale, scaleTime).setEase(easeType).setOnComplete(DisableGraphics);
+        grahpics.SetActive(false);
     }
 
     void DisableGraphics()
     {
         //Debug.Log("PlayerGraphics DisableGraphics");
-        if (!enableHasBeenCalled)
-        {
-            Debug.Log("PlayerGraphics DisableGraphics !enableHasBeenCalled");
-            spriteRenderer.enabled = false;
-        }
+        //if (!enableHasBeenCalled)
+        //{
+        //    Debug.Log("PlayerGraphics DisableGraphics !enableHasBeenCalled");
+        //    spriteRenderer.enabled = false;
+        //}
     }
 
 
