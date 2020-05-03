@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveAbility : MonoBehaviour
+public class MoveAbility : AbilityComponent
 {
     // The postion towards which the ability will go to
     Vector3 moveDirection;
@@ -14,10 +14,6 @@ public class MoveAbility : MonoBehaviour
         // Projectile will have "(Clone)" added to the name as it was instatiated after a template GO
         string correctName = name.Replace("(Clone)", "");
         speed = AbilityDataCache.GetProjectileSpeed(correctName);
-
-        //moveDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-        //moveDirection.z = 0;
-        //moveDirection.Normalize();
     }
 
     // Update is called once per frame

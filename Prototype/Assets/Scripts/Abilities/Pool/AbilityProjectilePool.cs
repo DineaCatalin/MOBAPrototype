@@ -9,7 +9,7 @@ public class AbilityProjectilePool : MonoBehaviour
 {
     public static AbilityProjectilePool Instance;
 
-    Dictionary<string, GameObject[]> poolMap;
+    Dictionary<string, ProjectileVisuals[]> poolMap;
     Dictionary<string, int> poolConfig;
 
     // Use this for initialization
@@ -17,7 +17,7 @@ public class AbilityProjectilePool : MonoBehaviour
     {
         Instance = this;
 
-        poolMap = new Dictionary<string, GameObject[]>();
+        poolMap = new Dictionary<string, ProjectileVisuals[]>();
         poolConfig = new Dictionary<string, int>();
 
         poolConfig.Add("BlastProjectile", 4);
@@ -50,13 +50,18 @@ public class AbilityProjectilePool : MonoBehaviour
 
     void InitPool(GameObject template, int size)
     {
-        GameObject[] pool = new GameObject[size];
+        ProjectileVisuals[] pool = new ProjectileVisuals[size];
 
         for (int i = 0; i < size; i++)
         {
-            pool[i] = Instantiate(template, transform);
-            pool[i].name = template.name;
-            pool[i].SetActive(false);
+            GameObject go = Instantiate(template, transform);
+            go.name = template.name;
+
+            ProjectileVisuals visuals = go.GetComponent<ProjectileVisuals>();
+
+            pool[i] = visuals;
+
+            visuals.Deactivate();
         }
 
         // We will set the config value for the object type we just created to 0 so that we can use this Dictionary to store the current index
@@ -65,7 +70,7 @@ public class AbilityProjectilePool : MonoBehaviour
         poolMap.Add(template.name, pool);
     }
 
-    public GameObject GetProjectile(string name)
+    public ProjectileVisuals GetProjectile(string name)
     {
         // Get the current index and length of the specific pool 
         int currentIndex = poolConfig[name];           
@@ -75,10 +80,10 @@ public class AbilityProjectilePool : MonoBehaviour
         currentIndex = (currentIndex + 1) % poolSize;
         Debug.Log("ObjectPool GetNext " + name + "Current Index is " + currentIndex);
 
-        GameObject poolObject = poolMap[name][currentIndex];
+        ProjectileVisuals poolObject = poolMap[name][currentIndex];
 
         // If the object is not is use return this one to be used
-        if (poolObject.activeSelf == false)
+        if (poolObject.IsActiveOnScreen() == false)
         {
             Debug.Log("ObjectPool GetNext found object 1st try at index " + currentIndex);
             poolConfig[name] = currentIndex;
@@ -88,13 +93,13 @@ public class AbilityProjectilePool : MonoBehaviour
         // Preferably this part of the should not be called as it is more expensive
         else
         {
-            GameObject[] pool = poolMap[name];
+            ProjectileVisuals[] pool = poolMap[name];
 
             // First we will loop the pool to check for a free spot
             Debug.Log("ObjectPool GetNext Looping objects to find unactive. Length " + pool.Length);
             for (int i = 0; i < pool.Length; i++)
             {
-                if (pool[i].activeSelf == false)
+                if (pool[i].IsActiveOnScreen() == false)
                 {
                     poolConfig[name] = i;
                     Debug.Log("ObjectPool GetNext found object at index " + i);
@@ -107,7 +112,7 @@ public class AbilityProjectilePool : MonoBehaviour
             // it should be never called
             poolSize++;
             Debug.Log("ObjectPool GetNext Pool size before expansion " + pool.Length);
-            Array.Resize<GameObject>(ref pool, poolSize);
+            Array.Resize<ProjectileVisuals>(ref pool, poolSize);
             Debug.Log("ObjectPool GetNext Pool size after expansion " + pool.Length + " original pool size " + poolMap[name].Length);
             currentIndex = poolSize - 1;
             Debug.Log("ObjectPool GetNext Adding new object to index " + currentIndex);

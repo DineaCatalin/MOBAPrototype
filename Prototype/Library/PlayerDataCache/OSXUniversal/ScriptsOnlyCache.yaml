@@ -61,6 +61,7 @@ ScriptsOnlyBuild:
     - PlayerGraphics
     - PlayerManager
     - ProjectileAbility
+    - ProjectileVisuals
     - PullEffect
     - RootEffect
     - RushAbility
@@ -301,29 +302,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13466}
     - Class: 114
-      Script: {instanceID: 13546}
+      Script: {instanceID: 13504}
     - Class: 114
-      Script: {instanceID: 13598}
+      Script: {instanceID: 13548}
     - Class: 114
-      Script: {instanceID: 13688}
+      Script: {instanceID: 13600}
     - Class: 114
-      Script: {instanceID: 13692}
+      Script: {instanceID: 13690}
     - Class: 114
-      Script: {instanceID: 13700}
+      Script: {instanceID: 13694}
     - Class: 114
-      Script: {instanceID: 13710}
+      Script: {instanceID: 13702}
     - Class: 114
-      Script: {instanceID: 13780}
+      Script: {instanceID: 13712}
     - Class: 114
-      Script: {instanceID: 13784}
+      Script: {instanceID: 13782}
     - Class: 114
-      Script: {instanceID: 13802}
+      Script: {instanceID: 13786}
     - Class: 114
-      Script: {instanceID: 13846}
+      Script: {instanceID: 13804}
     - Class: 114
-      Script: {instanceID: 13864}
+      Script: {instanceID: 13848}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13866}
+    - Class: 114
+      Script: {instanceID: 13870}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -522,23 +525,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13466}
     - Class: 114
-      Script: {instanceID: 13508}
+      Script: {instanceID: 13504}
     - Class: 114
-      Script: {instanceID: 13692}
+      Script: {instanceID: 13510}
     - Class: 114
-      Script: {instanceID: 13700}
+      Script: {instanceID: 13694}
     - Class: 114
-      Script: {instanceID: 13710}
+      Script: {instanceID: 13702}
     - Class: 114
-      Script: {instanceID: 13780}
+      Script: {instanceID: 13712}
     - Class: 114
-      Script: {instanceID: 13784}
+      Script: {instanceID: 13782}
     - Class: 114
-      Script: {instanceID: 13838}
+      Script: {instanceID: 13786}
     - Class: 114
-      Script: {instanceID: 13846}
+      Script: {instanceID: 13840}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13848}
+    - Class: 114
+      Script: {instanceID: 13870}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2284,6 +2289,12 @@ ScriptsOnlyBuild:
     className: Test
   - hash:
       serializedVersion: 2
+      Hash: a7b6b3f0ff2990a4ec66fd8c2827283c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProjectileVisuals
+  - hash:
+      serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -2630,6 +2641,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AbilityComponent
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity

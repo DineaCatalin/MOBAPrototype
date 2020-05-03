@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Abilities\Pool\AbilityProjectilePool.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityCollider.cs" />
+    <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityComponent.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityDuration.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\DestroyAfterCollisions.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\Flicker.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Assets\Scripts\Abilities\SpellIndicators\SpellIndicator.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityFactory.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Visuals\ProjectileVisuals.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Audio\Sound.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />

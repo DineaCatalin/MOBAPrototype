@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8795244803218874861}
   - component: {fileID: 3860087166116588973}
   - component: {fileID: 8488402755693196163}
+  - component: {fileID: -8385285091882086241}
   m_Layer: 0
   m_Name: WaterRainProjectile
   m_TagString: Untagged
@@ -175,6 +176,22 @@ MonoBehaviour:
   scaleEaseType: 17
   fadeEaseType: 17
   abilityCollider: {fileID: 88837218096345548}
+--- !u!114 &-8385285091882086241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268611563194761343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304d8ead3da3e4ee3aba3860dc42a452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useGameObject: 0
+  affectColliderOnActivation: 1
+  affectColliderOnDeactivation: 1
+  isActiveOnScreen: 0
 --- !u!1001 &120318842
 PrefabInstance:
   m_ObjectHideFlags: 0

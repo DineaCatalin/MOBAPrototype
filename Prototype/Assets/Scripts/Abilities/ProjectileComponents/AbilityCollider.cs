@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 // Implements the logic of the collision of the ability projectile
 //[RequireComponent(typeof(AbilityData))]
@@ -19,6 +19,8 @@ public class AbilityCollider : MonoBehaviour
 
     [HideInInspector] public bool doubleDamageEffect;
 
+    ProjectileVisuals projectileVisuals;
+
     private void Awake()
     {
         abilityData = AbilityDataCache.GetDataForAbility(name);
@@ -33,6 +35,8 @@ public class AbilityCollider : MonoBehaviour
         {
             isStatic = false;
         }
+
+        projectileVisuals = GetComponent<ProjectileVisuals>();
     }
 
     public void SetCasterID(int casterID)
@@ -68,7 +72,7 @@ public class AbilityCollider : MonoBehaviour
         else if(collision.tag == "Wall" && !isStatic)
         {
             Debug.Log("Collided with wall");
-            gameObject.SetActive(false);
+            projectileVisuals.Deactivate();
         }
         else
         {
@@ -85,7 +89,7 @@ public class AbilityCollider : MonoBehaviour
         if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm" && abilityData.description.name != "Blast")
         {
             Debug.Log("Destroyng projectile " + this.gameObject.name + " that hit player " + player.GetID());
-            gameObject.SetActive(false);
+            projectileVisuals.Deactivate();
         }
     }
 
@@ -105,8 +109,8 @@ public class AbilityCollider : MonoBehaviour
         DestroyAfterCollisions iceWall = collision.GetComponent<DestroyAfterCollisions>();
         iceWall.ApplyDamage();
 
-        // Destroy the ability after the collision
-        gameObject.SetActive(false);
+        // Deactivate the ability after the collision
+        projectileVisuals.Deactivate();
     }
 
     // This will handle the collision between abilities
@@ -119,7 +123,7 @@ public class AbilityCollider : MonoBehaviour
                 if (collision.tag == "Spikes" || collision.tag == "Roots")
                 {
                     collision.gameObject.SetActive(false);
-                    gameObject.SetActive(false);
+                    projectileVisuals.Deactivate();
                 }
                 break;
 
@@ -127,7 +131,7 @@ public class AbilityCollider : MonoBehaviour
                 if (collision.tag == "Fire Strom" || collision.tag == "Water Rain")
                 {
                     collision.gameObject.SetActive(false);
-                    gameObject.SetActive(false);
+                    projectileVisuals.Deactivate();
                 }
                 break;
         }

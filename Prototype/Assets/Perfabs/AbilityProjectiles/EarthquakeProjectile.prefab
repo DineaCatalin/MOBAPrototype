@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3350198306017553002}
   - component: {fileID: 3108199159026779847}
   - component: {fileID: 8718531902027072726}
+  - component: {fileID: -2418074171658775171}
   m_Layer: 0
   m_Name: EarthquakeProjectile
   m_TagString: Ice Wall
@@ -162,6 +163,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.002391696}
   serializedVersion: 2
   m_Radius: 1.9677547
+--- !u!114 &-2418074171658775171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441949558110838355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304d8ead3da3e4ee3aba3860dc42a452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useGameObject: 0
+  affectColliderOnActivation: 1
+  affectColliderOnDeactivation: 1
+  isActiveOnScreen: 0
 --- !u!1001 &7372834285019719848
 PrefabInstance:
   m_ObjectHideFlags: 0
