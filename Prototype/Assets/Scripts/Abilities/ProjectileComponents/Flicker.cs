@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flicker : MonoBehaviour
+public class Flicker : AbilityComponent
 {
     [SerializeField] float duration = 0.2f;
+
+    ProjectileVisuals projectileVisuals;
+
+    private void Awake()
+    {
+        projectileVisuals = GetComponent<ProjectileVisuals>();
+    }
 
     // We use OnEnable because the GO that uses this component is used in an ObjectPool
     void OnEnable()
@@ -16,7 +23,6 @@ public class Flicker : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         Debug.Log("Flicker Disable");
-        gameObject.SetActive(false);
-        //Destroy(gameObject);
+        projectileVisuals.Deactivate();
     }
 }

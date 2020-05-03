@@ -2,9 +2,19 @@
 using System.Collections;
 
 // The wall will be destroyed if hit a number of times by abilities
-public class DestroyAfterCollisions : MonoBehaviour
+public class DestroyAfterCollisions : AbilityComponent
 {
     [SerializeField] int numCollisions;
+
+    int health;
+
+    ProjectileVisuals visuals;
+
+    private void Awake()
+    {
+        visuals = GetComponent<ProjectileVisuals>();
+        health = numCollisions;
+    }
 
     private void Start()
     {
@@ -12,17 +22,21 @@ public class DestroyAfterCollisions : MonoBehaviour
         EventManager.StartListening(GameEvent.StartRedraft, new System.Action(Destroy));
     }
 
+    private void OnEnable()
+    {
+        health = numCollisions;
+    }
+
     public void ApplyDamage()
     {
-        numCollisions--;
+        health--;
 
-        if (numCollisions <= 0)
+        if (health <= 0)
             this.Destroy();
     }
 
     public void Destroy()
     {
-        //Destroy(gameObject);
-        gameObject.SetActive(false);
+        visuals.Deactivate();
     }
 }

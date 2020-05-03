@@ -33,12 +33,12 @@ public class AbilitySpawner : MonoBehaviour
     {
         Debug.Log("AbilitySpawner Spawning " + projectileName);
 
-        GameObject spawned = AbilityProjectilePool.Instance.GetProjectile(projectileName);
+        ProjectileVisuals spawned = AbilityProjectilePool.Instance.GetProjectile(projectileName);
         spawned.transform.position = position;
         spawned.transform.rotation = rotation;
-        spawned.SetActive(true);
+        spawned.Activate();
 
-        spawned.layer = layer;
+        spawned.gameObject.layer = layer;
 
         Player player = PlayerManager.Instance.GetPlayer(casterPlayerID);
         AbilityCollider abilityCollider = spawned.GetComponent<AbilityCollider>();
@@ -60,14 +60,14 @@ public class AbilitySpawner : MonoBehaviour
     [PunRPC]
     void SpawnProjectileAbility(string projectileName, Vector3 position, Quaternion rotation, Vector3 direction, int layer, int casterPlayerID)
     {
-        GameObject projectile = AbilityProjectilePool.Instance.GetProjectile(projectileName);
+        ProjectileVisuals projectile = AbilityProjectilePool.Instance.GetProjectile(projectileName);
         projectile.transform.position = position;
         projectile.transform.rotation = rotation;
         Debug.Log("AbilitySpawner SpawnProjectileAbility position " + position);
 
-        projectile.layer = layer;
+        projectile.gameObject.layer = layer;
 
-        projectile.SetActive(true);
+        projectile.Activate();
 
         MoveAbility movement = projectile.GetComponent<MoveAbility>();
 

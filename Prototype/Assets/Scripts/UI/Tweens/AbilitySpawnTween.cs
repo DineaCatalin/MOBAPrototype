@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilitySpawnTween : MonoBehaviour
+public class AbilitySpawnTween : Tween
 {
     public Vector3 initialScale;
     public Vector3 finalScale;
@@ -42,7 +42,7 @@ public class AbilitySpawnTween : MonoBehaviour
         spriteRenderer.color = gradientColor;
     }
 
-    void OnEnable()
+    public override void Execute()
     {
         SetInitialData();
         Debug.Log("AbilitySpawnTween OnEnable ");
@@ -70,5 +70,4 @@ public class AbilitySpawnTween : MonoBehaviour
     {
         abilityCollider.enabled = true;
     }
-
 }
