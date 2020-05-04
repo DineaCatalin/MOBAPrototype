@@ -27,7 +27,7 @@ public class RushAbility : Ability
 
         // Deactivate so that the player doesn't start wthe
         // Rush ability activated
-        rushAreaManager.Deactivate();
+        //rushAreaManager.Deactivate();
     }   
 
     public override bool Cast()
