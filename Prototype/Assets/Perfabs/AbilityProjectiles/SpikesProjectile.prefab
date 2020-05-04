@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6081628092580260818}
   - component: {fileID: 2297095786920288285}
   - component: {fileID: 4898851022164710559}
+  - component: {fileID: -6527079845063699561}
+  - component: {fileID: 9161198318939588020}
   m_Layer: 0
   m_Name: SpikesProjectile
   m_TagString: Untagged
@@ -181,6 +183,32 @@ MonoBehaviour:
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
   isActiveOnScreen: 0
+--- !u!114 &-6527079845063699561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857320004693153027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98dbed2691e5246dbbb1c2bca5b21c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deactivateOnAwake: 1
+--- !u!114 &9161198318939588020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857320004693153027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7561123d2de49598d6e6e4dfc6a2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deactivateComponentsOnAwake: 1
 --- !u!1001 &69111451187479108
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/ProjectileComponents/AbilityComponent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Visuals/ProjectileVisuals.cs">
     <Files>
       <File FileName="Assets/Scripts/Match/MatchPlayer.cs" Line="29" Column="17" />
       <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" />
+      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="57" Column="1" />
       <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" />
       <File FileName="Assets/Scripts/Player/LocalPlayerReferences.cs" />
       <File FileName="Assets/Scripts/Utils/Utils.cs" />
@@ -23,8 +23,8 @@
       <File FileName="Assets/Scripts/Player/Shield.cs" />
       <File FileName="Assets/Scripts/UI/PlayerBuffs.cs" />
       <File FileName="Assets/Scripts/Abilities/Manager/AbilityManager.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="37" Column="18" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="6" Column="48" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" Line="22" Column="42" />
       <File FileName="Assets/Scripts/Camera/CameraShake.cs" />
       <File FileName="Assets/Scripts/Environment/AreaLimiterManager.cs" />
       <File FileName="Assets/Scripts/Item/ItemPool.cs" />
@@ -45,8 +45,8 @@
       <File FileName="Assets/Plugins/LeanTween/Framework/LeanTween.cs" />
       <File FileName="Assets/Scripts/Collider/ColliderDelayedActivation.cs" />
       <File FileName="Assets/StreamingAssets/AbilityConfig.txt" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="23" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="109" Column="31" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" Line="26" Column="17" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityDataCache.cs" />
       <File FileName="Assets/Scripts/Abilities/Data/AbilityData.cs" />
       <File FileName="Assets/StreamingAssets/SelectedAbilitiesConfig.txt" />
@@ -57,8 +57,10 @@
       <File FileName="Assets/StreamingAssets/ItemConfig.txt" />
       <File FileName="Assets/Scripts/Utils/FollowAtDistance.cs" />
       <File FileName="Assets/Scripts/Abilities/Pool/AbilityProjectilePool.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityComponent.cs" Line="5" Column="24" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/Flicker.cs" Line="5" Column="40" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityComponent.cs" Line="7" Column="5" />
+      <File FileName="Assets/Scripts/ParticleSystem/LocalParticleSystemManager.cs" Line="26" Column="5" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityComponentManager.cs" Line="6" Column="2" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="140" Column="26" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" NotebookId="1" />
@@ -70,12 +72,12 @@
       <File FileName="Assets/Scripts/UI/Tweens/AbilityScaleTween.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/StateManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="18" Column="14" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" Line="18" Column="5" NotebookId="1" />
       <File FileName="Assets/Plugins/LeanTween/Framework/LTDescr.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/StatsBar.cs" NotebookId="1" />
       <File FileName="Assets/StreamingAssets/ProjectileSpeedConfig.txt" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/Visuals/ProjectileVisuals.cs" Line="30" Column="72" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/Visuals/ProjectileVisuals.cs" Line="16" Column="5" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -88,10 +90,10 @@
                   <Node name="Data" expanded="True" />
                   <Node name="Effects" expanded="True" />
                   <Node name="Pool" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True">
-                    <Node name="AbilityComponent.cs" selected="True" />
+                  <Node name="ProjectileComponents" expanded="True" />
+                  <Node name="Visuals" expanded="True">
+                    <Node name="ProjectileVisuals.cs" selected="True" />
                   </Node>
-                  <Node name="Visuals" expanded="True" />
                 </Node>
                 <Node name="Camera" expanded="True" />
                 <Node name="Collider" expanded="True" />
@@ -101,6 +103,7 @@
                 <Node name="Item" expanded="True" />
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
+                <Node name="ParticleSystem" expanded="True" />
                 <Node name="Player" expanded="True">
                   <Node name="Manager" expanded="True" />
                 </Node>

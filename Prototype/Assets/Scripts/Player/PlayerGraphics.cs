@@ -6,6 +6,9 @@ public class PlayerGraphics : MonoBehaviour
 {
     public GameObject grahpics;
 
+    [SerializeField] LocalParticleSystemManager trailParticleManager;
+    [SerializeField] Shield shield;
+
     //public float scaleTime;
     //public LeanTweenType easeType;
 
@@ -15,7 +18,7 @@ public class PlayerGraphics : MonoBehaviour
     //Vector2 graphicsScale;
 
     //bool enableHasBeenCalled;
-    
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,6 +40,17 @@ public class PlayerGraphics : MonoBehaviour
         //enableHasBeenCalled = true;
         //LeanTween.scale(gameObject, graphicsScale, scaleTime).setEase(easeType);
         grahpics.SetActive(true);
+        trailParticleManager.ActivateParticleSystems();
+    }
+
+    public void EnableAfterBlink()
+    {
+        Enable();
+
+        if(shield.isActive)
+        {
+            shield.ActivateShieldGraphics();
+        }
     }
 
     public void Disable()
@@ -45,17 +59,7 @@ public class PlayerGraphics : MonoBehaviour
         //enableHasBeenCalled = false;
         //LeanTween.scale(gameObject, zeroScale, scaleTime).setEase(easeType).setOnComplete(DisableGraphics);
         grahpics.SetActive(false);
+        shield.DeactivateShieldGraphics();
+        trailParticleManager.DeactivateParticleSystems();
     }
-
-    void DisableGraphics()
-    {
-        //Debug.Log("PlayerGraphics DisableGraphics");
-        //if (!enableHasBeenCalled)
-        //{
-        //    Debug.Log("PlayerGraphics DisableGraphics !enableHasBeenCalled");
-        //    spriteRenderer.enabled = false;
-        //}
-    }
-
-
 }

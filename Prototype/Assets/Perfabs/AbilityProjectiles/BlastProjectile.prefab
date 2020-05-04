@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 3088594531143990646}
   - component: {fileID: -8567584565752347870}
   - component: {fileID: 6975198297389882288}
+  - component: {fileID: 3477419719843899482}
+  - component: {fileID: 3132900488244085536}
   - component: {fileID: -2723101666812934660}
   m_Layer: 10
   m_Name: BlastProjectile
@@ -160,6 +162,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0000009536743, y: 4.1722245}
   m_Size: {x: 4.758687, y: 8.344552}
   m_Direction: 0
+--- !u!114 &3477419719843899482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425128974039810944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98dbed2691e5246dbbb1c2bca5b21c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deactivateOnAwake: 1
+--- !u!114 &3132900488244085536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425128974039810944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7561123d2de49598d6e6e4dfc6a2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deactivateComponentsOnAwake: 1
 --- !u!114 &-2723101666812934660
 MonoBehaviour:
   m_ObjectHideFlags: 0

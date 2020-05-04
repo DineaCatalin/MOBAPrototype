@@ -153,6 +153,13 @@ public class Player : MonoBehaviour
             PlayerController.isRooted = false;
     }
 
+    public void ActivateGraphics()
+    {
+        playerCollider.enabled = true;
+        graphics.EnableAfterBlink();
+        SetUIState(true);
+    }
+
     private void Reset()
     {
         // Reset stats here so that player doesn't appear with 0 hp and mana

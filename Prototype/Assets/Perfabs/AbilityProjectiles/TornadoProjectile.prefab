@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 8818234663280605741}
   - component: {fileID: 6233517058522966703}
   - component: {fileID: 1495503348389340479}
+  - component: {fileID: 469793426110672976}
+  - component: {fileID: 6676103204119235154}
   m_Layer: 0
   m_Name: TornadoProjectile
   m_TagString: Untagged
@@ -197,6 +199,32 @@ MonoBehaviour:
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
   isActiveOnScreen: 0
+--- !u!114 &469793426110672976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816415116620894752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7561123d2de49598d6e6e4dfc6a2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deactivateComponentsOnAwake: 1
+--- !u!114 &6676103204119235154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816415116620894752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98dbed2691e5246dbbb1c2bca5b21c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deactivateOnAwake: 1
 --- !u!1001 &6618057581957112708
 PrefabInstance:
   m_ObjectHideFlags: 0

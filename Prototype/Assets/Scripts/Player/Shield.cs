@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Shield : MonoBehaviour
 {
+    [HideInInspector] public bool isActive;
+
     // How much hp this shild gives extra
     int armor;
 
@@ -11,14 +13,22 @@ public class Shield : MonoBehaviour
     //SpriteRenderer spriteRenderer;
     //AbilityScaleTween tween;
 
+    public LocalParticleSystemManager shieldParticles;
+
     public GameObject shieldObject;
+
+    private void Awake()
+    {
+        shieldParticles = GetComponent<LocalParticleSystemManager>();
+        isActive = false;
+    }
 
     private void Start()
     {
         //spriteRenderer = GetComponent<SpriteRenderer>();
         //tween = GetComponent<AbilityScaleTween>();
         //tween.enabled = false;
-        shieldObject.SetActive(false);
+        DeactivateShieldGraphics();
     }
 
     public void SetArmor(int shieldBuffValue)
@@ -26,7 +36,23 @@ public class Shield : MonoBehaviour
         armor = shieldBuffValue;
         //spriteRenderer.enabled = true;
         //tween.enabled = true;
+        isActive = true;
+        ActivateShieldGraphics();
+    }
+
+    public void ActivateShieldGraphics()
+    {
+        //shieldParticles.ActivateParticleSystems();
         shieldObject.SetActive(true);
+    }
+
+    public void DeactivateShieldGraphics()
+    {
+        //if (isActive)
+        //{
+        //    //shieldParticles.DeactivateParticleSystems();
+        //}
+        shieldObject.SetActive(false);
     }
 
     //
@@ -44,10 +70,11 @@ public class Shield : MonoBehaviour
     public bool IsActive()
     {
         Debug.Log("Shield IsActive " + (armor <= 0));
-        if (armor <= 0)
-            return false;
+        //if (armor <= 0)
+        //    return false;
 
-        return true;
+        //return true;
+        return isActive;
     }
 
     public void DeactivateNetworkedShield()
@@ -59,9 +86,11 @@ public class Shield : MonoBehaviour
     public void DeactivateLocalShield()
     {
         armor = 0;
+        isActive = false;
         //spriteRenderer.enabled = false;
         //tween.enabled = false;
-        shieldObject.SetActive(false);
+        //shieldObject.SetActive(false);
+        DeactivateShieldGraphics();
     }
 
 
