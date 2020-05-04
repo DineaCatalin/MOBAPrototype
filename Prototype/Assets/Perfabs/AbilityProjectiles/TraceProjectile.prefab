@@ -4698,6 +4698,8 @@ GameObject:
   - component: {fileID: 409463249868856055}
   - component: {fileID: -6124926259432697200}
   - component: {fileID: -6747028264569233895}
+  - component: {fileID: 1330718576402486761}
+  - component: {fileID: 6527133308502166204}
   m_Layer: 0
   m_Name: TraceProjectile
   m_TagString: Untagged
@@ -4869,6 +4871,32 @@ MonoBehaviour:
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
   isActiveOnScreen: 0
+--- !u!114 &1330718576402486761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557843480434893758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98dbed2691e5246dbbb1c2bca5b21c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deactivateOnAwake: 1
+--- !u!114 &6527133308502166204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557843480434893758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7561123d2de49598d6e6e4dfc6a2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deactivateComponentsOnAwake: 1
 --- !u!1 &6415459129953374737
 GameObject:
   m_ObjectHideFlags: 0

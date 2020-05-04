@@ -7,7 +7,7 @@ public class BlinkAbility : Ability
     [SerializeField] Transform playerTransform;
 
     // Make sure it's arround 0.05 seconds more then the scale time for the PlayerGraphics
-    [SerializeField] float delay = 0.30f; 
+    [SerializeField] float delay = 0f; 
 
     Vector3 blinkPosition;
 
@@ -60,7 +60,7 @@ public class BlinkAbility : Ability
         playerTransform.position = blinkPosition;
 
         Debug.Log("BlinkAbility Activating player " + playerID);
-        PlayerManager.Instance.ActivatePlayer(playerID);
+        PlayerManager.Instance.ActivatePlayerGraphics(playerID);
     }
 
     bool OutOfRange()

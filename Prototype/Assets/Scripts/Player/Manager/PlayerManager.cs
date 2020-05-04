@@ -49,17 +49,17 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    IEnumerator ActivateNonLocalPlayerCoroutine(int playerID, float delay)
-    {
-        yield return new WaitForSeconds(delay);
+    //IEnumerator ActivateNonLocalPlayerCoroutine(int playerID, float delay)
+    //{
+    //    yield return new WaitForSeconds(delay);
 
-        Player player = playerMap[playerID];
+    //    Player player = playerMap[playerID];
 
-        if (player != null && !player.isNetworkActive)
-        {
-            player.Activate();
-        }
-    }
+    //    if (player != null && !player.isNetworkActive)
+    //    {
+    //        player.Activate();
+    //    }
+    //}
 
     public void KillNetworkedPlayer(int playerID, int killerID)
     {
@@ -152,6 +152,18 @@ public class PlayerManager : MonoBehaviour
     {
         Debug.Log("ActivatePlayerRPC getting player " + playerID + " from map");
         playerMap[playerID].Activate();
+    }
+
+    public void ActivatePlayerGraphics(int playerID)
+    {
+        photonView.RPC("ActivatePlayerGraphicsRPC", RpcTarget.All, playerID);
+    }
+
+    [PunRPC]
+    public void ActivatePlayerGraphicsRPC(int playerID)
+    {
+        Debug.Log("ActivatePlayerRPC getting player " + playerID + " from map");
+        playerMap[playerID].ActivateGraphics();
     }
 
     public void DeactivatePlayer(int playerID)

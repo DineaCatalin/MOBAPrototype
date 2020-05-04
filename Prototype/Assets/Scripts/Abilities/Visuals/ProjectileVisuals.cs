@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AbilityComponentManager), typeof(LocalParticleSystemManager))]
 public class ProjectileVisuals : MonoBehaviour
 {
     [SerializeField] bool useGameObject;
     [SerializeField] bool affectColliderOnActivation;
     [SerializeField] bool affectColliderOnDeactivation;
-    
-    ParticleSystem[] particleSystems;
+
+    LocalParticleSystemManager localParticleSystemManager;
     Collider2D projectileCollider;
     Tween tween;
 
     bool useTween;
-    AbilityComponent abilityComponent;
+    AbilityComponentManager abilityComponentManager;
 
     Action activateAction;
     Action deactivateAction;
@@ -29,8 +30,7 @@ public class ProjectileVisuals : MonoBehaviour
         if (projectileCollider == null)
             Debug.LogError("ProjectileVisuals Awake() projectileCollider == null");
 
-        particleSystems = GetComponentsInChildren<ParticleSystem>();
-        DeactivateParticleSystems();
+        localParticleSystemManager = GetComponent<LocalParticleSystemManager>();
 
         tween = GetComponent<AbilitySpawnTween>();
         if (tween)
@@ -38,8 +38,7 @@ public class ProjectileVisuals : MonoBehaviour
         else
             useTween = false;
 
-        abilityComponent = GetComponent<AbilityComponent>();
-        abilityComponent.enabled = false;
+        abilityComponentManager = GetComponent<AbilityComponentManager>();
 
         SetActions();
     }
@@ -78,14 +77,14 @@ public class ProjectileVisuals : MonoBehaviour
     public void Activate()
     {
         activateAction.Invoke();
-        abilityComponent.enabled = true;
+        EnableAbilityComponents();
         isActiveOnScreen = true;
     }
 
     public void Deactivate()
     {
         deactivateAction.Invoke();
-        abilityComponent.enabled = false;
+        DisableAbilityComponents();
         isActiveOnScreen = false;
     }
 
@@ -109,18 +108,12 @@ public class ProjectileVisuals : MonoBehaviour
 
     void ActivateParticleSystems()
     {
-        foreach (ParticleSystem pSyst in particleSystems)
-        {
-            pSyst.Play();
-        }
+        localParticleSystemManager.ActivateParticleSystems();
     }
 
     void DeactivateParticleSystems()
     {
-        foreach (ParticleSystem pSyst in particleSystems)
-        {
-            pSyst.Stop();
-        }
+        localParticleSystemManager.DeactivateParticleSystems();
     }
 
     void ActivateGameObject()
@@ -133,4 +126,13 @@ public class ProjectileVisuals : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    void EnableAbilityComponents()
+    {
+        abilityComponentManager.EnableAbilityComponents();
+    }
+
+    void DisableAbilityComponents()
+    {
+        abilityComponentManager.DisableAbilityComponents();
+    }
 }
