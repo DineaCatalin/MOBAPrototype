@@ -442,11 +442,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialScale: {x: 0.2, y: 0.2, z: 1}
   zoomScale: {x: 1, y: 1, z: 1}
-  growEaseType: 1
+  growEaseType: 3
   growTime: 2
-  switchEaseType: 1
-  switchTime: 2
-  shrinkEaseType: 1
+  switchEaseType: 25
+  switchTime: 3
+  shrinkEaseType: 2
   shrinkTime: 2
 --- !u!114 &1702440717102963891
 MonoBehaviour:

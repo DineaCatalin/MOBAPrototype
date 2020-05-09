@@ -9,9 +9,11 @@ public class PlanetSwitchTween : MonoBehaviour
 
     public LeanTweenType growEaseType;
     public float growTime;
+    public float switchDelayAfterGrow;
 
     public LeanTweenType switchEaseType;
     public float switchTime;
+    public float shrinkDelayAfterSwitch;
 
     public LeanTweenType shrinkEaseType;
     public float shrinkTime;
@@ -22,14 +24,23 @@ public class PlanetSwitchTween : MonoBehaviour
     PlanetView previousPlanet;
     PlanetView currentPlanet;
 
+    float shrinkTweenTime;
+    float switchTweenTime;
+
+    private void Awake()
+    {
+        switchTweenTime = growTime + switchDelayAfterGrow;
+        shrinkTweenTime = growTime + switchTime + shrinkDelayAfterSwitch;
+    }
+
     public void Execute(PlanetView oldPlanet, PlanetView newPlanet)
     {
         previousPlanet = oldPlanet;
         currentPlanet = newPlanet;
 
         GrowPlanet();
-        Invoke("SwitchPlanets", growTime);
-        Invoke("ShrikPlanet", growTime + switchTime);
+        Invoke("SwitchPlanets", switchTweenTime);
+        Invoke("ShrikPlanet", shrinkTweenTime);
     }
 
     void GrowPlanet()
@@ -38,13 +49,13 @@ public class PlanetSwitchTween : MonoBehaviour
         previousPlanet.Scale(initialScale, zoomScale, growTime, growEaseType);
 
         // Set previous planet to zOrderHidden
-        previousPlanet.transform.position = new Vector3(previousPlanet.transform.position.x, previousPlanet.transform.position.y, zOrderHidden);
+        //previousPlanet.transform.position = new Vector3(previousPlanet.transform.position.x, previousPlanet.transform.position.y, zOrderHidden);
 
         // Set scale for current hidden planet
         currentPlanet.transform.localScale = zoomScale;
 
         // Set scale for current hidden planet to zOrderHidden
-        currentPlanet.transform.position = new Vector3(currentPlanet.transform.position.x, currentPlanet.transform.position.y, zOrderVisible);
+        //currentPlanet.transform.position = new Vector3(currentPlanet.transform.position.x, currentPlanet.transform.position.y, zOrderVisible);
 
     }
 
