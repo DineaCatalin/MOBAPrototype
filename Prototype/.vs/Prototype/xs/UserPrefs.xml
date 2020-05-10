@@ -1,12 +1,16 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Manager/PlayerManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SetParticleSortLayer.cs">
     <Files>
       <File FileName="Assets/Scripts/Planet/PlanetView.cs" Line="31" Column="9" />
-      <File FileName="Assets/Scripts/Planet/PlanetSwitchTween.cs" Line="33" Column="6" />
+      <File FileName="Assets/Scripts/Planet/PlanetSwitchTween.cs" Line="43" Column="48" />
       <File FileName="Assets/Scripts/Tweens/ScaleTween.cs" />
-      <File FileName="Assets/Scripts/Test/PlanetTest.cs" />
-      <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="53" Column="2" NotebookId="1" />
+      <File FileName="Assets/Scripts/Test/PlanetTest.cs" Line="20" Column="28" />
+      <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" Line="45" Column="1" />
+      <File FileName="Assets/Scripts/Events/EventManager.cs" Line="46" Column="1" />
+      <File FileName="Assets/Scripts/Events/GameEvent.cs" Line="21" Column="19" />
+      <File FileName="Assets/Scripts/Camera/CameraShake.cs" Line="45" Column="1" />
+      <File FileName="Assets/SetParticleSortLayer.cs" Line="11" Column="6" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="180" Column="19" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/Item.cs" NotebookId="1" />
@@ -21,9 +25,17 @@
       <File FileName="Assets/StreamingAssets/ProjectileSpeedConfig.txt" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Visuals/ProjectileVisuals.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Planet/PlanetLogic.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Planet/PlanetLogic.cs" Line="25" Column="29" NotebookId="1" />
       <File FileName="Assets/Scripts/Tweens/FadeObjectTween.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/ParticleSystem/LocalParticleSystemManager.cs" Line="20" Column="20" NotebookId="1" />
+      <File FileName="Assets/Scripts/Match/Match.cs" Line="37" Column="36" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" Line="22" Column="65" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" Line="57" Column="37" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" Line="33" Column="65" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/ItemPool.cs" Line="91" Column="65" NotebookId="1" />
+      <File FileName="Assets/Scripts/Match/MatchClock.cs" Line="34" Column="65" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="138" Column="65" NotebookId="1" />
+      <File FileName="Assets/Scripts/Planet/PlanetManager.cs" Line="26" Column="50" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -37,11 +49,7 @@
               </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
-                  <Node name="Data" expanded="True" />
-                  <Node name="Effects" expanded="True" />
-                  <Node name="Pool" expanded="True" />
                   <Node name="ProjectileComponents" expanded="True" />
-                  <Node name="Visuals" expanded="True" />
                 </Node>
                 <Node name="Camera" expanded="True" />
                 <Node name="Collider" expanded="True" />
@@ -54,9 +62,7 @@
                 <Node name="ParticleSystem" expanded="True" />
                 <Node name="Planet" expanded="True" />
                 <Node name="Player" expanded="True">
-                  <Node name="Manager" expanded="True">
-                    <Node name="PlayerManager.cs" selected="True" />
-                  </Node>
+                  <Node name="Manager" expanded="True" />
                 </Node>
                 <Node name="Test" expanded="True" />
                 <Node name="Tweens" expanded="True" />
@@ -64,6 +70,7 @@
                 <Node name="Utils" expanded="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
+              <Node name="SetParticleSortLayer.cs" selected="True" />
             </Node>
           </Node>
         </State>

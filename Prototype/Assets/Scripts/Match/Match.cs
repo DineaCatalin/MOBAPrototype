@@ -11,8 +11,7 @@ public class Match : MonoBehaviour
     public static int TEAM_1_ID = 1;
     public static int TEAM_2_ID = 2;
 
-    const int ROUNDS_TO_WIN = 9;
-    const int REDRAFT_ROUND_FACTOR = 3; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
+    const int REDRAFT_ROUND_FACTOR = 1; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
 
     public int team1Rounds;
     public int team2Rounds;
@@ -47,6 +46,8 @@ public class Match : MonoBehaviour
     {
         totalRoundsPlayed++;
 
+        SetCurrentWinnerTeamID(winningTeamID);
+
         Hashtable roomProperties = new Hashtable();
 
         if (winningTeamID == TEAM_1_ID)
@@ -79,21 +80,11 @@ public class Match : MonoBehaviour
 
     void AdvanceMatchState()
     {
-        if (team1Rounds >= ROUNDS_TO_WIN)
-        {
-            // TEAM 1 WON
-            Debug.Log("Match FinishRound Team 1 WON");
-        }
-        if(team2Rounds >= ROUNDS_TO_WIN)
-        {
-            // TEAM 2 WON
-            Debug.Log("Match FinishRound Team 2 WON");
-        }
-
         if(totalRoundsPlayed % REDRAFT_ROUND_FACTOR == 0)
         {
             Debug.Log("Match FinishRound Start Redraft");
-            EventManager.TriggerEvent(GameEvent.StartRedraft);
+            // Add logic for planet here
+            EventManager.TriggerEvent(GameEvent.PlanetStateAdvance);
         }
         else
         {
@@ -127,5 +118,17 @@ public class Match : MonoBehaviour
 
         ScoreBoard.Instance.SetKillScore(killerPlayerID, matchPlayers[killerPlayerID].kills);
         ScoreBoard.Instance.SetDeathScore(killedPlayerID, matchPlayers[killedPlayerID].deaths);
+    }
+
+    void SetCurrentWinnerTeamID(int winnerTeamID)
+    {
+        Hashtable roomProperties = new Hashtable();
+        roomProperties.Add("CurrentWinnerTeamID", winnerTeamID);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
+    }
+
+    public int GetCurrentWinnerTeamID()
+    {
+        return (int)PhotonNetwork.CurrentRoom.CustomProperties["CurrentWinnerTeamID"];
     }
 }

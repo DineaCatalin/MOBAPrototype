@@ -88,7 +88,7 @@ public class ItemPool : MonoBehaviour
 
 
         EventManager.StartListening(GameEvent.SpawnItem, new System.Action(SpawnItem));
-        EventManager.StartListening(GameEvent.StartRedraft, new System.Action(DisableItems));
+        EventManager.StartListening(GameEvent.PlanetStateAdvance, new System.Action(DisableItems));
         EventManager.StartListening(GameEvent.EndRound, new System.Action(DisableItems));
     }
 

@@ -44,7 +44,8 @@ public class PlanetLogic
         if (FinalStateReached())
         {
             // End game
-            Debug.LogError("Game has ENDED!");
+            //GameManager.Instance.EndMatch(winnerTeamID);
+            Debug.Log("Game has ENDED!");
         }
     }
 

@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
         EventManager.StartListening(GameEvent.StartRound, new System.Action(Reset));
         EventManager.StartListening(GameEvent.ShieldDestroyed, new System.Action(DeactivateShield));
 
-        EventManager.StartListening(GameEvent.StartRedraft, new System.Action(HandlePlayerDeath));
+        EventManager.StartListening(GameEvent.PlanetStateAdvance, new System.Action(HandlePlayerDeath));
     }
 
     public void Activate()

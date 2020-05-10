@@ -22,11 +22,19 @@ public class PlanetManager : MonoBehaviour
         planetLogic.SetTransitionAction(new System.Action<PlanetState, PlanetState>(AdvanceAction));
 
         switchTween = GetComponent<PlanetSwitchTween>();
+
+        EventManager.StartListening(GameEvent.PlanetStateAdvance, Advance);
     }
 
+    // TEST
     public void Advance(int winnerTeamID)
     {
         planetLogic.AdvanceState(winnerTeamID);
+    }
+
+    void Advance()
+    {
+        planetLogic.AdvanceState(Match.activeMatch.GetCurrentWinnerTeamID());
     }
 
     void AdvanceAction(PlanetState previousState, PlanetState currentState)

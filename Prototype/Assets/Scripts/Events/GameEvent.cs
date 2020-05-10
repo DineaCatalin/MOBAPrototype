@@ -18,5 +18,7 @@ public enum GameEvent
     ItemPickedUp,
     SpawnItem,
     ShieldDestroyed,
-    NotEnoughMana
+    NotEnoughMana,
+    PlanetStateAdvance,
+    EndMatch
 }
