@@ -19,7 +19,7 @@ public class DestroyAfterCollisions : AbilityComponent
     private void Start()
     {
         EventManager.StartListening(GameEvent.EndRound, new System.Action(Destroy));
-        EventManager.StartListening(GameEvent.StartRedraft, new System.Action(Destroy));
+        EventManager.StartListening(GameEvent.PlanetStateAdvance, new System.Action(Destroy));
     }
 
     private void OnEnable()

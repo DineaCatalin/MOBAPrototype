@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using Photon.Pun;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
@@ -31,12 +31,12 @@ public class GameManager : MonoBehaviour
         Instance = this;
         photonView = GetComponent<PhotonView>();
         
-
         playersReady = 0;
 
-        EventManager.StartListening(GameEvent.EndRound, new System.Action(OnRoundEnd));
-        EventManager.StartListening(GameEvent.StartRedraft, new System.Action(OnStartRedraft)); 
-        EventManager.StartListening(GameEvent.EndRedraft, new System.Action(OnRedraftEnd));
+        EventManager.StartListening(GameEvent.EndRound, new Action(OnRoundEnd));
+        EventManager.StartListening(GameEvent.PlanetStateAdvance, new Action(AdvancePlanetState)); 
+        EventManager.StartListening(GameEvent.EndRedraft, new Action(OnRedraftEnd));
+        EventManager.StartListening(GameEvent.EndMatch, new Action(EndMatch));
 
         match = GetComponent<Match>();
         Hashtable roomProperties = new Hashtable();
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             // Assign the new value to the room properties
+            roomProperties.Add("CurrentWinnerTeamID", 0);
             roomProperties.Add("Team1Rounds", 0);
             roomProperties.Add("Team2Rounds", 0);
             PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
@@ -127,9 +128,9 @@ public class GameManager : MonoBehaviour
     }
 
     //// Handle match end logic
-    public void EndMatch(int winnerTeamID)
+    public void EndMatch()
     {
-
+        Debug.LogError("Match ENDED!");
     }
 
     public void CheckRoundEndMasterClient()
@@ -204,18 +205,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnStartRedraft()
+    void AdvancePlanetState()
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            photonView.RPC("StartRedraftRPC", RpcTarget.Others);
+            photonView.RPC("AdvancePlanetStateRPC", RpcTarget.Others);
         }
     }
 
     [PunRPC]
-    void StartRedraftRPC()
+    void AdvancePlanetStateRPC()
     {
-        EventManager.TriggerEvent(GameEvent.StartRedraft);
+        EventManager.TriggerEvent(GameEvent.PlanetStateAdvance);
     }
 
     void OnRedraftEnd()

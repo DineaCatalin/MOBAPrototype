@@ -30,7 +30,7 @@ public class AbilityDuration : AbilityComponent
     private void Start()
     {
         EventManager.StartListening(GameEvent.StartRound, new System.Action(Deactivate));
-        EventManager.StartListening(GameEvent.StartRedraft, new System.Action(Deactivate));
+        EventManager.StartListening(GameEvent.PlanetStateAdvance, new System.Action(Deactivate));
     }
 
     // We use OnEnable because the GO that uses this component is used in an ObjectPool

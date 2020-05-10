@@ -791,7 +791,9 @@ MonoBehaviour:
   shrinkDelayAfterSwitch: 0.6
   shrinkEaseType: 6
   shrinkTime: 1.5
-  finalTransitionDelay: 0.4
+  finalTransitionDelay: 0.2
+  delayBeforeTween: 1
+  delayAfterTween: 0.75
 --- !u!114 &1702440717102963891
 MonoBehaviour:
   m_ObjectHideFlags: 0
