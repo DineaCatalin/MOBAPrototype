@@ -20,6 +20,7 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         EventManager.StartListening(GameEvent.DraftFinished, new Action(OnDraftFinished));
 
         //In case we started this demo with the wrong scene being active, simply load the menu scene
+        // TODO: Change this to stop loading the GameLobby
         if (PhotonNetwork.CurrentRoom == null)
         {
             Debug.Log("Is not in the room, returning back to Lobby");
@@ -81,16 +82,16 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
             PhotonNetwork.LeaveRoom();
         }
 
-        //Show the Room name
-        GUI.Label(new Rect(135, 5, 200, 25), PhotonNetwork.CurrentRoom.Name);
+        ////Show the Room name
+        //GUI.Label(new Rect(135, 5, 200, 25), PhotonNetwork.CurrentRoom.Name);
 
-        //Show the list of the players connected to this Room
-        for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
-        {
-            //Show if this player is a Master Client. There can only be one Master Client per Room so use this to define the authoritative logic etc.)
-            string isMasterClient = (PhotonNetwork.PlayerList[i].IsMasterClient ? ": MasterClient" : "");
-            GUI.Label(new Rect(5, 35 + 30 * i, 200, 25), PhotonNetwork.PlayerList[i].NickName + isMasterClient);
-        }
+        ////Show the list of the players connected to this Room
+        //for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
+        //{
+        //    //Show if this player is a Master Client. There can only be one Master Client per Room so use this to define the authoritative logic etc.)
+        //    string isMasterClient = (PhotonNetwork.PlayerList[i].IsMasterClient ? ": MasterClient" : "");
+        //    GUI.Label(new Rect(5, 35 + 30 * i, 200, 25), PhotonNetwork.PlayerList[i].NickName + isMasterClient);
+        //}
     }
 
     public override void OnLeftRoom()
