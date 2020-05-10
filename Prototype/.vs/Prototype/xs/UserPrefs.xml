@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Planet/PlanetManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Manager/PlayerManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Planet/PlanetView.cs" Line="48" Column="6" />
-      <File FileName="Assets/Scripts/Planet/PlanetSwitchTween.cs" Line="36" Column="6" />
-      <File FileName="Assets/Scripts/Tweens/ScaleTween.cs" Line="12" Column="32" />
-      <File FileName="Assets/Scripts/Test/PlanetTest.cs" Line="20" Column="1" />
+      <File FileName="Assets/Scripts/Planet/PlanetView.cs" Line="31" Column="9" />
+      <File FileName="Assets/Scripts/Planet/PlanetSwitchTween.cs" Line="33" Column="6" />
+      <File FileName="Assets/Scripts/Tweens/ScaleTween.cs" />
+      <File FileName="Assets/Scripts/Test/PlanetTest.cs" />
+      <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="53" Column="2" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/AbilitySelectButton.cs" NotebookId="1" />
@@ -20,9 +21,9 @@
       <File FileName="Assets/StreamingAssets/ProjectileSpeedConfig.txt" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/DOTEffect.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Visuals/ProjectileVisuals.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Planet/PlanetLogic.cs" Line="26" Column="6" NotebookId="1" />
-      <File FileName="Assets/Scripts/Planet/PlanetView.cs" Line="26" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Tweens/FadeObjectTween.cs" Line="22" Column="24" NotebookId="1" />
+      <File FileName="Assets/Scripts/Planet/PlanetLogic.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Tweens/FadeObjectTween.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/ParticleSystem/LocalParticleSystemManager.cs" Line="20" Column="20" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -51,11 +52,11 @@
                 <Node name="Match" expanded="True" />
                 <Node name="Network" expanded="True" />
                 <Node name="ParticleSystem" expanded="True" />
-                <Node name="Planet" expanded="True">
-                  <Node name="PlanetManager.cs" selected="True" />
-                </Node>
+                <Node name="Planet" expanded="True" />
                 <Node name="Player" expanded="True">
-                  <Node name="Manager" expanded="True" />
+                  <Node name="Manager" expanded="True">
+                    <Node name="PlayerManager.cs" selected="True" />
+                  </Node>
                 </Node>
                 <Node name="Test" expanded="True" />
                 <Node name="Tweens" expanded="True" />
@@ -71,7 +72,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9cefe7ee-be39-4579-9f8d-70ae29d59624" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2aa6c8f7-d886-488f-ae5b-984880671eff" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/catalin.dinea/git/MOBAPrototype/Prototype/Assets/StreamingAssets/CastRangeConfig.txt" relfile="Assets/StreamingAssets/CastRangeConfig.txt" line="48" column="1" />

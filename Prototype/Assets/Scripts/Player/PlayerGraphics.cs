@@ -40,7 +40,7 @@ public class PlayerGraphics : MonoBehaviour
         //enableHasBeenCalled = true;
         //LeanTween.scale(gameObject, graphicsScale, scaleTime).setEase(easeType);
         grahpics.SetActive(true);
-        trailParticleManager.ActivateParticleSystems();
+        trailParticleManager.Play();
     }
 
     public void EnableAfterBlink()
@@ -60,6 +60,6 @@ public class PlayerGraphics : MonoBehaviour
         //LeanTween.scale(gameObject, zeroScale, scaleTime).setEase(easeType).setOnComplete(DisableGraphics);
         grahpics.SetActive(false);
         shield.DeactivateShieldGraphics();
-        trailParticleManager.DeactivateParticleSystems();
+        trailParticleManager.Stop();
     }
 }

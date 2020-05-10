@@ -18,14 +18,13 @@ public class PlanetSwitchTween : MonoBehaviour
     public LeanTweenType shrinkEaseType;
     public float shrinkTime;
 
-    int zOrderVisible = -1;
-    int zOrderHidden = 0;
-
     PlanetView previousPlanet;
     PlanetView currentPlanet;
 
     float shrinkTweenTime;
     float switchTweenTime;
+
+    public float finalTransitionDelay = 0.2f;
 
     private void Awake()
     {
@@ -39,8 +38,16 @@ public class PlanetSwitchTween : MonoBehaviour
         currentPlanet = newPlanet;
 
         GrowPlanet();
-        Invoke("SwitchPlanets", switchTweenTime);
-        Invoke("ShrikPlanet", shrinkTweenTime);
+
+        if(currentPlanet.IsFinalState())
+        {
+            HandleFinalTransition();
+        }
+        else
+        {
+            HandleTransition();
+        }
+        
     }
 
     void GrowPlanet()
@@ -48,30 +55,55 @@ public class PlanetSwitchTween : MonoBehaviour
         // Tween previous visible planet to be big
         previousPlanet.Scale(initialScale, zoomScale, growTime, growEaseType);
 
-        // Set previous planet to zOrderHidden
-        //previousPlanet.transform.position = new Vector3(previousPlanet.transform.position.x, previousPlanet.transform.position.y, zOrderHidden);
-
         // Set scale for current hidden planet
         currentPlanet.transform.localScale = zoomScale;
-
-        // Set scale for current hidden planet to zOrderHidden
-        //currentPlanet.transform.position = new Vector3(currentPlanet.transform.position.x, currentPlanet.transform.position.y, zOrderVisible);
-
     }
 
     void SwitchPlanets()
     {
+        PlayParticles();
+
         currentPlanet.FadeIn(switchTime, switchEaseType);
         previousPlanet.FadeOut(switchTime, switchEaseType);
     }
 
+    void InstantSwitchPlanets()
+    {
+        currentPlanet.FadeIn(0f, switchEaseType);
+        previousPlanet.FadeOut(0f, switchEaseType);
+    }
+
     void ShrikPlanet()
     {
+        StopParticles();
+
         // Set previous planet to small size
         previousPlanet.transform.localScale = initialScale;
 
         // Tween current planet to small size
         currentPlanet.Scale(zoomScale, initialScale, shrinkTime, shrinkEaseType);
+    }
+
+    void HandleTransition()
+    {
+        Invoke("SwitchPlanets", switchTweenTime);
+        Invoke("ShrikPlanet", shrinkTweenTime);
+    }
+
+    void HandleFinalTransition()
+    {
+        Invoke("PlayParticles", switchTime);
+        Invoke("InstantSwitchPlanets", switchTweenTime + finalTransitionDelay);
+    }
+
+    void PlayParticles()
+    {
+        currentPlanet.PlayParticles();
+    }
+
+    void StopParticles()
+    {
+        currentPlanet.StopParticles();
     }
 }
 
