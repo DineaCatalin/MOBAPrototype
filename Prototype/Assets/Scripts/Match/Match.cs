@@ -11,7 +11,7 @@ public class Match : MonoBehaviour
     public static int TEAM_1_ID = 1;
     public static int TEAM_2_ID = 2;
 
-    const int REDRAFT_ROUND_FACTOR = 1; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
+    public const int REDRAFT_ROUND_FACTOR = 3; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
 
     public int team1Rounds;
     public int team2Rounds;
@@ -45,8 +45,6 @@ public class Match : MonoBehaviour
     public void FinishRound(int winningTeamID)
     {
         totalRoundsPlayed++;
-
-        SetCurrentWinnerTeamID(winningTeamID);
 
         Hashtable roomProperties = new Hashtable();
 
@@ -97,11 +95,13 @@ public class Match : MonoBehaviour
 
     public void SyncScore()
     {
-        team1Rounds = (int)PhotonNetwork.CurrentRoom.CustomProperties["Team1Rounds"];
-        team2Rounds = (int)PhotonNetwork.CurrentRoom.CustomProperties["Team2Rounds"];
+        SyncRounds();
 
-        Debug.Log("Match SyncScore Team1 " + team1Rounds + " Team2 " + team2Rounds);
+        SyncScoreUI();
+    }
 
+    void SyncScoreUI()
+    {
         GameUI.Instance.SetTeamRounds(team1Rounds, TEAM_1_ID);
         GameUI.Instance.SetTeamRounds(team2Rounds, TEAM_2_ID);
     }
@@ -120,15 +120,17 @@ public class Match : MonoBehaviour
         ScoreBoard.Instance.SetDeathScore(killedPlayerID, matchPlayers[killedPlayerID].deaths);
     }
 
-    void SetCurrentWinnerTeamID(int winnerTeamID)
-    {
-        Hashtable roomProperties = new Hashtable();
-        roomProperties.Add("CurrentWinnerTeamID", winnerTeamID);
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
-    }
-
     public int GetCurrentWinnerTeamID()
     {
-        return (int)PhotonNetwork.CurrentRoom.CustomProperties["CurrentWinnerTeamID"];
+        SyncRounds();
+        Debug.LogError("Match GetCurrentWinnerTeamID winner is " + (team1Rounds > team2Rounds ? TEAM_1_ID : TEAM_2_ID));
+        return team1Rounds > team2Rounds ? TEAM_1_ID : TEAM_2_ID;
+    }
+
+    void SyncRounds()
+    {
+        team1Rounds = (int)PhotonNetwork.CurrentRoom.CustomProperties["Team1Rounds"];
+        team2Rounds = (int)PhotonNetwork.CurrentRoom.CustomProperties["Team2Rounds"];
+        Debug.LogError("Match SyncRounds Team1Rounds " + team1Rounds + " Team2Rounds " + team2Rounds);
     }
 }

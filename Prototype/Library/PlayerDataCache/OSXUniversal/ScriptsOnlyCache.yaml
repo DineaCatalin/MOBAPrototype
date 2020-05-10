@@ -60,7 +60,6 @@ ScriptsOnlyBuild:
     - PUN2_RoomController
     - PlanetManager
     - PlanetSwitchTween
-    - PlanetTest
     - PlanetView
     - Player
     - PlayerBuffs

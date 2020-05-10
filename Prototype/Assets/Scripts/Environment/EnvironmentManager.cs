@@ -33,6 +33,10 @@ public class EnvironmentManager : MonoBehaviour
             environmentSize = Utils.Instance.CameraScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
             photonView.RPC("SetEnvironmentSize", RpcTarget.OthersBuffered, environmentSize.x, environmentSize.y);
         }
+
+        EventManager.StartListening(GameEvent.EndRound, DeactivateDustDusk);
+        EventManager.StartListening(GameEvent.PlanetStateAdvance, DeactivateDustDusk);
+        EventManager.StartListening(GameEvent.EndMatch, DeactivateDustDusk);
     }
 
     private void Start()

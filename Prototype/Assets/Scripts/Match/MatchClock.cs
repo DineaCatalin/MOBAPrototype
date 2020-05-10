@@ -28,11 +28,11 @@ public class MatchClock : MonoBehaviour
         photonView = GetComponent<PhotonView>();
 
         EventManager.StartListening(GameEvent.StartRound, new Action(ResetClock));
-        //EventManager.StartListening(GameEvent.StartMatch, new System.Action(ResetClock));
         EventManager.StartListening(GameEvent.ItemPickedUp, new Action(ResetClock));
 
         EventManager.StartListening(GameEvent.PlanetStateAdvance, new Action(StopClock));
         EventManager.StartListening(GameEvent.EndRound, new Action(StopClock));
+        EventManager.StartListening(GameEvent.EndMatch, new System.Action(StopClock));
     }
 
     private void FixedUpdate()
