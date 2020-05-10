@@ -12,10 +12,13 @@ public class PlanetView : MonoBehaviour
 
     Vector2 initialScale;
 
+    LocalParticleSystemManager particles;
+
     private void Awake()
     {
         fadeTween = GetComponent<FadeObjectTween>();
         scaleTween = GetComponent<ScaleTween>();
+        particles = GetComponentInChildren<LocalParticleSystemManager>();
     }
 
     public void FadeIn(float duration, LeanTweenType easeType = LeanTweenType.linear)
@@ -36,5 +39,20 @@ public class PlanetView : MonoBehaviour
         scaleTween.easeType = easeType;
 
         scaleTween.Execute();
+    }
+
+    public bool IsFinalState()
+    {
+        return state == PlanetState.Destroyed || state == PlanetState.Protected;
+    }
+
+    public void PlayParticles()
+    {
+        particles.Play();
+    }
+
+    public void StopParticles()
+    {
+        particles.Stop();
     }
 }

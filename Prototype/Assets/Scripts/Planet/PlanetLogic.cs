@@ -39,14 +39,12 @@ public class PlanetLogic
             Debug.LogError("PlanetLogic AdvanceState() winnerTeamID is not 1 or 2");
         }
 
-        if(FinalStateReached())
+        transitionAction.Invoke(previousState, state);
+
+        if (FinalStateReached())
         {
             // End game
             Debug.LogError("Game has ENDED!");
-        }
-        else
-        {
-            transitionAction.Invoke(previousState, state);
         }
     }
 

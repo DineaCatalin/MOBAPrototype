@@ -51,7 +51,7 @@ public class StateManager : MonoBehaviour
     {
         //managedObject.SetActive(false);
         objectCollider.enabled = false;
-        particles.DeactivateParticleSystems();
+        particles.Stop();
         tween.enabled = false;
     }
 
@@ -59,7 +59,7 @@ public class StateManager : MonoBehaviour
     {
         objectCollider.enabled = true;
         tween.enabled = true;
-        particles.ActivateParticleSystems();
+        particles.Play();
     }
 
 }

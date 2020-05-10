@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LocalParticleSystemManager : MonoBehaviour
 {
@@ -19,10 +17,10 @@ public class LocalParticleSystemManager : MonoBehaviour
             Debug.LogError("LocalParticleSystemManager particleSystems == null");
 
         if (deactivateOnAwake)
-            DeactivateParticleSystems();
+            Stop();
     }
 
-   public void ActivateParticleSystems()
+   public void Play()
    {
         foreach (ParticleSystem pSyst in particleSystems)
         {
@@ -30,7 +28,7 @@ public class LocalParticleSystemManager : MonoBehaviour
         }
    }
 
-   public void DeactivateParticleSystems()
+   public void Stop()
    {
        foreach (ParticleSystem pSyst in particleSystems)
        {

@@ -108,12 +108,12 @@ public class ProjectileVisuals : MonoBehaviour
 
     void ActivateParticleSystems()
     {
-        localParticleSystemManager.ActivateParticleSystems();
+        localParticleSystemManager.Play();
     }
 
     void DeactivateParticleSystems()
     {
-        localParticleSystemManager.DeactivateParticleSystems();
+        localParticleSystemManager.Stop();
     }
 
     void ActivateGameObject()
