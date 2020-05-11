@@ -156,5 +156,7 @@ public class Match : MonoBehaviour
         roomProperties.Add("Team1Rounds", 0);
         roomProperties.Add("Team2Rounds", 0);
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
+
+        SyncScoreUI();
     }
 }
