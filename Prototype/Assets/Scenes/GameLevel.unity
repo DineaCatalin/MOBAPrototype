@@ -3896,7 +3896,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.089228
+  orthographic size: 6.119373
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -13597,24 +13597,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2017703157}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2034457038 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 683628319989916906, guid: 121c322c230bf427ba93c2017361d06e,
-    type: 3}
-  m_PrefabInstance: {fileID: 683628318928831022}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2034457039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034457038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e918c1fad801445d9b20cbc4043fc3a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2047474094 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7187210618866221891, guid: baba462d7906f45c390f54d110a6e3bf,
@@ -14075,18 +14057,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1290715055, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
-      propertyPath: projectiles.Array.size
-      value: 13
+    - target: {fileID: 1290715056, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1290715055, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
-      propertyPath: projectiles.Array.data[11]
-      value: 
-      objectReference: {fileID: 3981130501845019530, guid: 226b3f64037d04f7e894906fe7b8d511,
-        type: 3}
     - target: {fileID: 1290715056, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
       propertyPath: viewIdField
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290715056, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1290715058, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
       propertyPath: dustDusk
@@ -14156,23 +14137,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 683628319989916907, guid: 121c322c230bf427ba93c2017361d06e,
-        type: 3}
-      propertyPath: items.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 683628319989916907, guid: 121c322c230bf427ba93c2017361d06e,
-        type: 3}
-      propertyPath: items.Array.data[0]
-      value: 
-      objectReference: {fileID: 8347578718847873723, guid: ccba023746fc94c7b800170156a7e36d,
-        type: 3}
-    - target: {fileID: 683628319989916907, guid: 121c322c230bf427ba93c2017361d06e,
-        type: 3}
-      propertyPath: items.Array.data[1]
-      value: 
-      objectReference: {fileID: 1438469405986855642, guid: eb7bf6dd2dabd4c179fa8e3c671aa83b,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121c322c230bf427ba93c2017361d06e, type: 3}
 --- !u!1001 &1340562812977336675

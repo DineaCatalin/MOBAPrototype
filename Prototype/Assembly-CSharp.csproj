@@ -136,6 +136,7 @@
     <Compile Include="Assets\Scripts\Match\MatchPlayer.cs" />
     <Compile Include="Assets\Scripts\MouseHandler.cs" />
     <Compile Include="Assets\Scripts\Network\AbilitySpawner.cs" />
+    <Compile Include="Assets\Scripts\Network\NetworkUtils.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_GameLobby.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_PlayerSync.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_RoomController.cs" />

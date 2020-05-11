@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
         return playerMap;
     }
 
-    public void ActivateNonLocalPlayer(int playerID)
+    public void ActivatePlayerOverNetwork(int playerID)
     {
         photonView.RPC("ActivateNonLocalPlayerRPC", RpcTarget.Others, playerID);
     }
@@ -41,25 +41,15 @@ public class PlayerManager : MonoBehaviour
     [PunRPC]
     void ActivateNonLocalPlayerRPC(int playerID)
     {
-        Player player = playerMap[playerID];
-
-        if (player != null && !player.isNetworkActive)
-        {
-            player.Activate();
-        }
+        StartCoroutine(ActivateNonLocalPlayer(playerID));
     }
 
-    //IEnumerator ActivateNonLocalPlayerCoroutine(int playerID, float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
+    IEnumerator ActivateNonLocalPlayer(int playerID)
+    {
+        yield return new WaitForSeconds(NetworkUtils.SharedInstance.NonLocalPlayerSpawnDelay());
 
-    //    Player player = playerMap[playerID];
-
-    //    if (player != null && !player.isNetworkActive)
-    //    {
-    //        player.Activate();
-    //    }
-    //}
+        playerMap[playerID].Activate();
+    }
 
     public void KillNetworkedPlayer(int playerID, int killerID)
     {

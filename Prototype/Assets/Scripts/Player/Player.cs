@@ -176,8 +176,8 @@ public class Player : MonoBehaviour
         if (isNetworkActive)
         {
             transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
-            Activate();
-            PlayerManager.Instance.ActivateNonLocalPlayer(id);
+            Invoke("Activate", NetworkUtils.PLAYER_SPAWN_DELAY);
+            PlayerManager.Instance.ActivatePlayerOverNetwork(id);
             PlayerController.isLocked = false;
         }
     }

@@ -55,6 +55,7 @@ ScriptsOnlyBuild:
     - MimicRotation
     - MouseHandler
     - MoveAbility
+    - NetworkUtils
     - PUN2_GameLobby
     - PUN2_PlayerSync
     - PUN2_RoomController
@@ -343,6 +344,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13886}
     - Class: 114
       Script: {instanceID: 13890}
+    - Class: 114
+      Script: {instanceID: 163488}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2709,6 +2712,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 157aabcf630b61975cf77b104c99df5f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkUtils
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity

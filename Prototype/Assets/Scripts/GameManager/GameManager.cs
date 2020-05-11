@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static float RESPAWN_COOLDOWN = 3f;
     public static float MAX_PLAYERS = 4f; 
 
-    public static float TIME_BETWEEN_ROUNDS = 3f;
+    public static float TIME_BETWEEN_ROUNDS = 1.5f;
 
     public const float ACTIVATE_PLAYER_DELAY = 0.75f;
 
