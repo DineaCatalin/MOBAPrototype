@@ -11,12 +11,13 @@ public class Match : MonoBehaviour
     public static int TEAM_1_ID = 1;
     public static int TEAM_2_ID = 2;
 
-    public const int REDRAFT_ROUND_FACTOR = 3; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
+    public const int PHASE_ROUNDS = 3; // Redraft will be triggered once every REDRAFT_ROUND_FACTOR
 
     public int team1Rounds;
     public int team2Rounds;
 
     int totalRoundsPlayed;
+    int roundsCurrentPhase;
 
     Dictionary<int, MatchPlayer> matchPlayers;
 
@@ -27,6 +28,7 @@ public class Match : MonoBehaviour
         team1Rounds = 0;
         team2Rounds = 0;
         totalRoundsPlayed = 0;
+        roundsCurrentPhase = 0;
 
         matchPlayers = new Dictionary<int, MatchPlayer>();
 
@@ -34,7 +36,10 @@ public class Match : MonoBehaviour
 
         photonView = GetComponent<PhotonView>();
 
+        EventManager.StartListening(GameEvent.EndRedraft, new Action(ResetRounds));
+
         EventManager.StartListening(GameEvent.EndRound, new Action(SyncScore));
+        EventManager.StartListening(GameEvent.PlanetStateAdvance, new Action(SyncScore));
     }
 
     public Dictionary<int, MatchPlayer> GetMatchPlayers()
@@ -45,6 +50,7 @@ public class Match : MonoBehaviour
     public void FinishRound(int winningTeamID)
     {
         totalRoundsPlayed++;
+        roundsCurrentPhase++;
 
         Hashtable roomProperties = new Hashtable();
 
@@ -68,7 +74,7 @@ public class Match : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Match FinishRoundNoTimer winning team is not 1 or 2");
+            Debug.Log("Match FinishRoundNoTimer winning team is not 1 or 2");
         }
 
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
@@ -78,10 +84,9 @@ public class Match : MonoBehaviour
 
     void AdvanceMatchState()
     {
-        if(totalRoundsPlayed % REDRAFT_ROUND_FACTOR == 0)
+        if(PhaseEnded())
         {
-            Debug.Log("Match FinishRound Start Redraft");
-            // Add logic for planet here
+            Debug.Log("Match AdvanceMatchState Triggering planet transition event");
             EventManager.TriggerEvent(GameEvent.PlanetStateAdvance);
         }
         else
@@ -98,6 +103,12 @@ public class Match : MonoBehaviour
         SyncRounds();
 
         SyncScoreUI();
+    }
+
+    bool PhaseEnded()
+    {
+        Debug.Log("Match PhaseEnded Team1Rounds " + team1Rounds + " Team2Rounds " + team2Rounds + " (PHASE_ROUNDS / 2) " + (PHASE_ROUNDS / 2));
+        return team1Rounds > (PHASE_ROUNDS / 2) || team2Rounds > (PHASE_ROUNDS / 2);
     }
 
     void SyncScoreUI()
@@ -123,7 +134,7 @@ public class Match : MonoBehaviour
     public int GetCurrentWinnerTeamID()
     {
         SyncRounds();
-        Debug.LogError("Match GetCurrentWinnerTeamID winner is " + (team1Rounds > team2Rounds ? TEAM_1_ID : TEAM_2_ID));
+        Debug.Log("Match GetCurrentWinnerTeamID winner is " + (team1Rounds > team2Rounds ? TEAM_1_ID : TEAM_2_ID));
         return team1Rounds > team2Rounds ? TEAM_1_ID : TEAM_2_ID;
     }
 
@@ -131,6 +142,19 @@ public class Match : MonoBehaviour
     {
         team1Rounds = (int)PhotonNetwork.CurrentRoom.CustomProperties["Team1Rounds"];
         team2Rounds = (int)PhotonNetwork.CurrentRoom.CustomProperties["Team2Rounds"];
-        Debug.LogError("Match SyncRounds Team1Rounds " + team1Rounds + " Team2Rounds " + team2Rounds);
+        Debug.Log("Match SyncRounds Team1Rounds " + team1Rounds + " Team2Rounds " + team2Rounds);
+    }
+
+    void ResetRounds()
+    {
+        roundsCurrentPhase = 0;
+
+        team1Rounds = 0;
+        team2Rounds = 0;
+
+        Hashtable roomProperties = new Hashtable();
+        roomProperties.Add("Team1Rounds", 0);
+        roomProperties.Add("Team2Rounds", 0);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
     }
 }
