@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
     //// Handle match end logic
     public void EndMatch()
     {
-        Debug.LogError("Match ENDED!");
+        Debug.Log("Match ENDED!");
     }
 
     public void CheckRoundEndMasterClient()
