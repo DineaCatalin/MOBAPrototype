@@ -17,6 +17,7 @@ public class NetworkUtils : MonoBehaviourPun, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+        Debug.Log("NetworkUtils lag : " + lag);
         lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
         Debug.Log("NetworkUtils lag : " + lag);
     }
