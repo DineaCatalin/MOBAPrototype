@@ -4,10 +4,11 @@ using System.Collections;
 public class BlinkAbility : Ability
 {
     //Reference to the player transform so that we can move the player
-    [SerializeField] Transform playerTransform;
+    Transform playerTransform;
+    //Rigidbody2D playerRigidbody;
 
     // Make sure it's arround 0.05 seconds more then the scale time for the PlayerGraphics
-    [SerializeField] float delay = 0f; 
+    [SerializeField] float delay = 0.25f; 
 
     Vector3 blinkPosition;
 
@@ -15,14 +16,13 @@ public class BlinkAbility : Ability
 
     RaycastHit2D hit;
 
+    PlayerTeleportation teleportation;
+
     private void Start()
     {
-        if (playerTransform == null)
-        {
-            // Due to the fact that the player is instantiated over the network the object
-            // we are working on now is a clone so it has the string "(Clone)" attached to its name
-            playerTransform = LocalPlayerReferences.playerTransform;
-        }
+        playerTransform = LocalPlayerReferences.playerTransform;
+        //playerRigidbody = LocalPlayerReferences.playerRigidbody;
+        teleportation = LocalPlayerReferences.player.teleportation;
 
         // Load cast range from config
         castRange = AbilityDataCache.GetAbilityCastRange("Blink");
@@ -49,6 +49,7 @@ public class BlinkAbility : Ability
         Debug.Log("BlinkAbility Deactivating player " + playerID);
         PlayerManager.Instance.DeactivatePlayer(playerID);
 
+        //Blink();
         Invoke("Blink", delay);
 
         return base.Cast();
@@ -57,7 +58,8 @@ public class BlinkAbility : Ability
     void Blink()
     {
         // Set player position to the mouse position
-        playerTransform.position = blinkPosition;
+        teleportation.Teleport(blinkPosition);
+        //transform.position = blinkPosition;
 
         Debug.Log("BlinkAbility Activating player " + playerID);
         PlayerManager.Instance.ActivatePlayerGraphics(playerID);

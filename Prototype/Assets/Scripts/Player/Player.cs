@@ -53,6 +53,8 @@ public class Player : MonoBehaviour
     public StatsBar healthBar;
     public StatsBar manaBar;
 
+    [HideInInspector] public PlayerTeleportation teleportation;
+
     // This will tell us when a player is receiving damage over time
     // We will not regen the player while this is happening
     bool isRecevingDOT;
@@ -103,6 +105,7 @@ public class Player : MonoBehaviour
         rushAreaManager = GetComponentInChildren<StateManager>();
         rigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
+        teleportation = GetComponent<PlayerTeleportation>();
         //buffsUI = GetComponentInChildren<PlayerBuffs>();
 
         healEffectActive = false;
@@ -119,7 +122,7 @@ public class Player : MonoBehaviour
         SetLocalID();
 
         if (isNetworkActive)
-            LocalPlayerReferences.Load(gameObject, this, transform, castOrigin, rushAreaManager.gameObject);
+            LocalPlayerReferences.Load(gameObject, this, transform, rigidBody, castOrigin, rushAreaManager.gameObject);
 
         // Set health and mana bar values
         healthBar.SetMaxStat(stats.maxHealth);
@@ -151,6 +154,8 @@ public class Player : MonoBehaviour
 
         if (isNetworkActive)
             PlayerController.isRooted = false;
+
+        teleportation.Teleport(transform.position);
     }
 
     public void ActivateGraphics()
@@ -175,7 +180,8 @@ public class Player : MonoBehaviour
         // and then tell the other clients to activate my version of their player
         if (isNetworkActive)
         {
-            transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
+            //transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
+            teleportation.Teleport(EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID));
             Invoke("Activate", NetworkUtils.PLAYER_SPAWN_DELAY);
             PlayerManager.Instance.ActivatePlayerOverNetwork(id);
             PlayerController.isLocked = false;
