@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     AbilityManager abilityManager;
     Transform playerTransform;
+    Rigidbody2D playerRigidbody;
 
     public static bool isLocked;
 
@@ -39,6 +40,9 @@ public class PlayerController : MonoBehaviour
 
     bool charging;
 
+    float AngleRad;
+    float AngleDeg;
+
     // Use this for initialization
     void Start()
     {
@@ -49,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
         abilityManager = player.GetComponent<AbilityManager>();
         playerTransform = player.transform;
+        playerRigidbody = player.GetComponent<Rigidbody2D>();
         photonView = GetComponent<PhotonView>();
     }
 
@@ -59,53 +64,67 @@ public class PlayerController : MonoBehaviour
     {
         if(!isLocked)
         {
-            HandleMovement();
-            HandleRotation();
-
+            HandleRotationTransform();
             HandleManaCharge();
             //HandleAbilityCasting();   // As all abilities are instant now this will just create a bug 
             HandleAbilitySelection();   // and this will trigger all the abilities when they are selected
-
-            //if (!HandleManaCharge())
-            //{
-            //    HandleAbilityCasting();
-            //    HandleAbilitySelection();
-            //}
         }
     }
 
-    void HandleMovement()
+    private void FixedUpdate()
+    {
+        if (!isLocked)
+        {
+            HandleMovementRigidbody();
+            //HandleRotationRigidBody();
+        }
+    }
+
+    Vector2 direction;
+
+    void HandleMovementRigidbody()
     {
         if (!isRooted)
         {
-            movementIncrement = Vector3.zero;
-
-            if (Input.GetKey(KeyCode.W))       // UP
-            {
-                movementIncrement += Vector3.up;
-            }
-            if (Input.GetKey(KeyCode.S))       // DOWN
-            {
-                movementIncrement += Vector3.down;
-            }
-            if (Input.GetKey(KeyCode.A))       // LEFT
-            {
-                movementIncrement += Vector3.left;
-            }
-            if (Input.GetKey(KeyCode.D))       // RIGHT
-            {
-                movementIncrement += Vector3.right;
-            }
-
-            playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
+            direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            playerRigidbody.MovePosition((Vector2)playerTransform.position + (direction * stats.speed * Time.deltaTime));
         }
     }
 
-    void HandleRotation()
+    void HandleMovementTransform()
     {
-        Vector3 mousePos = Utils.Instance.GetMousePosition();
-        Vector3 perpendicular = playerTransform.position - mousePos;
-        playerTransform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
+        movementIncrement = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.W))       // UP
+        {
+            movementIncrement += Vector3.up;
+        }
+        if (Input.GetKey(KeyCode.S))       // DOWN
+        {
+            movementIncrement += Vector3.down;
+        }
+        if (Input.GetKey(KeyCode.A))       // LEFT
+        {
+            movementIncrement += Vector3.left;
+        }
+        if (Input.GetKey(KeyCode.D))       // RIGHT
+        {
+            movementIncrement += Vector3.right;
+        }
+
+        playerTransform.Translate(movementIncrement * Time.deltaTime * stats.speed, Space.World);
+    }
+
+    void HandleRotationRigidBody()
+    {
+        AngleRad = Mathf.Atan2(Input.mousePosition.y - playerTransform.position.y, Input.mousePosition.x - playerTransform.position.x);
+        AngleDeg = (180 / Mathf.PI) * AngleRad;
+        playerRigidbody.rotation = AngleDeg;
+    }
+
+    void HandleRotationTransform()
+    {
+        playerTransform.rotation = Quaternion.LookRotation(Vector3.forward, playerTransform.position - Utils.Instance.GetMousePosition());
     }
 
     bool HandleAbilityCasting()

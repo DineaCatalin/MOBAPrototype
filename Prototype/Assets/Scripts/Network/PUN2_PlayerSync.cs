@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
 {
@@ -18,11 +15,11 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
     public GameObject[] localObjects;
 
     //Values that will be synced over network
-    Rigidbody2D rb;
+    Rigidbody2D playerRigidbody;
     Transform playerTransform;
 
-    Vector3 latestPos;
-    Quaternion latestRot;
+    Vector2 networkPosition;
+    float networkRotation;
     Vector2 velocity;
     float angularVelocity;
 
@@ -41,7 +38,7 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
 
     void Awake()
     {
-        rb = player2Sync.GetComponent<Rigidbody2D>();
+        playerRigidbody = player2Sync.GetComponent<Rigidbody2D>();
         player = player2Sync.GetComponent<Player>();
         playerTransform = player2Sync.transform;
 
@@ -76,17 +73,6 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
     {
         if (!photonView.IsMine)
         {
-            //Lag compensation
-            double timeToReachGoal = currentPacketTime - lastPacketTime;
-            currentTime += Time.deltaTime;
-
-            //Update remote player
-            playerTransform.position = Vector3.Lerp(positionAtLastPacket, latestPos, (float)(currentTime / timeToReachGoal));
-            playerTransform.rotation = Quaternion.Lerp(rotationAtLastPacket, latestRot, (float)(currentTime / timeToReachGoal));
-
-            rb.velocity = velocity;
-            rb.angularVelocity = angularVelocity;
-
             if(health != lastHealth)
             {
                 player.SetHealth(health);
@@ -101,18 +87,27 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
         }
     }
 
+    void FixedUpdate()
+    {
+        if (!photonView.IsMine)
+        {
+            playerRigidbody.position = Vector3.MoveTowards(playerRigidbody.position, networkPosition, Time.fixedDeltaTime);
+
+            // Don't do rotation
+            //playerRigidbody.rotation = Quaternion.RotateTowards(playerRigidbody.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
+        }
+    }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            //We own this player: send the others our data
-            // Transform
-            stream.SendNext(playerTransform.position);
-            stream.SendNext(playerTransform.rotation);
-
             // Rigidbody
-            stream.SendNext(rb.velocity);
-            stream.SendNext(rb.angularVelocity);
+            stream.SendNext(playerRigidbody.position);
+            stream.SendNext(playerRigidbody.rotation);
+            stream.SendNext(playerRigidbody.velocity);
+
+            stream.SendNext(playerTransform.position);
 
             // Health and mana
             stream.SendNext(player.GetStats().health);
@@ -120,21 +115,16 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
         }
         else
         {
-            Debug.Log("PUN2_PlayerSync OnPhotonSerializeView Start not my player " + photonView.ViewID);
-            //Network player, receive data
-            latestPos = (Vector3)stream.ReceiveNext();
-            latestRot = (Quaternion)stream.ReceiveNext();
-            velocity = (Vector2)stream.ReceiveNext();
-            angularVelocity = (float)stream.ReceiveNext();
+            networkPosition = (Vector2)stream.ReceiveNext();
+            networkRotation = (float)stream.ReceiveNext();
+            playerRigidbody.velocity = (Vector2)stream.ReceiveNext();
 
-            //Lag compensation
-            currentTime = 0.0f;
-            lastPacketTime = currentPacketTime;
-            currentPacketTime = info.SentServerTime;
+            playerTransform.position = (Vector3)stream.ReceiveNext();
 
-            Debug.Log("PUN2_PlayerSync OnPhotonSerializeView After transform check not my player " + photonView.ViewID);
-            positionAtLastPacket = playerTransform.position;
-            rotationAtLastPacket = playerTransform.rotation;
+            // Lag compensation
+            float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+            networkPosition += (playerRigidbody.velocity * lag);
+
             // Health and mana
             health = (int)stream.ReceiveNext();
             mana = (int)stream.ReceiveNext();

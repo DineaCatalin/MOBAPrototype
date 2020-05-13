@@ -13,6 +13,9 @@ public class NetworkUtils : MonoBehaviourPun, IPunObservable
     void Awake()
     {
         SharedInstance = this;
+
+        PhotonNetwork.UseRpcMonoBehaviourCache = true;
+        //PhotonNetwork.SendAllOutgoingCommands;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

@@ -108,7 +108,7 @@ public class EnvironmentManager : MonoBehaviour
         dustDusk.SetActive(false);
     }
 
-    public Vector3 GetPlayerSpawnPoint(int teamID)
+    public Vector2 GetPlayerSpawnPoint(int teamID)
     {
         float spawnY = Random.Range
                 (Utils.Instance.CameraScreenToWorldPoint(new Vector2(0, 0)).y, Utils.Instance.CameraScreenToWorldPoint(new Vector2(0, Screen.height)).y);
@@ -117,11 +117,11 @@ public class EnvironmentManager : MonoBehaviour
 
         if(teamID == 1)
         {
-            return new Vector3(team1SpawnPosX, spawnY, 0);
+            return new Vector2(team1SpawnPosX, spawnY);
         }
         else
         {
-            return new Vector3(team2SpawnPosX, spawnY, 0);
+            return new Vector2(team2SpawnPosX, spawnY);
         }
     }
 }

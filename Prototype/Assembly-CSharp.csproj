@@ -139,6 +139,7 @@
     <Compile Include="Assets\Scripts\Network\NetworkUtils.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_GameLobby.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_PlayerSync.cs" />
+    <Compile Include="Assets\Scripts\Network\PUN2_PlayerSync2.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_RoomController.cs" />
     <Compile Include="Assets\Scripts\ParticleSystem\LocalParticleSystemManager.cs" />
     <Compile Include="Assets\Scripts\Planet\PlanetLogic.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDataLoader.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGraphics.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerTeleportation.cs" />
     <Compile Include="Assets\Scripts\Player\Shield.cs" />
     <Compile Include="Assets\Scripts\Test\DummyController.cs" />
     <Compile Include="Assets\Scripts\Test\PlanetTest.cs" />
