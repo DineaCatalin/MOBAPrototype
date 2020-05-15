@@ -98,14 +98,14 @@ public class PUN2_PlayerSync2 : MonoBehaviourPun, IPunObservable
         }
     }
 
-    void FixedUpdate()
-    {
-        if (!photonView.IsMine)
-        {
-            rb.velocity = velocity;
-            rb.angularVelocity = angularVelocity;
-        }
-    }
+    //void FixedUpdate()
+    //{
+    //    if (!photonView.IsMine)
+    //    {
+    //        rb.velocity = velocity;
+    //        rb.angularVelocity = angularVelocity;
+    //    }
+    //}
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

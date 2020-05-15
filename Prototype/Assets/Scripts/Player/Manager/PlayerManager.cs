@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour
 
     Match match;
 
+    float activateNonLocalPlayerDelay;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,6 +23,9 @@ public class PlayerManager : MonoBehaviour
         photonView = GetComponent<PhotonView>();
         playerMap = new Dictionary<int, Player>();
         match = GetComponent<Match>();
+
+        // Check if this helps here
+        PhotonNetwork.UseRpcMonoBehaviourCache = true;
     }
 
     public int GetPlayerCount()
@@ -39,15 +44,15 @@ public class PlayerManager : MonoBehaviour
     }
 
     [PunRPC]
-    void ActivateNonLocalPlayerRPC(int playerID)
+    void ActivateNonLocalPlayerRPC(int playerID, PhotonMessageInfo info)
     {
-        StartCoroutine(ActivateNonLocalPlayer(playerID));
+        activateNonLocalPlayerDelay = NetworkUtils.SharedInstance.NonLocalPlayerSpawnDelay(info.SentServerTime);
+        StartCoroutine(ActivateNonLocalPlayer(playerID, activateNonLocalPlayerDelay));
     }
 
-    IEnumerator ActivateNonLocalPlayer(int playerID)
+    IEnumerator ActivateNonLocalPlayer(int playerID, float delay)
     {
-        yield return new WaitForSeconds(NetworkUtils.SharedInstance.NonLocalPlayerSpawnDelay());
-
+        yield return new WaitForSeconds(delay);
         playerMap[playerID].Activate();
     }
 
