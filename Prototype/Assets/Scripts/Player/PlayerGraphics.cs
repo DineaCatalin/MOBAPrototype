@@ -6,26 +6,8 @@ public class PlayerGraphics : MonoBehaviour
 {
     public GameObject grahpics;
 
-    [SerializeField] LocalParticleSystemManager trailParticleManager;
+    [SerializeField] Trail trail;
     [SerializeField] Shield shield;
-
-    //public float scaleTime;
-    //public LeanTweenType easeType;
-
-    //SpriteRenderer spriteRenderer;
-
-    //Vector2 zeroScale;
-    //Vector2 graphicsScale;
-
-    //bool enableHasBeenCalled;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        //spriteRenderer = GetComponent<SpriteRenderer>();
-        //zeroScale = Vector2.zero;
-        //graphicsScale = transform.localScale;
-    }
 
     public void SetColor(Color color)
     {
@@ -35,12 +17,12 @@ public class PlayerGraphics : MonoBehaviour
     // Update is called once per frame
     public void Enable()
     {
-        Debug.Log("PlayerGraphics Enable");
-        //spriteRenderer.enabled = true;
-        //enableHasBeenCalled = true;
-        //LeanTween.scale(gameObject, graphicsScale, scaleTime).setEase(easeType);
+        Debug.LogError("PlayerGraphics Enable");
+
+        //trailParticleManager.gameObject.SetActive(true);
         grahpics.SetActive(true);
-        trailParticleManager.Play();
+        //trailFollow.CatchUp();
+        trail.Activate();
     }
 
     public void EnableAfterBlink()
@@ -55,11 +37,10 @@ public class PlayerGraphics : MonoBehaviour
 
     public void Disable()
     {
-        Debug.Log("PlayerGraphics Disable");
-        //enableHasBeenCalled = false;
-        //LeanTween.scale(gameObject, zeroScale, scaleTime).setEase(easeType).setOnComplete(DisableGraphics);
+        Debug.LogError("PlayerGraphics Disable");
+        //trailParticleManager.gameObject.SetActive(false);
         grahpics.SetActive(false);
         shield.DeactivateShieldGraphics();
-        trailParticleManager.Stop();
+        trail.Deactivate();
     }
 }

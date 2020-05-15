@@ -188,6 +188,31 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void BlinkNetworkedPlayer(int playerID, Vector2 location)
+    {
+        Debug.Log("PlayerManager BlinkNetworkedPlayer player " + playerID);
+        photonView.RPC("BlinkPlayerRPC", RpcTarget.Others, playerID, location);
+        PhotonNetwork.SendAllOutgoingCommands();
+        BlinkPlayer(playerID, location);
+    }
+
+    [PunRPC]
+    void BlinkPlayerRPC(int playerID, Vector2 location)
+    {
+        BlinkPlayer(playerID, location);
+    }
+
+    void BlinkPlayer(int playerID, Vector2 location)
+    {
+        Debug.Log("PlayerManager BlinkPlayer player " + playerID);
+        Player player = playerMap[playerID];
+        //player.Deactivate();
+        player.Teleport(location);
+        //player.ActivateGraphics();
+    }
+
+
+
     //
     // -- Player Abilities Networking
     //

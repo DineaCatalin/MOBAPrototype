@@ -81,5 +81,6 @@ MonoBehaviour:
   - DeactivatePlayerUIBuffRPC
   - ActivatePlayerGraphicsRPC
   - AdvancePlanetStateRPC
+  - BlinkPlayerRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1

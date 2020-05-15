@@ -227,7 +227,7 @@
             "casterTeamName":"Team1"
          },
          "stats":{
-            "cooldown":5.0,
+            "cooldown":1.0,
             "manaCost":0,
             "dotValue":0,
             "duration":0,

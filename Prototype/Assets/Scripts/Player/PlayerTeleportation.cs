@@ -6,27 +6,56 @@ public class PlayerTeleportation : MonoBehaviour
 {
     Rigidbody2D playerRigidbody;
 
-    Vector2 velocity;
-    float angularVelocity;
+    float movePlayerDelay = 0.035f; 
+    float activatePlayerdelay = 0.15f;
+
+    [SerializeField] NonLocalPlayerMovement nonLocalPlayerMovement;
+
+    Player player;
+
+    Vector2 teleportLocation;
 
     // Start is called before the first frame update
     void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
+        nonLocalPlayerMovement = GetComponent<NonLocalPlayerMovement>();
     }
 
     public void Teleport(Vector2 location)
     {
-        //velocity = playerRigidbody.velocity;
-        //angularVelocity = playerRigidbody.angularVelocity;
+        //nonLocalPlayerMovement.Lock();
+        Debug.LogError("PlayerTeleportation Teleport player.Deactivate();" + Time.realtimeSinceStartup);
+        player.Deactivate();
+        teleportLocation = location;
+        Debug.LogError("PlayerTeleportation Teleport teleportLocation = location;" + Time.realtimeSinceStartup);
 
-        //playerRigidbody.isKinematic = true;
+        MovePlayer();
+        Invoke("MovePlayer", movePlayerDelay);
+        Invoke("ActivatePlayer", activatePlayerdelay);
+    }
 
-        transform.position = location;
+    void MoveAndActivate()
+    {
+        Debug.LogError("PlayerTeleportation MoveAndActivate " + Time.realtimeSinceStartup);
+        MovePlayer();
+        ActivatePlayer();
+        nonLocalPlayerMovement.Unlock();
+    }
 
-        //playerRigidbody.isKinematic = false;
+    void MovePlayer()
+    {
+        playerRigidbody.isKinematic = true;
+        transform.position = teleportLocation;
+        playerRigidbody.isKinematic = false;
+        Debug.LogError("PlayerTeleportation MovePlayer transform.position = teleportLocation; " + Time.realtimeSinceStartup);
+    }
 
-        //playerRigidbody.velocity = velocity;
-        //playerRigidbody.angularVelocity = angularVelocity;
+    void ActivatePlayer()
+    {
+        Debug.LogError("PlayerTeleportation ActivatePlayer player.ActivateGraphics(); " + Time.realtimeSinceStartup);
+        player.ActivateGraphics();
+        nonLocalPlayerMovement.Unlock();
     }
 }
