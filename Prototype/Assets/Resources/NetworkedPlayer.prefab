@@ -876,6 +876,7 @@ Transform:
   m_LocalPosition: {x: -0.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
+  - {fileID: 2907709405691696793}
   - {fileID: 3295094496928400519}
   - {fileID: 3295094497953967085}
   m_Father: {fileID: 0}
@@ -976,6 +977,7 @@ GameObject:
   - component: {fileID: 3295094496928400514}
   - component: {fileID: 6330459652388795597}
   - component: {fileID: 4302752090573831399}
+  - component: {fileID: 740328748775989215}
   m_Layer: 8
   m_Name: Player
   m_TagString: Team1
@@ -998,9 +1000,8 @@ Transform:
   - {fileID: 3295094497677129779}
   - {fileID: 6718355589588870267}
   - {fileID: 7762217440006885630}
-  - {fileID: 2907709405691696793}
   m_Father: {fileID: 3295094496822912774}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3295094496928400518
 MonoBehaviour:
@@ -1108,6 +1109,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e01e4e912148142c6b02e9607d99ae0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonLocalPlayerMovement: {fileID: 0}
+--- !u!114 &740328748775989215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3295094496928400526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057141b2089584d64aa74e6e92af201d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3295094497483142191
@@ -1450,7 +1464,7 @@ RectTransform:
   - {fileID: 4453682337714195245}
   - {fileID: 280886560}
   m_Father: {fileID: 3295094496822912774}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1923,6 +1937,8 @@ GameObject:
   - component: {fileID: 7138093268895055024}
   - component: {fileID: 4083320779175113487}
   - component: {fileID: 340313124547498009}
+  - component: {fileID: 6613199554024856447}
+  - component: {fileID: 8483011420807738847}
   m_Layer: 0
   m_Name: SmokeTrail
   m_TagString: Untagged
@@ -1938,11 +1954,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6618201360658621647}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0076245456, z: 0}
-  m_LocalScale: {x: 1.1750002, y: 1.1750003, z: 0}
+  m_LocalPosition: {x: 0, y: 0.186, z: 0}
+  m_LocalScale: {x: 0.92463595, y: 0.92463595, z: 0}
   m_Children: []
-  m_Father: {fileID: 3295094496928400519}
-  m_RootOrder: 4
+  m_Father: {fileID: 3295094496822912774}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!198 &7138093268895055024
 ParticleSystem:
@@ -2027,7 +2043,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.55
+      scalar: 0.25
       minScalar: 0.4
       maxCurve:
         serializedVersion: 2
@@ -6597,7 +6613,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dbed2691e5246dbbb1c2bca5b21c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deactivateOnAwake: 1
+  deactivateOnAwake: 0
+--- !u!114 &6613199554024856447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618201360658621647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333758d3bdf9842199ee5b3aee7aebfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  track: {fileID: 3295094496928400519}
+--- !u!114 &8483011420807738847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618201360658621647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f7306d42bff4a3d9d12445efc723cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailFollowDelay: 0.9
+  trailParticleDelay: 1
 --- !u!1 &7288542415002034425
 GameObject:
   m_ObjectHideFlags: 0
@@ -20825,7 +20868,7 @@ Transform:
   m_GameObject: {fileID: 7288542415002229931}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0.03244488, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 5, y: 0, z: 5}
   m_Children:
   - {fileID: 7288542415002371381}
   - {fileID: 7288542415002401517}
@@ -25760,7 +25803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grahpics: {fileID: 7288542415002229931}
-  trailParticleManager: {fileID: 340313124547498009}
+  trail: {fileID: 8483011420807738847}
   shield: {fileID: 3295094497677129777}
 --- !u!1001 &316639206668498062
 PrefabInstance:

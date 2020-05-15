@@ -139,6 +139,8 @@ public class Player : MonoBehaviour
         EventManager.StartListening(GameEvent.ShieldDestroyed, new System.Action(DeactivateShield));
 
         EventManager.StartListening(GameEvent.PlanetStateAdvance, new System.Action(HandlePlayerDeath));
+
+        Deactivate();
     }
 
     public void Activate()
@@ -154,8 +156,6 @@ public class Player : MonoBehaviour
 
         if (isNetworkActive)
             PlayerController.isRooted = false;
-
-        teleportation.Teleport(transform.position);
     }
 
     public void ActivateGraphics()
@@ -180,12 +180,14 @@ public class Player : MonoBehaviour
         // and then tell the other clients to activate my version of their player
         if (isNetworkActive)
         {
-            //transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
-            teleportation.Teleport(EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID));
+            transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
+            Teleport(EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID));
             Invoke("Activate", NetworkUtils.PLAYER_SPAWN_DELAY);
             PlayerManager.Instance.ActivatePlayerOverNetwork(id);
             PlayerController.isLocked = false;
         }
+
+        PhotonNetwork.SendAllOutgoingCommands();
     }
 
     void Die(int killerID)
@@ -213,6 +215,8 @@ public class Player : MonoBehaviour
 
     public void Deactivate()
     {
+        Debug.LogError("Player Deactivate");
+
         SetUIState(false);
         playerCollider.enabled = false;
         graphics.Disable();
@@ -227,6 +231,11 @@ public class Player : MonoBehaviour
         shield.DeactivateNetworkedShield();
 
         RemoveDoubleDamage();
+    }
+
+    public void Teleport(Vector2 location)
+    {
+        teleportation.Teleport(location);
     }
 
     public void PickUpItem(ItemData itemData)
@@ -594,7 +603,7 @@ public class Player : MonoBehaviour
             localTeamID = teamID;
         }
 
-        Deactivate();
+        //Deactivate();
     }
 
     //

@@ -17,7 +17,7 @@ public class LocalParticleSystemManager : MonoBehaviour
             Debug.LogError("LocalParticleSystemManager particleSystems == null");
 
         if (deactivateOnAwake)
-            Stop();
+            ForceStop();
     }
 
    public void Play()
@@ -26,13 +26,21 @@ public class LocalParticleSystemManager : MonoBehaviour
         {
             pSyst.Play();
         }
-   }
+    }
 
    public void Stop()
    {
-       foreach (ParticleSystem pSyst in particleSystems)
-       {
-           pSyst.Stop();
-       }
+        foreach (ParticleSystem pSyst in particleSystems)
+        {
+            pSyst.Stop();
+        }
    }
+
+    public void ForceStop()
+    {
+        foreach (ParticleSystem pSyst in particleSystems)
+        {
+            pSyst.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+    }
 }

@@ -17,6 +17,7 @@ public class PUN2_PlayerSync2 : MonoBehaviourPun, IPunObservable
     //Values that will be synced over network
     Rigidbody2D rb;
     Transform playerTransform;
+    NonLocalPlayerMovement nonLocalMovement;
 
     Vector3 latestPos;
     Quaternion latestRot;
@@ -41,6 +42,7 @@ public class PUN2_PlayerSync2 : MonoBehaviourPun, IPunObservable
         rb = player2Sync.GetComponent<Rigidbody2D>();
         player = player2Sync.GetComponent<Player>();
         playerTransform = player2Sync.transform;
+        nonLocalMovement = player2Sync.GetComponent<NonLocalPlayerMovement>();
 
         health = player.GetHealth();
         lastHealth = health;
@@ -78,7 +80,8 @@ public class PUN2_PlayerSync2 : MonoBehaviourPun, IPunObservable
             currentTime += Time.deltaTime;
 
             //Update remote player
-            playerTransform.position = Vector3.Lerp(positionAtLastPacket, latestPos, (float)(currentTime / timeToReachGoal));
+            //playerTransform.position = Vector3.Lerp(positionAtLastPacket, latestPos, (float)(currentTime / timeToReachGoal));
+            nonLocalMovement.Move(Vector3.Lerp(positionAtLastPacket, latestPos, (float)(currentTime / timeToReachGoal)));
             //playerTransform.rotation = Quaternion.Lerp(rotationAtLastPacket, latestRot, (float)(currentTime / timeToReachGoal));
 
             if (health != lastHealth)
@@ -97,11 +100,11 @@ public class PUN2_PlayerSync2 : MonoBehaviourPun, IPunObservable
 
     void FixedUpdate()
     {
-        //if(!photonView.IsMine)
-        //{
-        //    rb.velocity = velocity;
-        //    rb.angularVelocity = angularVelocity;
-        //}
+        if (!photonView.IsMine)
+        {
+            rb.velocity = velocity;
+            rb.angularVelocity = angularVelocity;
+        }
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

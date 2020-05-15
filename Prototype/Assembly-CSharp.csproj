@@ -149,6 +149,7 @@
     <Compile Include="Assets\Scripts\Player\InteractionManager.cs" />
     <Compile Include="Assets\Scripts\Player\LocalPlayerReferences.cs" />
     <Compile Include="Assets\Scripts\Player\Manager\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Player\NonLocalPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerGraphics.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerTeleportation.cs" />
     <Compile Include="Assets\Scripts\Player\Shield.cs" />
+    <Compile Include="Assets\Scripts\Player\Trail\Trail.cs" />
     <Compile Include="Assets\Scripts\Test\DummyController.cs" />
     <Compile Include="Assets\Scripts\Test\PlanetTest.cs" />
     <Compile Include="Assets\Scripts\Test\Test.cs" />
@@ -184,6 +186,7 @@
     <Compile Include="Assets\Scripts\Utils\ExitHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\FileHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\FixRotation.cs" />
+    <Compile Include="Assets\Scripts\Utils\Follow.cs" />
     <Compile Include="Assets\Scripts\Utils\FollowAtDistance.cs" />
     <Compile Include="Assets\Scripts\Utils\FollowCursor.cs" />
     <Compile Include="Assets\Scripts\Utils\FullScreenSprite.cs" />

@@ -3,8 +3,6 @@ using Photon.Pun;
 
 public enum AbilityInputKey
 {
-    // Ability1 Will be left  click 
-    // Ability2 Will be right click 
     AttackAbility = KeyCode.Mouse0,
     DefenseAbility = KeyCode.Mouse1,
     MobilityAbility = KeyCode.Space,
@@ -65,6 +63,7 @@ public class PlayerController : MonoBehaviour
         if(!isLocked)
         {
             HandleRotationTransform();
+            //HandleMovementTransform();
             HandleManaCharge();
             //HandleAbilityCasting();   // As all abilities are instant now this will just create a bug 
             HandleAbilitySelection();   // and this will trigger all the abilities when they are selected
@@ -86,7 +85,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isRooted)
         {
-            direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            direction.x = Input.GetAxis("Horizontal");
+            direction.y = Input.GetAxis("Vertical");
             playerRigidbody.MovePosition((Vector2)playerTransform.position + (direction * stats.speed * Time.deltaTime));
         }
     }

@@ -5,12 +5,8 @@ public class BlinkAbility : Ability
 {
     //Reference to the player transform so that we can move the player
     Transform playerTransform;
-    //Rigidbody2D playerRigidbody;
 
-    // Make sure it's arround 0.05 seconds more then the scale time for the PlayerGraphics
-    [SerializeField] float delay = 0.25f; 
-
-    Vector3 blinkPosition;
+    Vector2 blinkPosition;
 
     float castRange;
 
@@ -21,7 +17,6 @@ public class BlinkAbility : Ability
     private void Start()
     {
         playerTransform = LocalPlayerReferences.playerTransform;
-        //playerRigidbody = LocalPlayerReferences.playerRigidbody;
         teleportation = LocalPlayerReferences.player.teleportation;
 
         // Load cast range from config
@@ -44,25 +39,11 @@ public class BlinkAbility : Ability
         if (OutOfRange() || HitWall())
             return false;
 
-        blinkPosition.z = 0;
+        Debug.Log("BlinkAbility Calling BlinkNetworkedPlayer player " + playerID);
 
-        Debug.Log("BlinkAbility Deactivating player " + playerID);
-        PlayerManager.Instance.DeactivatePlayer(playerID);
-
-        //Blink();
-        Invoke("Blink", delay);
+        PlayerManager.Instance.BlinkNetworkedPlayer(playerID, blinkPosition);
 
         return base.Cast();
-    }
-
-    void Blink()
-    {
-        // Set player position to the mouse position
-        teleportation.Teleport(blinkPosition);
-        //transform.position = blinkPosition;
-
-        Debug.Log("BlinkAbility Activating player " + playerID);
-        PlayerManager.Instance.ActivatePlayerGraphics(playerID);
     }
 
     bool OutOfRange()
