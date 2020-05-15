@@ -1,19 +1,24 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/BlinkAbility.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/Utils.cs">
     <Files>
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="47" Column="1" />
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync2.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="42" Column="59" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync2.cs" Line="75" Column="6" />
+      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" Line="40" Column="1" />
       <File FileName="Assets/Scripts/ParticleSystem/LocalParticleSystemManager.cs" />
-      <File FileName="Assets/Scripts/Player/Trail/Trail.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="218" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Trail/Trail.cs" Line="43" Column="37" />
+      <File FileName="Assets/Scripts/Player/NonLocalPlayerMovement.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="7" Column="23" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="32" Column="27" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerController.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerTeleportation.cs" Line="28" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" Line="49" Column="53" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerTeleportation.cs" Line="22" Column="41" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/Follow.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Events/EventManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="125" Column="25" NotebookId="1" />
+      <File FileName="Assets/Scripts/Network/NetworkUtils.cs" Line="23" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,7 +28,6 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Effects" expanded="True" />
-                  <Node name="BlinkAbility.cs" selected="True" />
                 </Node>
                 <Node name="Camera" expanded="True" />
                 <Node name="Collider" expanded="True" />
@@ -42,7 +46,9 @@
                 <Node name="Test" expanded="True" />
                 <Node name="Tweens" expanded="True" />
                 <Node name="UI" expanded="True" />
-                <Node name="Utils" expanded="True" />
+                <Node name="Utils" expanded="True">
+                  <Node name="Utils.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="StreamingAssets" expanded="True" />
             </Node>

@@ -4,15 +4,13 @@ using System.Text.RegularExpressions;
 
 public class Utils : MonoBehaviour
 {
-    //[SerializeField]
     Camera mainCamera;
 
     public static Utils Instance;
 
     void Awake()
     {
-        if (mainCamera == null)
-            mainCamera = Camera.main;
+        mainCamera = Camera.main;
 
         Instance = this;
     }

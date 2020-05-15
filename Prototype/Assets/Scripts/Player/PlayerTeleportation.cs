@@ -27,21 +27,14 @@ public class PlayerTeleportation : MonoBehaviour
     {
         //nonLocalPlayerMovement.Lock();
         Debug.LogError("PlayerTeleportation Teleport player.Deactivate();" + Time.realtimeSinceStartup);
+        nonLocalPlayerMovement.Lock();
         player.Deactivate();
         teleportLocation = location;
         Debug.LogError("PlayerTeleportation Teleport teleportLocation = location;" + Time.realtimeSinceStartup);
 
-        MovePlayer();
+        //MovePlayer();
         Invoke("MovePlayer", movePlayerDelay);
         Invoke("ActivatePlayer", activatePlayerdelay);
-    }
-
-    void MoveAndActivate()
-    {
-        Debug.LogError("PlayerTeleportation MoveAndActivate " + Time.realtimeSinceStartup);
-        MovePlayer();
-        ActivatePlayer();
-        nonLocalPlayerMovement.Unlock();
     }
 
     void MovePlayer()

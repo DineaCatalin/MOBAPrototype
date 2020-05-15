@@ -3,31 +3,22 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class NetworkUtils : MonoBehaviourPun, IPunObservable
+public class NetworkUtils : MonoBehaviourPun
 {
     public const float PLAYER_SPAWN_DELAY = 1f;
-    public float lag;
+    float lag;
 
     public static NetworkUtils SharedInstance;
 
     void Awake()
     {
         SharedInstance = this;
-
-        PhotonNetwork.UseRpcMonoBehaviourCache = true;
-        //PhotonNetwork.SendAllOutgoingCommands;
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public float NonLocalPlayerSpawnDelay(double SentServerTime)
     {
-        Debug.Log("NetworkUtils lag : " + lag);
-        lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
-        Debug.Log("NetworkUtils lag : " + lag);
-    }
-
-    public float NonLocalPlayerSpawnDelay()
-    {
-        Debug.LogError("NetworkUtils NonLocalPlayerSpawnDelay " + (PLAYER_SPAWN_DELAY - lag) + " lag = " + lag);
+        lag = Mathf.Abs((float)(PhotonNetwork.Time - SentServerTime));
+        Debug.Log("NetworkUtils NonLocalPlayerSpawnDelay lag " + lag + " PLAYER_SPAWN_DELAY - lag " + (PLAYER_SPAWN_DELAY - lag));
         return PLAYER_SPAWN_DELAY - lag;
     }
 }
