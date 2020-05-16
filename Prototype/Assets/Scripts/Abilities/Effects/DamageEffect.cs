@@ -7,6 +7,7 @@ public class DamageEffect : AbilityEffect
         base.ApplyVisualEffect(player, visualEffect, stats);
 
         if (player.isNetworkActive)
+        //if (PhotonNetwork.IsMasterClient)
         {
             player.Damage(stats.hpValue, casterID);
             base.ApplyVisualEffect(player, visualEffect, stats);

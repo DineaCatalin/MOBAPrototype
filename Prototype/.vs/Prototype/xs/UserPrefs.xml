@@ -1,24 +1,28 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils/Utils.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Test/PlanetTest.cs">
     <Files>
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="42" Column="59" />
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync2.cs" Line="75" Column="6" />
-      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" Line="40" Column="1" />
-      <File FileName="Assets/Scripts/ParticleSystem/LocalParticleSystemManager.cs" />
-      <File FileName="Assets/Scripts/Player/Trail/Trail.cs" Line="43" Column="37" />
-      <File FileName="Assets/Scripts/Player/NonLocalPlayerMovement.cs" Line="17" Column="1" />
-      <File FileName="Assets/Scripts/Environment/EnvironmentManager.cs" Line="34" Column="1" />
-      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="7" Column="23" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="32" Column="27" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="46" Column="28" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync2.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" />
+      <File FileName="Assets/Scripts/Player/NonLocalPlayerMovement.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/ManaBurnEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DamageEffect.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="312" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerController.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" Line="49" Column="53" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerTeleportation.cs" Line="22" Column="41" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerTeleportation.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Utils/Follow.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Events/EventManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/GameManager/GameManager.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" Line="125" Column="25" NotebookId="1" />
-      <File FileName="Assets/Scripts/Network/NetworkUtils.cs" Line="23" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Network/NetworkUtils.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerData.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerVitals.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Test/PlanetTest.cs" Line="17" Column="6" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -28,6 +32,8 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Abilities" expanded="True">
                   <Node name="Effects" expanded="True" />
+                  <Node name="ProjectileComponents" expanded="True" />
+                  <Node name="Visuals" expanded="True" />
                 </Node>
                 <Node name="Camera" expanded="True" />
                 <Node name="Collider" expanded="True" />
@@ -43,12 +49,12 @@
                   <Node name="Manager" expanded="True" />
                   <Node name="Trail" expanded="True" />
                 </Node>
-                <Node name="Test" expanded="True" />
+                <Node name="Test" expanded="True">
+                  <Node name="PlanetTest.cs" selected="True" />
+                </Node>
                 <Node name="Tweens" expanded="True" />
                 <Node name="UI" expanded="True" />
-                <Node name="Utils" expanded="True">
-                  <Node name="Utils.cs" selected="True" />
-                </Node>
+                <Node name="Utils" expanded="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
             </Node>
@@ -59,7 +65,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="09da6ba0-e1f3-4b74-b187-4a056d2108d7" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="445125c2-ecb3-467d-a83f-9bf8523f840b" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/catalin.dinea/git/MOBAPrototype/Prototype/Assets/StreamingAssets/CastRangeConfig.txt" relfile="Assets/StreamingAssets/CastRangeConfig.txt" line="48" column="1" />
