@@ -15,11 +15,11 @@ public class PlanetTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.O))
         {
             manager.Advance(Match.TEAM_1_ID);
         }
-        else if(Input.GetKeyDown(KeyCode.D))
+        else if(Input.GetKeyDown(KeyCode.P))
         {
             manager.Advance(Match.TEAM_2_ID);
         }

@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     public string teamName = "Team1";
 
     // Defines the stats of our player like health, mana, power, speed
-    [SerializeField] PlayerData stats;
+    public PlayerData stats;
 
     [SerializeField] PlayerGraphics graphics;
 
@@ -216,7 +216,7 @@ public class Player : MonoBehaviour
 
     public void Deactivate()
     {
-        Debug.LogError("Player Deactivate");
+        Debug.Log("Player Deactivate");
 
         SetUIState(false);
         playerCollider.enabled = false;
@@ -316,9 +316,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        Debug.Log("Player " + id + " health before " + stats.health);
         stats.health -= damage;
-        Debug.Log("Player " + id + " health after " + stats.health);
         healthBar.SetCurrentStat(stats.health);
 
         Debug.Log("Player " + id + " isAlive " + isAlive);
@@ -593,18 +591,13 @@ public class Player : MonoBehaviour
         this.teamID = teamID;
         teamName = "Team" + teamID;
 
-        // We will also set the color of the sprite here temporarily
-        if (teamID == 2)
-        {
-            graphics.SetColor(Color.red);
-        }
+        // TODO: set different player model
+        
 
         if (isNetworkActive)
         {
             localTeamID = teamID;
         }
-
-        //Deactivate();
     }
 
     //

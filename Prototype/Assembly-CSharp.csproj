@@ -94,7 +94,6 @@
     <Compile Include="Assets\Scripts\Abilities\HealAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\InteruptHeal.cs" />
     <Compile Include="Assets\Scripts\Abilities\Manager\AbilityManager.cs" />
-    <Compile Include="Assets\Scripts\Abilities\Pool\AbilityProjectilePool.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityCollider.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\AbilityComponent.cs" />
@@ -156,8 +155,10 @@
     <Compile Include="Assets\Scripts\Player\PlayerDataLoader.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGraphics.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerTeleportation.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerVitals.cs" />
     <Compile Include="Assets\Scripts\Player\Shield.cs" />
     <Compile Include="Assets\Scripts\Player\Trail\Trail.cs" />
+    <Compile Include="Assets\Scripts\Pool\AbilityProjectilePool.cs" />
     <Compile Include="Assets\Scripts\Test\DummyController.cs" />
     <Compile Include="Assets\Scripts\Test\PlanetTest.cs" />
     <Compile Include="Assets\Scripts\Test\Test.cs" />
