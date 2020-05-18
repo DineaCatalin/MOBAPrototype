@@ -4,5 +4,7 @@ using UnityEngine;
 
 public abstract class Tween : MonoBehaviour
 {
+    public bool useOnActivate = true;
+
     public abstract void Execute();
 }

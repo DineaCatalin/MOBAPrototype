@@ -14,7 +14,7 @@ public class LocalParticleSystemManager : MonoBehaviour
         Debug.Log("LocalParticleSystemManager Awake particleSystems " + particleSystems.Length + " for " + name);
 
         if (particleSystems == null)
-            Debug.LogError("LocalParticleSystemManager particleSystems == null");
+            Debug.Log("LocalParticleSystemManager particleSystems == null");
 
         if (deactivateOnAwake)
             ForceStop();

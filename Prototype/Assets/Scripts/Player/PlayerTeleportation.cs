@@ -26,11 +26,11 @@ public class PlayerTeleportation : MonoBehaviour
     public void Teleport(Vector2 location)
     {
         //nonLocalPlayerMovement.Lock();
-        Debug.LogError("PlayerTeleportation Teleport player.Deactivate();" + Time.realtimeSinceStartup);
+        Debug.Log("PlayerTeleportation Teleport player.Deactivate();" + Time.realtimeSinceStartup);
         nonLocalPlayerMovement.Lock();
         player.Deactivate();
         teleportLocation = location;
-        Debug.LogError("PlayerTeleportation Teleport teleportLocation = location;" + Time.realtimeSinceStartup);
+        Debug.Log("PlayerTeleportation Teleport teleportLocation = location;" + Time.realtimeSinceStartup);
 
         //MovePlayer();
         Invoke("MovePlayer", movePlayerDelay);
@@ -42,12 +42,12 @@ public class PlayerTeleportation : MonoBehaviour
         playerRigidbody.isKinematic = true;
         transform.position = teleportLocation;
         playerRigidbody.isKinematic = false;
-        Debug.LogError("PlayerTeleportation MovePlayer transform.position = teleportLocation; " + Time.realtimeSinceStartup);
+        Debug.Log("PlayerTeleportation MovePlayer transform.position = teleportLocation; " + Time.realtimeSinceStartup);
     }
 
     void ActivatePlayer()
     {
-        Debug.LogError("PlayerTeleportation ActivatePlayer player.ActivateGraphics(); " + Time.realtimeSinceStartup);
+        Debug.Log("PlayerTeleportation ActivatePlayer player.ActivateGraphics(); " + Time.realtimeSinceStartup);
         player.ActivateGraphics();
         nonLocalPlayerMovement.Unlock();
     }

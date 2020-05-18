@@ -19,26 +19,26 @@ public class Trail : MonoBehaviour
 
     public void Activate()
     {
-        Debug.LogError("Trail Activate " + Time.realtimeSinceStartup);
+        Debug.Log("Trail Activate " + Time.realtimeSinceStartup);
         Invoke("StartTrailFollow", trailFollowDelay);
         Invoke("StartTrailParticles", trailParticleDelay);
     }
 
     void StartTrailParticles()
     {
-        Debug.LogError("Trail StartTrailParticles " + Time.realtimeSinceStartup);
+        Debug.Log("Trail StartTrailParticles " + Time.realtimeSinceStartup);
         trailParticleManager.Play();
     }
 
     void StartTrailFollow()
     {
-        Debug.LogError("Trail StartTrailFollow " + Time.realtimeSinceStartup);
+        Debug.Log("Trail StartTrailFollow " + Time.realtimeSinceStartup);
         trailFollow.StartFollowing();
     }
 
     public void Deactivate()
     {
-        Debug.LogError("Trail Deactivate " + Time.realtimeSinceStartup);
+        Debug.Log("Trail Deactivate " + Time.realtimeSinceStartup);
         trailFollow.StopFollowing();
         trailParticleManager.Stop();
     }

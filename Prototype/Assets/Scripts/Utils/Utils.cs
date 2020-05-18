@@ -62,4 +62,10 @@ public class Utils : MonoBehaviour
         // For some reason this func is called on a string that is not a player layer name
         return layerName;
     }
+
+    public string RemoveWhiteSpace(string text)
+    {
+        //return text.Trim(' ');
+        return Regex.Replace(text, @"\s+", "");
+    }
 }

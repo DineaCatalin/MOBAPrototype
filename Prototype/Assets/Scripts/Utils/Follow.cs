@@ -47,7 +47,7 @@ public class Follow : MonoBehaviour
 
     public void StopFollowing()
     {
-        Debug.LogError("Follow StopFollowing");
+        Debug.Log("Follow StopFollowing");
         follow = false;
     }
 }

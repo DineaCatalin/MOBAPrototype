@@ -160,7 +160,7 @@ public class Player : MonoBehaviour
 
     public void ActivateGraphics()
     {
-        Debug.LogError("Player ActivateGraphics");
+        Debug.Log("Player ActivateGraphics");
         playerCollider.enabled = true;
         graphics.EnableAfterBlink();
         SetUIState(true);

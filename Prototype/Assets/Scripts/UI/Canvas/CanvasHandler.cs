@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CanvasHandler : MonoBehaviour
@@ -8,8 +9,8 @@ public class CanvasHandler : MonoBehaviour
     [SerializeField] GameEvent[] eventForActivate;
     [SerializeField] GameEvent[] eventsForDeactivate;
 
-    [SerializeField] Tween[] onActivateTweens;
-    [SerializeField] Tween[] onDeactivateTweens;
+    Tween[] onActivateTweens;
+    Tween[] onDeactivateTweens;
 
     Canvas canvas;
 
@@ -21,6 +22,8 @@ public class CanvasHandler : MonoBehaviour
 
         Action openAction = new Action(Open);
         Action closeAction = new Action(Close);
+
+        SetTweens();
 
         foreach (GameEvent gameEvent in eventForActivate)
         {
@@ -43,6 +46,11 @@ public class CanvasHandler : MonoBehaviour
             setStateAction = new Action<bool>(SetCanvasState);
         }
     }
+
+    //private void Start()
+    //{
+    //    SetTweens();
+    //}
 
     public void Open()
     {
@@ -75,5 +83,45 @@ public class CanvasHandler : MonoBehaviour
     {
         gameObject.SetActive(active);
         canvas.enabled = active;
+    }
+
+    void SetTweens()
+    {
+        Tween[] tweens = GetComponentsInChildren<Tween>();
+        Debug.Log("CanvasHandler SetTweens tweens " + tweens.Length);
+
+        List<Tween> onActiveTweenList = new List<Tween>();
+        List<Tween> onDeactiveTweenList = new List<Tween>();
+
+        foreach (var tween in tweens)
+        {
+            if(tween.useOnActivate)
+            {
+                Debug.Log("CanvasHandler SetTweens tween.useOnActivate " + tween.name);
+                onActiveTweenList.Add(tween);
+            }
+            else
+            {
+                Debug.Log("CanvasHandler SetTweens !tween.useOnActivate ");
+                onDeactiveTweenList.Add(tween);
+            }
+        }
+
+        Debug.Log("CanvasHandler SetTweens onActiveTweenList " + onActiveTweenList.Count);
+
+        onActivateTweens = new Tween[onActiveTweenList.Count];
+        onDeactivateTweens = new Tween[onDeactiveTweenList.Count];
+
+        for (int i = 0; i < onActiveTweenList.Count; i++)
+        {
+            onActivateTweens[i] = onActiveTweenList[i];
+        }
+
+        for (int i = 0; i < onDeactiveTweenList.Count; i++)
+        {
+            onDeactivateTweens[i] = onDeactiveTweenList[i];
+        }
+
+        Debug.Log("CanvasHandler " + name + " SetTweens onActivateTweens " + onActivateTweens.Length);
     }
 }

@@ -1,16 +1,29 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Test/PlanetTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tweens/FadeInTextTween.cs">
     <Files>
-      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="46" Column="28" />
+      <File FileName="Assets/Scripts/Abilities/BlinkAbility.cs" Line="70" Column="22" />
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync2.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerGraphics.cs" Line="27" Column="27" />
       <File FileName="Assets/Scripts/Player/NonLocalPlayerMovement.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/ManaBurnEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/DamageEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/RootEffect.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="312" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/ImageContainer.cs" Line="11" Column="1" />
+      <File FileName="Assets/Scripts/UI/AbilitySpriteCache.cs" Line="32" Column="54" />
+      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="226" Column="26" />
+      <File FileName="Assets/Scripts/UI/AbilityUI/AbilityUI.cs" Line="70" Column="40" />
+      <File FileName="Assets/Scripts/Utils/Utils.cs" Line="69" Column="48" />
+      <File FileName="Assets/Scripts/Tweens/ScaleTween.cs" Line="12" Column="35" />
+      <File FileName="Assets/Scripts/Tweens/FlashTextTween.cs" Line="29" Column="32" />
+      <File FileName="Assets/Scripts/Tweens/FadeTween.cs" Line="23" Column="28" />
+      <File FileName="Assets/Scripts/Tweens/FadeObjectTween.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Tweens/FadeInOutTween.cs" Line="5" Column="5" />
+      <File FileName="Assets/Scripts/Tweens/FadeInTween.cs" Line="7" Column="5" />
+      <File FileName="Assets/Scripts/UI/Canvas/CanvasHandler.cs" Line="94" Column="19" />
+      <File FileName="Assets/Scripts/Tweens/Tween.cs" Line="7" Column="32" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="664" Column="6" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerController.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/Manager/PlayerManager.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerTeleportation.cs" NotebookId="1" />
@@ -22,7 +35,16 @@
       <File FileName="Assets/Scripts/Network/NetworkUtils.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerData.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Player/PlayerVitals.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Test/PlanetTest.cs" Line="17" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Test/PlanetTest.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/AbilityDraftLogic.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/ParticleSystem/LocalParticleSystemManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Trail/Trail.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Planet/PlanetLogic.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/PlayerBuffs.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/StatsBar.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/ImageSetSprite.cs" Line="13" Column="21" NotebookId="1" />
+      <File FileName="Assets/Scripts/Tweens/FadeInTextTween.cs" Line="28" Column="6" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -30,30 +52,14 @@
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Abilities" expanded="True">
-                  <Node name="Effects" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
-                  <Node name="Visuals" expanded="True" />
+                <Node name="Player" expanded="True" />
+                <Node name="Tweens" expanded="True">
+                  <Node name="FadeInTextTween.cs" selected="True" />
                 </Node>
-                <Node name="Camera" expanded="True" />
-                <Node name="Collider" expanded="True" />
-                <Node name="Environment" expanded="True" />
-                <Node name="Events" expanded="True" />
-                <Node name="GameManager" expanded="True" />
-                <Node name="Item" expanded="True" />
-                <Node name="Match" expanded="True" />
-                <Node name="Network" expanded="True" />
-                <Node name="ParticleSystem" expanded="True" />
-                <Node name="Planet" expanded="True" />
-                <Node name="Player" expanded="True">
-                  <Node name="Manager" expanded="True" />
-                  <Node name="Trail" expanded="True" />
+                <Node name="UI" expanded="True">
+                  <Node name="AbilityUI" expanded="True" />
+                  <Node name="Canvas" expanded="True" />
                 </Node>
-                <Node name="Test" expanded="True">
-                  <Node name="PlanetTest.cs" selected="True" />
-                </Node>
-                <Node name="Tweens" expanded="True" />
-                <Node name="UI" expanded="True" />
                 <Node name="Utils" expanded="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
@@ -65,7 +71,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="445125c2-ecb3-467d-a83f-9bf8523f840b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="beea3ad5-aa16-4c7f-99d9-65b753600b5d" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/catalin.dinea/git/MOBAPrototype/Prototype/Assets/StreamingAssets/CastRangeConfig.txt" relfile="Assets/StreamingAssets/CastRangeConfig.txt" line="48" column="1" />

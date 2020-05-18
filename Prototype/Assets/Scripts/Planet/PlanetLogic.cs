@@ -36,7 +36,7 @@ public class PlanetLogic
         }
         else
         {
-            Debug.LogError("PlanetLogic AdvanceState() winnerTeamID is not 1 or 2");
+            Debug.Log("PlanetLogic AdvanceState() winnerTeamID is not 1 or 2");
         }
 
         transitionAction.Invoke(previousState, state);

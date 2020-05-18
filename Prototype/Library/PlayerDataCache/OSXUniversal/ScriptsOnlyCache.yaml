@@ -31,6 +31,7 @@ ScriptsOnlyBuild:
     - EpicToonFX.ETFXLightFade
     - EpicToonFX.ETFXRotation
     - EventManager
+    - FadeInTween
     - FadeObjectTween
     - FlashTextTween
     - Flicker
@@ -80,11 +81,13 @@ ScriptsOnlyBuild:
     - RushArea
     - ScaleTween
     - ScoreBoard
+    - SetImageSprite
     - Shield
     - ShieldAbility
     - SlowEffect
     - SpawnAbility
     - SpellIndicator
+    - SpriteCache
     - StateManager
     - StatsBar
     - Trail
@@ -366,6 +369,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13898}
     - Class: 114
       Script: {instanceID: 13902}
+    - Class: 114
+      Script: {instanceID: 32210}
+    - Class: 114
+      Script: {instanceID: 32348}
+    - Class: 114
+      Script: {instanceID: 188738}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -860,7 +869,7 @@ ScriptsOnlyBuild:
     className: ETFXSceneManager
   - hash:
       serializedVersion: 2
-      Hash: 6989c4b94a71bdcc50c6a21ffe0e5e2f
+      Hash: 2d94284e973c32669de98db0c4818954
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilitySpawnTween
@@ -1022,7 +1031,7 @@ ScriptsOnlyBuild:
     className: GeneralCameraShake
   - hash:
       serializedVersion: 2
-      Hash: 4cfbcb5e5deb1f9f3cc7d0a7943c20db
+      Hash: 182dfdafd21ba64c1d5769880abf07f8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CanvasHandler
@@ -2258,7 +2267,7 @@ ScriptsOnlyBuild:
     className: ScoreHelper
   - hash:
       serializedVersion: 2
-      Hash: d47d458f66f7b10217f1e837aa46dd22
+      Hash: c9ba9634cb34bd14517a811196b40d5f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FlashTextTween
@@ -2462,7 +2471,7 @@ ScriptsOnlyBuild:
     className: PUN2_PlayerSync2
   - hash:
       serializedVersion: 2
-      Hash: 14d39821f1a0b6d8c46023dbbacb4db4
+      Hash: 451500761cde1ae3c4ba6a1ef4c70282
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScaleTween
@@ -2784,8 +2793,26 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 5c9161dc7d18c0a72e571b2681d50d12
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpriteCache
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SetImageSprite
+  - hash:
+      serializedVersion: 2
+      Hash: ecf48697fb9757c85a56f6c16eb9c632
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FadeInTween
   platform: 2
   scenePathNames:
   - Assets/Scenes/GameLobby.unity
   - Assets/Scenes/GameLevel.unity
-  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.99F_OSX.app
+  playerPath: /Users/catalin.dinea/git/MOBAPrototype/Prototype/Builds/MAC OS X/Elements_v_0.99G_OSX.app

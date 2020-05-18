@@ -1,0 +1,135 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class AbilityUI : MonoBehaviour
+{
+    public int id;
+
+    public Image darkMask;
+    public Image abilityIcon;
+
+    public TextMeshProUGUI abilityName;
+    public TextMeshProUGUI cooldownText;
+
+    public TextMeshProUGUI abilityKey;      // Key the user has to press to release the ability 
+
+    float cooldown;
+
+    KeyCode keyCode;
+
+    private void Start()
+    {
+        // Get the KeyCode for the ability that has the index = id 
+        AbilityInputKey key = GetKeyCodeForID(id);
+
+        keyCode = (KeyCode)key;
+
+        if (keyCode == KeyCode.Mouse0 || keyCode == KeyCode.Mouse1)
+        {
+            HandleMouseKey();
+        }
+        else
+        {
+            HandleKeyboardKey();
+        }
+
+        StopCooldown();
+    }
+
+    void HandleKeyboardKey()
+    {
+        // If the ability is a number it will the name will contain Alpha
+        // For example 1 will be "Alpha1" so we will take out the Alpha substring 
+        abilityKey.text = keyCode.ToString().Replace("Alpha", "");
+    }
+
+    void HandleMouseKey()
+    {
+        if(keyCode == KeyCode.Mouse0)
+        {
+            abilityKey.text = "C1";
+        }
+        else if(keyCode == KeyCode.Mouse1)
+        {
+            abilityKey.text = "C2";
+        }
+    }
+
+    public void UpdateCooldown(float currentCooldown)
+    {
+        float roundedCooldown = Mathf.Round(currentCooldown) + 1f;
+        cooldownText.text = roundedCooldown.ToString();
+        darkMask.fillAmount = currentCooldown / cooldown;
+    }
+
+    public void Load(AbilityData data)
+    {
+        cooldown = data.stats.cooldown;
+        abilityName.text = data.description.name;
+
+        cooldownText.text = cooldown.ToString();
+
+        Sprite sprite = SpriteCache.Instance.GetSprite(data.description.name);
+        abilityIcon.sprite = sprite;
+        darkMask.sprite = sprite;
+    }
+
+    public void ActivateCooldown()
+    {
+        darkMask.enabled = true;
+        cooldownText.enabled = true;
+    }
+
+    public void StopCooldown()
+    {
+        darkMask.enabled = false;
+        cooldownText.enabled = false;
+    }
+
+    AbilityInputKey GetKeyCodeForID(int keyID)
+    {
+        switch(keyID)
+        {
+            case 1:
+                {
+                    return AbilityInputKey.AttackAbility;
+                }
+            case 2:
+                {
+                    return AbilityInputKey.DefenseAbility;
+                }
+            case 3:
+                {
+                    return AbilityInputKey.MobilityAbility;
+                }
+            case 4:
+                {
+                    return AbilityInputKey.Ability1;
+                }
+            case 5:
+                {
+                    return AbilityInputKey.Ability2;
+                }
+            case 6:
+                {
+                    return AbilityInputKey.Ability3;
+                }
+            case 7:
+                {
+                    return AbilityInputKey.Ability4;
+                }
+            //case 8:
+            //    {
+            //        return AbilityInputKey.Ability8;
+            //    }
+
+            default:
+                {
+                    return 0;
+                }
+        }
+    }
+}
