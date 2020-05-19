@@ -735,6 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
+  InUse: 0
 --- !u!1 &398769138230856424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
+  InUse: 0
 --- !u!1 &3295094497746060772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6646,6 +6648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 0
+  InUse: 0
 --- !u!114 &6613199554024856447
 MonoBehaviour:
   m_ObjectHideFlags: 0

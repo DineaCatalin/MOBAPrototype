@@ -28,7 +28,7 @@ public class PlayerTeleportation : MonoBehaviour
         //nonLocalPlayerMovement.Lock();
         Debug.Log("PlayerTeleportation Teleport player.Deactivate();" + Time.realtimeSinceStartup);
         nonLocalPlayerMovement.Lock();
-        player.Deactivate();
+        player.DeactivateForBlink();
         teleportLocation = location;
         Debug.Log("PlayerTeleportation Teleport teleportLocation = location;" + Time.realtimeSinceStartup);
 

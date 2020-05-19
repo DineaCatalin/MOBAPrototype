@@ -133,7 +133,6 @@
     <Compile Include="Assets\Scripts\Match\Match.cs" />
     <Compile Include="Assets\Scripts\Match\MatchClock.cs" />
     <Compile Include="Assets\Scripts\Match\MatchPlayer.cs" />
-    <Compile Include="Assets\Scripts\MouseHandler.cs" />
     <Compile Include="Assets\Scripts\Network\AbilitySpawner.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkUtils.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_GameLobby.cs" />
@@ -141,6 +140,8 @@
     <Compile Include="Assets\Scripts\Network\PUN2_PlayerSync2.cs" />
     <Compile Include="Assets\Scripts\Network\PUN2_RoomController.cs" />
     <Compile Include="Assets\Scripts\ParticleSystem\LocalParticleSystemManager.cs" />
+    <Compile Include="Assets\Scripts\ParticleSystem\ParticleInfo.cs" />
+    <Compile Include="Assets\Scripts\ParticleSystem\ParticleNames.cs" />
     <Compile Include="Assets\Scripts\Planet\PlanetLogic.cs" />
     <Compile Include="Assets\Scripts\Planet\PlanetManager.cs" />
     <Compile Include="Assets\Scripts\Planet\PlanetSwitchTween.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Assets\Scripts\Player\Shield.cs" />
     <Compile Include="Assets\Scripts\Player\Trail\Trail.cs" />
     <Compile Include="Assets\Scripts\Pool\AbilityProjectilePool.cs" />
+    <Compile Include="Assets\Scripts\Pool\ParticleEffectPool.cs" />
     <Compile Include="Assets\Scripts\Test\DummyController.cs" />
     <Compile Include="Assets\Scripts\Test\PlanetTest.cs" />
     <Compile Include="Assets\Scripts\Test\Test.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Assets\Scripts\Utils\FullScreenSprite.cs" />
     <Compile Include="Assets\Scripts\Utils\LookAtMouse.cs" />
     <Compile Include="Assets\Scripts\Utils\MimicRotation.cs" />
+    <Compile Include="Assets\Scripts\Utils\MouseHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Utils\SpawnInMouseDirection.cs" />
     <Compile Include="Assets\Scripts\Utils\StateManager.cs" />

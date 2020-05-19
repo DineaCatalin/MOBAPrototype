@@ -22,9 +22,9 @@ public class AbilityProjectilePool : MonoBehaviour
 
         poolConfig.Add("BlastProjectile", 4);
         poolConfig.Add("EarthquakeProjectile", 4);
-        poolConfig.Add("FireballProjectile", 4);
-        poolConfig.Add("IceballProjectile", 4);
-        poolConfig.Add("LightningballProjectile", 4);
+        poolConfig.Add("FireballProjectile", 10);
+        poolConfig.Add("IceballProjectile", 10);
+        poolConfig.Add("LightningballProjectile", 10);
         poolConfig.Add("FireStormProjectile", 4);
         poolConfig.Add("IceWallProjectile", 4);
         poolConfig.Add("PushProjectile", 4);
@@ -33,7 +33,7 @@ public class AbilityProjectilePool : MonoBehaviour
         poolConfig.Add("TornadoProjectile", 4);
         poolConfig.Add("TraceProjectile", 4);
         poolConfig.Add("WaterRainProjectile", 4);
-        poolConfig.Add("Mana Sphere", 4);
+        poolConfig.Add("Mana Sphere", 0);
     }
 
     public void InitWithObjectList(List<GameObject> pooledObjectTypes)

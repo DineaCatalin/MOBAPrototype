@@ -156,6 +156,8 @@ public class Player : MonoBehaviour
 
         if (isNetworkActive)
             PlayerController.isRooted = false;
+
+        ParticleEffectPool.Instance.SpawnParticle(ParticleNames.SPAWN_PARTICLES, transform.position);
     }
 
     public void ActivateGraphics()
@@ -164,6 +166,7 @@ public class Player : MonoBehaviour
         playerCollider.enabled = true;
         graphics.EnableAfterBlink();
         SetUIState(true);
+        ParticleEffectPool.Instance.SpawnParticle(ParticleNames.BLINK_PARTICLES, transform.position);
     }
 
     private void Reset()
@@ -182,7 +185,6 @@ public class Player : MonoBehaviour
         if (isNetworkActive)
         {
             transform.position = EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID);
-            Teleport(EnvironmentManager.Instance.GetPlayerSpawnPoint(teamID));
             Invoke("Activate", NetworkUtils.PLAYER_SPAWN_DELAY);
             PlayerManager.Instance.ActivatePlayerOverNetwork(id);
             PlayerController.isLocked = false;
@@ -201,6 +203,8 @@ public class Player : MonoBehaviour
     // Will be used for synching the teleport mechanic over the network
     public void HandlePlayerDeath()
     {
+        ParticleEffectPool.Instance.SpawnParticle(ParticleNames.DEATH_PARTICLES, transform.position);
+
         Debug.Log("Player HandlePlayerDeath");
         isAlive = false;
 
@@ -217,6 +221,17 @@ public class Player : MonoBehaviour
     public void Deactivate()
     {
         Debug.Log("Player Deactivate");
+
+        SetUIState(false);
+        playerCollider.enabled = false;
+        graphics.Disable();
+    }
+
+    public void DeactivateForBlink()
+    {
+        Debug.Log("Player DeactivateForBlink");
+
+        ParticleEffectPool.Instance.SpawnParticle(ParticleNames.BLINK_PARTICLES, transform.position);
 
         SetUIState(false);
         playerCollider.enabled = false;
