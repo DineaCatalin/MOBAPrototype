@@ -20,7 +20,7 @@
       <File FileName="Assets/Scripts/Tweens/FadeTween.cs" Line="23" Column="28" />
       <File FileName="Assets/Scripts/Tweens/FadeObjectTween.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Tweens/FadeInOutTween.cs" Line="5" Column="5" />
-      <File FileName="Assets/Scripts/Tweens/FadeInTween.cs" Line="7" Column="5" />
+      <File FileName="Assets/Scripts/Tweens/FadeInTween.cs" Line="26" Column="38" />
       <File FileName="Assets/Scripts/UI/Canvas/CanvasHandler.cs" Line="94" Column="19" />
       <File FileName="Assets/Scripts/Tweens/Tween.cs" Line="7" Column="32" />
       <File FileName="Assets/Scripts/Player/Player.cs" Line="664" Column="6" NotebookId="1" />
@@ -44,7 +44,7 @@
       <File FileName="Assets/Scripts/UI/PlayerBuffs.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/StatsBar.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/UI/ImageSetSprite.cs" Line="13" Column="21" NotebookId="1" />
-      <File FileName="Assets/Scripts/Tweens/FadeInTextTween.cs" Line="28" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Tweens/FadeInTextTween.cs" Line="26" Column="23" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
