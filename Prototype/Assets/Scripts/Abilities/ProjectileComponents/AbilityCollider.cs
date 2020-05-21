@@ -72,7 +72,7 @@ public class AbilityCollider : MonoBehaviour
         else if(collision.tag == "Wall" && !isStatic)
         {
             Debug.Log("Collided with wall");
-            projectileVisuals.Deactivate();
+            Deactivate();
         }
         else
         {
@@ -89,7 +89,7 @@ public class AbilityCollider : MonoBehaviour
         if (!isStatic && abilityData.description.name != "Tornado" && abilityData.description.name != "FireStorm" && abilityData.description.name != "Blast")
         {
             Debug.Log("Destroyng projectile " + this.gameObject.name + " that hit player " + player.GetID());
-            projectileVisuals.Deactivate();
+            Deactivate();
         }
     }
 
@@ -110,7 +110,7 @@ public class AbilityCollider : MonoBehaviour
         iceWall.ApplyDamage();
 
         // Deactivate the ability after the collision
-        projectileVisuals.Deactivate();
+        Deactivate();
     }
 
     // This will handle the collision between abilities
@@ -123,7 +123,7 @@ public class AbilityCollider : MonoBehaviour
                 if (collision.tag == "Spikes" || collision.tag == "Roots")
                 {
                     collision.gameObject.SetActive(false);
-                    projectileVisuals.Deactivate();
+                    Deactivate();
                 }
                 break;
 
@@ -131,15 +131,21 @@ public class AbilityCollider : MonoBehaviour
                 if (collision.tag == "Fire Strom" || collision.tag == "Water Rain")
                 {
                     collision.gameObject.SetActive(false);
-                    projectileVisuals.Deactivate();
+                    Deactivate();
                 }
                 break;
         }
     }
 
-    private void OnDisable()
+    void Deactivate()
     {
-        if(doubleDamageEffect)
+        projectileVisuals.Deactivate();
+        DeactivateDoubleDamage();
+    }
+
+    void DeactivateDoubleDamage()
+    {
+        if (doubleDamageEffect)
         {
             abilityData.stats.hpValue /= 2;
             abilityData.stats.dotValue /= 2;

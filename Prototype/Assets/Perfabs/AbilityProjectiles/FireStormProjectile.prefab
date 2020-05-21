@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc6cf816950e4d459640b7ec4884369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useOnActivate: 1
   initialScale: {x: 1.5, y: 1.5, z: 0}
   finalScale: {x: 4, y: 4, z: 0}
   duration: 1
@@ -198,6 +199,7 @@ MonoBehaviour:
   useGameObject: 0
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
+  particleOnDeath: 6
   isActiveOnScreen: 0
 --- !u!114 &6964305863753221263
 MonoBehaviour:
@@ -212,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
+  InUse: 0
 --- !u!114 &6287586447931779840
 MonoBehaviour:
   m_ObjectHideFlags: 0

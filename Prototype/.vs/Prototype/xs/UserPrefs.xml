@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/PUN2_RoomController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/Effects/DamageEffect.cs">
     <Files>
       <File FileName="Assets/Scripts/Player/PlayerTeleportation.cs" Line="31" Column="37" />
       <File FileName="Assets/Scripts/ParticleSystem/LocalParticleSystemManager.cs" />
       <File FileName="Assets/Scripts/Planet/PlanetLogic.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="346" Column="47" />
       <File FileName="Assets/Scripts/UI/Player/StatsBar.cs" />
       <File FileName="Assets/Scripts/Tweens/Tween.cs" />
       <File FileName="Assets/Scripts/UI/Canvas/CanvasHandler.cs" />
@@ -16,7 +16,12 @@
       <File FileName="Assets/Scripts/ParticleSystem/ParticleInfo.cs" />
       <File FileName="Assets/Scripts/Events/GameEvent.cs" />
       <File FileName="Assets/Scripts/ParticleSystem/ParticleNames.cs" />
-      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" Line="43" Column="58" />
+      <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
+      <File FileName="Assets/Scripts/Abilities/Visuals/ProjectileVisuals.cs" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="87" Column="27" />
+      <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" Line="9" Column="26" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DamageEffect.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,9 +29,16 @@
           <Node name="Prototype" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Network" expanded="True">
-                  <Node name="PUN2_RoomController.cs" selected="True" />
+                <Node name="Abilities" expanded="True">
+                  <Node name="Effects" expanded="True">
+                    <Node name="DamageEffect.cs" selected="True" />
+                  </Node>
+                  <Node name="ProjectileComponents" expanded="True" />
+                  <Node name="Visuals" expanded="True" />
                 </Node>
+                <Node name="GameManager" expanded="True" />
+                <Node name="Network" expanded="True" />
+                <Node name="ParticleSystem" expanded="True" />
                 <Node name="Player" expanded="True">
                   <Node name="Trail" expanded="True" />
                 </Node>
@@ -40,7 +52,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a002d87b-1b1c-47c8-8e1e-7077af3b441e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="47e03f36-48ab-43ee-ba43-aeb30081c36a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

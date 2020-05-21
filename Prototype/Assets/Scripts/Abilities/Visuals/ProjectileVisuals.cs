@@ -8,6 +8,7 @@ public class ProjectileVisuals : MonoBehaviour
     [SerializeField] bool useGameObject;
     [SerializeField] bool affectColliderOnActivation;
     [SerializeField] bool affectColliderOnDeactivation;
+    [SerializeField] GameParticle particleOnDeath = GameParticle.NONE;
 
     LocalParticleSystemManager localParticleSystemManager;
     Collider2D projectileCollider;
@@ -96,6 +97,7 @@ public class ProjectileVisuals : MonoBehaviour
 
     void DeactivateColliderAndParticles()
     {
+        Debug.LogError("ProjectileVisuals DeactivateColliderAndParticles");
         projectileCollider.enabled = false;
         DeactivateParticleSystems();
     }
@@ -114,6 +116,9 @@ public class ProjectileVisuals : MonoBehaviour
     void DeactivateParticleSystems()
     {
         localParticleSystemManager.Stop();
+
+        if(particleOnDeath != GameParticle.NONE)
+            ParticleEffectPool.Instance.SpawnParticle(particleOnDeath, transform.position);
     }
 
     void ActivateGameObject()

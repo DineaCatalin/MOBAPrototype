@@ -161,6 +161,7 @@ MonoBehaviour:
   useGameObject: 0
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
+  particleOnDeath: 5
   isActiveOnScreen: 0
 --- !u!114 &-8900125588567908167
 MonoBehaviour:
@@ -175,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
+  InUse: 0
 --- !u!114 &4054097018522825451
 MonoBehaviour:
   m_ObjectHideFlags: 0

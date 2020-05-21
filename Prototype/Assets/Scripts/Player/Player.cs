@@ -138,6 +138,7 @@ public class Player : MonoBehaviour
         EventManager.StartListening(GameEvent.StartRound, new System.Action(Reset));
         EventManager.StartListening(GameEvent.ShieldDestroyed, new System.Action(DeactivateShield));
 
+        EventManager.StartListening(GameEvent.EndRound, new System.Action(HandlePlayerDeath));
         EventManager.StartListening(GameEvent.PlanetStateAdvance, new System.Action(HandlePlayerDeath));
 
         Deactivate();
@@ -157,7 +158,7 @@ public class Player : MonoBehaviour
         if (isNetworkActive)
             PlayerController.isRooted = false;
 
-        ParticleEffectPool.Instance.SpawnParticle(ParticleNames.SPAWN_PARTICLES, transform.position);
+        ParticleEffectPool.Instance.SpawnParticle(GameParticle.SPAWN, transform.position);
     }
 
     public void ActivateGraphics()
@@ -166,7 +167,7 @@ public class Player : MonoBehaviour
         playerCollider.enabled = true;
         graphics.EnableAfterBlink();
         SetUIState(true);
-        ParticleEffectPool.Instance.SpawnParticle(ParticleNames.BLINK_PARTICLES, transform.position);
+        ParticleEffectPool.Instance.SpawnParticle(GameParticle.BLINK, transform.position);
     }
 
     private void Reset()
@@ -196,16 +197,19 @@ public class Player : MonoBehaviour
     void Die(int killerID)
     {
         // We will just set the GO as inactive
-        Debug.Log("Player " + id + " Die()");
+        Debug.LogError("Player " + id + " Die()");
         PlayerManager.Instance.KillNetworkedPlayer(this.id, killerID);
     }
 
     // Will be used for synching the teleport mechanic over the network
     public void HandlePlayerDeath()
     {
-        ParticleEffectPool.Instance.SpawnParticle(ParticleNames.DEATH_PARTICLES, transform.position);
+        if (!isAlive)
+            return;
 
-        Debug.Log("Player HandlePlayerDeath");
+        ParticleEffectPool.Instance.SpawnParticle(GameParticle.DEATH, transform.position);
+
+        Debug.LogError("Player HandlePlayerDeath");
         isAlive = false;
 
         Deactivate();
@@ -220,7 +224,7 @@ public class Player : MonoBehaviour
 
     public void Deactivate()
     {
-        Debug.Log("Player Deactivate");
+        Debug.LogError("Player Deactivate");
 
         SetUIState(false);
         playerCollider.enabled = false;
@@ -231,7 +235,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player DeactivateForBlink");
 
-        ParticleEffectPool.Instance.SpawnParticle(ParticleNames.BLINK_PARTICLES, transform.position);
+        ParticleEffectPool.Instance.SpawnParticle(GameParticle.BLINK, transform.position);
 
         SetUIState(false);
         playerCollider.enabled = false;
@@ -322,12 +326,14 @@ public class Player : MonoBehaviour
 
     public void Damage(int damage, int casterPlayerID)
     {
+        Debug.LogError("Player " + id + "Damage amount" + damage + " casterID " + casterPlayerID);
+
         // Manage shield : if the shield is active and the damage delt is not enogh to destroy
         // the shield don't appy damage to the player
         if (shield.IsActive())
         {
             shield.Damage(ref damage);
-            Debug.Log("Player " + id + " shield is active so no damage taken");
+            Debug.LogError("Player " + id + " shield is active so no damage taken");
             return;
         }
 
@@ -339,7 +345,7 @@ public class Player : MonoBehaviour
         // Check if we are dead
         if (stats.health <= 0 && isAlive)
         {
-            Debug.Log("Player " + id + " Die()");
+            Debug.LogError("Player " + id + " Damage Die()");
             Die(casterPlayerID);
         }
     }
@@ -348,12 +354,12 @@ public class Player : MonoBehaviour
     {
         if (shield.IsActive())
         {
-            Debug.Log("Player DamageAndDOT shield is active");
+            Debug.LogError("Player DamageAndDOT shield is active");
             Damage(initialDamage, casterPlayerID);
         }
         else
         {
-            Debug.Log("Player DamageAndDOT shield is not active also applying DOT");
+            Debug.LogError("Player DamageAndDOT shield is not active also applying DOT");
             Damage(initialDamage, casterPlayerID);
             ApplyDOT(dotTicks, dotDamage, casterPlayerID);
         }
