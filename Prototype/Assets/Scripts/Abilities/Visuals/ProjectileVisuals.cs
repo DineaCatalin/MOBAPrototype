@@ -84,15 +84,23 @@ public class ProjectileVisuals : MonoBehaviour
 
     public void Deactivate()
     {
-        deactivateAction.Invoke();
-        DisableAbilityComponents();
         isActiveOnScreen = false;
+
+        deactivateAction.Invoke();
+        SpawnDeathParticles();
+        DisableAbilityComponents();
     }
 
     void ActivateAndTween()
     {
         ActivateParticleSystems();
         tween.Execute();
+    }
+
+    void SpawnDeathParticles()
+    {
+        if (particleOnDeath != GameParticle.NONE)
+            ParticleEffectPool.Instance.SpawnParticle(particleOnDeath, transform.position);
     }
 
     void DeactivateColliderAndParticles()
@@ -116,9 +124,6 @@ public class ProjectileVisuals : MonoBehaviour
     void DeactivateParticleSystems()
     {
         localParticleSystemManager.Stop();
-
-        if(particleOnDeath != GameParticle.NONE)
-            ParticleEffectPool.Instance.SpawnParticle(particleOnDeath, transform.position);
     }
 
     void ActivateGameObject()
