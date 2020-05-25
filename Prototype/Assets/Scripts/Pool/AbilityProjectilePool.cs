@@ -38,7 +38,7 @@ public class AbilityProjectilePool : MonoBehaviour
 
     public void InitWithObjectList(List<GameObject> pooledObjectTypes)
     {
-        foreach(GameObject pooledObject in pooledObjectTypes)
+        foreach (GameObject pooledObject in pooledObjectTypes)
         {
             int size = poolConfig[pooledObject.name];
 
@@ -73,7 +73,7 @@ public class AbilityProjectilePool : MonoBehaviour
     public ProjectileVisuals GetProjectile(string name)
     {
         // Get the current index and length of the specific pool 
-        int currentIndex = poolConfig[name];           
+        int currentIndex = poolConfig[name];
         int poolSize = poolMap[name].Length;
 
         // Get the next index

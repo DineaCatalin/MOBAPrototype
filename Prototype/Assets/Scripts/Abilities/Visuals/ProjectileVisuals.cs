@@ -82,12 +82,16 @@ public class ProjectileVisuals : MonoBehaviour
         isActiveOnScreen = true;
     }
 
+    public void DeactivateAndSpawnParticles()
+    {
+        Deactivate();
+        SpawnDeathParticles();
+    }
+
     public void Deactivate()
     {
         isActiveOnScreen = false;
-
         deactivateAction.Invoke();
-        SpawnDeathParticles();
         DisableAbilityComponents();
     }
 

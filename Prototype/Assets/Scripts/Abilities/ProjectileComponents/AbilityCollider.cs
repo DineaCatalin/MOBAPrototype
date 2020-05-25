@@ -11,7 +11,7 @@ public class AbilityCollider : MonoBehaviour
     int casterPlayerID;
 
     // Will be used to load the AbilityData, has to be the same as the ability Monobehav. that is creating it
-    [SerializeField] new string name; 
+    [SerializeField] new string name;
 
     // If our ability is static (Roots, Spikes) it should not be destroyed on contact with the player
     // It will also not move so we need a mechanism to destroy it after it's duration is gone
@@ -62,14 +62,14 @@ public class AbilityCollider : MonoBehaviour
             HandlePlayerCollision(collision);
         }
         // We hit an ice wall so apply some damage
-        else if(collision.tag == "Ice Wall")
+        else if (collision.tag == "Ice Wall")
         {
             Debug.Log("We hit the ice wall");
             HandleIceWallCollision(collision);
         }
         // We hit a wall, just deactivate the projectile
         // We also want the traps to not interact with the wall
-        else if(collision.tag == "Wall" && !isStatic)
+        else if (collision.tag == "Wall" && !isStatic)
         {
             Debug.Log("Collided with wall");
             Deactivate();
@@ -96,7 +96,7 @@ public class AbilityCollider : MonoBehaviour
     void HandleIceWallCollision(Collider2D collision)
     {
         // Ice wall will not interact with the following abilities
-        if(abilityData.description.name == "Trace"
+        if (abilityData.description.name == "Trace"
            || abilityData.description.name == "Water Rain"
            || abilityData.description.name == "Spikes"
            || abilityData.description.name == "Roots"
@@ -139,7 +139,7 @@ public class AbilityCollider : MonoBehaviour
 
     void Deactivate()
     {
-        projectileVisuals.Deactivate();
+        projectileVisuals.DeactivateAndSpawnParticles();
         DeactivateDoubleDamage();
     }
 

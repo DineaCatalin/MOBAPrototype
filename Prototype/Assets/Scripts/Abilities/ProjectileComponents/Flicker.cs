@@ -23,6 +23,6 @@ public class Flicker : AbilityComponent
     {
         yield return new WaitForSeconds(duration);
         Debug.Log("Flicker Disable");
-        projectileVisuals.Deactivate();
+        projectileVisuals.DeactivateAndSpawnParticles();
     }
 }

@@ -41,6 +41,6 @@ public class AbilityDuration : AbilityComponent
 
     void Deactivate()
     {
-        visuals.Deactivate();
+        visuals.DeactivateAndSpawnParticles();
     }
 }
