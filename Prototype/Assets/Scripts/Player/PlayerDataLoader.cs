@@ -3,15 +3,12 @@ using System.Collections;
 
 public static class PlayerDataLoader
 {
-    public static PlayerData Load()
+    public static PlayerData GetPlayerData()
     {
         PlayerData data = new PlayerData();
-
         string dataString = FileHandler.ReadString("PlayerConfig");
-        //            Debug.Log(dataString);
         data = JsonUtility.FromJson<PlayerData>(dataString);
 
         return data;
     }
-    
 }

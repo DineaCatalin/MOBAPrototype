@@ -66,6 +66,8 @@ public class LocalParticleSystemManager : MonoBehaviour
 
     public void ForceStop()
     {
+        Debug.Log("LocalParticleSystemManager ForceStop " + name);
+
         foreach (ParticleSystem pSyst in particleSystems)
         {
             pSyst.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);

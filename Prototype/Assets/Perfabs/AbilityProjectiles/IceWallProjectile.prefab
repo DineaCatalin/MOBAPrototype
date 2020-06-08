@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 773152297717910475}
   - component: {fileID: -8437145485850428453}
   - component: {fileID: 2269976116489354954}
+  - component: {fileID: 6064287404609215697}
   m_Layer: 0
   m_Name: IceWallProjectile
   m_TagString: Ice Wall
@@ -209,6 +210,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
   InUse: 0
+--- !u!114 &6064287404609215697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582468246873901728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eaf45b2872c492a8d15aa4277ede5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &682177749
 PrefabInstance:
   m_ObjectHideFlags: 0

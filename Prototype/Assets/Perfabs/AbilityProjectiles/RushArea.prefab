@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6434226850293210754}
   - component: {fileID: 6434226850293210781}
   - component: {fileID: -7616141017835974510}
+  - component: {fileID: -6817843150917543679}
   m_Layer: 0
   m_Name: RushArea
   m_TagString: Untagged
@@ -125,7 +126,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882d272f604f24a33b6a715a2b7a8a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialScale: {x: 0, y: 0}
-  finalScale: {x: 1.2, y: 1.2}
+  initialScale: {x: 0, y: 0, z: 0}
+  finalScale: {x: 1.2, y: 1.2, z: 0}
   scaleTime: 2
   easeType: 30
+--- !u!114 &-6817843150917543679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6434226850293210780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eaf45b2872c492a8d15aa4277ede5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

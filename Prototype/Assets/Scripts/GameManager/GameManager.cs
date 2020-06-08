@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static float TIME_BETWEEN_ROUNDS = 1.5f;
 
     public const float ACTIVATE_PLAYER_DELAY = 0.75f;
+    public const float ROUND_END_DELAY = 2f;
 
     public static GameManager Instance;
 
@@ -87,7 +88,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManager StartMatch totalPlayers " + totalPlayers);
 
         Debug.Log("GameManager StartMatch StartRound");
-        EventManager.TriggerEvent(GameEvent.StartRound);
+        StartCoroutine("StartRoundWithDelay");
     }
 
     void OnRoundEnd()
@@ -112,8 +113,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartRoundWithDelay()
     {
-        yield return new WaitForSeconds(TIME_BETWEEN_ROUNDS);
+        EnvironmentObjects.Instance.AdvanceOnPlanetChange();
 
+        yield return new WaitForSeconds(TIME_BETWEEN_ROUNDS);
         Debug.Log("GameManager StartRoundWithDelay Starting round");
         StartRound();
     }
@@ -201,6 +203,7 @@ public class GameManager : MonoBehaviour
         if (playersReady >= totalPlayers)
         {
             Debug.Log("GameManager CheckRedraftFinished OnRoundEnd playersReady " + playersReady + " totalPlayers " + totalPlayers);
+            // TODO:
             OnRoundEnd();
         }
     }

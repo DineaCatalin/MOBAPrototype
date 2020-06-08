@@ -37,6 +37,7 @@ public class DestroyAfterCollisions : AbilityComponent
 
     public void Destroy()
     {
-        visuals.DeactivateAndSpawnParticles();
+        if(visuals.IsActiveOnScreen())
+            visuals.DeactivateAndSpawnParticles();
     }
 }

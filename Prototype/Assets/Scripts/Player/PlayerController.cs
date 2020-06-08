@@ -14,7 +14,7 @@ public enum AbilityInputKey
     AbilityAlias2 = KeyCode.Alpha2,
     AbilityAlias3 = KeyCode.Alpha3,
     AbilityAlias4 = KeyCode.Alpha4,
-    AbilityManaCharge = KeyCode.LeftShift    
+    AbilityManaCharge = KeyCode.LeftShift
 }
 
 public class PlayerController : MonoBehaviour
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     // We will disable the movement function when this is true
     public static bool isRooted;
-    
+
     PlayerData stats;
 
     Vector3 movementIncrement;
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isLocked)
+        if (!isLocked)
         {
             HandleRotationTransform();
             //HandleMovementTransform();
@@ -87,7 +87,8 @@ public class PlayerController : MonoBehaviour
         {
             direction.x = Input.GetAxis("Horizontal");
             direction.y = Input.GetAxis("Vertical");
-            playerRigidbody.MovePosition((Vector2)playerTransform.position + (direction * stats.speed * Time.deltaTime));
+            //playerRigidbody.MovePosition((Vector2)playerTransform.position + (direction * stats.speed * Time.deltaTime));
+            playerRigidbody.AddForce(direction * stats.speed);
         }
     }
 
@@ -129,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
     bool HandleAbilityCasting()
     {
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             if (abilityManager.NoAbilitySelected() || abilityManager.IsCurrentAbilityCharging())
             {
@@ -148,9 +149,9 @@ public class PlayerController : MonoBehaviour
 
     bool HandleManaCharge()
     {
-        if(Input.GetKeyDown((KeyCode)AbilityInputKey.AbilityManaCharge))
+        if (Input.GetKeyDown((KeyCode)AbilityInputKey.AbilityManaCharge))
         {
-            if(!charging)
+            if (!charging)
             {
                 player.StartManaCharge();
                 charging = true;
@@ -158,12 +159,12 @@ public class PlayerController : MonoBehaviour
 
             return true;
         }
-        else if(Input.GetKey((KeyCode)AbilityInputKey.AbilityManaCharge))
+        else if (Input.GetKey((KeyCode)AbilityInputKey.AbilityManaCharge))
         {
             // Plauyer 
             return true;
         }
-        else if(Input.GetKeyUp((KeyCode)AbilityInputKey.AbilityManaCharge))
+        else if (Input.GetKeyUp((KeyCode)AbilityInputKey.AbilityManaCharge))
         {
             player.StopManaCharge();
             charging = false;
@@ -203,7 +204,7 @@ public class PlayerController : MonoBehaviour
         {
             SwitchSelectedAbility(6);
         }
-        if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability4) || 
+        if (Input.GetKeyDown((KeyCode)AbilityInputKey.Ability4) ||
             Input.GetKeyDown((KeyCode)AbilityInputKey.AbilityAlias4))
         {
             SwitchSelectedAbility(7);
@@ -214,6 +215,6 @@ public class PlayerController : MonoBehaviour
     {
         // We do this so that the number of the ability becomes the position in the array
         index--;
-        abilityManager.SetCurrentAbility(index);  
+        abilityManager.SetCurrentAbility(index);
     }
 }

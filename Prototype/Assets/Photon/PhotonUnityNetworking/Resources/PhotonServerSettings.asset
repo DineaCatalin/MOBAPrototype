@@ -82,5 +82,7 @@ MonoBehaviour:
   - ActivatePlayerGraphicsRPC
   - AdvancePlanetStateRPC
   - BlinkPlayerRPC
+  - SetHealthRPC
+  - SetManaRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1

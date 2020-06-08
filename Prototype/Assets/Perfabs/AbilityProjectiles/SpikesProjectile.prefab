@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4898851022164710559}
   - component: {fileID: -6527079845063699561}
   - component: {fileID: 9161198318939588020}
+  - component: {fileID: -5092077114388258959}
   m_Layer: 0
   m_Name: SpikesProjectile
   m_TagString: Untagged
@@ -160,8 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc6cf816950e4d459640b7ec4884369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useOnActivate: 1
   initialScale: {x: 0.35, y: 0.35, z: 0.35}
-  finalScale: {x: 1, y: 1, z: 1}
+  finalScale: {x: 1.65, y: 1.65, z: 1.65}
   duration: 0.5
   colliderActivationTime: 0
   scaleEaseType: 17
@@ -182,6 +184,7 @@ MonoBehaviour:
   useGameObject: 0
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
+  particleOnDeath: 10
   isActiveOnScreen: 0
 --- !u!114 &-6527079845063699561
 MonoBehaviour:
@@ -196,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
+  InUse: 0
 --- !u!114 &9161198318939588020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +213,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateComponentsOnAwake: 1
+--- !u!114 &-5092077114388258959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857320004693153027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eaf45b2872c492a8d15aa4277ede5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &69111451187479108
 PrefabInstance:
   m_ObjectHideFlags: 0

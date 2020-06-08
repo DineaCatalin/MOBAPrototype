@@ -4,9 +4,9 @@
    "mana":100,
    "maxMana":100,
    "power":1.0,
-   "speed":5.5,
+   "speed":14,
    "manaChargePerSecond":10,
-   "manaChargeSpeedPenalty":4.0,
+   "manaChargeSpeedPenalty":10.0,
    "healthRegen":1,
    "manaRegen":0
 }

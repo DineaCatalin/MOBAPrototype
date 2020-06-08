@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -2418074171658775171}
   - component: {fileID: 752179304351455485}
   - component: {fileID: 8495527874537896798}
+  - component: {fileID: 4034281947003763297}
   m_Layer: 0
   m_Name: EarthquakeProjectile
   m_TagString: Ice Wall
@@ -142,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc6cf816950e4d459640b7ec4884369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useOnActivate: 1
   initialScale: {x: 0.4, y: 0.4, z: 0.4}
-  finalScale: {x: 0.8, y: 0.8, z: 0.8}
+  finalScale: {x: 1.2, y: 1.2, z: 1.2}
   duration: 0.5
   colliderActivationTime: 0.5
   scaleEaseType: 17
@@ -180,6 +182,7 @@ MonoBehaviour:
   useGameObject: 0
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
+  particleOnDeath: 10
   isActiveOnScreen: 0
 --- !u!114 &752179304351455485
 MonoBehaviour:
@@ -194,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
+  InUse: 0
 --- !u!114 &8495527874537896798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +211,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateComponentsOnAwake: 1
+--- !u!114 &4034281947003763297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441949558110838355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eaf45b2872c492a8d15aa4277ede5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7372834285019719848
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -40,6 +40,7 @@ public class PlanetLogic
         }
 
         transitionAction.Invoke(previousState, state);
+        EnvironmentObjects.Instance.currentPlanetState = state;
 
         if (FinalStateReached())
         {

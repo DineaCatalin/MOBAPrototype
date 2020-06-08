@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8347578718847873723}
   - component: {fileID: 8347578718847873722}
   - component: {fileID: 8347578718847873720}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HP Sphere
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -127,9 +127,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8347578718847873725}
     m_Modifications:
+    - target: {fileID: 112880, guid: 9902f48ac1851694fb6332b1472ec09a, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 170932, guid: 9902f48ac1851694fb6332b1472ec09a, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 178014, guid: 9902f48ac1851694fb6332b1472ec09a, type: 3}
       propertyPath: m_Name
       value: PowerOrbRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 178014, guid: 9902f48ac1851694fb6332b1472ec09a, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 495512, guid: 9902f48ac1851694fb6332b1472ec09a, type: 3}
       propertyPath: m_LocalPosition.x

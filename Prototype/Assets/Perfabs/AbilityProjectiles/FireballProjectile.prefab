@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 2920776911518254379}
   - component: {fileID: 8952461524909084093}
   - component: {fileID: 5823750708134945082}
+  - component: {fileID: -1696998476607680691}
+  - component: {fileID: 3092345001465733206}
   m_Layer: 10
   m_Name: FireballProjectile
   m_TagString: Untagged
@@ -33,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 6114874316309127837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 9000292914657504760}
   m_Father: {fileID: 0}
@@ -190,6 +192,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
   InUse: 0
+--- !u!114 &-1696998476607680691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6114874316309127837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eaf45b2872c492a8d15aa4277ede5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &3092345001465733206
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6114874316309127837}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &9000292914657962870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -257,8 +292,24 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19801614, guid: 3b671081e44be1c4aa4355e8ba6e8a5e, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19854360, guid: 3b671081e44be1c4aa4355e8ba6e8a5e, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19871384, guid: 3b671081e44be1c4aa4355e8ba6e8a5e, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 19886636, guid: 3b671081e44be1c4aa4355e8ba6e8a5e, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19886636, guid: 3b671081e44be1c4aa4355e8ba6e8a5e, type: 3}
+      propertyPath: useRigidbodyForVelocity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -6924375153111777428}
   - component: {fileID: 8501302139914798683}
   - component: {fileID: 2663895347492819098}
+  - component: {fileID: -8319254983618602471}
   m_Layer: 0
   m_Name: RootsProjectile
   m_TagString: Untagged
@@ -159,8 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc6cf816950e4d459640b7ec4884369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useOnActivate: 1
   initialScale: {x: 0.5, y: 0.5, z: 0.5}
-  finalScale: {x: 1, y: 1, z: 1}
+  finalScale: {x: 1.5, y: 1.5, z: 1.5}
   duration: 0.5
   colliderActivationTime: 0.5
   scaleEaseType: 17
@@ -181,6 +183,7 @@ MonoBehaviour:
   useGameObject: 0
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
+  particleOnDeath: 10
   isActiveOnScreen: 0
 --- !u!114 &8501302139914798683
 MonoBehaviour:
@@ -195,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
+  InUse: 0
 --- !u!114 &2663895347492819098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +212,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateComponentsOnAwake: 1
+--- !u!114 &-8319254983618602471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3113322748043198587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eaf45b2872c492a8d15aa4277ede5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1244349672937654174
 PrefabInstance:
   m_ObjectHideFlags: 0

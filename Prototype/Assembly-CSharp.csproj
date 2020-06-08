@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\HealZone.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ProjectileComponents\MoveAbilityToPoint.cs" />
+    <Compile Include="Assets\Scripts\Abilities\ProjectileLogic.cs" />
     <Compile Include="Assets\Scripts\Abilities\RushAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\ShieldAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\SpawnAbility.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityFactory.cs" />
     <Compile Include="Assets\Scripts\Abilities\Utils\AbilityMapper.cs" />
     <Compile Include="Assets\Scripts\Abilities\Visuals\ProjectileVisuals.cs" />
+    <Compile Include="Assets\Scripts\AbilitySelectScreen\AbilityDraftLogic.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Audio\Sound.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
@@ -122,6 +124,7 @@
     <Compile Include="Assets\Scripts\Environment\AreaLimiter.cs" />
     <Compile Include="Assets\Scripts\Environment\AreaLimiterManager.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentManager.cs" />
+    <Compile Include="Assets\Scripts\Environment\EnvironmentObjects.cs" />
     <Compile Include="Assets\Scripts\Environment\Lava.cs" />
     <Compile Include="Assets\Scripts\Environment\Walls.cs" />
     <Compile Include="Assets\Scripts\Events\EventManager.cs" />
@@ -132,6 +135,7 @@
     <Compile Include="Assets\Scripts\Item\ItemPool.cs" />
     <Compile Include="Assets\Scripts\Match\Match.cs" />
     <Compile Include="Assets\Scripts\Match\MatchClock.cs" />
+    <Compile Include="Assets\Scripts\Match\MatchFlow.cs" />
     <Compile Include="Assets\Scripts\Match\MatchPlayer.cs" />
     <Compile Include="Assets\Scripts\Network\AbilitySpawner.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkUtils.cs" />
@@ -142,6 +146,7 @@
     <Compile Include="Assets\Scripts\ParticleSystem\LocalParticleSystemManager.cs" />
     <Compile Include="Assets\Scripts\ParticleSystem\ParticleInfo.cs" />
     <Compile Include="Assets\Scripts\ParticleSystem\ParticleNames.cs" />
+    <Compile Include="Assets\Scripts\Planet\PlanetCreateTween.cs" />
     <Compile Include="Assets\Scripts\Planet\PlanetLogic.cs" />
     <Compile Include="Assets\Scripts\Planet\PlanetManager.cs" />
     <Compile Include="Assets\Scripts\Planet\PlanetSwitchTween.cs" />
@@ -172,14 +177,15 @@
     <Compile Include="Assets\Scripts\Tweens\FadeInTextTween.cs" />
     <Compile Include="Assets\Scripts\Tweens\FadeInTween.cs" />
     <Compile Include="Assets\Scripts\Tweens\FadeObjectTween.cs" />
+    <Compile Include="Assets\Scripts\Tweens\FadeOutTween.cs" />
     <Compile Include="Assets\Scripts\Tweens\FadeTween.cs" />
     <Compile Include="Assets\Scripts\Tweens\FlashTextTween.cs" />
     <Compile Include="Assets\Scripts\Tweens\ScaleTween.cs" />
     <Compile Include="Assets\Scripts\Tweens\Tween.cs" />
-    <Compile Include="Assets\Scripts\UI\AbilityDraftLogic.cs" />
     <Compile Include="Assets\Scripts\UI\AbilitySelectButton.cs" />
     <Compile Include="Assets\Scripts\UI\AbilityUI\AbilityUI.cs" />
     <Compile Include="Assets\Scripts\UI\AbilityUI\AbilityUIContainer.cs" />
+    <Compile Include="Assets\Scripts\UI\BackgroundUI.cs" />
     <Compile Include="Assets\Scripts\UI\Canvas\CanvasHandler.cs" />
     <Compile Include="Assets\Scripts\UI\GameUI.cs" />
     <Compile Include="Assets\Scripts\UI\Player\PlayerBuffs.cs" />

@@ -36,20 +36,7 @@ public class AbilitySpawner : MonoBehaviour
         ProjectileVisuals spawned = AbilityProjectilePool.Instance.GetProjectile(projectileName);
         spawned.transform.position = position;
         spawned.transform.rotation = rotation;
-        spawned.Activate();
-
-        spawned.gameObject.layer = layer;
-
-        Player player = PlayerManager.Instance.GetPlayer(casterPlayerID);
-        AbilityCollider abilityCollider = spawned.GetComponent<AbilityCollider>();
-
-        if(abilityCollider)
-            abilityCollider.SetCasterID(casterPlayerID);
-
-        if (player.hasDoubleDamage)
-        {
-            abilityCollider.ActivateDoubleDamageEffect(player.hasDoubleDamage);
-        }
+        spawned.ActivateStaticProjectile(casterPlayerID, layer);
     }
 
     public void SpawnProjectile(string name, Vector3 position, Quaternion rotation, Vector3 direction, int layer, int casterPlayerID)
@@ -65,24 +52,7 @@ public class AbilitySpawner : MonoBehaviour
         projectile.transform.rotation = rotation;
         Debug.Log("AbilitySpawner SpawnProjectileAbility position " + position);
 
-        projectile.gameObject.layer = layer;
-
-        projectile.Activate();
-
-        MoveAbility movement = projectile.GetComponent<MoveAbility>();
-
-        if(movement != null)
-            movement.SetDirection(direction);
-
-        Player player = PlayerManager.Instance.GetPlayer(casterPlayerID);
-        AbilityCollider abilityCollider = projectile.GetComponent<AbilityCollider>();
-
-        abilityCollider.SetCasterID(casterPlayerID);
-
-        if (player.hasDoubleDamage)
-        {
-            abilityCollider.ActivateDoubleDamageEffect(player.hasDoubleDamage);
-        }
+        projectile.ActivateDynamicProjectile(casterPlayerID, layer, direction);
     }
     
     // We load all the projectiles from the list into the map(Dictionary) and empty the list

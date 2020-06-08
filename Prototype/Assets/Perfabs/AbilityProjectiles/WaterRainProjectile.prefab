@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -8385285091882086241}
   - component: {fileID: 3915998062787056730}
   - component: {fileID: 3328288101235312114}
+  - component: {fileID: -4842441345783412974}
   m_Layer: 0
   m_Name: WaterRainProjectile
   m_TagString: Untagged
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc6cf816950e4d459640b7ec4884369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useOnActivate: 1
   initialScale: {x: 0.5, y: 0.5, z: 0}
   finalScale: {x: 1, y: 1, z: 0}
   duration: 0.5
@@ -193,6 +195,7 @@ MonoBehaviour:
   useGameObject: 0
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
+  particleOnDeath: 10
   isActiveOnScreen: 0
 --- !u!114 &3915998062787056730
 MonoBehaviour:
@@ -207,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
+  InUse: 0
 --- !u!114 &3328288101235312114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +224,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateComponentsOnAwake: 1
+--- !u!114 &-4842441345783412974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268611563194761343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eaf45b2872c492a8d15aa4277ede5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &120318842
 PrefabInstance:
   m_ObjectHideFlags: 0

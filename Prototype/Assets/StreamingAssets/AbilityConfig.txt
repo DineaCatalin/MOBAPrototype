@@ -6,7 +6,7 @@
             "casterTeamName":"Team1"
          },
          "stats":{
-            "cooldown":0.50,
+            "cooldown":0.5,
             "manaCost":0,
             "dotValue":0.8,
             "duration":5,
@@ -32,7 +32,7 @@
             "casterTeamName":"Team1"
          },
          "stats":{
-            "cooldown":0.9,
+            "cooldown":0.7,
             "manaCost":0,
             "dotValue":8,
             "duration":1,
@@ -177,7 +177,7 @@
          "stats":{
             "cooldown":10.0,
             "manaCost":10,
-            "dotValue":8,
+            "dotValue":6,
             "duration":4,
             "hpValue":5
          }
@@ -203,7 +203,7 @@
          "stats":{
             "cooldown":3.0,
             "manaCost":10,
-            "dotValue":20,
+            "dotValue":25,
             "duration":1,
             "hpValue":20
          }
@@ -216,7 +216,7 @@
          "stats":{
             "cooldown":20.0,
             "manaCost":20,
-            "dotValue":1,
+            "dotValue":3,
             "duration":10,
             "hpValue":1
          }
@@ -242,7 +242,7 @@
          "stats":{
             "cooldown":5.0,
             "manaCost":20,
-            "dotValue":8,
+            "dotValue":5,
             "duration":1,
             "hpValue":25
          }

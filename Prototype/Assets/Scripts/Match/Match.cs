@@ -79,7 +79,7 @@ public class Match : MonoBehaviour
 
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
 
-        AdvanceMatchState();
+        Invoke("AdvanceMatchState", GameManager.ROUND_END_DELAY);
     }
 
     void AdvanceMatchState()

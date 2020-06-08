@@ -92,11 +92,16 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
         if (!photonView.IsMine)
         {
             playerRigidbody.position = Vector3.MoveTowards(playerRigidbody.position, networkPosition, Time.fixedDeltaTime);
+            //playerRigidbody.MovePosition(Vector3.MoveTowards(playerRigidbody.position, networkPosition, Time.fixedDeltaTime));
+
 
             // Don't do rotation
             //playerRigidbody.rotation = Quaternion.RotateTowards(playerRigidbody.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
+            //playerRigidbody.MoveRotation(networkRotation);
         }
     }
+
+    float lag;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -107,7 +112,7 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             stream.SendNext(playerRigidbody.rotation);
             stream.SendNext(playerRigidbody.velocity);
 
-            stream.SendNext(playerTransform.position);
+            //stream.SendNext(playerTransform.position);
 
             // Health and mana
             stream.SendNext(player.GetStats().health);
@@ -119,10 +124,11 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             networkRotation = (float)stream.ReceiveNext();
             playerRigidbody.velocity = (Vector2)stream.ReceiveNext();
 
-            playerTransform.position = (Vector3)stream.ReceiveNext();
+            //playerTransform.position = (Vector3)stream.ReceiveNext();
 
             // Lag compensation
-            float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+            lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+            //playerRigidbody.position += playerRigidbody.velocity * lag;
             networkPosition += (playerRigidbody.velocity * lag);
 
             // Health and mana

@@ -26,7 +26,9 @@ public class ParticleEffectPool : MonoBehaviour
 
             for (int i = 0; i < particleArray.Length; i++)
             {
-                GameObject particlesGO = Instantiate(particleData.particleSystem);
+                Debug.Log("ParticleEffectPool Awake Instantiating " + particleData.particleSystem.name);
+                GameObject particlesGO = Instantiate(particleData.particleSystem, transform);
+
                 LocalParticleSystemManager particleManager;
 
                 particleManager = particlesGO.GetComponent<LocalParticleSystemManager>();

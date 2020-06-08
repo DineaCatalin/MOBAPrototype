@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3477419719843899482}
   - component: {fileID: 3132900488244085536}
   - component: {fileID: -2723101666812934660}
+  - component: {fileID: -6501658933937221663}
   m_Layer: 10
   m_Name: BlastProjectile
   m_TagString: Projectile
@@ -159,8 +160,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000009536743, y: 4.1722245}
-  m_Size: {x: 4.758687, y: 8.344552}
+  m_Offset: {x: 0.011750698, y: 4.485454}
+  m_Size: {x: 8.75579, y: 8.971011}
   m_Direction: 0
 --- !u!114 &3477419719843899482
 MonoBehaviour:
@@ -175,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateOnAwake: 1
+  InUse: 0
 --- !u!114 &3132900488244085536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +205,20 @@ MonoBehaviour:
   useGameObject: 0
   affectColliderOnActivation: 1
   affectColliderOnDeactivation: 1
+  particleOnDeath: 10
   isActiveOnScreen: 0
+--- !u!114 &-6501658933937221663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425128974039810944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eaf45b2872c492a8d15aa4277ede5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &632602141702725040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,6 +265,30 @@ PrefabInstance:
     - target: {fileID: 1972437569832346, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078504401268042, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078504401268042, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078504401268042, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078504401268042, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078504401268042, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078504401268042, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4371856175806300, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
       propertyPath: m_LocalPosition.x

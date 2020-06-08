@@ -21,6 +21,8 @@ public class AbilityCollider : MonoBehaviour
 
     ProjectileVisuals projectileVisuals;
 
+    AbilityCollider otherCollider; 
+
     private void Awake()
     {
         abilityData = AbilityDataCache.GetDataForAbility(name);
@@ -113,31 +115,92 @@ public class AbilityCollider : MonoBehaviour
         Deactivate();
     }
 
+
+
     // This will handle the collision between abilities
     // Bad implementation but we are rushing a prototype here...
     void HandleElementalCollisions(Collider2D collision)
     {
+        Debug.Log("AbilityCollider HandleElementalCollisions " + abilityData.description.name + " and " + collision.name);
         switch (abilityData.description.name)
         {
-            case "Blast":
-                if (collision.tag == "Spikes" || collision.tag == "Roots")
+            case "Fireball":
+            case "Iceball":
+            case "Lightningball":
+                if (collision.name.Contains("Tornado") || collision.name.Contains("Push")
+                    || collision.name.Contains("FireStorm") || collision.name.Contains("WaterRain")
+                    || collision.name.Contains("Fireball") || collision.name.Contains("Iceball")
+                    || collision.name.Contains("Lightningball") || collision.name.Contains("Blast"))
                 {
-                    collision.gameObject.SetActive(false);
+                    Debug.Log("AbilityCollider HandleElementalCollisions Deactivate " + abilityData.description.name + " " + name);
                     Deactivate();
                 }
                 break;
 
             case "Tornado":
-                if (collision.tag == "Fire Strom" || collision.tag == "Water Rain")
+                if (collision.name.Contains("Tornado"))
                 {
-                    collision.gameObject.SetActive(false);
+                    Deactivate();
+                }
+                else if (collision.name.Contains("Push"))
+                {
+                    Deactivate();
+                }
+                break;
+
+            case "Fire Storm":
+                if (collision.name.Contains("FireStorm"))
+                {
+                    Deactivate();
+                }
+                else if (collision.name.Contains("Tornado"))
+                {
+                    Deactivate();
+                }
+                break;
+
+            case "Push":
+                if (collision.name.Contains("Push"))
+                {
+                    Deactivate();
+                }
+                else if (collision.name.Contains("FireStorm"))
+                {
+                    Deactivate();
+                }
+                break;
+
+            case "Trace":
+                if (collision.name.Contains("Tornado"))
+                {
+                    Deactivate();
+                }
+                break;
+
+            case "Water Rain":
+                if (collision.name.Contains("Blast"))
+                {
+                    Deactivate();
+                }
+                break;
+
+            case "Spikes":
+                if (collision.name.Contains("Tornado"))
+                {
+                    Deactivate();
+                }
+                break;
+
+            case "Roots":
+                if (collision.name.Contains("Tornado"))
+                {
                     Deactivate();
                 }
                 break;
         }
     }
 
-    void Deactivate()
+    public void Deactivate()
     {
         projectileVisuals.DeactivateAndSpawnParticles();
         DeactivateDoubleDamage();

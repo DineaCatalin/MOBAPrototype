@@ -24,25 +24,22 @@ public class CameraShake : MonoBehaviour {
 
         // Cahce the original position of the camera so that we know where to
         cameraOrigin = mainCamera.transform.position;
-    }
 
-    // TEST
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            KnockOutShake();
-        }
-    }
-
-    private void Start()
-    {
         background = GameObject.Find("Background").transform;
         backgroundOrigin = background.position;
         backgroundZ = backgroundOrigin.z;
 
         EventManager.StartListening(GameEvent.KnockOut, new System.Action(KnockOutShake));
     }
+
+    // TEST
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.T))
+    //    {
+    //        KnockOutShake();
+    //    }
+    //}
 
     void KnockOutShake()
     {

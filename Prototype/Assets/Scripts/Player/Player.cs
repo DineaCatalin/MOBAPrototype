@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
 
     public Transform castOrigin;
 
+    PlayerVitals vitals;
+
     Rigidbody2D rigidBody;
     Collider2D playerCollider;
 
@@ -99,13 +101,14 @@ public class Player : MonoBehaviour
         SetComponentIDs();
 
         // Load stats from config file
-        stats = PlayerDataLoader.Load();
+        stats = PlayerDataLoader.GetPlayerData();
         interactionManager = GetComponentInParent<InteractionManager>();
         shield = GetComponentInChildren<Shield>();
         rushAreaManager = GetComponentInChildren<StateManager>();
         rigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
         teleportation = GetComponent<PlayerTeleportation>();
+        vitals = GetComponentInParent<PlayerVitals>();
         //buffsUI = GetComponentInChildren<PlayerBuffs>();
 
         healEffectActive = false;
@@ -130,7 +133,7 @@ public class Player : MonoBehaviour
 
         isAlive = true;
 
-        InvokeRepeating("RegenerateStats", 1, 3);
+        //InvokeRepeating("RegenerateStats", 1, 3);
 
         SetCoroutines();
 
@@ -138,8 +141,8 @@ public class Player : MonoBehaviour
         EventManager.StartListening(GameEvent.StartRound, new System.Action(Reset));
         EventManager.StartListening(GameEvent.ShieldDestroyed, new System.Action(DeactivateShield));
 
-        EventManager.StartListening(GameEvent.EndRound, new System.Action(HandlePlayerDeath));
-        EventManager.StartListening(GameEvent.PlanetStateAdvance, new System.Action(HandlePlayerDeath));
+        EventManager.StartListening(GameEvent.EndRound, new System.Action(HandlePlayerRemoval));
+        EventManager.StartListening(GameEvent.PlanetStateAdvance, new System.Action(HandlePlayerRemoval));
 
         Deactivate();
     }
@@ -178,8 +181,10 @@ public class Player : MonoBehaviour
         stats.mana = stats.maxMana;
 
         // UI
-        healthBar.SetCurrentStat(stats.health);
-        manaBar.SetCurrentStat(stats.mana);
+        //healthBar.SetCurrentStat(stats.health);
+        //manaBar.SetCurrentStat(stats.mana);
+        vitals.SetHealth(stats.maxHealth);
+        vitals.SetMana(stats.maxMana);
 
         // Activate my player and set its start position
         // and then tell the other clients to activate my version of their player
@@ -208,6 +213,20 @@ public class Player : MonoBehaviour
             return;
 
         ParticleEffectPool.Instance.SpawnParticle(GameParticle.DEATH, transform.position);
+        HandlePlayerDeathLogic();
+    }
+
+    void HandlePlayerRemoval()
+    {
+        if (!isAlive)
+            return;
+
+        ParticleEffectPool.Instance.SpawnParticle(GameParticle.SPAWN, transform.position);
+        HandlePlayerDeathLogic();
+    }
+
+    void HandlePlayerDeathLogic()
+    {
 
         Debug.LogError("Player HandlePlayerDeath");
         isAlive = false;
@@ -315,37 +334,42 @@ public class Player : MonoBehaviour
         if (stats.health + heal >= stats.maxHealth)
         {
             stats.health = stats.maxHealth;
-            healthBar.SetCurrentStat(stats.health);
+            //healthBar.SetCurrentStat(stats.health);
+            vitals.SetHealthNetworked(stats.health);
+            Debug.Log("Player Heal " + stats.health + " stats.health + heal >= stats.maxHealth");
         }
         else
         {
             stats.health += heal;
-            healthBar.SetCurrentStat(stats.health);
+            //healthBar.SetCurrentStat(stats.health);
+            vitals.SetHealthNetworked(stats.health);
+            Debug.Log("Player Heal " + stats.health + " stats.health + heal >= stats.maxHealth");
         }
     }
 
     public void Damage(int damage, int casterPlayerID)
     {
-        Debug.LogError("Player " + id + "Damage amount" + damage + " casterID " + casterPlayerID);
+        Debug.Log("Player " + id + "Damage amount" + damage + " casterID " + casterPlayerID);
 
         // Manage shield : if the shield is active and the damage delt is not enogh to destroy
         // the shield don't appy damage to the player
         if (shield.IsActive())
         {
             shield.Damage(ref damage);
-            Debug.LogError("Player " + id + " shield is active so no damage taken");
+            //Debug.Log("Player " + id + " shield is active so no damage taken");
             return;
         }
 
         stats.health -= damage;
-        healthBar.SetCurrentStat(stats.health);
+        //healthBar.SetCurrentStat(stats.health);
+        vitals.SetHealthNetworked(stats.health);
 
-        Debug.Log("Player " + id + " isAlive " + isAlive);
+        Debug.Log("DHC Player Damage stats.health " + stats.health + " stats.health - damage " + (stats.health - damage));
 
         // Check if we are dead
         if (stats.health <= 0 && isAlive)
         {
-            Debug.LogError("Player " + id + " Damage Die()");
+            //Debug.LogError("Player " + id + " Damage Die()");
             Die(casterPlayerID);
         }
     }
@@ -482,19 +506,22 @@ public class Player : MonoBehaviour
         if (stats.mana + mana >= stats.maxMana)
         {
             stats.mana = stats.maxMana;
-            manaBar.SetCurrentStat(stats.mana);
+            vitals.SetManaNetworked(stats.maxMana);
+            //manaBar.SetCurrentStat(stats.mana);
         }
         else
         {
             stats.mana += mana;
-            manaBar.SetCurrentStat(stats.mana);
+            vitals.SetManaNetworked(stats.mana);
+            //manaBar.SetCurrentStat(stats.mana);
         }
     }
 
     public void UseMana(int mana)
     {
         stats.mana -= mana;
-        manaBar.SetCurrentStat(stats.mana);
+        vitals.SetManaNetworked(stats.mana);
+        //manaBar.SetCurrentStat(stats.mana);
     }
 
     public bool EnoughManaForAbility(int manaCost)
@@ -741,27 +768,33 @@ public class Player : MonoBehaviour
         shield.DeactivateLocalShield();
     }
 
+    float x;
+    float y;
+    Vector2 pushForce;
+
     // This effect will throw the player in a random direction
     public void Knockout(int force, int damage, int casterPlayerID)
     {
         Debug.Log("Knocking out player " + id);
         Damage(damage, casterPlayerID);
 
-        float x = force * Mathf.Pow(-1, Random.Range(0,2));
-        float y = force * Mathf.Pow(-1, Random.Range(0, 2));
+        x = force * Mathf.Pow(-1, Random.Range(0, 2));
+        y = force * Mathf.Pow(-1, Random.Range(0, 2));
 
-        Vector2 pushForce = new Vector2(x, y);
+        pushForce = new Vector2(x, y);
 
         Debug.Log("Pushing with force " + pushForce + " player with id " + id);
 
         rigidBody.AddForce(pushForce, ForceMode2D.Impulse);
     }
 
+    Vector3 direction;
+
     public void PullToLocation(Vector3 targetPosition, int force, int damage, int casterPlayerID)
     {
         Damage(damage, casterPlayerID);
 
-        Vector3 direction = targetPosition - transform.position;
+        direction = targetPosition - transform.position;
         direction.Normalize();
         direction *= force;
 

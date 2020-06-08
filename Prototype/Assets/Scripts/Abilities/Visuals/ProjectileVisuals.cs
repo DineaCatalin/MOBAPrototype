@@ -23,9 +23,13 @@ public class ProjectileVisuals : MonoBehaviour
     [HideInInspector]
     public bool isActiveOnScreen;
 
+    ProjectileLogic logic;
+
     // Start is called before the first frame update
     void Awake()
     {
+        logic = GetComponent<ProjectileLogic>();
+
         projectileCollider = GetComponent<Collider2D>();
 
         if (projectileCollider == null)
@@ -75,7 +79,19 @@ public class ProjectileVisuals : MonoBehaviour
         return isActiveOnScreen;
     }
 
-    public void Activate()
+    public void ActivateDynamicProjectile(int casterID, int layer, Vector3 direction)
+    {
+        logic.SetDynamicProjectileSettings(casterID, layer, direction);
+        Activate();
+    }
+
+    public void ActivateStaticProjectile(int casterID, int layer)
+    {
+        logic.SetStaticProjectileSettings(casterID, layer);
+        Activate();
+    }
+
+    void Activate()
     {
         activateAction.Invoke();
         EnableAbilityComponents();
@@ -109,7 +125,6 @@ public class ProjectileVisuals : MonoBehaviour
 
     void DeactivateColliderAndParticles()
     {
-        Debug.LogError("ProjectileVisuals DeactivateColliderAndParticles");
         projectileCollider.enabled = false;
         DeactivateParticleSystems();
     }

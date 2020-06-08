@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1438469405986855642}
   - component: {fileID: 1438469405986855643}
   - component: {fileID: 1438469405986855641}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Power Sphere
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -127,9 +127,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1438469405986855644}
     m_Modifications:
+    - target: {fileID: 1014602497181988, guid: fd6402536deadff48939913b6d3c7bf3, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1359518743339416, guid: fd6402536deadff48939913b6d3c7bf3, type: 3}
       propertyPath: m_Name
       value: LightningOrbPink
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359518743339416, guid: fd6402536deadff48939913b6d3c7bf3, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748625998404464, guid: fd6402536deadff48939913b6d3c7bf3, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4346949064025146, guid: fd6402536deadff48939913b6d3c7bf3, type: 3}
       propertyPath: m_LocalPosition.x
