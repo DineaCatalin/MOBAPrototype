@@ -39,9 +39,9 @@ public class PlayerTeleportation : MonoBehaviour
 
     void MovePlayer()
     {
-        playerRigidbody.isKinematic = true;
+        //playerRigidbody.isKinematic = true;
         transform.position = teleportLocation;
-        playerRigidbody.isKinematic = false;
+        //playerRigidbody.isKinematic = false;
         Debug.Log("PlayerTeleportation MovePlayer transform.position = teleportLocation; " + Time.realtimeSinceStartup);
     }
 

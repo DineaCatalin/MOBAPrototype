@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{B1235EE4-71EE-C815-28F8-C3378E5ADB84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StreamingAssets/AbilityConfig.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Abilities/ProjectileComponents/MoveAbilityToPoint.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerTeleportation.cs" Line="30" Column="39" />
+      <File FileName="Assets/Scripts/Player/PlayerTeleportation.cs" Line="32" Column="1" />
       <File FileName="Assets/Scripts/ParticleSystem/LocalParticleSystemManager.cs" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="520" Column="34" />
-      <File FileName="Assets/Scripts/UI/Player/StatsBar.cs" Line="14" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" />
+      <File FileName="Assets/Scripts/UI/Player/StatsBar.cs" />
       <File FileName="Assets/Scripts/Tweens/Tween.cs" />
       <File FileName="Assets/Scripts/UI/Canvas/CanvasHandler.cs" />
       <File FileName="Assets/Scripts/Utils/Follow.cs" />
@@ -15,34 +15,36 @@
       <File FileName="Assets/Scripts/ParticleSystem/ParticleInfo.cs" />
       <File FileName="Assets/Scripts/ParticleSystem/ParticleNames.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_RoomController.cs" />
-      <File FileName="Assets/Scripts/Abilities/Visuals/ProjectileVisuals.cs" Line="84" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" Line="188" Column="45" />
+      <File FileName="Assets/Scripts/Abilities/Visuals/ProjectileVisuals.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityCollider.cs" />
       <File FileName="Assets/Scripts/Abilities/Effects/AbilityEffect.cs" />
-      <File FileName="Assets/Scripts/Abilities/Effects/DamageEffect.cs" Line="9" Column="23" />
+      <File FileName="Assets/Scripts/Abilities/Effects/DamageEffect.cs" />
       <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityDuration.cs" />
-      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync2.cs" Line="83" Column="46" />
+      <File FileName="Assets/Scripts/Network/PUN2_PlayerSync2.cs" />
       <File FileName="Assets/Scripts/Network/PUN2_PlayerSync.cs" />
       <File FileName="Assets/Scripts/Tweens/ScaleTween.cs" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityComponentManager.cs" Line="20" Column="17" />
-      <File FileName="Assets/Scripts/Abilities/InteruptHeal.cs" Line="16" Column="58" />
-      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" Line="10" Column="1" />
-      <File FileName="Assets/StreamingAssets/ProjectileSpeedConfig.txt" Line="3" Column="24" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileLogic.cs" Line="54" Column="17" />
-      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" Line="26" Column="29" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" Line="73" Column="32" />
-      <File FileName="Assets/Scripts/Abilities/Ability.cs" Line="68" Column="1" />
-      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" Line="27" Column="50" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/AbilityComponentManager.cs" />
+      <File FileName="Assets/Scripts/Abilities/InteruptHeal.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/HealEffect.cs" />
+      <File FileName="Assets/StreamingAssets/ProjectileSpeedConfig.txt" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileLogic.cs" />
+      <File FileName="Assets/Scripts/Network/AbilitySpawner.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileAbility.cs" />
+      <File FileName="Assets/Scripts/Abilities/Ability.cs" />
+      <File FileName="Assets/Scripts/Abilities/Effects/RushArea.cs" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbility.cs" Line="16" Column="52" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/MoveAbilityToPoint.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Planet/PlanetLogic.cs" Line="55" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/AbilitySelectScreen/AbilityDraftLogic.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Abilities/Effects/KnockoutEffect.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="95" Column="33" NotebookId="1" />
-      <File FileName="Assets/StreamingAssets/PlayerConfig.txt" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/PlayerConfig.txt" NotebookId="1" />
       <File FileName="Assets/Scripts/Network/NetworkUtils.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/PlayerVitals.cs" Line="41" Column="18" NotebookId="1" />
-      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" Line="38" Column="26" NotebookId="1" />
-      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="148" Column="29" NotebookId="1" />
-      <File FileName="Assets/Scripts/GameManager/GameManager.cs" Line="16" Column="42" NotebookId="1" />
-      <File FileName="Assets/Scripts/Match/Match.cs" Line="82" Column="64" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerVitals.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Abilities/ProjectileComponents/DestroyAfterCollisions.cs" NotebookId="1" />
+      <File FileName="Assets/StreamingAssets/AbilityConfig.txt" Line="227" Column="37" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager/GameManager.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Match/Match.cs" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -54,7 +56,9 @@
                 <Node name="Abilities" expanded="True">
                   <Node name="Data" expanded="True" />
                   <Node name="Effects" expanded="True" />
-                  <Node name="ProjectileComponents" expanded="True" />
+                  <Node name="ProjectileComponents" expanded="True">
+                    <Node name="MoveAbilityToPoint.cs" selected="True" />
+                  </Node>
                   <Node name="Visuals" expanded="True" />
                 </Node>
                 <Node name="AbilitySelectScreen" expanded="True" />
@@ -76,9 +80,7 @@
                   <Node name="Player" expanded="True" />
                 </Node>
               </Node>
-              <Node name="StreamingAssets" expanded="True">
-                <Node name="AbilityConfig.txt" selected="True" />
-              </Node>
+              <Node name="StreamingAssets" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -87,7 +89,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0203e0ac-63f6-4129-82e5-c029d00943d2" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e0ab438d-7ef5-410a-8bba-b8fe3f111673" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
