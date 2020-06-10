@@ -1,10 +1,10 @@
 {
-   "health":120,
-   "maxHealth":120,
+   "health":100,
+   "maxHealth":100,
    "mana":100,
    "maxMana":100,
    "power":1.0,
-   "speed":14,
+   "speed":15,
    "manaChargePerSecond":10,
    "manaChargeSpeedPenalty":10.0,
    "healthRegen":1,

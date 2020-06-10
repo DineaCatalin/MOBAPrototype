@@ -10,7 +10,7 @@
             "manaCost":0,
             "dotValue":0.8,
             "duration":5,
-            "hpValue":10
+            "hpValue":15
          }
       },
       {
@@ -19,11 +19,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{
-            "cooldown":0.75,
+            "cooldown":0.6,
             "manaCost":0,
-            "dotValue":1,
+            "dotValue":2,
             "duration":5,
-            "hpValue":10
+            "hpValue":14
          }
       },
       {
@@ -32,11 +32,11 @@
             "casterTeamName":"Team1"
          },
          "stats":{
-            "cooldown":0.7,
+            "cooldown":0.55,
             "manaCost":0,
-            "dotValue":8,
+            "dotValue":10,
             "duration":1,
-            "hpValue":15
+            "hpValue":14
          }
       },
       {
@@ -49,7 +49,7 @@
             "manaCost":0,
             "dotValue":0,
             "duration":0,
-            "hpValue":15
+            "hpValue":20
          }
       },
       {
@@ -60,9 +60,9 @@
          "stats":{
             "cooldown":10.0,
             "manaCost":10,
-            "dotValue":1.5,
+            "dotValue":1,
             "duration":5,
-            "hpValue":25
+            "hpValue":27
          }
       },
       {
@@ -73,9 +73,9 @@
          "stats":{
             "cooldown":5.0,
             "manaCost":15,
-            "dotValue":2,
-            "duration":5,
-            "hpValue":25
+            "dotValue":0,
+            "duration":0,
+            "hpValue":35
          }
       },
       {
@@ -85,10 +85,10 @@
          },
          "stats":{
             "cooldown":3.0,
-            "manaCost":20,
-            "dotValue":4,
-            "duration":3,
-            "hpValue":8
+            "manaCost":15,
+            "dotValue":5,
+            "duration":4,
+            "hpValue":0
          }
       },
       {
@@ -114,7 +114,7 @@
             "manaCost":10,
             "dotValue":0,
             "duration":4,
-            "hpValue":8
+            "hpValue":10
          }
       },
       {
@@ -179,7 +179,7 @@
             "manaCost":10,
             "dotValue":6,
             "duration":4,
-            "hpValue":5
+            "hpValue":30
          }
       },
       {
@@ -189,9 +189,9 @@
          },
          "stats":{
             "cooldown":15.0,
-            "manaCost":10,
+            "manaCost":15,
             "dotValue":0,
-            "duration":12,
+            "duration":3,
             "hpValue":0
          }
       },
@@ -202,8 +202,8 @@
          },
          "stats":{
             "cooldown":3.0,
-            "manaCost":10,
-            "dotValue":25,
+            "manaCost":12,
+            "dotValue":35,
             "duration":1,
             "hpValue":20
          }
@@ -216,7 +216,7 @@
          "stats":{
             "cooldown":20.0,
             "manaCost":20,
-            "dotValue":3,
+            "dotValue":5,
             "duration":10,
             "hpValue":1
          }

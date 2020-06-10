@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 3347051673203707800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.671, y: 0.291, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 0.4847304}
+  m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
   m_Children:
   - {fileID: 7210000254312667737}
   m_Father: {fileID: 0}
@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882d272f604f24a33b6a715a2b7a8a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialScale: {x: 2.5, y: 0, z: 0}
-  finalScale: {x: 2.5, y: 1.75, z: 0}
+  initialScale: {x: 0, y: 0, z: 0}
+  finalScale: {x: 2, y: 2, z: 2}
   scaleTime: 0.4
   easeType: 12
 --- !u!114 &3719033891599858896
@@ -247,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 424486, guid: 21c7e6a26feeb564fb859ba8c5cae356, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 424486, guid: 21c7e6a26feeb564fb859ba8c5cae356, type: 3}
       propertyPath: m_LocalScale.y
@@ -256,6 +256,14 @@ PrefabInstance:
     - target: {fileID: 8291448, guid: 21c7e6a26feeb564fb859ba8c5cae356, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19873910, guid: 21c7e6a26feeb564fb859ba8c5cae356, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19873910, guid: 21c7e6a26feeb564fb859ba8c5cae356, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c7e6a26feeb564fb859ba8c5cae356, type: 3}

@@ -128,9 +128,9 @@ public class AbilityCollider : MonoBehaviour
             case "Iceball":
             case "Lightningball":
                 if (collision.name.Contains("Tornado") || collision.name.Contains("Push")
-                    || collision.name.Contains("FireStorm") || collision.name.Contains("WaterRain")
+                    || collision.name.Contains("FireStorm") || collision.name.Contains("Blast")
                     || collision.name.Contains("Fireball") || collision.name.Contains("Iceball")
-                    || collision.name.Contains("Lightningball") || collision.name.Contains("Blast"))
+                    || collision.name.Contains("Lightningball"))
                 {
                     Debug.Log("AbilityCollider HandleElementalCollisions Deactivate " + abilityData.description.name + " " + name);
                     Deactivate();
